@@ -15,6 +15,7 @@ class ViewController: UIViewController {
     
     // MARK : - Property
     
+    @IBOutlet weak var pageControl: UIPageControl!
     @IBOutlet weak var collectionView: UICollectionView!
     let cellIdentifier = "barGraphCollectionViewCell"
     let ratioValueToMax:[[Float]] = [[0.6,0.7,0.8],[0.3,0.5,0.5],[0.6,0.8,0.4],[0.7,0.2,0.6],[0.6,0.3,0.2]]
@@ -28,10 +29,17 @@ class ViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        configurePageControl()
     }
     
     
-    
+    func configurePageControl() {
+        pageControl.backgroundColor = UIColor.clearColor()
+        pageControl.pageIndicatorTintColor = UIColor.lightGrayColor()
+        pageControl.currentPageIndicatorTintColor = UIColor.blueColor()
+        pageControl.numberOfPages = ratioValueToMax.count
+    }
+
 }
 
 // MARK : - ViewController: UICollectionViewDataSource
@@ -143,5 +151,16 @@ extension ViewController : UICollectionViewDelegateFlowLayout {
         return collectionView.frame.size
     }
     
+}
+
+// MARK : - ViewController: UIScrollViewDelegate
+
+extension ViewController: UIScrollViewDelegate {
+
+    func scrollViewDidEndDecelerating(scrollView: UIScrollView) {
+        // contentOffset.x 좌표를 collectionview width 로 나눠서 현재 page 계산
+        let pageWidth = collectionView.frame.size.width
+        pageControl.currentPage  = Int(floor((collectionView.contentOffset.x - pageWidth / 2) / pageWidth) + 1)
+    }
     
 }

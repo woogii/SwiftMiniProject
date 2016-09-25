@@ -203,6 +203,7 @@
                     <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina4"/>
                     <connections>
                         <outlet property="collectionView" destination="de7-YT-6MN" id="6gG-DH-51S"/>
+                        <outlet property="pageControl" destination="mYA-Lc-IYQ" id="Bu4-ad-jFd"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
