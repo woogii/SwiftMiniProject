@@ -1,0 +1,232 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="10117" systemVersion="15G1004" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="rbG-MH-vZz">
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="10085"/>
+    </dependencies>
+    <scenes>
+        <!--BarGraphInCollectionView-->
+        <scene sceneID="tne-QT-ifu">
+            <objects>
+                <viewController automaticallyAdjustsScrollViewInsets="NO" id="BYZ-38-t0r" customClass="ViewController" customModule="Project01_BarGraphInCollectionView" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="y3c-jy-aDJ"/>
+                        <viewControllerLayoutGuide type="bottom" id="wfy-db-euE"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" pagingEnabled="YES" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="de7-YT-6MN">
+                                <rect key="frame" x="0.0" y="64" width="320" height="365"/>
+                                <collectionViewFlowLayout key="collectionViewLayout" scrollDirection="horizontal" minimumLineSpacing="0.0" minimumInteritemSpacing="0.0" id="6xx-Zd-8ke">
+                                    <size key="itemSize" width="320" height="426"/>
+                                    <size key="headerReferenceSize" width="0.0" height="0.0"/>
+                                    <size key="footerReferenceSize" width="0.0" height="0.0"/>
+                                    <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
+                                </collectionViewFlowLayout>
+                                <cells>
+                                    <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="barGraphCollectionViewCell" id="0K5-Ke-QSa" customClass="BarGraphCollectionViewCell" customModule="Project01_BarGraphInCollectionView" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="-31" width="320" height="426"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
+                                            <rect key="frame" x="0.0" y="0.0" width="320" height="426"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="OAt-aD-PY7">
+                                                    <rect key="frame" x="151" y="95" width="18" height="221"/>
+                                                    <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="width" constant="18" id="SJw-vf-CfD"/>
+                                                        <constraint firstAttribute="height" constant="221" id="upM-Cs-9J6"/>
+                                                    </constraints>
+                                                    <userDefinedRuntimeAttributes>
+                                                        <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                                                            <integer key="value" value="9"/>
+                                                        </userDefinedRuntimeAttribute>
+                                                        <userDefinedRuntimeAttribute type="boolean" keyPath="layer.masksToBounds" value="YES"/>
+                                                    </userDefinedRuntimeAttributes>
+                                                </view>
+                                                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="uFw-sH-APy">
+                                                    <rect key="frame" x="253" y="95" width="18" height="221"/>
+                                                    <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="height" constant="221" id="QEI-VH-IQS"/>
+                                                        <constraint firstAttribute="width" constant="18" id="pOo-PI-flg"/>
+                                                    </constraints>
+                                                    <userDefinedRuntimeAttributes>
+                                                        <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                                                            <integer key="value" value="9"/>
+                                                        </userDefinedRuntimeAttribute>
+                                                        <userDefinedRuntimeAttribute type="boolean" keyPath="layer.masksToBounds" value="YES"/>
+                                                    </userDefinedRuntimeAttributes>
+                                                </view>
+                                                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="WvD-G3-GOr">
+                                                    <rect key="frame" x="49" y="95" width="18" height="221"/>
+                                                    <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="width" constant="18" id="Q4N-tP-1m9"/>
+                                                        <constraint firstAttribute="height" constant="221" id="RGX-y9-Pw0"/>
+                                                    </constraints>
+                                                    <userDefinedRuntimeAttributes>
+                                                        <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                                                            <integer key="value" value="9"/>
+                                                        </userDefinedRuntimeAttribute>
+                                                        <userDefinedRuntimeAttribute type="boolean" keyPath="layer.masksToBounds" value="YES"/>
+                                                    </userDefinedRuntimeAttributes>
+                                                </view>
+                                                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="tnk-rN-5GU">
+                                                    <rect key="frame" x="253" y="316" width="18" height="0.0"/>
+                                                    <color key="backgroundColor" red="0.0" green="0.0" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="height" id="4qt-zY-Wlp"/>
+                                                        <constraint firstAttribute="width" constant="18" id="ZMf-P8-QQ1"/>
+                                                    </constraints>
+                                                    <userDefinedRuntimeAttributes>
+                                                        <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                                                            <integer key="value" value="9"/>
+                                                        </userDefinedRuntimeAttribute>
+                                                        <userDefinedRuntimeAttribute type="boolean" keyPath="layer.masksToBounds" value="YES"/>
+                                                    </userDefinedRuntimeAttributes>
+                                                </view>
+                                                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="k0v-vI-17N">
+                                                    <rect key="frame" x="49" y="316" width="18" height="0.0"/>
+                                                    <color key="backgroundColor" red="1" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="width" constant="18" id="JZB-eb-FVU"/>
+                                                        <constraint firstAttribute="height" id="wRU-sx-ZLE"/>
+                                                    </constraints>
+                                                    <userDefinedRuntimeAttributes>
+                                                        <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                                                            <integer key="value" value="9"/>
+                                                        </userDefinedRuntimeAttribute>
+                                                        <userDefinedRuntimeAttribute type="boolean" keyPath="layer.masksToBounds" value="YES"/>
+                                                    </userDefinedRuntimeAttributes>
+                                                </view>
+                                                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="E9Y-3I-W72">
+                                                    <rect key="frame" x="151" y="316" width="18" height="0.0"/>
+                                                    <color key="backgroundColor" red="0.0" green="1" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="height" id="CVa-Hc-Ovb"/>
+                                                        <constraint firstAttribute="width" constant="18" id="XJd-bS-AZ7"/>
+                                                    </constraints>
+                                                    <userDefinedRuntimeAttributes>
+                                                        <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                                                            <integer key="value" value="9"/>
+                                                        </userDefinedRuntimeAttribute>
+                                                        <userDefinedRuntimeAttribute type="boolean" keyPath="layer.masksToBounds" value="YES"/>
+                                                    </userDefinedRuntimeAttributes>
+                                                </view>
+                                            </subviews>
+                                            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                        </view>
+                                        <color key="backgroundColor" red="0.93725490199999995" green="0.93725490199999995" blue="0.95686274510000002" alpha="1" colorSpace="calibratedRGB"/>
+                                        <constraints>
+                                            <constraint firstItem="tnk-rN-5GU" firstAttribute="leading" secondItem="OAt-aD-PY7" secondAttribute="trailing" constant="84" id="0Fc-Jm-naK"/>
+                                            <constraint firstItem="OAt-aD-PY7" firstAttribute="centerX" secondItem="0K5-Ke-QSa" secondAttribute="centerX" id="0J9-Zh-shL"/>
+                                            <constraint firstItem="k0v-vI-17N" firstAttribute="leading" secondItem="WvD-G3-GOr" secondAttribute="leading" id="4Ch-tP-tjR"/>
+                                            <constraint firstItem="E9Y-3I-W72" firstAttribute="baseline" secondItem="OAt-aD-PY7" secondAttribute="baseline" id="Bem-fA-YdT"/>
+                                            <constraint firstItem="WvD-G3-GOr" firstAttribute="top" secondItem="0K5-Ke-QSa" secondAttribute="top" constant="95" id="CmH-ZS-hEm"/>
+                                            <constraint firstAttribute="trailing" secondItem="tnk-rN-5GU" secondAttribute="trailing" constant="49" id="GGX-av-bNx"/>
+                                            <constraint firstItem="tnk-rN-5GU" firstAttribute="baseline" secondItem="uFw-sH-APy" secondAttribute="baseline" id="I1x-WQ-PbA"/>
+                                            <constraint firstItem="OAt-aD-PY7" firstAttribute="top" secondItem="WvD-G3-GOr" secondAttribute="top" id="Jbq-kA-z8e"/>
+                                            <constraint firstItem="E9Y-3I-W72" firstAttribute="leading" secondItem="OAt-aD-PY7" secondAttribute="leading" id="K64-9h-96k"/>
+                                            <constraint firstItem="k0v-vI-17N" firstAttribute="bottom" secondItem="WvD-G3-GOr" secondAttribute="bottom" id="KJr-nz-PUJ"/>
+                                            <constraint firstItem="k0v-vI-17N" firstAttribute="baseline" secondItem="WvD-G3-GOr" secondAttribute="baseline" id="Phd-Fq-1Yh"/>
+                                            <constraint firstItem="OAt-aD-PY7" firstAttribute="leading" secondItem="WvD-G3-GOr" secondAttribute="trailing" constant="84" id="R3I-EW-sQo"/>
+                                            <constraint firstItem="tnk-rN-5GU" firstAttribute="bottom" secondItem="uFw-sH-APy" secondAttribute="bottom" id="R6n-FL-cA8"/>
+                                            <constraint firstItem="k0v-vI-17N" firstAttribute="leading" secondItem="0K5-Ke-QSa" secondAttribute="leading" constant="49" id="Rx4-HY-LFx"/>
+                                            <constraint firstItem="tnk-rN-5GU" firstAttribute="leading" secondItem="uFw-sH-APy" secondAttribute="leading" id="TQp-TZ-879"/>
+                                            <constraint firstItem="E9Y-3I-W72" firstAttribute="bottom" secondItem="OAt-aD-PY7" secondAttribute="bottom" id="clj-hG-4NN"/>
+                                            <constraint firstItem="OAt-aD-PY7" firstAttribute="top" secondItem="WvD-G3-GOr" secondAttribute="top" id="dMu-7y-SRG"/>
+                                            <constraint firstItem="uFw-sH-APy" firstAttribute="top" secondItem="OAt-aD-PY7" secondAttribute="top" id="eQo-it-yh7"/>
+                                            <constraint firstItem="uFw-sH-APy" firstAttribute="top" secondItem="OAt-aD-PY7" secondAttribute="top" id="fKr-5Q-aHq"/>
+                                            <constraint firstItem="uFw-sH-APy" firstAttribute="leading" secondItem="OAt-aD-PY7" secondAttribute="trailing" constant="84" id="gs1-GB-gW8"/>
+                                            <constraint firstItem="E9Y-3I-W72" firstAttribute="centerX" secondItem="0K5-Ke-QSa" secondAttribute="centerX" id="rfU-S2-Cl5"/>
+                                            <constraint firstItem="OAt-aD-PY7" firstAttribute="leading" secondItem="k0v-vI-17N" secondAttribute="trailing" constant="84" id="wW7-BT-t6u"/>
+                                        </constraints>
+                                        <variation key="default">
+                                            <mask key="constraints">
+                                                <exclude reference="dMu-7y-SRG"/>
+                                                <exclude reference="eQo-it-yh7"/>
+                                                <exclude reference="4Ch-tP-tjR"/>
+                                                <exclude reference="Phd-Fq-1Yh"/>
+                                                <exclude reference="Rx4-HY-LFx"/>
+                                                <exclude reference="Bem-fA-YdT"/>
+                                                <exclude reference="K64-9h-96k"/>
+                                                <exclude reference="GGX-av-bNx"/>
+                                                <exclude reference="I1x-WQ-PbA"/>
+                                                <exclude reference="TQp-TZ-879"/>
+                                            </mask>
+                                        </variation>
+                                        <connections>
+                                            <outlet property="blueBackgroundView" destination="uFw-sH-APy" id="EdW-zS-GXa"/>
+                                            <outlet property="blueValueView" destination="tnk-rN-5GU" id="4oR-Sn-zpg"/>
+                                            <outlet property="blueValueViewHeightConstraint" destination="4qt-zY-Wlp" id="Wxe-47-Q1m"/>
+                                            <outlet property="greenBackgroundView" destination="OAt-aD-PY7" id="q5y-0H-0u6"/>
+                                            <outlet property="greenValueView" destination="E9Y-3I-W72" id="cjd-fb-Q9I"/>
+                                            <outlet property="greenValueViewHeightConstraint" destination="CVa-Hc-Ovb" id="5fZ-My-fv9"/>
+                                            <outlet property="redBackgroundView" destination="WvD-G3-GOr" id="tUS-de-kOB"/>
+                                            <outlet property="redValueView" destination="k0v-vI-17N" id="KIM-hk-ukM"/>
+                                            <outlet property="redValueViewHeightConstraint" destination="wRU-sx-ZLE" id="ECf-Fn-KYR"/>
+                                        </connections>
+                                    </collectionViewCell>
+                                </cells>
+                                <connections>
+                                    <outlet property="dataSource" destination="BYZ-38-t0r" id="WsA-36-PTm"/>
+                                    <outlet property="delegate" destination="BYZ-38-t0r" id="4jR-6i-bNy"/>
+                                </connections>
+                            </collectionView>
+                            <pageControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" numberOfPages="3" translatesAutoresizingMaskIntoConstraints="NO" id="mYA-Lc-IYQ">
+                                <rect key="frame" x="140" y="456" width="39" height="37"/>
+                            </pageControl>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstAttribute="trailing" secondItem="de7-YT-6MN" secondAttribute="trailing" id="11O-5B-8nK"/>
+                            <constraint firstItem="de7-YT-6MN" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" id="6a3-jU-N5c"/>
+                            <constraint firstItem="de7-YT-6MN" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" id="OT0-0R-LwP"/>
+                            <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="mYA-Lc-IYQ" secondAttribute="bottom" constant="75" id="cmY-10-c4S"/>
+                            <constraint firstItem="mYA-Lc-IYQ" firstAttribute="top" secondItem="de7-YT-6MN" secondAttribute="bottom" constant="27" id="mPz-yS-Zpm"/>
+                            <constraint firstItem="de7-YT-6MN" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" id="sPp-S8-bMC"/>
+                            <constraint firstItem="mYA-Lc-IYQ" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="uXU-V0-nTT"/>
+                            <constraint firstItem="de7-YT-6MN" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" id="yB1-YK-Rxn"/>
+                        </constraints>
+                        <variation key="default">
+                            <mask key="constraints">
+                                <exclude reference="6a3-jU-N5c"/>
+                                <exclude reference="yB1-YK-Rxn"/>
+                            </mask>
+                        </variation>
+                    </view>
+                    <navigationItem key="navigationItem" title="BarGraphInCollectionView" id="Qdb-HJ-lom"/>
+                    <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina4"/>
+                    <connections>
+                        <outlet property="collectionView" destination="de7-YT-6MN" id="6gG-DH-51S"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1038" y="440"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="mm9-dz-pVd">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="rbG-MH-vZz" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina4"/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="Ri0-Dh-Ca0">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="BYZ-38-t0r" kind="relationship" relationship="rootViewController" id="egG-kh-A20"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="WSt-k0-nmG" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="612" y="429"/>
+        </scene>
+    </scenes>
+</document>
