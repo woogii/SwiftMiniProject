@@ -34,9 +34,9 @@ class ViewController: UIViewController {
     
     
     func configurePageControl() {
-        pageControl.backgroundColor = UIColor.clearColor()
-        pageControl.pageIndicatorTintColor = UIColor.lightGrayColor()
-        pageControl.currentPageIndicatorTintColor = UIColor.blueColor()
+        pageControl.backgroundColor = UIColor.clear
+        pageControl.pageIndicatorTintColor = UIColor.lightGray
+        pageControl.currentPageIndicatorTintColor = UIColor.blue
         pageControl.numberOfPages = ratioValueToMax.count
     }
 
@@ -48,14 +48,14 @@ extension ViewController : UICollectionViewDataSource {
     
     // MARK : - Collection view data source
     
-    func collectionView(collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
+    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         
         return ratioValueToMax.count
     }
     
-    func collectionView(collectionView: UICollectionView, cellForItemAtIndexPath indexPath: NSIndexPath) -> UICollectionViewCell {
+    func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         
-        let cell = collectionView.dequeueReusableCellWithReuseIdentifier(cellIdentifier, forIndexPath: indexPath) as! BarGraphCollectionViewCell
+        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: cellIdentifier, for: indexPath) as! BarGraphCollectionViewCell
         cell.contentView.frame = cell.bounds
         
         removeGradientLayersFromValueBarGraphs(cell)
@@ -70,13 +70,13 @@ extension ViewController : UICollectionViewDataSource {
         return cell
     }
     
-    func initializeValueBarGraphsHeightConstraints(cell:BarGraphCollectionViewCell) {
+    func initializeValueBarGraphsHeightConstraints(_ cell:BarGraphCollectionViewCell) {
         cell.redValueViewHeightConstraint.constant = 0.0
         cell.greenValueViewHeightConstraint.constant = 0.0
         cell.blueValueViewHeightConstraint.constant = 0.0
     }
     
-    func removeGradientLayersFromValueBarGraphs(cell:BarGraphCollectionViewCell) {
+    func removeGradientLayersFromValueBarGraphs(_ cell:BarGraphCollectionViewCell) {
         
         if let _ = cell.redValueView.layer.sublayers {
             cell.redBarGradientLayer.removeFromSuperlayer()
@@ -92,27 +92,27 @@ extension ViewController : UICollectionViewDataSource {
         
     }
     
-    func configureGradientLayersForValueGraphs(cell : BarGraphCollectionViewCell) {
+    func configureGradientLayersForValueGraphs(_ cell : BarGraphCollectionViewCell) {
         
-        cell.redBarGradientLayer.colors = [redColors[0].CGColor, redColors[1].CGColor]
+        cell.redBarGradientLayer.colors = [redColors[0].cgColor, redColors[1].cgColor]
         cell.redBarGradientLayer.locations = [0.0, 1.0]
         cell.redBarGradientLayer.frame =  cell.redBackgroundView.layer.bounds
         cell.redBarGradientLayer.masksToBounds = true
         
-        cell.greenBarGradientLayer.colors = [greenColors[0].CGColor, greenColors[1].CGColor]
+        cell.greenBarGradientLayer.colors = [greenColors[0].cgColor, greenColors[1].cgColor]
         cell.greenBarGradientLayer.locations = [0.0, 1.0]
         cell.greenBarGradientLayer.frame = cell.greenBackgroundView.layer.bounds
         cell.greenBarGradientLayer.masksToBounds = true
         
         
-        cell.blueBarGradientLayer.colors = [blueColors[0].CGColor, blueColors[1].CGColor]
+        cell.blueBarGradientLayer.colors = [blueColors[0].cgColor, blueColors[1].cgColor]
         cell.blueBarGradientLayer.locations = [0.0, 1.0]
         cell.blueBarGradientLayer.frame = cell.blueBackgroundView.layer.bounds
         cell.blueBarGradientLayer.masksToBounds = true
         
     }
     
-    func addGradientLayersForValueGraphs(cell : BarGraphCollectionViewCell) {
+    func addGradientLayersForValueGraphs(_ cell : BarGraphCollectionViewCell) {
         
         cell.redValueView.layer.addSublayer(cell.redBarGradientLayer)
         cell.greenValueView.layer.addSublayer(cell.greenBarGradientLayer)
@@ -120,17 +120,17 @@ extension ViewController : UICollectionViewDataSource {
         
     }
     
-    func animateValues(cell : BarGraphCollectionViewCell, atIndexPath indexPath: NSIndexPath) {
+    func animateValues(_ cell : BarGraphCollectionViewCell, atIndexPath indexPath: IndexPath) {
         
         let delay:Double = 0.1
-        let time = dispatch_time(dispatch_time_t(DISPATCH_TIME_NOW), Int64(delay * Double(NSEC_PER_SEC)))
+        let time = DispatchTime.now() + Double(Int64(delay * Double(NSEC_PER_SEC))) / Double(NSEC_PER_SEC)
         
-        dispatch_after(time, dispatch_get_main_queue()){
+        DispatchQueue.main.asyncAfter(deadline: time){
             
-            UIView.animateWithDuration(0.8, animations: {
-                cell.redValueViewHeightConstraint.constant = CGFloat( self.ratioValueToMax[indexPath.row][0] * self.cellBackgroundHeight )
-                cell.greenValueViewHeightConstraint.constant = CGFloat( self.ratioValueToMax[indexPath.row][1] * self.cellBackgroundHeight )
-                cell.blueValueViewHeightConstraint.constant = CGFloat( self.ratioValueToMax[indexPath.row][2] * self.cellBackgroundHeight )
+            UIView.animate(withDuration: 0.8, animations: {
+                cell.redValueViewHeightConstraint.constant = CGFloat( self.ratioValueToMax[(indexPath as NSIndexPath).row][0] * self.cellBackgroundHeight )
+                cell.greenValueViewHeightConstraint.constant = CGFloat( self.ratioValueToMax[(indexPath as NSIndexPath).row][1] * self.cellBackgroundHeight )
+                cell.blueValueViewHeightConstraint.constant = CGFloat( self.ratioValueToMax[(indexPath as NSIndexPath).row][2] * self.cellBackgroundHeight )
                 
                 cell.layoutIfNeeded()
             })
@@ -147,7 +147,7 @@ extension ViewController : UICollectionViewDataSource {
 
 extension ViewController : UICollectionViewDelegateFlowLayout {
     
-    func collectionView(collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAtIndexPath indexPath: NSIndexPath) -> CGSize {
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
         return collectionView.frame.size
     }
     
@@ -157,8 +157,8 @@ extension ViewController : UICollectionViewDelegateFlowLayout {
 
 extension ViewController: UIScrollViewDelegate {
 
-    func scrollViewDidEndDecelerating(scrollView: UIScrollView) {
-        // contentOffset.x 좌표를 collectionview width 로 나눠서 현재 page 계산
+    func scrollViewDidEndDecelerating(_ scrollView: UIScrollView) {
+        
         let pageWidth = collectionView.frame.size.width
         pageControl.currentPage  = Int(floor((collectionView.contentOffset.x - pageWidth / 2) / pageWidth) + 1)
     }

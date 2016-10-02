@@ -1,8 +1,9 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="10117" systemVersion="15G1004" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="rbG-MH-vZz">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="11201" systemVersion="15G1004" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="rbG-MH-vZz">
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="10085"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11161"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
         <!--BarGraphInCollectionView-->
@@ -18,7 +19,10 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" pagingEnabled="YES" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="de7-YT-6MN">
-                                <rect key="frame" x="0.0" y="64" width="320" height="365"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="365" id="5vr-g1-z0i"/>
+                                    <constraint firstAttribute="width" constant="320" id="eWY-Mv-kUR"/>
+                                </constraints>
                                 <collectionViewFlowLayout key="collectionViewLayout" scrollDirection="horizontal" minimumLineSpacing="0.0" minimumInteritemSpacing="0.0" id="6xx-Zd-8ke">
                                     <size key="itemSize" width="320" height="426"/>
                                     <size key="headerReferenceSize" width="0.0" height="0.0"/>
@@ -34,8 +38,7 @@
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="OAt-aD-PY7">
-                                                    <rect key="frame" x="151" y="95" width="18" height="221"/>
-                                                    <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                                    <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                     <constraints>
                                                         <constraint firstAttribute="width" constant="18" id="SJw-vf-CfD"/>
                                                         <constraint firstAttribute="height" constant="221" id="upM-Cs-9J6"/>
@@ -48,8 +51,7 @@
                                                     </userDefinedRuntimeAttributes>
                                                 </view>
                                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="uFw-sH-APy">
-                                                    <rect key="frame" x="253" y="95" width="18" height="221"/>
-                                                    <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                                    <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                     <constraints>
                                                         <constraint firstAttribute="height" constant="221" id="QEI-VH-IQS"/>
                                                         <constraint firstAttribute="width" constant="18" id="pOo-PI-flg"/>
@@ -62,8 +64,7 @@
                                                     </userDefinedRuntimeAttributes>
                                                 </view>
                                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="WvD-G3-GOr">
-                                                    <rect key="frame" x="49" y="95" width="18" height="221"/>
-                                                    <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                                    <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                     <constraints>
                                                         <constraint firstAttribute="width" constant="18" id="Q4N-tP-1m9"/>
                                                         <constraint firstAttribute="height" constant="221" id="RGX-y9-Pw0"/>
@@ -76,8 +77,7 @@
                                                     </userDefinedRuntimeAttributes>
                                                 </view>
                                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="tnk-rN-5GU">
-                                                    <rect key="frame" x="253" y="316" width="18" height="0.0"/>
-                                                    <color key="backgroundColor" red="0.0" green="0.0" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                                    <color key="backgroundColor" red="0.0" green="0.0" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                     <constraints>
                                                         <constraint firstAttribute="height" id="4qt-zY-Wlp"/>
                                                         <constraint firstAttribute="width" constant="18" id="ZMf-P8-QQ1"/>
@@ -90,8 +90,7 @@
                                                     </userDefinedRuntimeAttributes>
                                                 </view>
                                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="k0v-vI-17N">
-                                                    <rect key="frame" x="49" y="316" width="18" height="0.0"/>
-                                                    <color key="backgroundColor" red="1" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                                    <color key="backgroundColor" red="1" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                     <constraints>
                                                         <constraint firstAttribute="width" constant="18" id="JZB-eb-FVU"/>
                                                         <constraint firstAttribute="height" id="wRU-sx-ZLE"/>
@@ -104,8 +103,7 @@
                                                     </userDefinedRuntimeAttributes>
                                                 </view>
                                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="E9Y-3I-W72">
-                                                    <rect key="frame" x="151" y="316" width="18" height="0.0"/>
-                                                    <color key="backgroundColor" red="0.0" green="1" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                                    <color key="backgroundColor" red="0.0" green="1" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                     <constraints>
                                                         <constraint firstAttribute="height" id="CVa-Hc-Ovb"/>
                                                         <constraint firstAttribute="width" constant="18" id="XJd-bS-AZ7"/>
@@ -118,9 +116,8 @@
                                                     </userDefinedRuntimeAttributes>
                                                 </view>
                                             </subviews>
-                                            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                         </view>
-                                        <color key="backgroundColor" red="0.93725490199999995" green="0.93725490199999995" blue="0.95686274510000002" alpha="1" colorSpace="calibratedRGB"/>
+                                        <color key="backgroundColor" red="0.93725490199999995" green="0.93725490199999995" blue="0.95686274510000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <constraints>
                                             <constraint firstItem="tnk-rN-5GU" firstAttribute="leading" secondItem="OAt-aD-PY7" secondAttribute="trailing" constant="84" id="0Fc-Jm-naK"/>
                                             <constraint firstItem="OAt-aD-PY7" firstAttribute="centerX" secondItem="0K5-Ke-QSa" secondAttribute="centerX" id="0J9-Zh-shL"/>
@@ -177,11 +174,9 @@
                                     <outlet property="delegate" destination="BYZ-38-t0r" id="4jR-6i-bNy"/>
                                 </connections>
                             </collectionView>
-                            <pageControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" numberOfPages="3" translatesAutoresizingMaskIntoConstraints="NO" id="mYA-Lc-IYQ">
-                                <rect key="frame" x="140" y="456" width="39" height="37"/>
-                            </pageControl>
+                            <pageControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" numberOfPages="3" translatesAutoresizingMaskIntoConstraints="NO" id="mYA-Lc-IYQ"/>
                         </subviews>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                        <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
                             <constraint firstAttribute="trailing" secondItem="de7-YT-6MN" secondAttribute="trailing" id="11O-5B-8nK"/>
                             <constraint firstItem="de7-YT-6MN" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" id="6a3-jU-N5c"/>
@@ -200,7 +195,6 @@
                         </variation>
                     </view>
                     <navigationItem key="navigationItem" title="BarGraphInCollectionView" id="Qdb-HJ-lom"/>
-                    <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina4"/>
                     <connections>
                         <outlet property="collectionView" destination="de7-YT-6MN" id="6gG-DH-51S"/>
                         <outlet property="pageControl" destination="mYA-Lc-IYQ" id="Bu4-ad-jFd"/>
@@ -208,14 +202,13 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1038" y="440"/>
+            <point key="canvasLocation" x="1273" y="429"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="mm9-dz-pVd">
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="rbG-MH-vZz" sceneMemberID="viewController">
                     <toolbarItems/>
-                    <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina4"/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="Ri0-Dh-Ca0">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
