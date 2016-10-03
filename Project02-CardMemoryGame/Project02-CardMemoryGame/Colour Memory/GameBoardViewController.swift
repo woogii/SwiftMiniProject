@@ -50,7 +50,7 @@ class GameBoardViewController: UIViewController {
     var gameMatchManager = CardMatchingManager()
     var scoreDict        = [String:AnyObject]()
     var scoreList        = [ScoreList]()
-    var selectedCard     = [Card]()
+    var selectedCards     = [Card]()
     var buttonIndices    = [Int]()
     
     // MARK : Fetch score list
@@ -113,6 +113,10 @@ class GameBoardViewController: UIViewController {
     
     func saveHighScoreList() {
         
+        scoreDict[Constants.KeyName]  = userName as AnyObject?
+        scoreDict[Constants.KeyScore] = userScore as AnyObject?
+        scoreDict[Constants.KeyDate]  = Date() as AnyObject?
+
         let newScore = ScoreList(dictionary: scoreDict, context: self.sharedContext)
         scoreList.append(newScore)
         CoreDataStackManager.sharedInstance().saveContext()
@@ -128,35 +132,22 @@ class GameBoardViewController: UIViewController {
             // If the current user's score is higher than the existing highest score
             if( gameMatchManager.getScore() >= Int(scoreList[0].score) ){
                 
-                // Add the user's score to the dictionary
-                scoreDict[Constants.KeyName]  = userName as AnyObject?
-                scoreDict[Constants.KeyScore] = userScore as AnyObject?
-                scoreDict[Constants.KeyDate]  = Date() as AnyObject?
-                
                 saveHighScoreList()
-                
                 rank = 1
             } else {
                 
-                var i = 0
-                
-                // If not, search through list whether user's score history exists
-                for list in scoreList {
+                for i in 0..<scoreList.count {
                     
-                    if list.name == userName {
-                        rank = i+1
+                    if scoreList[i].name == userName {
+                        rank = i + 1
                         break
                     }
-                    i = i + 1
                 }
             }
+            
         } else {
             // First player will be ranked at the top spot
             rank = 1
-            
-            scoreDict[Constants.KeyName]  = userName as AnyObject?
-            scoreDict[Constants.KeyScore] = userScore as AnyObject?
-            scoreDict[Constants.KeyDate]  = Date() as AnyObject?
             saveHighScoreList()
         }
         
@@ -186,48 +177,69 @@ class GameBoardViewController: UIViewController {
             return
         }
         
-        if !selectedCard.contains(card) {
+        if !selectedCards.contains(card) {      // check whether selecting the same card
             
             gameMatchManager.selectCardAtIndex(selectedBtnIndex)
             
+            // if more than two cards are selected
             if countNumberOfFlippedCards() > 2 {
-        
+                
+                // invalidate all information related to the selected card
+                invalidateSelectedCardInformation(card: card)
                 return
-    
+                
             } else {
-                performUIUpdate()
+                
+                performUIUpdateWhenSelectDifferentCards()
             }
         } else {
             
-            for i in 0..<selectedCard.count {
-                
-                // Set as not selected
-                selectedCard[i].isSelected = false
-                    
-                // Update Card background image as default image
-                let imageName = getBackgroundImage(selectedCard[i])
-                cardButtons[buttonIndices[i]].setBackgroundImage(UIImage(named:imageName), for: UIControlState())
-                gameMatchManager.adjustScoreWhenSelectedSameCard()
-                    
-            }
-            scoreLabel.text =  Constants.ScoreLabelText + String(self.gameMatchManager.getScore())
-            // Initialize both arrays
-            initializeSelectedCardAndButtonIndicesArray()
-            
-            
+            performUIUpdateWhenSelectSameCard()
             
         }
     }
     
+    func performUIUpdateWhenSelectSameCard() {
+        
+        for i in 0..<selectedCards.count {
+            
+            // Set as not selected
+            selectedCards[i].isSelected = false
+            
+            // Update Card background image as default image
+            let imageName = getBackgroundImage(selectedCards[i])
+            cardButtons[buttonIndices[i]].setBackgroundImage(UIImage(named:imageName), for: UIControlState())
+            
+            // Adjust game score
+            gameMatchManager.adjustScoreWhenSelectedSameCard()
+            
+        }
+        
+        scoreLabel.text =  Constants.ScoreLabelText + String(self.gameMatchManager.getScore())
+        
+        // Initialize both arrays
+        initializeSelectedCardAndButtonIndicesArray()
+    }
+    
+    
+    
+    func invalidateSelectedCardInformation(card:Card) {
+        
+        card.isMatched = false
+        card.isSelected = false
+        selectedCards.removeLast()
+        buttonIndices.removeLast()
+    }
+    
     func initializeSelectedCardAndButtonIndicesArray() {
-        selectedCard = [Card]()
+        selectedCards = [Card]()
         buttonIndices = [Int]()
-
+        
     }
     
     // MARK : UI Update
     
-    func performUIUpdate() {
+    func performUIUpdateWhenSelectDifferentCards() {
         
         let numberOfFlippedCards = countNumberOfFlippedCards()
         
@@ -248,10 +260,10 @@ class GameBoardViewController: UIViewController {
             // Hidden card after posing one second
             // Have to use alpha property since stackview was adopted
             if card.isMatched {
-    
+                
                 // Creates a dispatch_time_t relative to the default clock or modifies an existing dispatch_time_t.
                 let time = DispatchTime.now() + Double(Int64(Constants.DelayIfMathced * Double(NSEC_PER_SEC))) / Double(NSEC_PER_SEC)
-                    
+                
                 // Enqueue a block for execution at the specified time
                 DispatchQueue.main.asyncAfter(deadline: time) {
                     cardButton.alpha = 0.0
@@ -298,7 +310,7 @@ class GameBoardViewController: UIViewController {
                 num = num + 1
                 
                 // Save information which indices and cards are selected
-                selectedCard.append(card)
+                selectedCards.append(card)
                 buttonIndices.append(index)
             }
         }
@@ -314,18 +326,17 @@ class GameBoardViewController: UIViewController {
         
         DispatchQueue.main.asyncAfter(deadline: time) {
             
-            
             // If there are more than two cards selected
             if ( self.buttonIndices.count >= 2 ) {
                 
                 // iterates through the number of selected cards
-                for i in 0..<self.selectedCard.count {
+                for i in 0..<self.selectedCards.count {
                     
                     // Set as not selected
-                    self.selectedCard[i].isSelected = false
+                    self.selectedCards[i].isSelected = false
                     
                     // Update Card background image as default image
-                    let imageName = self.getBackgroundImage(self.selectedCard[i])
+                    let imageName = self.getBackgroundImage(self.selectedCards[i])
                     self.cardButtons[self.buttonIndices[i]].setBackgroundImage(UIImage(named:imageName), for: UIControlState())
                     
                 }

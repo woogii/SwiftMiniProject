@@ -52,9 +52,8 @@ struct Constants {
     
     static let InitScoreLabelText   = "Score : 0"
     static let ScoreLabelText       = "Score : "
-    static let ResultScoreText      = "Your Score : "
+    static let ResultScoreText      = "Your Current Score : "
     static let ResultRankText       = "Your Rank  : "
-    static let ResultNoScoreText    = "Your Score : No Record Found"
     static let ResultNoRankText     = "Your Rank  : No Record Found"
     
     // MARK : Image Names
