@@ -69,7 +69,6 @@ extension ViewController : UITextFieldDelegate {
             tagList.append(textField.text!)
             collectionViewReloadAndAdjustHeightConstraint(collectionView: tagListCollectionView)
             textField.text = ""
-            
         }
         
         return true
@@ -126,21 +125,33 @@ extension ViewController : UICollectionViewDataSource {
     }
     
     func collectionViewReloadAndAdjustHeightConstraint(collectionView : UICollectionView) {
-        
         collectionView.reloadData()
-        tagCollectionViewHeightConstant.constant = collectionView.collectionViewLayout.collectionViewContentSize.height
-        view.layoutIfNeeded()
+        
+        UIView.animate(withDuration: 1.0, animations: {
+            
+            self.tagCollectionViewHeightConstant.constant = collectionView.collectionViewLayout.collectionViewContentSize.height
+            
+        })
+        self.view.layoutIfNeeded()
     }
     
     func collectionViewReloadAndAdjustConstraintAfterDelete(collectionView : UICollectionView) {
         
         // keyword 가 있을 경우에만 collectionView height constraint 조정. keyword 가 삭제될 경우 collectionView Height 를 처음 화면 진입 상태 그대로 유지
+        collectionView.reloadData()
         if tagList.count > 0 {
-            tagCollectionViewHeightConstant.constant = tagListCollectionView.collectionViewLayout.collectionViewContentSize.height
+            
+            UIView.animate(withDuration: 1.0, animations: {
+                
+                self.tagCollectionViewHeightConstant.constant = collectionView.collectionViewLayout.collectionViewContentSize.height
+                
+            })
         }
         
-        collectionView.reloadData()
-        view.layoutIfNeeded()
+        self.view.layoutIfNeeded()
+        
+        
+        
     }
 
 
