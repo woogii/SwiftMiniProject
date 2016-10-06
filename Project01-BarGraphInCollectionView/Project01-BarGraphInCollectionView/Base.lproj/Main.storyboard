@@ -144,16 +144,16 @@
                                         </constraints>
                                         <variation key="default">
                                             <mask key="constraints">
+                                                <exclude reference="Bem-fA-YdT"/>
+                                                <exclude reference="K64-9h-96k"/>
                                                 <exclude reference="dMu-7y-SRG"/>
-                                                <exclude reference="eQo-it-yh7"/>
                                                 <exclude reference="4Ch-tP-tjR"/>
                                                 <exclude reference="Phd-Fq-1Yh"/>
                                                 <exclude reference="Rx4-HY-LFx"/>
-                                                <exclude reference="Bem-fA-YdT"/>
-                                                <exclude reference="K64-9h-96k"/>
                                                 <exclude reference="GGX-av-bNx"/>
                                                 <exclude reference="I1x-WQ-PbA"/>
                                                 <exclude reference="TQp-TZ-879"/>
+                                                <exclude reference="eQo-it-yh7"/>
                                             </mask>
                                         </variation>
                                         <connections>
@@ -202,7 +202,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1273" y="429"/>
+            <point key="canvasLocation" x="1464" y="429"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="mm9-dz-pVd">

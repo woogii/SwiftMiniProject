@@ -30,6 +30,13 @@ class ViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         configurePageControl()
+        
+        if #available(iOS 10.0, *) {
+            collectionView.isPrefetchingEnabled = false
+        } else {
+            // Fallback on earlier versions
+        }
+
     }
     
     
@@ -56,6 +63,8 @@ extension ViewController : UICollectionViewDataSource {
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: cellIdentifier, for: indexPath) as! BarGraphCollectionViewCell
+        
+        print("indexPath : \(indexPath.item)")
         cell.contentView.frame = cell.bounds
         
         removeGradientLayersFromValueBarGraphs(cell)
