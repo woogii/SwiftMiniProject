@@ -8,25 +8,121 @@
 
 import UIKit
 
+// MARK : - ViewController: UIViewController
+  
 class ViewController: UIViewController {
+  
+  // MARK : - Property 
+  
+  @IBOutlet weak var tableView: UITableView!
+  var commentList:[Comment]!
+  let questionCommentCell = "commentCell"
+  let answerCommentCell = "answerCell"
+  let messageInputContainerView : UIView = {
+    let view = UIView()
+    view.backgroundColor = UIColor.white
+    return view
+  }()
+  let inputTextField : UITextField = {
+    let textField = UITextField()
+    textField.placeholder = "Enter comment..."
+    return textField
+  }()
+  lazy var registerButton : UIButton = {
+    let button = UIButton(type: .system)
+    button.setTitle("Register", for: .normal)
+    let titleColor = UIColor(colorLiteralRed: 0, green: 137/255, blue: 249/255, alpha: 1)
+    button.setTitleColor(titleColor, for: .normal)
+    button.titleLabel?.font = UIFont.boldSystemFont(ofSize: 12)
+    button.addTarget(self, action: #selector(handleRegister), for: .touchUpInside)
+    return button
+  }()
+  let separatorView: UIView = {
+    let view = UIView()
+    view.backgroundColor = UIColor(white: 0.5, alpha: 0.5)
+    return view
+  }()
+  var bottomConstraint : NSLayoutConstraint?
+  
+  // MARK : - View Life Cycle
 
-    @IBOutlet weak var imageView: UIImageView!
+  override func viewDidLoad() {
+    super.viewDidLoad()
+  
+    fetchCommentList()
+    configureMessageInputContainerLayout()
+    setupInputComponent()
+    addKeyboardObserver()
     
-    override func viewDidLoad() {
-        super.viewDidLoad()
-        // Do any additional setup after loading the view, typically from a nib.
+  }
+  
+  func addKeyboardObserver() {
+    NotificationCenter.default.addObserver(self, selector: #selector(handleKeyboardNotification), name: .UIKeyboardWillShow, object: nil)
+    NotificationCenter.default.addObserver(self, selector: #selector(handleKeyboardNotification), name: .UIKeyboardWillHide, object: nil)
+  }
+  
+  func handleRegister() {
+    
+    let comment = Comment.createEnteredComment(text: inputTextField.text ?? "", name: "Kim", minuteAgo: 0, isQuestion: true)
+    commentList.insert(comment, at: 0)
+    
+    let insertionIndexPath = IndexPath(item: 0, section: 0)
+    
+    tableView.beginUpdates()
+    tableView.insertRows(at: [insertionIndexPath], with: .automatic)
+    tableView.scrollToRow(at: insertionIndexPath, at: .top, animated: true)
+    tableView.endUpdates()
+    
+    inputTextField.text = nil
+    
+  }
+  
+  func handleKeyboardNotification(notification:Notification) {
+    
+    if let userInfo = notification.userInfo {
+      
+      let keyboardFrame:CGRect = (userInfo[UIKeyboardFrameBeginUserInfoKey] as! NSValue).cgRectValue
+      let isKeyboardShowing = notification.name == .UIKeyboardWillShow
+      bottomConstraint?.constant = isKeyboardShowing ?  -keyboardFrame.height :  0
+      
+      UIView.animate(withDuration: 0, delay: 0, options: .curveEaseOut, animations: {
         
-        //let blurView = UIView(frame: (87,304,200,100) )
-        let blurView = UIView(frame: CGRect(x: 87, y: 304, width: 200, height: 100))
-        blurView.backgroundColor = UIColor.black.withAlphaComponent(0.5)
-        self.view.addSubview(blurView)
+        self.view.layoutIfNeeded()
+        
+      }, completion: { (completed) in
+        
+      })
     }
+    
+  }
+  
+  func fetchCommentList() {
+    commentList = Comment.createCommentList()
+  }
 
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
-    }
-
-
+  fileprivate func configureMessageInputContainerLayout() {
+    
+    view.addSubview(messageInputContainerView)
+    view.addConstraintsWithFormat(format: "H:|[v0]|", views: messageInputContainerView)
+    view.addConstraintsWithFormat(format: "V:[v0(40)]", views: messageInputContainerView)
+    
+    bottomConstraint = NSLayoutConstraint(item: messageInputContainerView, attribute: .bottom, relatedBy: .equal, toItem: view, attribute: .bottom, multiplier: 1, constant: 0)
+    view.addConstraint(bottomConstraint!)
+  }
+  
+  fileprivate func setupInputComponent() {
+    
+    messageInputContainerView.addSubview(inputTextField)
+    messageInputContainerView.addSubview(registerButton)
+    messageInputContainerView.addSubview(separatorView)
+    
+    messageInputContainerView.addConstraintsWithFormat(format: "H:|-8-[v0][v1(60)]|", views: inputTextField, registerButton)
+    messageInputContainerView.addConstraintsWithFormat(format: "V:|[v0]|", views: inputTextField)
+    messageInputContainerView.addConstraintsWithFormat(format: "V:|[v0]|", views: registerButton)
+    
+    messageInputContainerView.addConstraintsWithFormat(format: "H:|[v0]|", views: separatorView)
+    messageInputContainerView.addConstraintsWithFormat(format: "V:|[v0(1)]", views: separatorView)
+  }
+  
 }
 

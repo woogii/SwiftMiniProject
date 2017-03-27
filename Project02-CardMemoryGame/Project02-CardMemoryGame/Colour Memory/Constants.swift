@@ -43,6 +43,7 @@ struct Constants {
     static let layoutContraintValue = 109
 
     // MARK : Segue
+  
     struct Segue {
         static let ShowScoreVCWithExtraInformation = "showScoreVC"
         static let ShowScoreVCWithTableOnly   = "showScoreTable"

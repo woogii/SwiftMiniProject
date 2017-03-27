@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="11762" systemVersion="16A323" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11757"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view contentMode="scaleToFill" id="iN0-l3-epB" customClass="CommentTableViewHeader" customModule="Project04_CommentSystem" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="320" height="66"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="pVV-C1-IcP">
+                    <rect key="frame" x="0.0" y="0.0" width="320" height="66"/>
+                    <subviews>
+                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="질문이 있습니다" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="LFc-D6-GKp">
+                            <rect key="frame" x="51" y="24.5" width="95" height="18"/>
+                            <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                            <nil key="textColor"/>
+                            <nil key="highlightedColor"/>
+                        </label>
+                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="MJs-Rl-Xjg">
+                            <rect key="frame" x="15" y="21" width="24" height="24"/>
+                            <constraints>
+                                <constraint firstAttribute="width" constant="24" id="CPn-M1-ghb"/>
+                                <constraint firstAttribute="height" constant="24" id="mWg-IS-Xrs"/>
+                            </constraints>
+                        </imageView>
+                    </subviews>
+                    <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    <constraints>
+                        <constraint firstItem="MJs-Rl-Xjg" firstAttribute="leading" secondItem="pVV-C1-IcP" secondAttribute="leading" constant="15" id="75Y-gZ-h5K"/>
+                        <constraint firstItem="LFc-D6-GKp" firstAttribute="leading" secondItem="MJs-Rl-Xjg" secondAttribute="trailing" constant="12" id="bMd-Mz-SwC"/>
+                        <constraint firstItem="MJs-Rl-Xjg" firstAttribute="centerY" secondItem="pVV-C1-IcP" secondAttribute="centerY" id="dcp-0h-OzP"/>
+                        <constraint firstItem="LFc-D6-GKp" firstAttribute="centerY" secondItem="pVV-C1-IcP" secondAttribute="centerY" id="lcQ-yF-sGn"/>
+                    </constraints>
+                </view>
+            </subviews>
+            <constraints>
+                <constraint firstAttribute="trailing" secondItem="pVV-C1-IcP" secondAttribute="trailing" id="2qJ-AE-miT"/>
+                <constraint firstAttribute="bottom" secondItem="pVV-C1-IcP" secondAttribute="bottom" id="IfS-2k-5K8"/>
+                <constraint firstItem="pVV-C1-IcP" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" id="kGA-hR-83h"/>
+                <constraint firstItem="pVV-C1-IcP" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" id="vYz-nP-IrL"/>
+            </constraints>
+            <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
+            <connections>
+                <outlet property="containerView" destination="pVV-C1-IcP" id="QD6-fQ-Dvw"/>
+                <outlet property="profileImageView" destination="MJs-Rl-Xjg" id="f1f-42-doz"/>
+                <outlet property="questionLabel" destination="LFc-D6-GKp" id="QB8-XU-hq1"/>
+            </connections>
+            <point key="canvasLocation" x="-3" y="-249"/>
+        </view>
+    </objects>
+</document>
