@@ -11,24 +11,24 @@ import UIKit
 // MARK : - TagCollectionViewCell : UICollectionViewCell
 
 class TagCollectionViewCell: UICollectionViewCell {
+  
+  // MARK : - Property
+  
+  @IBOutlet weak var keywordLabel: UILabel!
+  @IBOutlet weak var containerView: UIView!
+  @IBOutlet weak var containerViewMaxWidhtConstraint: NSLayoutConstraint!
+  @IBOutlet weak var closeImageView: UIImageView!
+  @IBOutlet weak var closeButton: UIButton!
+  
+  // MARK : - View Life Cycle
+  
+  override func awakeFromNib() {
     
-    // MARK : - Property
+    super.awakeFromNib()
     
-    @IBOutlet weak var keywordLabel: UILabel!
-    @IBOutlet weak var containerView: UIView!
-    @IBOutlet weak var containerViewMaxWidhtConstraint: NSLayoutConstraint!
-    @IBOutlet weak var closeImageView: UIImageView!
-    @IBOutlet weak var closeButton: UIButton!
-    
-    // MARK : - Nib file loading
-    
-    override func awakeFromNib() {
-        
-        super.awakeFromNib()
-        
-        containerView.backgroundColor = UIColor(colorLiteralRed: 111.0/255.0, green: 134.0/255.0, blue: 144.0/255.0, alpha: 0.1)
-        containerView.layer.cornerRadius = 15
-        containerViewMaxWidhtConstraint.constant = UIScreen.main.bounds.width
-    }
-
+    containerView.backgroundColor = UIColor.red
+    containerView.layer.cornerRadius = 5
+    containerViewMaxWidhtConstraint.constant = UIScreen.main.bounds.width
+  }
+  
 }
