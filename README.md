@@ -6,8 +6,8 @@ This repository is inspired by Allen Wang's [30DaysofSwift](https://github.com/a
 
 **Project 01 - Bar Graph in CollectionView**
 <br />
-
-![Alt text](GIFs/AnimatedBarGraph.gif)
+ 
+![Alt text](GIFs/animatedBarGraph.gif)
 
 **Project 02 - Card Memory Game**
 <br />
