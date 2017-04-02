@@ -47,29 +47,26 @@ extension ViewController : UITableViewDelegate, UITableViewDataSource {
     tapRecognizer.numberOfTouchesRequired = 1
     
     cell.addGestureRecognizer(tapRecognizer)
-    
   }
   
   
   func tapComment(_ gestureRecognizer : UIGestureRecognizer) {
     
     let cellIndex = gestureRecognizer.view!.tag
-    print("Cell Index : \(cellIndex)")
+    
     let actionSheetController = UIAlertController(title: nil, message: nil, preferredStyle: .actionSheet)
-    var passedCommentList:[Comment]!
     
     let writeCommentVCAction = UIAlertAction(title: "Reply", style: .default, handler: { action in
       
       if self.commentList[cellIndex].isQuestion == true {
-        
-        passedCommentList = self.getPartialListStartFromQuestion(cellIndex:cellIndex)
-        self.prepareToWriteComment(self.commentList[cellIndex],passedCommentList: passedCommentList)
-        
-        
+  
+        let indexPairs = self.getIndexesWhenQuestionSelected(cellIndex: cellIndex)
+        self.prepareToWriteComment(commentStartIndex: indexPairs.0,commentLastIndex: indexPairs.1)
+    
       } else {
         
-        passedCommentList = self.getPartialListIncludingCurrentAnswer(cellIndex: cellIndex)
-        self.prepareToWriteComment(self.commentList[cellIndex],passedCommentList: passedCommentList)
+        let indexPairs = self.getIndexesWhenAnswerSelected(cellIndex: cellIndex)
+        self.prepareToWriteComment(commentStartIndex: indexPairs.0,commentLastIndex: indexPairs.1)
       }
       
     })
@@ -84,35 +81,39 @@ extension ViewController : UITableViewDelegate, UITableViewDataSource {
     
   }
   
-  func getPartialListIncludingCurrentAnswer(cellIndex:Int)->[Comment] {
+  func getIndexesWhenAnswerSelected(cellIndex:Int)->(startQuestionIndex:Int,endAnswerIndex:Int) {
     
     let startIndex = self.findPrevQuestionIndex(cellIndex: cellIndex)
     
-    if let lastIndex = self.findNextQuestionIndex(cellIndex: cellIndex) {
-      return Array(self.commentList[startIndex!...lastIndex-1])
+    if let endIndex = self.findNextQuestionIndex(cellIndex: cellIndex) {
+      return (startIndex!, endIndex-1)
     } else {
-      return Array(self.commentList[startIndex!...self.commentList.count - 1])
+      return (startIndex!, commentList.count - 1)
     }
     
   }
   
-  func getPartialListStartFromQuestion(cellIndex:Int)->[Comment] {
+  func getIndexesWhenQuestionSelected(cellIndex:Int)->(startQuestionIndex:Int,endAnswerIndex:Int) {
     
-    let partialCommentList:[Comment]!
+    var startIndex:Int!
+    var endIndex:Int!
     
     if let index = self.findNextQuestionIndex(cellIndex: cellIndex) {
-      
+
       if index != cellIndex {
-        partialCommentList = Array(self.commentList[cellIndex...index-1])
+        startIndex = cellIndex
+        endIndex = index - 1
       } else {
-        // if current cell is the question cell and is located at the last index
-        partialCommentList = [self.commentList[cellIndex]]
+        startIndex = cellIndex
+        endIndex = cellIndex
       }
     } else {
-      partialCommentList = Array(self.commentList[cellIndex...self.commentList.count-1])
+      startIndex = cellIndex
+      endIndex = commentList.count - 1
     }
 
-    return partialCommentList
+    return (startIndex, endIndex)
+    
   }
   
 
@@ -136,12 +137,13 @@ extension ViewController : UITableViewDelegate, UITableViewDataSource {
     return index
   }
   
-  func prepareToWriteComment(_ comment:Comment,passedCommentList:[Comment]) {
+  func prepareToWriteComment(commentStartIndex:Int, commentLastIndex:Int) {
     
     let storyBoard = UIStoryboard(name: "Main", bundle: nil)
     let destinationVC = storyBoard.instantiateViewController(withIdentifier: "replyVC") as! ReplyViewController
-    destinationVC.commentList = passedCommentList
-     
+    destinationVC.commentList = Array(commentList[commentStartIndex...commentLastIndex])
+    destinationVC.insertedIndex = commentLastIndex
+    destinationVC.delegate = self
     navigationController?.pushViewController(destinationVC, animated: true)
     
   }
@@ -160,7 +162,17 @@ extension ViewController : UITableViewDelegate, UITableViewDataSource {
   
 }
 
+extension ViewController : ReplyViewControllerDelegate {
+  
+  func updateCommentList(newComment:Comment,index:Int) {
 
+    index == commentList.count - 1 ? commentList.append(newComment) : commentList.insert(newComment, at: index + 1)
+    
+    DispatchQueue.main.async {
+      self.tableView.reloadData()
+    }
+  }
+}
 extension UIView {
   
   func addConstraintsWithFormat(format: String, views: UIView...) {

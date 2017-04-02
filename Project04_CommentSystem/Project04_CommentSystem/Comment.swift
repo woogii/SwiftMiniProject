@@ -42,6 +42,6 @@ struct Comment {
   }
   
   static func createEnteredComment(text:String, name:String, minuteAgo : Double, isQuestion:Bool)->Comment {
-    return Comment(text: text, name: name, date: Date().addingTimeInterval(-minuteAgo * 60), isQuestion: true)
+    return Comment(text: text, name: name, date: Date().addingTimeInterval(-minuteAgo * 60), isQuestion: isQuestion)
   }
 }

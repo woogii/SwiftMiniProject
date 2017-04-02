@@ -9,6 +9,10 @@
 import Foundation
 import UIKit
 
+protocol ReplyViewControllerDelegate {
+  func updateCommentList(newComment:Comment,index:Int)
+}
+
 // MARK : - ViewController: UIViewController
 
 class ReplyViewController: UIViewController {
@@ -51,6 +55,7 @@ class ReplyViewController: UIViewController {
   }()
   var bottomConstraint : NSLayoutConstraint?
   var insertedIndex:Int?
+  var delegate : ReplyViewControllerDelegate?
   
   // MARK : - View Life Cycle 
   
@@ -69,16 +74,11 @@ class ReplyViewController: UIViewController {
   func handleRegister() {
     
     let comment = Comment.createEnteredComment(text: inputTextField.text ?? "", name: "Kim", minuteAgo: 0, isQuestion: false)
-    commentList.append(comment)
-    
-    let insertionIndexPath = IndexPath(item: commentList.count - 1, section: 0)
-    
-    tableView.beginUpdates()
-    tableView.insertRows(at: [insertionIndexPath], with: .automatic)
-    tableView.scrollToRow(at: insertionIndexPath, at: .top, animated: true)
-    tableView.endUpdates()
-
+  
+    delegate?.updateCommentList(newComment: comment, index: insertedIndex!)
     inputTextField.text = nil
+    
+    _ = self.navigationController?.popViewController(animated: true)
   }
   
   func handleDismiss() {

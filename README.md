@@ -19,6 +19,11 @@ This repository is inspired by Allen Wang's [30DaysofSwift](https://github.com/a
 
 ![Alt text](GIFs/TagListCollectionView.gif)
 
+**Project 04 - CommentingSystemDemo**
+<br />
+
+![Alt text](GIFs/CommentingSystemDemo.gif)
+
 **Project 05 - StickyHeaderViewDemo**
 <br />
 
