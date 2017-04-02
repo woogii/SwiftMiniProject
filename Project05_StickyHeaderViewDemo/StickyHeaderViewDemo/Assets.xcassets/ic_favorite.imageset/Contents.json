@@ -2,11 +2,11 @@
   "images" : [
     {
       "idiom" : "universal",
-      "filename" : "ic_favorite_filled.png",
       "scale" : "1x"
     },
     {
       "idiom" : "universal",
+      "filename" : "Star-96.png",
       "scale" : "2x"
     },
     {

@@ -19,6 +19,10 @@ This repository is inspired by Allen Wang's [30DaysofSwift](https://github.com/a
 
 ![Alt text](GIFs/TagListCollectionView.gif)
 
+**Project 05 - StickyHeaderViewDemo**
+<br />
+
+![Alt text](GIFs/StickyHeaderDemo.gif)
 
 # Compatibility 
 The code of this project works in Swift3.0, Xcode 8.2.1 and iOS9 
