@@ -31,9 +31,9 @@ struct Comment {
       let comment:Comment!
       
       if i%2 == 0 {
-        comment = Comment(text: "This is a question", name: "Kim", date: Date().addingTimeInterval(-Double(i)*60), isQuestion: true)
+        comment = Comment(text: "\(i+1). This is a question", name: "Kim", date: Date().addingTimeInterval(-Double(i)*60), isQuestion: true)
       } else {
-        comment = Comment(text: "This is an answer", name: "Tom", date: Date().addingTimeInterval(-Double(i)*60), isQuestion: false)
+        comment = Comment(text: "\(i+1). This is an answer", name: "Tom", date: Date().addingTimeInterval(-Double(i)*60), isQuestion: false)
       }
       commentList.append(comment)
     }

@@ -18,6 +18,12 @@ class ViewController: UIViewController {
   var commentList:[Comment]!
   let questionCommentCell = "commentCell"
   let answerCommentCell = "answerCell"
+  let messageInputAccessoryView : UIView = {
+    let view = UIView()
+    view.backgroundColor = UIColor.white
+    view.isHidden = true
+    return view
+  }()
   let messageInputContainerView : UIView = {
     let view = UIView()
     view.backgroundColor = UIColor.white
@@ -31,7 +37,7 @@ class ViewController: UIViewController {
   lazy var registerButton : UIButton = {
     let button = UIButton(type: .system)
     button.setTitle("Register", for: .normal)
-    let titleColor = UIColor(colorLiteralRed: 0, green: 137/255, blue: 249/255, alpha: 1)
+    let titleColor = UIColor.black
     button.setTitleColor(titleColor, for: .normal)
     button.titleLabel?.font = UIFont.boldSystemFont(ofSize: 12)
     button.addTarget(self, action: #selector(handleRegister), for: .touchUpInside)
@@ -77,12 +83,17 @@ class ViewController: UIViewController {
     
   }
   
+  func handleDismiss() {
+    view.endEditing(true)
+  }
+  
   func handleKeyboardNotification(notification:Notification) {
     
     if let userInfo = notification.userInfo {
       
       let keyboardFrame:CGRect = (userInfo[UIKeyboardFrameBeginUserInfoKey] as! NSValue).cgRectValue
       let isKeyboardShowing = notification.name == .UIKeyboardWillShow
+      isKeyboardShowing ? (messageInputAccessoryView.isHidden = false) : (messageInputAccessoryView.isHidden = true)
       bottomConstraint?.constant = isKeyboardShowing ?  -keyboardFrame.height :  0
       
       UIView.animate(withDuration: 0, delay: 0, options: .curveEaseOut, animations: {
@@ -103,6 +114,8 @@ class ViewController: UIViewController {
   fileprivate func configureMessageInputContainerLayout() {
     
     view.addSubview(messageInputContainerView)
+    view.addSubview(messageInputAccessoryView)
+    
     view.addConstraintsWithFormat(format: "H:|[v0]|", views: messageInputContainerView)
     view.addConstraintsWithFormat(format: "V:[v0(40)]", views: messageInputContainerView)
     
@@ -115,13 +128,13 @@ class ViewController: UIViewController {
     messageInputContainerView.addSubview(inputTextField)
     messageInputContainerView.addSubview(registerButton)
     messageInputContainerView.addSubview(separatorView)
-    
+
     messageInputContainerView.addConstraintsWithFormat(format: "H:|-8-[v0][v1(60)]|", views: inputTextField, registerButton)
     messageInputContainerView.addConstraintsWithFormat(format: "V:|[v0]|", views: inputTextField)
     messageInputContainerView.addConstraintsWithFormat(format: "V:|[v0]|", views: registerButton)
-    
     messageInputContainerView.addConstraintsWithFormat(format: "H:|[v0]|", views: separatorView)
     messageInputContainerView.addConstraintsWithFormat(format: "V:|[v0(1)]", views: separatorView)
+    
   }
   
 }
