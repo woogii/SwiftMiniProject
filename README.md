@@ -32,7 +32,7 @@ This repository is inspired by Allen Wang's [30DaysofSwift](https://github.com/a
 **Project 06 - ImageGallery**
 <br />
 
-![Alt text](GIFs/ImageGallery.gif)
+![Alt text](GIFs/ImageGallery2.gif)
 
 **Project 07 - SearchUIWithCustomTitleView**
 <br />
