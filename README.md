@@ -29,6 +29,11 @@ This repository is inspired by Allen Wang's [30DaysofSwift](https://github.com/a
 
 ![Alt text](GIFs/StickyHeaderDemo.gif)
 
+**Project 07 - SearchUIWithCustomTitleView**
+<br />
+
+![Alt text](GIFs/SearchUIWithCustomTitleView.gif)
+
 # Image Licence 
 
 These projects use icons from Icons8. Thank [Icons8](https://icons8.com/) for your hard work. 

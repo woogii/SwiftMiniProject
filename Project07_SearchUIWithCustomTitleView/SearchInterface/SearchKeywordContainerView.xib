@@ -1,0 +1,88 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="11762" systemVersion="16B2657" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
+    <device id="retina5_5" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11757"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view contentMode="scaleToFill" id="iN0-l3-epB" customClass="SearchKeywordContainerView" customModule="SearchInterface" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="320" height="35"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="oQd-6W-8aq">
+                    <rect key="frame" x="0.0" y="0.0" width="320" height="35"/>
+                    <subviews>
+                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="qfK-7f-fK4">
+                            <rect key="frame" x="286" y="0.0" width="30" height="35"/>
+                            <constraints>
+                                <constraint firstAttribute="width" constant="30" id="zIo-Xg-PlE"/>
+                            </constraints>
+                            <state key="normal" image="ic_clear"/>
+                        </button>
+                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Search" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="0Mj-75-xqn">
+                            <rect key="frame" x="41" y="9" width="45" height="17"/>
+                            <fontDescription key="fontDescription" type="system" weight="light" pointSize="14"/>
+                            <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                            <nil key="highlightedColor"/>
+                        </label>
+                        <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="none" translatesAutoresizingMaskIntoConstraints="NO" id="pli-Xz-mIV">
+                            <rect key="frame" x="34" y="0.0" width="247" height="35"/>
+                            <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                            <collectionViewFlowLayout key="collectionViewLayout" scrollDirection="horizontal" minimumLineSpacing="0.0" minimumInteritemSpacing="8" id="hqa-Bx-kja">
+                                <size key="itemSize" width="50" height="30"/>
+                                <size key="headerReferenceSize" width="0.0" height="0.0"/>
+                                <size key="footerReferenceSize" width="0.0" height="0.0"/>
+                                <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
+                            </collectionViewFlowLayout>
+                        </collectionView>
+                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="ic_search" translatesAutoresizingMaskIntoConstraints="NO" id="cHM-tD-yF9">
+                            <rect key="frame" x="8" y="8.6666666666666643" width="18" height="18"/>
+                            <constraints>
+                                <constraint firstAttribute="width" constant="18" id="XYd-4i-fBq"/>
+                                <constraint firstAttribute="height" constant="18" id="qIO-1P-6W2"/>
+                            </constraints>
+                        </imageView>
+                    </subviews>
+                    <color key="backgroundColor" red="0.20784313725490194" green="0.49411764705882355" blue="0.7803921568627451" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                    <constraints>
+                        <constraint firstItem="pli-Xz-mIV" firstAttribute="top" secondItem="oQd-6W-8aq" secondAttribute="top" id="3Lm-LA-Eus"/>
+                        <constraint firstItem="pli-Xz-mIV" firstAttribute="leading" secondItem="cHM-tD-yF9" secondAttribute="trailing" constant="8" id="IIJ-qe-es3"/>
+                        <constraint firstItem="cHM-tD-yF9" firstAttribute="centerY" secondItem="oQd-6W-8aq" secondAttribute="centerY" id="N9I-u0-GgI"/>
+                        <constraint firstItem="0Mj-75-xqn" firstAttribute="leading" secondItem="cHM-tD-yF9" secondAttribute="trailing" constant="15" id="PP5-0L-ZG6"/>
+                        <constraint firstItem="qfK-7f-fK4" firstAttribute="top" secondItem="oQd-6W-8aq" secondAttribute="top" id="X0L-tu-AJ2"/>
+                        <constraint firstAttribute="bottom" secondItem="qfK-7f-fK4" secondAttribute="bottom" id="XN8-gj-QW2"/>
+                        <constraint firstItem="0Mj-75-xqn" firstAttribute="centerY" secondItem="oQd-6W-8aq" secondAttribute="centerY" id="cl4-gg-45E"/>
+                        <constraint firstItem="cHM-tD-yF9" firstAttribute="leading" secondItem="oQd-6W-8aq" secondAttribute="leading" constant="8" id="f2x-ZC-T98"/>
+                        <constraint firstItem="qfK-7f-fK4" firstAttribute="leading" secondItem="pli-Xz-mIV" secondAttribute="trailing" constant="5" id="snf-wL-IqC"/>
+                        <constraint firstAttribute="bottom" secondItem="pli-Xz-mIV" secondAttribute="bottom" id="tkt-ec-ZsY"/>
+                        <constraint firstAttribute="trailing" secondItem="qfK-7f-fK4" secondAttribute="trailing" constant="4" id="vwF-kr-icb"/>
+                    </constraints>
+                </view>
+            </subviews>
+            <constraints>
+                <constraint firstAttribute="trailing" secondItem="oQd-6W-8aq" secondAttribute="trailing" id="0U8-Gc-dQU"/>
+                <constraint firstAttribute="bottom" secondItem="oQd-6W-8aq" secondAttribute="bottom" id="IIW-NW-FLW"/>
+                <constraint firstItem="oQd-6W-8aq" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" id="KEz-NA-hLK"/>
+                <constraint firstItem="oQd-6W-8aq" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" id="aYt-Xf-FXg"/>
+            </constraints>
+            <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
+            <connections>
+                <outlet property="clearButton" destination="qfK-7f-fK4" id="sP3-bj-bn8"/>
+                <outlet property="keywordCollectionView" destination="pli-Xz-mIV" id="cve-Ku-W75"/>
+                <outlet property="placeHolderLabel" destination="0Mj-75-xqn" id="FXd-iY-gFu"/>
+                <outlet property="searchIconImageView" destination="cHM-tD-yF9" id="0cc-Kf-3wr"/>
+            </connections>
+            <point key="canvasLocation" x="-29" y="-239.5"/>
+        </view>
+    </objects>
+    <resources>
+        <image name="ic_clear" width="11" height="11"/>
+        <image name="ic_search" width="18" height="18"/>
+    </resources>
+</document>
