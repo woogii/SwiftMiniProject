@@ -29,6 +29,11 @@ This repository is inspired by Allen Wang's [30DaysofSwift](https://github.com/a
 
 ![Alt text](GIFs/StickyHeaderDemo.gif)
 
+**Project 06 - ImageGallery**
+<br />
+
+![Alt text](GIFs/ImageGallery.gif)
+
 **Project 07 - SearchUIWithCustomTitleView**
 <br />
 
