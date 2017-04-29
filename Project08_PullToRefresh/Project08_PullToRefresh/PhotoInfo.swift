@@ -28,7 +28,8 @@ struct PhotoInfo {
     let mediumUrl = photoInfoDictionary[Constants.FlickrResponseKeys.MediumURL] as? String ?? ""
     let id = photoInfoDictionary[Constants.FlickrResponseKeys.ID] as? String ?? ""
     let numberOfLikes = Int(arc4random_uniform(UInt32(photoInfoDictionary.count)))
-    let date = Date()
+    let timeInterval = Int(arc4random_uniform(UInt32(3600*24))) * -1
+    let date = Date(timeIntervalSinceNow: (Double)(timeInterval))
     
     self.title = title
     self.mediumUrl = mediumUrl
