@@ -121,7 +121,6 @@ class ViewController: UICollectionViewController {
       DispatchQueue.main.async {
         self.photoInfoList = PhotoInfo.createPhotoInfoList(photoInfoDictionaryArray: photoArray)
         self.collectionView?.reloadData()
-        self.stopRefreshControl()
       }
     
     }
@@ -144,7 +143,7 @@ class ViewController: UICollectionViewController {
   // MARK: - UIScrollViewDelegate
   
   override func scrollViewDidEndDecelerating(_ scrollView: UIScrollView) {
-    //stopRefreshControl()
+    stopRefreshControl()
   }
   
   // MARK : - End Refreshing
