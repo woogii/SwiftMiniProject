@@ -8,6 +8,8 @@
 
 import UIKit
 
+// MARK : - CustomCollectionViewCell: UICollectionViewCell
+
 class CustomCollectionViewCell: UICollectionViewCell {
   
   // MARK : - Property
@@ -20,13 +22,15 @@ class CustomCollectionViewCell: UICollectionViewCell {
   @IBOutlet weak var numberOfLikesLabel: UILabel!
   @IBOutlet weak var timeInfoLabel: UILabel!
   
-  var taskToCancelifCellIsReused: URLSessionTask? {
-    
+  var photoInfo : PhotoInfo! {
+  
     didSet {
-      if let taskToCancel = oldValue {
-        taskToCancel.cancel()
-      }
+      updateCell()
     }
+  }
+  
+  func updateCell() {
+    
   }
   
   // MARK : - Nib File Loading
@@ -62,7 +66,7 @@ class CustomCollectionViewCell: UICollectionViewCell {
   }
   
   func applyCornerRadiusToProfileImageView() {
-    //profileImageView.layer.cornerRadius = Constants.ImageListCollectionViewCell.ProfileImageViewCornerRadius
+    profileImageView.layer.cornerRadius  = 4
     profileImageView.layer.masksToBounds = true
   }
 

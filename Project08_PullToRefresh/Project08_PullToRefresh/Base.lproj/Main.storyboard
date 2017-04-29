@@ -13,8 +13,8 @@
         <!--View Controller-->
         <scene sceneID="aA4-4g-o09">
             <objects>
-                <collectionViewController id="nHY-2b-zue" customClass="ViewController" customModule="Project08_PullToRefresh" customModuleProvider="target" sceneMemberID="viewController">
-                    <collectionView key="view" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" id="Aas-79-Juv">
+                <collectionViewController storyboardIdentifier="vc" id="nHY-2b-zue" customClass="ViewController" customModule="Project08_PullToRefresh" customModuleProvider="target" sceneMemberID="viewController">
+                    <collectionView key="view" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" misplaced="YES" dataMode="prototypes" id="Aas-79-Juv">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" red="0.8980392157" green="0.8980392157" blue="0.8980392157" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>

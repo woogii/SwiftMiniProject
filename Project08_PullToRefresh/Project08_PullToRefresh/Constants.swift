@@ -12,6 +12,8 @@ import Foundation
 
 struct Constants {
   
+  static let CollectionViewCellIdentifier = "customCollectionViewCell"
+  
   // MARK: Flickr
   struct Flickr {
     static let APIBaseURL = "https://api.flickr.com/services/rest/"
@@ -25,16 +27,20 @@ struct Constants {
     static let Extras = "extras"
     static let Format = "format"
     static let NoJSONCallback = "nojsoncallback"
+    static let PerPage = "per_page"
+    static let Page = "page"
   }
   
   // MARK: Flickr Parameter Values
   struct FlickrParameterValues {
     static let ResponseFormat = "json"
     static let DisableJSONCallback = "1" /* 1 means "yes" */
-    //static let GalleryPhotosMethod = "flickr.galleries.getPhotos"
-    static let PhotosSearchMethod = "flickr.photos.search"
+    static let GalleryPhotosMethod = "flickr.galleries.getPhotos"
+    static let RecentPhotosMethod = "flickr.photos.getRecent"
     static let GalleryID = "66911286-72157647613641977"
     static let MediumURL = "url_m"
+    static let NumberOfItems = "20"
+    static let InitialPage = "1"
   }
   
   // MARK: Flickr Response Keys
@@ -44,6 +50,7 @@ struct Constants {
     static let Photo = "photo"
     static let Title = "title"
     static let MediumURL = "url_m"
+    static let ID = "id"
   }
   
   // MARK: Flickr Response Values

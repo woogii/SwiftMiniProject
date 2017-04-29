@@ -8,45 +8,46 @@
 
 import UIKit
 
+// MARK : - ViewController: UICollectionViewController
+
 class ViewController: UICollectionViewController {
 
+  // MARK : - Property
+  
+  var photoInfoList = [PhotoInfo]()
   var sharedSession : URLSession {
     return URLSession.shared
   }
   
+  // MARK : - View Life Cycle
+  
   override func viewDidLoad() {
 
     super.viewDidLoad()
-    // Do any additional setup after loading the view, typically from a nib.
     getImageListFromFlickr()
   }
 
-  
-  private func buildAPIRequestParameters()-> [String:AnyObject] {
-    
-    let methodParameters = [
-      Constants.FlickrParameterKeys.Method   : Constants.FlickrParameterValues.PhotosSearchMethod,
-      Constants.FlickrParameterKeys.APIKey   : Secret.APIKey,
-      //Constants.FlickrParameterKeys.GalleryID: Constants.FlickrParameterValues.GalleryID,
-      Constants.FlickrParameterKeys.Extras   : Constants.FlickrParameterValues.MediumURL,
-      Constants.FlickrParameterKeys.Format   : Constants.FlickrParameterValues.ResponseFormat,
-      // Constants.FlickrParameterKeys.NoJSONCallback: Constants.FlickrParameterValues.DisableJSONCallback
+  func makeParameters()->[String:String]{
+    return [
+      Constants.FlickrParameterKeys.Method  : Constants.FlickrParameterValues.RecentPhotosMethod,
+      Constants.FlickrParameterKeys.APIKey  : Secret.APIKey,
+      Constants.FlickrParameterKeys.Extras  : Constants.FlickrParameterValues.MediumURL,
+      Constants.FlickrParameterKeys.Format  : Constants.FlickrParameterValues.ResponseFormat,
+      Constants.FlickrParameterKeys.PerPage : Constants.FlickrParameterValues.NumberOfItems,
+      Constants.FlickrParameterKeys.Page    : Constants.FlickrParameterValues.InitialPage,
+      Constants.FlickrParameterKeys.NoJSONCallback: Constants.FlickrParameterValues.DisableJSONCallback
     ]
-    
-    return methodParameters as [String:AnyObject]
   }
   
   // MARK: Make Network Request
   
   private func getImageListFromFlickr() {
     
-    let methodParameters = buildAPIRequestParameters()
+    let methodParameters = makeParameters()
     
-    
-    let urlString = Constants.Flickr.APIBaseURL + escapedParameters(methodParameters)
+    let urlString = Constants.Flickr.APIBaseURL + Helper.escapedParameters(methodParameters as [String : AnyObject])
     let url = URL(string: urlString)!
     let request = URLRequest(url: url)
-    
     
     let task = sharedSession.dataTask(with: request) { (data, response, error) in
       
@@ -61,12 +62,6 @@ class ViewController: UICollectionViewController {
         return
       }
       
-      guard let statusCode = (response as? HTTPURLResponse)?.statusCode, statusCode >= 200 && statusCode <= 299 else {
-        displayError("Your request returned a status code other than 2xx!")
-        return
-      }
-      
-      /* GUARD: Was there any data returned? */
       guard let data = data else {
         displayError("No data was returned by the request!")
         return
@@ -94,58 +89,28 @@ class ViewController: UICollectionViewController {
         return
       }
       
-      // select a random photo
-      let randomPhotoIndex = Int(arc4random_uniform(UInt32(photoArray.count)))
-      let photoDictionary = photoArray[randomPhotoIndex] as [String:AnyObject]
-      let photoTitle = photoDictionary[Constants.FlickrResponseKeys.Title] as? String
-      
-      /* GUARD: Does our photo have a key for 'url_m'? */
-      guard let imageUrlString = photoDictionary[Constants.FlickrResponseKeys.MediumURL] as? String else {
-        displayError("Cannot find key '\(Constants.FlickrResponseKeys.MediumURL)' in \(photoDictionary)")
-        return
-      }
-      
-      // if an image exists at the url, set the image and title
-      let imageURL = URL(string: imageUrlString)
-      if let imageData = try? Data(contentsOf: imageURL!) {
-        DispatchQueue.main.async {
-          //self.setUIEnabled(true)
-          //self.photoImageView.image = UIImage(data: imageData)
-          //self.photoTitleLabel.text = photoTitle ?? "(Untitled)"
-        }
-      } else {
-        displayError("Image does not exist at \(imageURL)")
-      }
+      self.photoInfoList = PhotoInfo.createPhotoInfoList(photoInfoDictionaryArray: photoArray)
+    
     }
     
-    // start the task!
+
     task.resume()
   }
   
-  // MARK: Helper for Escaping Parameters in URL
-  
-  private func escapedParameters(_ parameters: [String:AnyObject]) -> String {
+  override func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
+    let cell = collectionView.dequeueReusableCell(withReuseIdentifier: Constants.CollectionViewCellIdentifier, for: indexPath) as! CustomCollectionViewCell
     
-    if parameters.isEmpty {
-      return ""
-    } else {
-      var keyValuePairs = [String]()
-      
-      for (key, value) in parameters {
-        
-        // make sure that it is a string value
-        let stringValue = "\(value)"
-        
-        // escape it
-        let escapedValue = stringValue.addingPercentEncoding(withAllowedCharacters: .urlQueryAllowed)
-        
-        // append it
-        keyValuePairs.append(key + "=" + "\(escapedValue!)")
-        
-      }
-      
-      return "?\(keyValuePairs.joined(separator: "&"))"
-    }
+    cell.photoInfo = photoInfoList[indexPath.row]
+    
+    return cell
   }
+  
+  
+  override func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
+    return photoInfoList.count
+  }
+  
+  
+
 }
 
