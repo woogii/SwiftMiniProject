@@ -36,6 +36,7 @@ struct PhotoInfo {
     self.id = id
     self.numberOfLikes = numberOfLikes
     self.registeredDate = date
+    print("title : \(title)")
   }
   
   // MARK : - Create PhotoInfo List

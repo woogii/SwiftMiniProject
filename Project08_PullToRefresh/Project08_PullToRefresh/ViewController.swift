@@ -32,7 +32,7 @@ class ViewController: UICollectionViewController {
 
     super.viewDidLoad()
     addRefreshControl()
-    getImageListFromFlickr()
+    getImageListFromFlickr(isRefreshing: false)
   }
   
   // MARK : - Add Refresh Control
@@ -51,7 +51,7 @@ class ViewController: UICollectionViewController {
   
   func handleRefresh(_ refreshControlForCollectionView:UIRefreshControl) {
     ViewController.page += 1
-    getImageListFromFlickr()
+    getImageListFromFlickr(isRefreshing: true)
   }
   
   // MARK : - Set API Parameters
@@ -70,11 +70,12 @@ class ViewController: UICollectionViewController {
   
   // MARK: Make Network Request
   
-  private func getImageListFromFlickr() {
+  private func getImageListFromFlickr(isRefreshing:Bool) {
     
     let methodParameters = setParameters()
     
     let urlString = Constants.Flickr.APIBaseURL + Helper.escapedParameters(methodParameters as [String : AnyObject])
+    print("page : \(ViewController.page)")
     let url = URL(string: urlString)!
     let request = URLRequest(url: url)
     
@@ -100,7 +101,7 @@ class ViewController: UICollectionViewController {
       let parsedResult: [String:AnyObject]!
       do {
         parsedResult = try JSONSerialization.jsonObject(with: data, options: .allowFragments) as! [String:AnyObject]
-        print("result : \(parsedResult)")
+        // print("result : \(parsedResult)")
       } catch {
         displayError("Could not parse the data as JSON: '\(data)'")
         return
@@ -118,9 +119,15 @@ class ViewController: UICollectionViewController {
         return
       }
       
+      if isRefreshing == true {
+        self.photoInfoList = []
+      }
+      
+      self.photoInfoList = PhotoInfo.createPhotoInfoList(photoInfoDictionaryArray: photoArray)
+      
       DispatchQueue.main.async {
-        self.photoInfoList = PhotoInfo.createPhotoInfoList(photoInfoDictionaryArray: photoArray)
         self.collectionView?.reloadData()
+        self.stopRefreshControl()
       }
     
     }
@@ -143,7 +150,7 @@ class ViewController: UICollectionViewController {
   // MARK: - UIScrollViewDelegate
   
   override func scrollViewDidEndDecelerating(_ scrollView: UIScrollView) {
-    stopRefreshControl()
+    //stopRefreshControl()
   }
   
   // MARK : - End Refreshing
