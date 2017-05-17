@@ -12,17 +12,56 @@ class ViewController: UIViewController {
 
   @IBOutlet weak var tableView: UITableView!
   let searchController = UISearchController(searchResultsController: nil)
+  
   var session : URLSession {
     return URLSession.shared
   }
   var titleList = [String]()
-  
+  var upcomingList = [String]()
+
   override func viewDidLoad() {
     super.viewDidLoad()
-    // Do any additional setup after loading the view, typically from a nib.
+    
     configureSearchController()
+    fetchUpcomingList()
   }
 
+  func fetchUpcomingList() {
+   
+    let urlString = "https://api.themoviedb.org/3/movie/upcoming?api_key=\(Constants.TMDBParameterValues.ApiKey)&language=en-US&page=1&region=us"
+    let url = URL(string: urlString)!
+    
+    URLSession.shared.dataTask(with: url, completionHandler:{ (data, response, error) in
+      
+      if let error = error {
+        print(error)
+      } else {
+        
+        var parsedResult:[String:AnyObject]!
+        do {
+          
+          parsedResult = try JSONSerialization.jsonObject(with: data!, options: .allowFragments) as! [String:AnyObject]
+          
+          if let resultArry = parsedResult["results"] as? [[String:AnyObject]] {
+            
+            self.upcomingList = resultArry.map({
+              return ($0["title"] as? String ?? "")
+            })
+          }
+          
+          DispatchQueue.main.async {
+            self.tableView.reloadData()
+          }
+          
+        } catch let error {
+          print(error)
+        }
+      }
+      
+    }).resume()
+    
+  }
+  
   func configureSearchController() {
     searchController.searchResultsUpdater = self
     searchController.dimsBackgroundDuringPresentation = false
@@ -42,7 +81,7 @@ extension ViewController : UISearchResultsUpdating {
   }
   
   func performSearch(keyword :String) {
-    print("keyword : \(keyword)")
+    
     let optionalUrl = createURLWithKeyword(keyword: keyword)
     
     guard let url = optionalUrl else {
@@ -59,18 +98,13 @@ extension ViewController : UISearchResultsUpdating {
         do {
           
           parsedResult = try JSONSerialization.jsonObject(with: data!, options: .allowFragments) as! [String:AnyObject]
-          // print("parsedResult : \(parsedResult)")
+        
           if let resultArry = parsedResult["results"] as? [[String:AnyObject]] {
             
             self.titleList = resultArry.map({
               return ($0["title"] as? String ?? "")
             })
-            
-            print(self.titleList)
-            
-          } else {
-            self.titleList = []
-          }
+          } 
           
           DispatchQueue.main.async {
             self.tableView.reloadData()
@@ -91,7 +125,7 @@ extension ViewController : UISearchResultsUpdating {
     
     urlComponents.scheme = Constants.TMDB.ApiScheme
     urlComponents.host   = Constants.TMDB.ApiHost
-    urlComponents.path   = Constants.TMDB.ApiPath
+    urlComponents.path   = Constants.TMDB.ApiPathForSearch
     
     let apiQuery = URLQueryItem(name: Constants.TMDBParameterKeys.ApiKey, value: Constants.TMDBParameterValues.ApiKey)
     let searchQuery = URLQueryItem(name: Constants.TMDBParameterKeys.SearchKeyword, value: keyword)
@@ -105,14 +139,22 @@ extension ViewController : UISearchResultsUpdating {
 extension ViewController : UITableViewDataSource {
   
   func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-    return titleList.count
+    if searchController.isActive && searchController.searchBar.text != "" {
+      return titleList.count
+    }
+    return upcomingList.count
   }
   
   func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
     
     let cell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath)
-    cell.textLabel?.text = titleList[indexPath.row]
     
+    if searchController.isActive && searchController.searchBar.text != "" {
+      cell.textLabel?.text = titleList[indexPath.row]
+    } else {
+      cell.textLabel?.text = upcomingList[indexPath.row]
+    }
+  
     return cell
   }
 }

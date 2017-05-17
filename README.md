@@ -43,6 +43,12 @@ This repository is inspired by Allen Wang's [30DaysofSwift](https://github.com/a
 <br />
 
 ![Alt text](GIFs/PullToRefresh.gif)
+
+**Project 10 - UISearchcontroller With RestAPI**
+<br />
+
+![Alt text](GIFs/SearchcontrollerWithRestAPI.gif)
+
 # Image Licence 
 
 These projects use icons from Icons8. Thank [Icons8](https://icons8.com/) for your hard work. 
