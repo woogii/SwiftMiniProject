@@ -39,7 +39,7 @@ This repository is inspired by Allen Wang's [30DaysofSwift](https://github.com/a
 
 ![Alt text](GIFs/SearchUIWithCustomTitleView.gif)
 
-**Project 08 - PullToRefresh**
+**Project 08 - PullToRefresh With RestAPI**
 <br />
 
 ![Alt text](GIFs/PullToRefresh.gif)
