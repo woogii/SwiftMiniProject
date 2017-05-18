@@ -25,7 +25,7 @@
                                 <rect key="frame" x="0.0" y="64" width="375" height="603"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <prototypes>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" id="1xv-Gm-0u3">
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="none" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="cell" id="1xv-Gm-0u3">
                                         <rect key="frame" x="0.0" y="28" width="375" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="1xv-Gm-0u3" id="wzp-od-YEE">
@@ -34,6 +34,10 @@
                                         </tableViewCellContentView>
                                     </tableViewCell>
                                 </prototypes>
+                                <connections>
+                                    <outlet property="dataSource" destination="BYZ-38-t0r" id="T5v-Lt-mCb"/>
+                                    <outlet property="delegate" destination="BYZ-38-t0r" id="JjQ-tl-ehT"/>
+                                </connections>
                             </tableView>
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -47,7 +51,7 @@
                     <navigationItem key="navigationItem" title="ToDo List" id="qAn-am-s8o">
                         <barButtonItem key="rightBarButtonItem" systemItem="add" id="txz-5b-pkO">
                             <connections>
-                                <segue destination="egb-IV-q2V" kind="show" id="cH5-JY-tnI"/>
+                                <action selector="tappedAddList:" destination="BYZ-38-t0r" id="lWZ-la-DJN"/>
                             </connections>
                         </barButtonItem>
                     </navigationItem>
@@ -62,7 +66,7 @@
         <!--New Item-->
         <scene sceneID="BYw-Nm-Ho0">
             <objects>
-                <viewController automaticallyAdjustsScrollViewInsets="NO" id="egb-IV-q2V" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="SetNotificationVC" automaticallyAdjustsScrollViewInsets="NO" id="egb-IV-q2V" customClass="SetNotificationViewController" customModule="Project09_ToDoList" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="Tww-Ra-6bb"/>
                         <viewControllerLayoutGuide type="bottom" id="FY3-cp-Kjb"/>
@@ -72,7 +76,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="cks-2v-pRn">
-                                <rect key="frame" x="15" y="78" width="345" height="140"/>
+                                <rect key="frame" x="15" y="34" width="345" height="140"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="140" id="d6F-aC-BuJ"/>
@@ -81,7 +85,7 @@
                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                             </textView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="GDU-Ha-Cma">
-                                <rect key="frame" x="15" y="233" width="345" height="45"/>
+                                <rect key="frame" x="15" y="189" width="345" height="45"/>
                                 <color key="backgroundColor" red="1" green="0.5" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="45" id="08Y-bx-UtZ"/>
