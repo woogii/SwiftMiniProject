@@ -44,7 +44,7 @@ This repository is inspired by Allen Wang's [30DaysofSwift](https://github.com/a
 
 ![Alt text](GIFs/PullToRefresh.gif)
 
-**Project 09 - Simple To-Do List with CoreDataStack **
+**Project 09 - Simple To-Do List with CoreDataStack**
 <br />
 
 ![Alt text](GIFs/ToDoList.gif)
