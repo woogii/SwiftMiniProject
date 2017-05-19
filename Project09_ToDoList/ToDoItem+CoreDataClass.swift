@@ -9,8 +9,12 @@
 import Foundation
 import CoreData
 
+// MARK : -  ToDoItem: NSManagedObject 
+
 public class ToDoItem: NSManagedObject {
 
+  // MARK : - Initialization
+  
   convenience init(title:String = "New Item", context: NSManagedObjectContext) {
     
     if let ent = NSEntityDescription.entity(forEntityName: "ToDoItem", in: context) {

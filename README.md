@@ -14,7 +14,7 @@ This repository is inspired by Allen Wang's [30DaysofSwift](https://github.com/a
 
 ![Alt text](GIFs/CardMemoryGameDemo.gif)
 
-**Project 03 - TagListCollectionView**
+**Project 03 - Tag List with Custom Flowlayout**
 <br />
 
 ![Alt text](GIFs/TagListCollectionView.gif)
@@ -34,7 +34,7 @@ This repository is inspired by Allen Wang's [30DaysofSwift](https://github.com/a
 
 ![Alt text](GIFs/ImageGallery2.gif)
 
-**Project 07 - SearchUIWithCustomTitleView**
+**Project 07 - Tokenized SearchField**
 <br />
 
 ![Alt text](GIFs/SearchUIWithCustomTitleView.gif)
@@ -43,6 +43,11 @@ This repository is inspired by Allen Wang's [30DaysofSwift](https://github.com/a
 <br />
 
 ![Alt text](GIFs/PullToRefresh.gif)
+
+**Project 09 - Simple To-Do List with CoreDataStack **
+<br />
+
+![Alt text](GIFs/ToDoList.gif)
 
 **Project 10 - UISearchcontroller With RestAPI**
 <br />
