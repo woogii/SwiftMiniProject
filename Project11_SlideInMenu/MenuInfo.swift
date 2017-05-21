@@ -16,11 +16,13 @@ struct MenuInfo {
   
   var iconImageName:String
   var title:String
+  var isSelected:Bool
   
   // MARK : - Initialization  
   
-  init(iconImageName:String, title:String) {
+  init(iconImageName:String, title:String, isSelected:Bool) {
     self.iconImageName = iconImageName
     self.title = title
+    self.isSelected = isSelected
   }
 }

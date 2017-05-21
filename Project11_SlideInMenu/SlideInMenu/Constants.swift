@@ -76,6 +76,17 @@ struct Constants {
   struct PostInformationTableViewCell {
     static let CornerRadius:CGFloat = 4
   }
+
+  // MARK : - Custom Colors 
   
+  struct CustomColors {
+    
+    static let PaleGrey = UIColor(red: 237.0/255.0, green: 243.0/255.0, blue: 245.0/255.0, alpha: 1.0)
+    
+  }
   
+  struct UserDefaultKeys {
+    static let SortType = "selectedSortType"
+  }
+
 }

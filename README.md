@@ -54,6 +54,11 @@ This repository is inspired by Allen Wang's [30DaysofSwift](https://github.com/a
 
 ![Alt text](GIFs/SearchcontrollerWithRestAPI.gif)
 
+**Project 11 - Slide-in Menu**
+<br />
+
+![Alt text](GIFs/SlideInMenu.gif)
+
 # Image Licence 
 
 These projects use icons from Icons8. Thank [Icons8](https://icons8.com/) for your hard work. 

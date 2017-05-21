@@ -22,7 +22,6 @@ class PostListViewController: UIViewController {
     return slideInMenu
   }()
  
-  
   // MARK : - View Life Cycle 
 
   override func viewDidLoad() {

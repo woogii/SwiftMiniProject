@@ -67,7 +67,7 @@ class SlideInMenu : NSObject {
   func initMenuInfoList() {
     
     for i in 0..<iconImageList.count {
-      let menu = MenuInfo(iconImageName: iconImageList[i], title: title[i])
+      let menu = MenuInfo(iconImageName: iconImageList[i], title: title[i], isSelected:false)
       menuInfoList.append(menu)
     }
   }
@@ -103,6 +103,8 @@ class SlideInMenu : NSObject {
   
   func showMenu() {
     
+    selectSortType()
+    
     if let window = UIApplication.shared.keyWindow {
       
       addSlideMenuSubViews(to: window)
@@ -116,6 +118,24 @@ class SlideInMenu : NSObject {
     
   }
 
+  func selectSortType() {
+    
+    if let index = UserDefaults.standard.value(forKey: Constants.UserDefaultKeys.SortType) as? Int {
+    
+      for i in 0..<menuInfoList.count {
+        
+        if index == i {
+          menuInfoList[i].isSelected = true
+        } else {
+          menuInfoList[i].isSelected = false
+        }
+      }
+      
+    }
+    
+    collectionView.reloadData()
+  }
+  
   func addSlideMenuSubViews(to window :UIWindow) {
     window.addSubview(opaqueView)
     window.addSubview(collectionView)
@@ -168,11 +188,7 @@ extension SlideInMenu : UICollectionViewDelegate, UICollectionViewDataSource {
     
     let cell = collectionView.dequeueReusableCell(withReuseIdentifier: cellId, for: indexPath) as! SlideMenuCollectionViewCell
     
-    let menuInfo = menuInfoList[indexPath.item]
-    
-    cell.iconImageView.image = UIImage(named:menuInfo.iconImageName) ?? UIImage()
-    cell.typeLabel.text = menuInfo.title
-    
+    cell.menuInfo = menuInfoList[indexPath.item]
     return cell
   }
   
@@ -186,7 +202,12 @@ extension SlideInMenu : UICollectionViewDelegate, UICollectionViewDataSource {
       }, completion: nil)
     }
   
+    persistSortType(index:indexPath.item)
     performSort(index: indexPath.item)
+  }
+  
+  func persistSortType(index:Int) {
+    UserDefaults.standard.set(index, forKey: Constants.UserDefaultKeys.SortType)
   }
   
   func performSort(index:Int) {

@@ -18,4 +18,24 @@ class SlideMenuCollectionViewCell : UICollectionViewCell {
   @IBOutlet weak var contentsView: UIView!
   @IBOutlet weak var iconImageView: UIImageView!
   @IBOutlet weak var typeLabel: UILabel!
+  
+  var menuInfo: MenuInfo! {
+    didSet {
+      updateCell()
+    }
+  }
+  
+  func updateCell() {
+    
+    if menuInfo.isSelected == true {
+     contentsView.backgroundColor = Constants.CustomColors.PaleGrey
+    } else {
+      contentsView.backgroundColor = UIColor.white
+    }
+    
+    iconImageView.image = UIImage(named:menuInfo.iconImageName) ?? UIImage()
+    typeLabel.text = menuInfo.title
+
+    
+  }
 }
