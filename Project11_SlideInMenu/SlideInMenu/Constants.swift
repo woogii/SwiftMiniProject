@@ -42,6 +42,7 @@ struct Constants {
     static let Title = "title"
     static let PostImageName = "postImageName"
     static let UpvoteCount = "upvoteCount"
+    static let PostingDate = "date"
   }
   
   // MARK : - UIImage Resource Name

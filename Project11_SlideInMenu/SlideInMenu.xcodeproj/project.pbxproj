@@ -8,6 +8,10 @@
 
 /* Begin PBXBuildFile section */
 		B861E9B11ED176030069CA08 /* PostListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B861E9B01ED176030069CA08 /* PostListViewController.swift */; };
+		B861E9B31ED17AD10069CA08 /* SlideInMenu.swift in Sources */ = {isa = PBXBuildFile; fileRef = B861E9B21ED17AD10069CA08 /* SlideInMenu.swift */; };
+		B861E9B51ED17B2F0069CA08 /* SlideMenuCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = B861E9B41ED17B2F0069CA08 /* SlideMenuCollectionViewCell.xib */; };
+		B861E9B71ED17C410069CA08 /* SlideMenuCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B861E9B61ED17C410069CA08 /* SlideMenuCollectionViewCell.swift */; };
+		B861E9B91ED192B90069CA08 /* MenuInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = B861E9B81ED192B90069CA08 /* MenuInfo.swift */; };
 		B88835731EADABBA000F760E /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B88835721EADABBA000F760E /* AppDelegate.swift */; };
 		B88835781EADABBA000F760E /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B88835761EADABBA000F760E /* Main.storyboard */; };
 		B888357A1EADABBA000F760E /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B88835791EADABBA000F760E /* Assets.xcassets */; };
@@ -32,6 +36,10 @@
 
 /* Begin PBXFileReference section */
 		B861E9B01ED176030069CA08 /* PostListViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = PostListViewController.swift; path = SlideInMenu/PostListViewController.swift; sourceTree = "<group>"; };
+		B861E9B21ED17AD10069CA08 /* SlideInMenu.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SlideInMenu.swift; sourceTree = "<group>"; };
+		B861E9B41ED17B2F0069CA08 /* SlideMenuCollectionViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SlideMenuCollectionViewCell.xib; sourceTree = "<group>"; };
+		B861E9B61ED17C410069CA08 /* SlideMenuCollectionViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SlideMenuCollectionViewCell.swift; sourceTree = "<group>"; };
+		B861E9B81ED192B90069CA08 /* MenuInfo.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MenuInfo.swift; sourceTree = "<group>"; };
 		B888356F1EADABBA000F760E /* SlideInMenu.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SlideInMenu.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		B88835721EADABBA000F760E /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		B88835771EADABBA000F760E /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -123,6 +131,7 @@
 			isa = PBXGroup;
 			children = (
 				B88835991EADB80D000F760E /* PostInformation.swift */,
+				B861E9B81ED192B90069CA08 /* MenuInfo.swift */,
 			);
 			name = Model;
 			path = ..;
@@ -132,6 +141,9 @@
 			isa = PBXGroup;
 			children = (
 				B88835961EADB4DF000F760E /* PostInformationTableViewCell.swift */,
+				B861E9B21ED17AD10069CA08 /* SlideInMenu.swift */,
+				B861E9B61ED17C410069CA08 /* SlideMenuCollectionViewCell.swift */,
+				B861E9B41ED17B2F0069CA08 /* SlideMenuCollectionViewCell.xib */,
 			);
 			name = View;
 			path = ..;
@@ -249,6 +261,7 @@
 			files = (
 				B88835A41EADD3A9000F760E /* sampleJSONInput.json in Resources */,
 				B888357D1EADABBA000F760E /* LaunchScreen.storyboard in Resources */,
+				B861E9B51ED17B2F0069CA08 /* SlideMenuCollectionViewCell.xib in Resources */,
 				B888357A1EADABBA000F760E /* Assets.xcassets in Resources */,
 				B88835781EADABBA000F760E /* Main.storyboard in Resources */,
 			);
@@ -269,11 +282,14 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				B861E9B71ED17C410069CA08 /* SlideMenuCollectionViewCell.swift in Sources */,
 				B861E9B11ED176030069CA08 /* PostListViewController.swift in Sources */,
+				B861E9B91ED192B90069CA08 /* MenuInfo.swift in Sources */,
 				B888359C1EADC09A000F760E /* Constants.swift in Sources */,
 				B888359A1EADB80D000F760E /* PostInformation.swift in Sources */,
 				B88835971EADB4DF000F760E /* PostInformationTableViewCell.swift in Sources */,
 				B88835731EADABBA000F760E /* AppDelegate.swift in Sources */,
+				B861E9B31ED17AD10069CA08 /* SlideInMenu.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

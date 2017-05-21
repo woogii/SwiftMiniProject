@@ -18,15 +18,15 @@ struct PostInformation {
   var title:String
   var postImage:UIImage
   var upvoteCount:Int
+  var postingDate:Date
+  let dateFormatter : DateFormatter = {
+    let dateFormatter = DateFormatter()
+    dateFormatter.dateFormat = "YYYY-MM-dd"
+    return dateFormatter
+  }()
   
   // MARK : - Initialization
-  
-  init(title:String, postImage:UIImage, upvoteCount:Int) {
-    self.title = title
-    self.postImage = postImage
-    self.upvoteCount = upvoteCount
-  }
-  
+
   init(dictionary:[String:Any]) {
     
     self.title = dictionary[Constants.JSONResponseKeys.Title] as? String ?? ""
@@ -37,24 +37,13 @@ struct PostInformation {
     } else {
       self.postImage = UIImage(named:Constants.ImageName.Default)!
     }
-  }
-  
-  // MARK : - Create Posting List 
-  
-  static func createPostList(_ jsonResults:[[String:AnyObject]])->[PostInformation] {
-  
-    var postList = [PostInformation]()
     
-    for result in jsonResults {
-      let post = PostInformation(dictionary: result)
-      postList.append(post)
+    if let dateString = dictionary[Constants.JSONResponseKeys.PostingDate] as? String {
+      self.postingDate = dateFormatter.date(from: dateString) ?? Date()
+    } else {
+      self.postingDate = Date.distantFuture
     }
     
-    // Sort the list by upvote 
-    return postList.sorted(by:{
-      return $0.upvoteCount > $1.upvoteCount
-    })
   }
-  
   
 }

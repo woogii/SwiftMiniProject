@@ -16,6 +16,12 @@ class PostListViewController: UIViewController {
   
   @IBOutlet weak var tableView: UITableView!
   var postList = [PostInformation]()
+  lazy var slideInMenu : SlideInMenu = {
+    let slideInMenu = SlideInMenu()
+    slideInMenu.postListVC = self
+    return slideInMenu
+  }()
+ 
   
   // MARK : - View Life Cycle 
 
@@ -57,17 +63,9 @@ class PostListViewController: UIViewController {
 
   @IBAction func tapRefreshButton(_ sender: UIBarButtonItem) {
  
-    // Sort Post Information List
-    postList = postList.sorted(by:{
-      return $0.upvoteCount > $1.upvoteCount
-    })
-      
-    DispatchQueue.main.async {
-      self.tableView.reloadData()
-      self.tableView.setContentOffset(CGPoint(x:0, y:0), animated: true)
-    }
-  }
+    slideInMenu.showMenu()
   
+  }
   
 }
 
