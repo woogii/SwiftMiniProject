@@ -59,6 +59,12 @@ This repository is inspired by Allen Wang's [30DaysofSwift](https://github.com/a
 
 ![Alt text](GIFs/SlideInMenu.gif)
 
+**Project 12 - Character Limit**
+<br />
+
+![Alt text](GIFs/CharacterLimit.gif)
+
+
 # Image Licence 
 
 These projects use icons from Icons8. Thank [Icons8](https://icons8.com/) for your hard work. 
