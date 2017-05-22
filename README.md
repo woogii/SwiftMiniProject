@@ -4,7 +4,7 @@ This repository is inspired by Allen Wang's [30DaysofSwift](https://github.com/a
 
 <br /> 
 
-**Project 01 - Bar Graph in CollectionView**
+**Project 01 - Bar Graph Animation**
 <br />
  
 ![Alt text](GIFs/animatedBarGraph.gif)
@@ -19,12 +19,12 @@ This repository is inspired by Allen Wang's [30DaysofSwift](https://github.com/a
 
 ![Alt text](GIFs/TagListCollectionView.gif)
 
-**Project 04 - CommentingSystemDemo**
+**Project 04 - CommentingSystem **
 <br />
 
 ![Alt text](GIFs/CommentingSystemDemo.gif)
 
-**Project 05 - StickyHeaderViewDemo**
+**Project 05 - StickyHeaderView **
 <br />
 
 ![Alt text](GIFs/StickyHeaderDemo.gif)
