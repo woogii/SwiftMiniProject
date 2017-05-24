@@ -18,7 +18,7 @@ This repository is inspired by Allen Wang's [30DaysofSwift](https://github.com/a
 **Project 03 - Tag List with Custom Flowlayout**
 <br />
 
-![Alt text](GIFs/TagListCollectionView.gif)
+![Alt text](GIFs/TagListWithCustomFlowLayout.gif)
 
 **Project 04 - CommentingSystem**
 <br />

@@ -23,6 +23,7 @@ class ViewController: UIViewController {
   @IBOutlet weak var tagFlowLayout: TagFlowLayout!
   @IBOutlet weak var tagCollectionViewHeightConstant: NSLayoutConstraint!
   @IBOutlet weak var inputTextField: UITextField!
+  @IBOutlet weak var confirmButton: UIButton!
   
   
   // MARK : - View Life Cycle
@@ -32,9 +33,18 @@ class ViewController: UIViewController {
     // Do any additional setup after loading the view, typically from a nib.
     configureCollectionViewCellNib()
     setFlowlayoutSectionInset()
+    setCollectionViewLayout()
+    configureConfirmButton()
+  }
+  
+  func setCollectionViewLayout() {
     tagListCollectionView.collectionViewLayout = tagFlowLayout
   }
   
+  func configureConfirmButton() {
+    confirmButton.layer.cornerRadius = confirmButton.frame.height/2
+    
+  }
   
   func configureCollectionViewCellNib() {
     

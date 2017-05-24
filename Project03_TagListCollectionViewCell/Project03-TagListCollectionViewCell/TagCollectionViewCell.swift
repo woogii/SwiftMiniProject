@@ -26,7 +26,7 @@ class TagCollectionViewCell: UICollectionViewCell {
     
     super.awakeFromNib()
     
-    containerView.backgroundColor = UIColor.red
+    containerView.backgroundColor = UIColor.lightGray
     containerView.layer.cornerRadius = 5
     containerViewMaxWidhtConstraint.constant = UIScreen.main.bounds.width
   }
