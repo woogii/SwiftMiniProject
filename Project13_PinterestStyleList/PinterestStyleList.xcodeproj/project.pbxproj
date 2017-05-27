@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		B80206D71ED9C04300DB8A2B /* CustomCollectionViewLayout.swift in Sources */ = {isa = PBXBuildFile; fileRef = B80206D61ED9C04300DB8A2B /* CustomCollectionViewLayout.swift */; };
 		B8CAF3D51EA0F054003D8A64 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8CAF3D41EA0F054003D8A64 /* AppDelegate.swift */; };
 		B8CAF3D71EA0F054003D8A64 /* ImageListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8CAF3D61EA0F054003D8A64 /* ImageListViewController.swift */; };
 		B8CAF3DA1EA0F054003D8A64 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B8CAF3D81EA0F054003D8A64 /* Main.storyboard */; };
@@ -44,6 +45,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		B80206D61ED9C04300DB8A2B /* CustomCollectionViewLayout.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CustomCollectionViewLayout.swift; sourceTree = "<group>"; };
 		B8CAF3D11EA0F054003D8A64 /* PinterestStyleList.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = PinterestStyleList.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		B8CAF3D41EA0F054003D8A64 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		B8CAF3D61EA0F054003D8A64 /* ImageListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageListViewController.swift; sourceTree = "<group>"; };
@@ -172,6 +174,7 @@
 			isa = PBXGroup;
 			children = (
 				B8CAF40F1EA2118F003D8A64 /* ImageListCollectionViewCell.swift */,
+				B80206D61ED9C04300DB8A2B /* CustomCollectionViewLayout.swift */,
 			);
 			name = View;
 			sourceTree = "<group>";
@@ -369,6 +372,7 @@
 				B8CAF40E1EA204C9003D8A64 /* DiscardableImageContent.swift in Sources */,
 				B8F582FD1EA703B300D8F669 /* RestClientConvenience.swift in Sources */,
 				B8CAF3D71EA0F054003D8A64 /* ImageListViewController.swift in Sources */,
+				B80206D71ED9C04300DB8A2B /* CustomCollectionViewLayout.swift in Sources */,
 				B8CAF3D51EA0F054003D8A64 /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
