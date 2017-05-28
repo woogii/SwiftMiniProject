@@ -8,12 +8,15 @@
 
 import UIKit
 
-protocol CustomLayoutDelegate : class {
+// MARK : - CustomLayoutDelegate
+
+protocol CustomLayoutDelegate {
   
   func collectionView(collectionView:UICollectionView, heightForPhotoAt indexPath:IndexPath, with width:CGFloat)->CGFloat
   
   func collectionView(collectionView:UICollectionView, heightForCaptionAt indexPath:IndexPath, with width:CGFloat)->CGFloat
 }
+
 // MARK : - CustomCollectionViewLayout: UICollectionViewLayout
 
 class CustomCollectionViewLayout: UICollectionViewLayout {
@@ -23,14 +26,16 @@ class CustomCollectionViewLayout: UICollectionViewLayout {
   var numberOfColumns:CGFloat = 2
   var cellPadding:CGFloat = 1.0
   var delegate : CustomLayoutDelegate?
-  
   private var contentHeight:CGFloat = 0.0
   private var contentWidth:CGFloat {
     let insets = collectionView!.contentInset
     return collectionView!.bounds.width - (insets.left + insets.right)
   }
-  
   private var attributesCache = [CustomCollectionViewLayoutAttributes]()
+  override var collectionViewContentSize: CGSize {
+    return CGSize(width: contentWidth, height: contentHeight)
+  }
+  
   
   override func prepare() {
     
@@ -83,10 +88,6 @@ class CustomCollectionViewLayout: UICollectionViewLayout {
   }
   
   
-  override var collectionViewContentSize: CGSize {
-    return CGSize(width: contentWidth, height: contentHeight)
-  }
-  
   override func layoutAttributesForElements(in rect: CGRect) -> [UICollectionViewLayoutAttributes]? {
     
     var layoutAttributes = [UICollectionViewLayoutAttributes]()
@@ -102,24 +103,4 @@ class CustomCollectionViewLayout: UICollectionViewLayout {
   
 }
 
-class CustomCollectionViewLayoutAttributes : UICollectionViewLayoutAttributes {
-  
-  var photoHeight:CGFloat = 0.0
-  
-  override func copy(with zone: NSZone? = nil) -> Any {
-    let copy = super.copy(with: zone) as! CustomCollectionViewLayoutAttributes
-    copy.photoHeight = photoHeight
-    return copy
-  }
-  
-  override func isEqual(_ object: Any?) -> Bool {
-    if let attributes = object as? CustomCollectionViewLayoutAttributes {
-      if attributes.photoHeight == photoHeight {
-        return super.isEqual(object)
-      }
-    }
-    
-    return false
-  }
-}
 

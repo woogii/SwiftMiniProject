@@ -167,8 +167,6 @@ class ImageListViewController: UICollectionViewController {
                     cell.backgroundImageView.image = backgroundImage
                     cell.profileImageView.image = profileImage
                     
-                    
-                    //self.collectionView?.collectionViewLayout.invalidateLayout()
                   }
                   
                 }, completion: nil)
@@ -202,10 +200,6 @@ class ImageListViewController: UICollectionViewController {
   override func scrollViewDidScroll(_ scrollView: UIScrollView) {
     
     if scrollView.contentSize.height > scrollView.frame.size.height {
-      
-      print("scrollview bound origin y : \(scrollView.bounds.origin.y)")
-      print("scrollview frame size height : \(scrollView.frame.size.height)")
-      print("scrollview contentSize height : \(scrollView.contentSize.height)")
       
       if scrollView.bounds.origin.y + scrollView.frame.size.height >= scrollView.contentSize.height {
         
@@ -258,6 +252,7 @@ class ImageListViewController: UICollectionViewController {
 }
 
 
+// MARK : - ImageListViewController : CustomLayoutDelegate 
 
 extension ImageListViewController : CustomLayoutDelegate {
   
@@ -273,24 +268,19 @@ extension ImageListViewController : CustomLayoutDelegate {
       return rect.size.height
     }
 
-    return 160.0
+    if indexPath.item % 2 == 0 {
+      return 200.0
+    } else if indexPath.item % 3 == 0 {
+      return 150.0
+    } else {
+      return 130.0
+    }
   }
   
   func collectionView(collectionView: UICollectionView, heightForCaptionAt indexPath: IndexPath, with width: CGFloat) -> CGFloat {
-    return 90
+    return 80
   }
 }
-// MARK : - ImageListViewController: UICollectionViewDelegateFlowLayout
-
-//extension ImageListViewController : UICollectionViewDelegateFlowLayout {
-//  
-//  func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
-//    
-//    return CGSize(width: collectionView.frame.size.width/Constants.ImageListVC.NumberOfColumns, height: Constants.ImageListCollectionViewCell.ImageListCollectionViewCelllHeight)
-//    
-//  }
-//  
-//}
 
 // MARK : - Date Extension
 

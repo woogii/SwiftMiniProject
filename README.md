@@ -65,6 +65,11 @@ This repository is inspired by Allen Wang's [30DaysofSwift](https://github.com/a
 
 ![Alt text](GIFs/CharacterLimit.gif)
 
+**Project 13 - PinterestStyleList(In progress)**
+<br />
+
+![Alt text](GIFs/PinterestStyleList.gif)
+
 
 ## Image Licence 
 
