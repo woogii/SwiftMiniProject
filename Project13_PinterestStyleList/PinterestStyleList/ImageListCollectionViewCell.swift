@@ -21,6 +21,7 @@ class ImageListCollectionViewCell: UICollectionViewCell {
   @IBOutlet weak var likeIconImageView: UIImageView!
   @IBOutlet weak var numberOfLikesLabel: UILabel!
   @IBOutlet weak var timeInfoLabel: UILabel!
+  @IBOutlet weak var backgroundImageViewHeightConstraint: NSLayoutConstraint!
 
   var taskToCancelifCellIsReused: URLSessionTask? {
     
@@ -68,5 +69,11 @@ class ImageListCollectionViewCell: UICollectionViewCell {
     profileImageView.layer.masksToBounds = true
   }
   
-
+  override func apply(_ layoutAttributes: UICollectionViewLayoutAttributes) {
+    super.apply(layoutAttributes)
+    
+    if let attributes = layoutAttributes as? CustomCollectionViewLayoutAttributes {
+        backgroundImageViewHeightConstraint.constant  = attributes.photoHeight
+    }
+  }
 }

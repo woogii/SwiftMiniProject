@@ -14,26 +14,21 @@
         <scene sceneID="9xt-RU-gXg">
             <objects>
                 <collectionViewController storyboardIdentifier="ImageListVC" id="3dg-QC-03n" customClass="ImageListViewController" customModule="PinterestStyleList" customModuleProvider="target" sceneMemberID="viewController">
-                    <collectionView key="view" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" id="eci-Ix-XPz">
+                    <collectionView key="view" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" misplaced="YES" dataMode="prototypes" id="eci-Ix-XPz">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" red="0.8980392157" green="0.8980392157" blue="0.8980392157" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                        <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="5" minimumInteritemSpacing="0.0" id="TD1-lA-e8W">
-                            <size key="itemSize" width="185" height="220"/>
-                            <size key="headerReferenceSize" width="0.0" height="0.0"/>
-                            <size key="footerReferenceSize" width="0.0" height="0.0"/>
-                            <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
-                        </collectionViewFlowLayout>
+                        <collectionViewLayout key="collectionViewLayout" id="9Sm-tZ-hkK" customClass="CustomCollectionViewLayout" customModule="PinterestStyleList" customModuleProvider="target"/>
                         <cells>
                             <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="imageListCollectionViewCell" id="p35-Ra-8mc" customClass="ImageListCollectionViewCell" customModule="PinterestStyleList" customModuleProvider="target">
-                                <rect key="frame" x="0.0" y="0.0" width="185" height="220"/>
+                                <rect key="frame" x="0.0" y="0.0" width="177" height="230"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
-                                    <rect key="frame" x="0.0" y="0.0" width="185" height="220"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="177" height="230"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
                                         <view clipsSubviews="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="rXK-nd-NQD">
-                                            <rect key="frame" x="8" y="4" width="169" height="216"/>
+                                            <rect key="frame" x="8" y="4" width="161" height="226"/>
                                         </view>
                                         <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="lq1-Pl-cFU">
                                             <rect key="frame" x="15" y="161" width="24" height="24"/>
@@ -43,7 +38,7 @@
                                             </constraints>
                                         </imageView>
                                         <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="zUl-dH-qVM">
-                                            <rect key="frame" x="8" y="4" width="169" height="147"/>
+                                            <rect key="frame" x="8" y="4" width="161" height="147"/>
                                             <constraints>
                                                 <constraint firstAttribute="height" constant="147" id="UgC-qs-aJd"/>
                                             </constraints>
@@ -74,7 +69,7 @@
                                             </constraints>
                                         </imageView>
                                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="dWH-iO-vSw">
-                                            <rect key="frame" x="8" y="190" width="169" height="1"/>
+                                            <rect key="frame" x="8" y="190" width="161" height="1"/>
                                             <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
                                             <constraints>
                                                 <constraint firstAttribute="height" constant="1" id="6Gy-uK-ZPU"/>
@@ -104,8 +99,10 @@
                                     <constraint firstItem="lq1-Pl-cFU" firstAttribute="leading" secondItem="p35-Ra-8mc" secondAttribute="leading" constant="15" id="zCS-O1-Ueh"/>
                                     <constraint firstAttribute="leadingMargin" secondItem="zUl-dH-qVM" secondAttribute="leading" id="zRF-XH-rSU"/>
                                 </constraints>
+                                <size key="customSize" width="177" height="230"/>
                                 <connections>
                                     <outlet property="backgroundImageView" destination="zUl-dH-qVM" id="PLl-bx-skA"/>
+                                    <outlet property="backgroundImageViewHeightConstraint" destination="UgC-qs-aJd" id="hgd-z3-fm8"/>
                                     <outlet property="contentBackgroundView" destination="rXK-nd-NQD" id="hDc-py-CUS"/>
                                     <outlet property="creatorLabel" destination="Uve-5r-bku" id="F2i-Wq-gfA"/>
                                     <outlet property="likeIconImageView" destination="gP6-5Z-b5q" id="WFT-cB-pQt"/>
@@ -127,7 +124,7 @@
                 </collectionViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="2iT-QE-iPT" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1156" y="146"/>
+            <point key="canvasLocation" x="1156" y="145.27736131934034"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="cNt-EI-01G">

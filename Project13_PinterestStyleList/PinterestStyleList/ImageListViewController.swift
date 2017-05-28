@@ -7,6 +7,8 @@
 //
 
 import UIKit
+import Foundation
+import AVFoundation
 
 // MARK : - ImageListViewController: UICollectionViewController
 
@@ -37,6 +39,11 @@ class ImageListViewController: UICollectionViewController {
     
     addRefreshControl()
     loadDataFromBundle()
+    
+    collectionView?.contentInset = UIEdgeInsets(top: 12, left: 0, bottom: 12, right: 0)
+    if let layout = collectionView?.collectionViewLayout as? CustomCollectionViewLayout {
+      layout.delegate = self
+    }
   }
   
   func addRefreshControl() {
@@ -159,6 +166,9 @@ class ImageListViewController: UICollectionViewController {
                   DispatchQueue.main.async {
                     cell.backgroundImageView.image = backgroundImage
                     cell.profileImageView.image = profileImage
+                    
+                    
+                    //self.collectionView?.collectionViewLayout.invalidateLayout()
                   }
                   
                 }, completion: nil)
@@ -192,6 +202,10 @@ class ImageListViewController: UICollectionViewController {
   override func scrollViewDidScroll(_ scrollView: UIScrollView) {
     
     if scrollView.contentSize.height > scrollView.frame.size.height {
+      
+      print("scrollview bound origin y : \(scrollView.bounds.origin.y)")
+      print("scrollview frame size height : \(scrollView.frame.size.height)")
+      print("scrollview contentSize height : \(scrollView.contentSize.height)")
       
       if scrollView.bounds.origin.y + scrollView.frame.size.height >= scrollView.contentSize.height {
         
@@ -239,19 +253,44 @@ class ImageListViewController: UICollectionViewController {
       }
     }
   }
+  
+  
 }
 
-// MARK : - ImageListViewController: UICollectionViewDelegateFlowLayout
 
-extension ImageListViewController : UICollectionViewDelegateFlowLayout {
+
+extension ImageListViewController : CustomLayoutDelegate {
   
-  func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
+  func collectionView(collectionView: UICollectionView, heightForPhotoAt indexPath: IndexPath, with width: CGFloat) -> CGFloat {
     
-    return CGSize(width: collectionView.frame.size.width/Constants.ImageListVC.NumberOfColumns, height: Constants.ImageListCollectionViewCell.ImageListCollectionViewCelllHeight)
+    let post = posts[indexPath.item]
+    let boundingRect = CGRect(x: 0, y: 0, width: width, height: CGFloat(MAXFLOAT))
     
+
+    if let image = post.backgroundImage {
+      
+      let rect = AVMakeRect(aspectRatio: image.size, insideRect: boundingRect)
+      return rect.size.height
+    }
+
+    return 160.0
   }
   
+  func collectionView(collectionView: UICollectionView, heightForCaptionAt indexPath: IndexPath, with width: CGFloat) -> CGFloat {
+    return 90
+  }
 }
+// MARK : - ImageListViewController: UICollectionViewDelegateFlowLayout
+
+//extension ImageListViewController : UICollectionViewDelegateFlowLayout {
+//  
+//  func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
+//    
+//    return CGSize(width: collectionView.frame.size.width/Constants.ImageListVC.NumberOfColumns, height: Constants.ImageListCollectionViewCell.ImageListCollectionViewCelllHeight)
+//    
+//  }
+//  
+//}
 
 // MARK : - Date Extension
 
