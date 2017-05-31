@@ -70,6 +70,10 @@ This repository is inspired by Allen Wang's [30DaysofSwift](https://github.com/a
 
 ![Alt text](GIFs/PinterestStyleList.gif)
 
+**Project 14 - Carousel Style**
+<br />
+
+![Alt text](GIFs/Carousel.gif)
 
 ## Image Licence 
 
