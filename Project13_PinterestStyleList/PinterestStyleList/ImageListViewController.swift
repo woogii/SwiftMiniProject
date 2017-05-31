@@ -167,6 +167,8 @@ class ImageListViewController: UICollectionViewController {
                     cell.backgroundImageView.image = backgroundImage
                     cell.profileImageView.image = profileImage
                     
+                    self.collectionView?.collectionViewLayout.invalidateLayout()
+                    
                   }
                   
                 }, completion: nil)
@@ -268,13 +270,14 @@ extension ImageListViewController : CustomLayoutDelegate {
       return rect.size.height
     }
 
-    if indexPath.item % 2 == 0 {
-      return 200.0
-    } else if indexPath.item % 3 == 0 {
-      return 150.0
-    } else {
-      return 130.0
-    }
+    return 0
+//    if indexPath.item % 2 == 0 {
+//      return 200.0
+//    } else if indexPath.item % 3 == 0 {
+//      return 150.0
+//    } else {
+//      return 130.0
+//    }
   }
   
   func collectionView(collectionView: UICollectionView, heightForCaptionAt indexPath: IndexPath, with width: CGFloat) -> CGFloat {

@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="11762" systemVersion="16F73" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="n2H-TT-4xh">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11757"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--Carousel View Controller-->
+        <scene sceneID="0B9-cl-U32">
+            <objects>
+                <collectionViewController id="n2H-TT-4xh" customClass="CarouselViewController" customModule="Carousel" customModuleProvider="target" sceneMemberID="viewController">
+                    <collectionView key="view" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" id="dji-lU-QZd">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="aOE-te-ggC">
+                            <size key="itemSize" width="300" height="400"/>
+                            <size key="headerReferenceSize" width="0.0" height="0.0"/>
+                            <size key="footerReferenceSize" width="0.0" height="0.0"/>
+                            <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
+                        </collectionViewFlowLayout>
+                        <cells>
+                            <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" id="OFg-Jd-Vgt" customClass="CarouselCollectionViewCell" customModule="Carousel" customModuleProvider="target">
+                                <rect key="frame" x="38" y="0.0" width="300" height="400"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
+                                    <rect key="frame" x="0.0" y="0.0" width="300" height="400"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                    <subviews>
+                                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="JTv-vh-3j3">
+                                            <rect key="frame" x="0.0" y="0.0" width="300" height="400"/>
+                                        </imageView>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Carousel Effect" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="EmM-rj-fOr">
+                                            <rect key="frame" x="89" y="189.5" width="123" height="21"/>
+                                            <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="17"/>
+                                            <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                    </subviews>
+                                </view>
+                                <constraints>
+                                    <constraint firstItem="EmM-rj-fOr" firstAttribute="centerY" secondItem="OFg-Jd-Vgt" secondAttribute="centerY" id="1CD-P9-0O2"/>
+                                    <constraint firstAttribute="bottom" secondItem="JTv-vh-3j3" secondAttribute="bottom" id="9Yi-Oz-LHw"/>
+                                    <constraint firstItem="JTv-vh-3j3" firstAttribute="top" secondItem="OFg-Jd-Vgt" secondAttribute="top" id="S3f-YB-S7X"/>
+                                    <constraint firstAttribute="trailing" secondItem="JTv-vh-3j3" secondAttribute="trailing" id="bV5-wF-zKp"/>
+                                    <constraint firstItem="EmM-rj-fOr" firstAttribute="centerX" secondItem="OFg-Jd-Vgt" secondAttribute="centerX" id="dct-wP-oqo"/>
+                                    <constraint firstItem="JTv-vh-3j3" firstAttribute="leading" secondItem="OFg-Jd-Vgt" secondAttribute="leading" id="sKD-b1-nwb"/>
+                                </constraints>
+                                <connections>
+                                    <outlet property="backgroundImageView" destination="JTv-vh-3j3" id="xa6-Ti-spp"/>
+                                    <outlet property="titleLabel" destination="EmM-rj-fOr" id="NMQ-zs-sZV"/>
+                                </connections>
+                            </collectionViewCell>
+                        </cells>
+                        <connections>
+                            <outlet property="dataSource" destination="n2H-TT-4xh" id="SCE-LK-h7g"/>
+                            <outlet property="delegate" destination="n2H-TT-4xh" id="SSS-Pn-xNo"/>
+                        </connections>
+                    </collectionView>
+                </collectionViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="zcL-EA-a2B" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-111.2" y="90.404797601199405"/>
+        </scene>
+    </scenes>
+</document>

@@ -101,6 +101,11 @@ class CustomCollectionViewLayout: UICollectionViewLayout {
     return layoutAttributes
   }
   
+  override func layoutAttributesForItem(at indexPath: IndexPath) -> UICollectionViewLayoutAttributes? {
+    return self.attributesCache[indexPath.item]
+  }
+  
+  
 }
 
 
