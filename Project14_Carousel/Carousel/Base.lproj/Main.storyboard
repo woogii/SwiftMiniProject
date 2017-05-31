@@ -16,15 +16,19 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                        <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="aOE-te-ggC">
+                        <collectionViewFlowLayout key="collectionViewLayout" scrollDirection="horizontal" minimumLineSpacing="10" minimumInteritemSpacing="10" id="aOE-te-ggC">
                             <size key="itemSize" width="300" height="400"/>
                             <size key="headerReferenceSize" width="0.0" height="0.0"/>
                             <size key="footerReferenceSize" width="0.0" height="0.0"/>
                             <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
                         </collectionViewFlowLayout>
+                        <imageView key="backgroundView" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="img9" id="QCy-eZ-cU4">
+                            <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                        </imageView>
                         <cells>
-                            <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" id="OFg-Jd-Vgt" customClass="CarouselCollectionViewCell" customModule="Carousel" customModuleProvider="target">
-                                <rect key="frame" x="38" y="0.0" width="300" height="400"/>
+                            <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="cell" id="OFg-Jd-Vgt" customClass="CarouselCollectionViewCell" customModule="Carousel" customModuleProvider="target">
+                                <rect key="frame" x="0.0" y="134" width="300" height="400"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
                                     <rect key="frame" x="0.0" y="0.0" width="300" height="400"/>
@@ -33,8 +37,19 @@
                                         <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="JTv-vh-3j3">
                                             <rect key="frame" x="0.0" y="0.0" width="300" height="400"/>
                                         </imageView>
+                                        <visualEffectView opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Q88-rf-AXT">
+                                            <rect key="frame" x="0.0" y="340" width="300" height="60"/>
+                                            <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" id="d20-cw-gff">
+                                                <rect key="frame" x="0.0" y="0.0" width="300" height="60"/>
+                                                <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                                            </view>
+                                            <constraints>
+                                                <constraint firstAttribute="height" constant="60" id="Khn-LO-rok"/>
+                                            </constraints>
+                                            <blurEffect style="light"/>
+                                        </visualEffectView>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Carousel Effect" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="EmM-rj-fOr">
-                                            <rect key="frame" x="89" y="189.5" width="123" height="21"/>
+                                            <rect key="frame" x="89" y="359" width="123" height="21"/>
                                             <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="17"/>
                                             <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                             <nil key="highlightedColor"/>
@@ -42,15 +57,19 @@
                                     </subviews>
                                 </view>
                                 <constraints>
-                                    <constraint firstItem="EmM-rj-fOr" firstAttribute="centerY" secondItem="OFg-Jd-Vgt" secondAttribute="centerY" id="1CD-P9-0O2"/>
+                                    <constraint firstAttribute="trailing" secondItem="Q88-rf-AXT" secondAttribute="trailing" id="2mJ-Ui-u2y"/>
                                     <constraint firstAttribute="bottom" secondItem="JTv-vh-3j3" secondAttribute="bottom" id="9Yi-Oz-LHw"/>
+                                    <constraint firstAttribute="bottom" secondItem="Q88-rf-AXT" secondAttribute="bottom" id="De1-bj-C0b"/>
+                                    <constraint firstAttribute="bottom" secondItem="EmM-rj-fOr" secondAttribute="bottom" constant="20" id="PDd-rx-uOI"/>
                                     <constraint firstItem="JTv-vh-3j3" firstAttribute="top" secondItem="OFg-Jd-Vgt" secondAttribute="top" id="S3f-YB-S7X"/>
                                     <constraint firstAttribute="trailing" secondItem="JTv-vh-3j3" secondAttribute="trailing" id="bV5-wF-zKp"/>
                                     <constraint firstItem="EmM-rj-fOr" firstAttribute="centerX" secondItem="OFg-Jd-Vgt" secondAttribute="centerX" id="dct-wP-oqo"/>
                                     <constraint firstItem="JTv-vh-3j3" firstAttribute="leading" secondItem="OFg-Jd-Vgt" secondAttribute="leading" id="sKD-b1-nwb"/>
+                                    <constraint firstItem="Q88-rf-AXT" firstAttribute="leading" secondItem="OFg-Jd-Vgt" secondAttribute="leading" id="xdL-i9-3Sq"/>
                                 </constraints>
                                 <connections>
                                     <outlet property="backgroundImageView" destination="JTv-vh-3j3" id="xa6-Ti-spp"/>
+                                    <outlet property="lowerVisualEffectView" destination="Q88-rf-AXT" id="2HO-HM-3DR"/>
                                     <outlet property="titleLabel" destination="EmM-rj-fOr" id="NMQ-zs-sZV"/>
                                 </connections>
                             </collectionViewCell>
@@ -60,10 +79,16 @@
                             <outlet property="delegate" destination="n2H-TT-4xh" id="SSS-Pn-xNo"/>
                         </connections>
                     </collectionView>
+                    <connections>
+                        <outlet property="vcBackgroundImageView" destination="QCy-eZ-cU4" id="FYF-4F-MxW"/>
+                    </connections>
                 </collectionViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="zcL-EA-a2B" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="-111.2" y="90.404797601199405"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="img9" width="2208" height="2208"/>
+    </resources>
 </document>

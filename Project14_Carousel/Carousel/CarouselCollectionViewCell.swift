@@ -16,6 +16,31 @@ class CarouselCollectionViewCell: UICollectionViewCell {
   
   @IBOutlet weak var backgroundImageView: UIImageView!
   @IBOutlet weak var titleLabel: UILabel!
+  @IBOutlet weak var lowerVisualEffectView: UIVisualEffectView!
+  private let cornerRadiusValue:CGFloat = 5.0
   
+  var carouselItem : CarouselItem! {
+    didSet {
+      updateUI()
+    }
+  }
   
+  override func awakeFromNib() {
+    super.awakeFromNib()
+    setViewCornerRadius()
+  }
+  
+  func setViewCornerRadius() {
+    contentView.layer.cornerRadius = cornerRadiusValue
+    contentView.layer.masksToBounds = true
+    contentView.clipsToBounds = true
+  }
+  
+  // MARK : Update Cell  
+  
+  func updateUI() {
+    
+    backgroundImageView.image = UIImage(named: carouselItem.imageName)
+    titleLabel.text = carouselItem.title
+  }
 }

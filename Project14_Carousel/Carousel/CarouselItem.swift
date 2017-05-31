@@ -8,6 +8,7 @@
 
 import Foundation
 
+
 // MARK : - CarouselItem
 
 struct CarouselItem {
@@ -17,9 +18,11 @@ struct CarouselItem {
   var imageName:String
   var title:String
   
+  // MARK : - Initialization
+  
   init?(dictionary:[String:Any]) {
   
-    guard let imageName = dictionary["image"] as? String, let title = dictionary["title"] as? String else {
+    guard let imageName = dictionary[Constants.JSONKeys.Image] as? String, let title = dictionary[Constants.JSONKeys.Title] as? String else {
       return nil
     }
     
@@ -27,9 +30,11 @@ struct CarouselItem {
     self.title = title
   }
   
+  // MARK : - Fetch JSON Data
+  
   static func getCarouselItemListFromBundle() -> [CarouselItem]? {
     
-    guard let url = Bundle.main.url(forResource: "items", withExtension: "json") else {
+    guard let url = Bundle.main.url(forResource: Constants.ResourceName, withExtension: Constants.ResourceExtension) else {
       return nil
     }
     
@@ -39,7 +44,7 @@ struct CarouselItem {
       
       if let json = try JSONSerialization.jsonObject(with: jsonData, options: .allowFragments) as? [String:Any] {
 
-        if let dictionaryArray = json["items"] as? [[String:Any]] {
+        if let dictionaryArray = json[Constants.JSONKeys.Items] as? [[String:Any]] {
           
           let carouselItemList = dictionaryArray.flatMap({ dict in
             return CarouselItem.init(dictionary: dict)

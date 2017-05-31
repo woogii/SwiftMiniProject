@@ -16,6 +16,7 @@
 		B81431B61EDEDA78009650F2 /* CarouselCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B81431B51EDEDA78009650F2 /* CarouselCollectionViewCell.swift */; };
 		B81431BB1EDEDB5C009650F2 /* CarouselItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = B81431BA1EDEDB5C009650F2 /* CarouselItem.swift */; };
 		B81431BD1EDEDBE6009650F2 /* items.json in Resources */ = {isa = PBXBuildFile; fileRef = B81431BC1EDEDBE6009650F2 /* items.json */; };
+		B81431C01EDF262A009650F2 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = B81431BF1EDF262A009650F2 /* Constants.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -42,6 +43,7 @@
 		B81431B51EDEDA78009650F2 /* CarouselCollectionViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CarouselCollectionViewCell.swift; sourceTree = "<group>"; };
 		B81431BA1EDEDB5C009650F2 /* CarouselItem.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CarouselItem.swift; sourceTree = "<group>"; };
 		B81431BC1EDEDBE6009650F2 /* items.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = items.json; sourceTree = "<group>"; };
+		B81431BF1EDF262A009650F2 /* Constants.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -83,6 +85,7 @@
 		B81431931EDECC0A009650F2 /* Carousel */ = {
 			isa = PBXGroup;
 			children = (
+				B81431BE1EDF2613009650F2 /* Constant */,
 				B81431B91EDEDAB5009650F2 /* Model */,
 				B81431B81EDEDA88009650F2 /* View */,
 				B81431B71EDEDA83009650F2 /* Controller */,
@@ -135,6 +138,14 @@
 				B81431BA1EDEDB5C009650F2 /* CarouselItem.swift */,
 			);
 			name = Model;
+			sourceTree = "<group>";
+		};
+		B81431BE1EDF2613009650F2 /* Constant */ = {
+			isa = PBXGroup;
+			children = (
+				B81431BF1EDF262A009650F2 /* Constants.swift */,
+			);
+			name = Constant;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -243,6 +254,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				B81431C01EDF262A009650F2 /* Constants.swift in Sources */,
 				B81431971EDECC0A009650F2 /* CarouselViewController.swift in Sources */,
 				B81431B61EDEDA78009650F2 /* CarouselCollectionViewCell.swift in Sources */,
 				B81431BB1EDEDB5C009650F2 /* CarouselItem.swift in Sources */,
