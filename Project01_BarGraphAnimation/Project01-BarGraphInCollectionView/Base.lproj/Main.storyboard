@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="11762" systemVersion="16A323" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="rbG-MH-vZz">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="11762" systemVersion="16F73" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="rbG-MH-vZz">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
@@ -9,7 +9,7 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--AnimatedBarGraph-->
+        <!--BarGraphAnimation-->
         <scene sceneID="tne-QT-ifu">
             <objects>
                 <viewController automaticallyAdjustsScrollViewInsets="NO" id="BYZ-38-t0r" customClass="ViewController" customModule="Project01_BarGraphInCollectionView" customModuleProvider="target" sceneMemberID="viewController">
@@ -37,7 +37,7 @@
                                         <rect key="frame" x="0.0" y="-8" width="376" height="380.5"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
-                                            <rect key="frame" x="0.0" y="0.0" width="376" height="380.5"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="376" height="380"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="OAt-aD-PY7">
@@ -232,7 +232,7 @@
                             </mask>
                         </variation>
                     </view>
-                    <navigationItem key="navigationItem" title="AnimatedBarGraph" id="Qdb-HJ-lom"/>
+                    <navigationItem key="navigationItem" title="BarGraphAnimation" id="Qdb-HJ-lom"/>
                     <connections>
                         <outlet property="collectionView" destination="de7-YT-6MN" id="6gG-DH-51S"/>
                         <outlet property="pageControl" destination="mYA-Lc-IYQ" id="Bu4-ad-jFd"/>

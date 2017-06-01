@@ -67,6 +67,7 @@ struct Constants {
   struct SubmitNewTopicVC {
     static let MaximumTopicCount = 255
     static let EnterTopicDescription = "Please enter a topic description"
+    static let CountLimitReached = "Charater count limit reached"
     static let TopicIsSubmitted = "Your topic is submitted successfully"
   }
   

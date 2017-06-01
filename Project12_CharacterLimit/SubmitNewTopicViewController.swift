@@ -94,7 +94,9 @@ class SubmitNewTopicViewController : UIViewController {
     inputTextView.endEditing(true)
     
     if inputTextView.text.isEmpty {
-      showValidateErrorAlert()
+      showValidateErrorAlert(message: Constants.SubmitNewTopicVC.EnterTopicDescription)
+    } else if inputTextView.text.characters.count > Constants.SubmitNewTopicVC.MaximumTopicCount {
+      showValidateErrorAlert(message: Constants.SubmitNewTopicVC.CountLimitReached)
     } else {
       showSuccessAlert()
       let newTopic = PostInformation(title: inputTextView.text,postImage: UIImage(named:Constants.ImageName.Default)!,upvoteCount: 0)
@@ -104,9 +106,9 @@ class SubmitNewTopicViewController : UIViewController {
   
   // MARK : - Present AlertController
   
-  fileprivate func showValidateErrorAlert() {
+  fileprivate func showValidateErrorAlert(message:String) {
     
-    let alert = UIAlertController(title: "", message: Constants.SubmitNewTopicVC.EnterTopicDescription, preferredStyle: .alert)
+    let alert = UIAlertController(title: "", message: message, preferredStyle: .alert)
     let alertOkAction = UIAlertAction(title: Constants.Common.Ok, style: .default)
     alert.addAction(alertOkAction)
     
@@ -132,7 +134,7 @@ extension SubmitNewTopicViewController : UITextViewDelegate {
   
   func textView(_ textView: UITextView, shouldChangeTextIn range: NSRange, replacementText text: String) -> Bool {
     
-    print(textView.text.characters.count)
+    
     if text.characters.count == 0 {  // When the delete key is entered
       
       if textView.text.characters.count != 0 {  // Delete key is only allowed when texts exist

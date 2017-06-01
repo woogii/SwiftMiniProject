@@ -1,4 +1,4 @@
-# MindvalleyApplication 
+# Pinterest Style List
 
 This is a simple grid UI that shows a list of images with information associated with an image
 

@@ -5,72 +5,72 @@ This repository is inspired by Allen Wang's [30DaysofSwift](https://github.com/a
 ## Projects 
 <br /> 
 
-**Project 01 - Bar Graph Animation**
+**Project 01 - [Bar Graph Animation](https://github.com/woogii/SwiftMiniProject/tree/master/Project01_BarGraphAnimation)**
 <br />
  
-![Alt text](GIFs/animatedBarGraph.gif)
+![Alt text](GIFs/BarGraphAnimation.gif)
 
-**Project 02 - Card Memory Game**
+**Project 02 - [Card Memory Game](https://github.com/woogii/SwiftMiniProject/tree/master/Project02_CardMemoryGame)**
 <br />
 
 ![Alt text](GIFs/CardMemoryGameDemo.gif)
 
-**Project 03 - Tag List with Custom Flowlayout**
+**Project 03 - [Tag List with Custom Flowlayout](https://github.com/woogii/SwiftMiniProject/tree/master/Project03_TagListCollectionViewCell)**
 <br />
 
 ![Alt text](GIFs/TagListWithCustomFlowLayout.gif)
 
-**Project 04 - CommentingSystem**
+**Project 04 - [CommentingSystem](https://github.com/woogii/SwiftMiniProject/tree/master/Project04_CommentSystem)**
 <br />
 
 ![Alt text](GIFs/CommentingSystemDemo.gif)
 
-**Project 05 - StickyHeaderView**
+**Project 05 - [StickyHeaderView](https://github.com/woogii/SwiftMiniProject/tree/master/Project05_StickyHeaderView)**
 <br />
 
 ![Alt text](GIFs/StickyHeaderDemo.gif)
 
-**Project 06 - ImageGallery**
+**Project 06 - [ImageGallery](https://github.com/woogii/SwiftMiniProject/tree/master/Project06_ImageGallery)**
 <br />
 
 ![Alt text](GIFs/ImageGallery2.gif)
 
-**Project 07 - Tokenized SearchField**
+**Project 07 - [Tokenized SearchField](https://github.com/woogii/SwiftMiniProject/tree/master/Project07_TokenizedSearchField)**
 <br />
 
 ![Alt text](GIFs/SearchUIWithCustomTitleView.gif)
 
-**Project 08 - PullToRefresh With RestAPI**
+**Project 08 - [PullToRefresh With RestAPI](https://github.com/woogii/SwiftMiniProject/tree/master/Project08_PullToRefresh)**
 <br />
 
 ![Alt text](GIFs/PullToRefresh.gif)
 
-**Project 09 - Simple To-Do List with CoreDataStack**
+**Project 09 - [Simple To-Do List with CoreDataStack](https://github.com/woogii/SwiftMiniProject/tree/master/Project09_ToDoList)**
 <br />
 
 ![Alt text](GIFs/ToDoList.gif)
 
-**Project 10 - UISearchcontroller With RestAPI**
+**Project 10 - [UISearchcontroller With RestAPI](https://github.com/woogii/SwiftMiniProject/tree/master/Project10_SearchWithRestAPI)**
 <br />
 
 ![Alt text](GIFs/SearchcontrollerWithRestAPI.gif)
 
-**Project 11 - Slide-in Menu**
+**Project 11 - [Slide-in Menu](https://github.com/woogii/SwiftMiniProject/tree/master/Project11_SlideInMenu)**
 <br />
 
 ![Alt text](GIFs/SlideInMenu.gif)
 
-**Project 12 - Character Limit**
+**Project 12 - [Character Limit](https://github.com/woogii/SwiftMiniProject/tree/master/Project12_CharacterLimit)**
 <br />
 
 ![Alt text](GIFs/CharacterLimit.gif)
 
-**Project 13 - PinterestStyleList(In progress)**
+**Project 13 - [PinterestStyleList(In progress)](https://github.com/woogii/SwiftMiniProject/tree/master/Project13_PinterestStyleList)**
 <br />
 
 ![Alt text](GIFs/PinterestStyleList.gif)
 
-**Project 14 - Carousel Style**
+**Project 14 - [Carousel Style](https://github.com/woogii/SwiftMiniProject/tree/master/Project14_Carousel)**
 <br />
 
 ![Alt text](GIFs/Carousel.gif)
