@@ -13,7 +13,7 @@
         <!--Edit profile-->
         <scene sceneID="tne-QT-ifu">
             <objects>
-                <viewController id="BYZ-38-t0r" customClass="ViewController" customModule="MultipleImageSelection" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController automaticallyAdjustsScrollViewInsets="NO" id="BYZ-38-t0r" customClass="ViewController" customModule="MultipleImageSelection" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="y3c-jy-aDJ"/>
                         <viewControllerLayoutGuide type="bottom" id="wfy-db-euE"/>
@@ -22,25 +22,39 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="HLK-lU-XJy">
+                            <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" pagingEnabled="YES" dataMode="prototypes" prefetchingEnabled="NO" translatesAutoresizingMaskIntoConstraints="NO" id="HLK-lU-XJy">
                                 <rect key="frame" x="0.0" y="64" width="375" height="160"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="160" id="lVk-LC-tlh"/>
                                 </constraints>
-                                <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="XJi-fC-NPb">
-                                    <size key="itemSize" width="50" height="50"/>
+                                <collectionViewFlowLayout key="collectionViewLayout" scrollDirection="horizontal" minimumLineSpacing="0.0" minimumInteritemSpacing="0.0" id="XJi-fC-NPb">
+                                    <size key="itemSize" width="375" height="160"/>
                                     <size key="headerReferenceSize" width="0.0" height="0.0"/>
                                     <size key="footerReferenceSize" width="0.0" height="0.0"/>
                                     <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
                                 </collectionViewFlowLayout>
                                 <cells>
-                                    <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" id="mMg-Ri-WaH">
-                                        <rect key="frame" x="0.0" y="0.0" width="50" height="50"/>
+                                    <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="profileImageCell" id="mMg-Ri-WaH" customClass="ProfileImageCollectionViewCell" customModule="MultipleImageSelection" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="0.0" width="375" height="160"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
-                                            <rect key="frame" x="0.0" y="0.0" width="50" height="50"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="375" height="160"/>
                                             <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="QyP-1E-PlM">
+                                                    <rect key="frame" x="0.0" y="0.0" width="375" height="160"/>
+                                                </imageView>
+                                            </subviews>
                                         </view>
+                                        <constraints>
+                                            <constraint firstItem="QyP-1E-PlM" firstAttribute="leading" secondItem="mMg-Ri-WaH" secondAttribute="leading" id="JfM-KV-PLq"/>
+                                            <constraint firstItem="QyP-1E-PlM" firstAttribute="top" secondItem="mMg-Ri-WaH" secondAttribute="top" id="R2D-LR-wIw"/>
+                                            <constraint firstAttribute="trailing" secondItem="QyP-1E-PlM" secondAttribute="trailing" id="cdJ-40-wAS"/>
+                                            <constraint firstAttribute="bottom" secondItem="QyP-1E-PlM" secondAttribute="bottom" id="fLi-05-l7Q"/>
+                                        </constraints>
+                                        <connections>
+                                            <outlet property="profileImageView" destination="QyP-1E-PlM" id="NCj-q4-eCG"/>
+                                        </connections>
                                     </collectionViewCell>
                                 </cells>
                                 <connections>
@@ -48,9 +62,11 @@
                                     <outlet property="delegate" destination="BYZ-38-t0r" id="eaU-wS-tgb"/>
                                 </connections>
                             </collectionView>
-                            <pageControl opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" numberOfPages="3" translatesAutoresizingMaskIntoConstraints="NO" id="IGI-c0-QJT">
-                                <rect key="frame" x="168" y="190" width="39" height="37"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <pageControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" numberOfPages="3" translatesAutoresizingMaskIntoConstraints="NO" id="IGI-c0-QJT">
+                                <rect key="frame" x="152.5" y="193" width="70" height="37"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="70" id="ZND-Z4-lKc"/>
+                                </constraints>
                                 <color key="pageIndicatorTintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                             </pageControl>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="8hJ-of-HTw">
@@ -63,6 +79,9 @@
                                             <constraint firstAttribute="height" constant="48" id="kjm-Hk-B62"/>
                                         </constraints>
                                         <state key="normal" image="img_addCamera"/>
+                                        <connections>
+                                            <action selector="tappedAddProfileButton:" destination="BYZ-38-t0r" eventType="touchUpInside" id="SCI-mi-9OM"/>
+                                        </connections>
                                     </button>
                                 </subviews>
                                 <color key="backgroundColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
@@ -93,7 +112,7 @@
                                     <constraint firstAttribute="height" constant="1" id="hBM-fs-sFC"/>
                                 </constraints>
                             </view>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Bob" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Cir-F7-XR0">
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Woogii" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Cir-F7-XR0">
                                 <rect key="frame" x="101" y="283" width="259" height="18"/>
                                 <fontDescription key="fontDescription" type="system" weight="medium" pointSize="15"/>
                                 <color key="textColor" red="0.0" green="0.47843137250000001" blue="0.86274509799999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -108,7 +127,7 @@
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                             </textView>
-                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="m8r-P3-9hE">
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" allowsSelection="NO" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="m8r-P3-9hE">
                                 <rect key="frame" x="0.0" y="376" width="375" height="253"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <prototypes>
@@ -176,6 +195,7 @@
                             <constraint firstAttribute="trailing" secondItem="Cir-F7-XR0" secondAttribute="trailing" constant="15" id="GUR-X2-5dq"/>
                             <constraint firstItem="84x-Nq-CTS" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" constant="20" id="Het-jH-JdS"/>
                             <constraint firstAttribute="trailing" secondItem="8hJ-of-HTw" secondAttribute="trailing" id="LSF-e0-Uj1"/>
+                            <constraint firstItem="ieS-Vb-7yI" firstAttribute="top" secondItem="IGI-c0-QJT" secondAttribute="bottom" constant="40" id="MEP-kq-eVc"/>
                             <constraint firstItem="lck-tY-GCT" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" id="MX9-My-Xqg"/>
                             <constraint firstItem="84x-Nq-CTS" firstAttribute="top" secondItem="ieS-Vb-7yI" secondAttribute="bottom" constant="12" id="Nxn-DH-tGO"/>
                             <constraint firstItem="m8r-P3-9hE" firstAttribute="top" secondItem="lck-tY-GCT" secondAttribute="bottom" id="Pus-vH-iKC"/>
@@ -183,6 +203,7 @@
                             <constraint firstItem="4HH-jE-0gq" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" id="WHY-Aj-ujd"/>
                             <constraint firstItem="8hJ-of-HTw" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" id="hcp-QJ-wo1"/>
                             <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="m8r-P3-9hE" secondAttribute="bottom" constant="38" id="kVw-b2-B6X"/>
+                            <constraint firstItem="IGI-c0-QJT" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="kap-Kb-okQ"/>
                             <constraint firstItem="8hJ-of-HTw" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" id="l60-8b-oEL"/>
                             <constraint firstItem="Cir-F7-XR0" firstAttribute="leading" secondItem="84x-Nq-CTS" secondAttribute="trailing" constant="40" id="mMD-Ts-iSr"/>
                             <constraint firstItem="HLK-lU-XJy" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" id="n6b-A2-CTv"/>
@@ -195,6 +216,7 @@
                     </view>
                     <navigationItem key="navigationItem" title="Edit profile" id="5d5-pu-GgC"/>
                     <connections>
+                        <outlet property="addProfileButton" destination="2fu-5p-Ccu" id="VRr-UA-47N"/>
                         <outlet property="bioTextView" destination="lck-tY-GCT" id="o5F-vl-WtZ"/>
                         <outlet property="collectionView" destination="HLK-lU-XJy" id="UqH-7l-jCm"/>
                         <outlet property="pageControl" destination="IGI-c0-QJT" id="Jgw-cP-ivX"/>
