@@ -18,15 +18,19 @@ class ViewController: UIViewController {
   @IBOutlet weak var collectionView: UICollectionView!
   @IBOutlet weak var addProfileButton: UIButton!
   
+  
   let menuTitle = ["Location","Website","Birthday"]
   let menuDescription = ["Seoul, Korea","http://woogii.devport.co/","2016-09-25"]
-  let cellIdentifier = "cell"
-  let profileImageCellID = "profileImageCell"
+  
   lazy var selectedImages : [UIImage] = {
     let selectedImages = [UIImage]()
     return selectedImages
   }()
-  
+  lazy var imageEditTypeLauncher : ImageEditTypeLauncher = {
+    let launcher = ImageEditTypeLauncher()
+    launcher.delegate = self 
+    return launcher
+  }()
   lazy var pickerController : DKImagePickerController = {
     let pickerController = DKImagePickerController()
     pickerController.maxSelectableCount = 5
@@ -35,6 +39,7 @@ class ViewController: UIViewController {
     return pickerController
   }()
   
+    
   override func viewDidLoad() {
     super.viewDidLoad()
     
@@ -63,16 +68,16 @@ class ViewController: UIViewController {
     
     let actionsheet = UIAlertController(title: nil, message: nil, preferredStyle: .actionSheet)
     
-    let photoLibraryAction = UIAlertAction(title: "Choose from library", style: .default, handler: { action in
+    let photoLibraryAction = UIAlertAction(title: Constants.AlertTitle.PhotoLibrary, style: .default, handler: { action in
       self.showImagePicker()
     })
     
     actionsheet.addAction(photoLibraryAction)
     
-    let takePhotoAction = UIAlertAction(title: "Take Profile Photo", style: .default, handler: nil)
+    let takePhotoAction = UIAlertAction(title: Constants.AlertTitle.TakePhoto, style: .default, handler: nil)
     actionsheet.addAction(takePhotoAction)
     
-    let cancelAction = UIAlertAction(title:"Cancel", style:.cancel, handler:nil)
+    let cancelAction = UIAlertAction(title:Constants.AlertTitle.Cancel, style:.cancel, handler:nil)
     actionsheet.addAction(cancelAction)
     
     present(actionsheet, animated: true, completion: nil)
@@ -93,8 +98,6 @@ class ViewController: UIViewController {
           
           asset.fetchOriginalImage(true, completeBlock: { image, info in
             
-            //let fileName = self.fetchImageName(fileInfo: info)
-            //self.imageFileNames.append(fileName)
             self.selectedImages.append(image!)
             
           })
@@ -105,11 +108,8 @@ class ViewController: UIViewController {
         workGroup.notify(queue: DispatchQueue.main) {
           
           DispatchQueue.main.async {
-            //self.displayPictureAddViewBasedOn(hiddenStatus: true)
-            //self.displayDeleteAllImagesButtonBasedOn(hiddenStatus: false)
-            //self.setImageCountLabel(numberOfImage: self.selectedImages.count)
-            self.addProfileButton.isHidden = true
-            self.upperView.isHidden = true
+            
+            self.displayUIBaedOnImageCount(selectedImageCount: self.selectedImages.count)
             self.pageControl.numberOfPages = self.selectedImages.count
             self.collectionView?.reloadData()
           }
@@ -126,6 +126,65 @@ class ViewController: UIViewController {
     self.present(pickerController, animated: true) {}
   }
   
+  func showAlert(message:String) {
+    
+    let alertController = UIAlertController(title: "", message: message, preferredStyle: .alert)
+    
+    let okAction = UIAlertAction(title: Constants.AlertTitle.Confirm, style: .default, handler: nil)
+    alertController.addAction(okAction)
+    
+    let cancelAction = UIAlertAction(title: Constants.AlertTitle.Cancel, style: .cancel, handler: nil)
+    alertController.addAction(cancelAction)
+    
+    self.present(alertController, animated: true, completion: nil)
+    
+  }
+
+  func setPickerControllerImageConstraint(selectedImageCount:Int) {
+    pickerController.maxSelectableCount = Constants.MaxImageCount - selectedImageCount
+    pickerController.deselectAllAssets()
+  }
+  
+  func displayUIBaedOnImageCount(selectedImageCount:Int) {
+    
+    if selectedImageCount == 0 {
+      self.collectionView.isHidden = true
+      self.addProfileButton.isHidden = false
+      self.upperView.isHidden = false
+    } else {
+      self.addProfileButton.isHidden = true
+      self.upperView.isHidden = true
+      self.collectionView.isHidden = false
+    }
+
+  }
+}
+
+extension ViewController : ImageEditTypeLauncherDelegate {
+  
+  func performImageEditing(editTypIndex: ImageEditType, imageIndex: Int) {
+    
+    if editTypIndex == ImageEditType.modify {
+      
+      if selectedImages.count < Constants.MaxImageCount {
+        setPickerControllerImageConstraint(selectedImageCount: selectedImages.count)
+        showImagePicker()
+      } else {
+        showAlert(message: Constants.AlertMessage.MaximumImageCountReached)
+      }
+    } else {
+      
+      selectedImages.remove(at: imageIndex)
+      setPickerControllerImageConstraint(selectedImageCount: selectedImages.count)
+      displayUIBaedOnImageCount(selectedImageCount: selectedImages.count)
+      pageControl.numberOfPages = selectedImages.count
+      
+      DispatchQueue.main.async {
+          self.collectionView.reloadData()
+      }
+    }
+    
+  }
   
   
 }
@@ -138,7 +197,7 @@ extension ViewController : UITableViewDataSource {
   }
   
   func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-    let cell = tableView.dequeueReusableCell(withIdentifier: cellIdentifier, for: indexPath) as! ProfileInfoCell
+    let cell = tableView.dequeueReusableCell(withIdentifier: Constants.CellID.ProfileInfo, for: indexPath) as! ProfileInfoCell
     configureCell(cell: cell, indexPath: indexPath)
     return cell
   }
@@ -157,11 +216,25 @@ extension ViewController : UICollectionViewDataSource {
   
   func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
     
-    let cell = collectionView.dequeueReusableCell(withReuseIdentifier: profileImageCellID, for: indexPath) as! ProfileImageCollectionViewCell
-    cell.profileImageView.image = selectedImages[indexPath.row].resizeImage()
-  
+    let cell = collectionView.dequeueReusableCell(withReuseIdentifier: Constants.CellID.ProfileImage, for: indexPath) as! ProfileImageCollectionViewCell
+    configureProfileImageCell(cell: cell, indexPath: indexPath)
+    
     return cell
   }
+  
+  func configureProfileImageCell(cell:ProfileImageCollectionViewCell, indexPath:IndexPath) {
+    cell.profileImageView.image = selectedImages[indexPath.row].resizeImage()
+    cell.profileImageView.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(editImage(tapGestureRecognizer:))))
+    cell.profileImageView.isUserInteractionEnabled = true
+    cell.profileImageView.tag = indexPath.item
+  }
+  
+  func editImage(tapGestureRecognizer: UITapGestureRecognizer) {
+    let tappedImageView = tapGestureRecognizer.view as! UIImageView
+    let index = tappedImageView.tag
+    imageEditTypeLauncher.showEditType(imageIndex: index)
+  }
+  
 }
 
 extension ViewController : UIScrollViewDelegate {

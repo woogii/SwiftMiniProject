@@ -16,6 +16,8 @@
 		B816A3341EE2AEB500B2C97A /* ProfileInfoCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B816A3331EE2AEB500B2C97A /* ProfileInfoCell.swift */; };
 		B816A3361EE3086600B2C97A /* ProfileImageCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B816A3351EE3086600B2C97A /* ProfileImageCollectionViewCell.swift */; };
 		B816A33A1EE41D5E00B2C97A /* ImageEditTypeLauncher.swift in Sources */ = {isa = PBXBuildFile; fileRef = B816A3391EE41D5E00B2C97A /* ImageEditTypeLauncher.swift */; };
+		B816A33C1EE4F2CB00B2C97A /* ImageEditTypeCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B816A33B1EE4F2CB00B2C97A /* ImageEditTypeCell.swift */; };
+		B816A33E1EE5517F00B2C97A /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = B816A33D1EE5517F00B2C97A /* Constants.swift */; };
 		F5D76DEDC7D38083F6DB3325 /* Pods_MultipleImageSelection.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1ADA04524562B9CAEC57BA72 /* Pods_MultipleImageSelection.framework */; };
 /* End PBXBuildFile section */
 
@@ -45,6 +47,8 @@
 		B816A3331EE2AEB500B2C97A /* ProfileInfoCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProfileInfoCell.swift; sourceTree = "<group>"; };
 		B816A3351EE3086600B2C97A /* ProfileImageCollectionViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProfileImageCollectionViewCell.swift; sourceTree = "<group>"; };
 		B816A3391EE41D5E00B2C97A /* ImageEditTypeLauncher.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ImageEditTypeLauncher.swift; sourceTree = "<group>"; };
+		B816A33B1EE4F2CB00B2C97A /* ImageEditTypeCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ImageEditTypeCell.swift; sourceTree = "<group>"; };
+		B816A33D1EE5517F00B2C97A /* Constants.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 		C0AFCD0E27546C81C30A3705 /* Pods-MultipleImageSelection.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MultipleImageSelection.release.xcconfig"; path = "Pods/Target Support Files/Pods-MultipleImageSelection/Pods-MultipleImageSelection.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -109,9 +113,11 @@
 			children = (
 				B816A3131EE29D9E00B2C97A /* AppDelegate.swift */,
 				B816A3151EE29D9E00B2C97A /* ViewController.swift */,
+				B816A33D1EE5517F00B2C97A /* Constants.swift */,
 				B816A3331EE2AEB500B2C97A /* ProfileInfoCell.swift */,
 				B816A3351EE3086600B2C97A /* ProfileImageCollectionViewCell.swift */,
 				B816A3391EE41D5E00B2C97A /* ImageEditTypeLauncher.swift */,
+				B816A33B1EE4F2CB00B2C97A /* ImageEditTypeCell.swift */,
 				B816A3171EE29D9E00B2C97A /* Main.storyboard */,
 				B816A31A1EE29D9E00B2C97A /* Assets.xcassets */,
 				B816A31C1EE29D9E00B2C97A /* LaunchScreen.storyboard */,
@@ -289,7 +295,9 @@
 				B816A3141EE29D9E00B2C97A /* AppDelegate.swift in Sources */,
 				B816A3361EE3086600B2C97A /* ProfileImageCollectionViewCell.swift in Sources */,
 				B816A33A1EE41D5E00B2C97A /* ImageEditTypeLauncher.swift in Sources */,
+				B816A33E1EE5517F00B2C97A /* Constants.swift in Sources */,
 				B816A3341EE2AEB500B2C97A /* ProfileInfoCell.swift in Sources */,
+				B816A33C1EE4F2CB00B2C97A /* ImageEditTypeCell.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
