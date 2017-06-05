@@ -75,6 +75,11 @@ This repository is inspired by Allen Wang's [30DaysofSwift](https://github.com/a
 
 ![Alt text](GIFs/Carousel.gif)
 
+**Project 15 - [Multiple Images Selection](https://github.com/woogii/SwiftMiniProject/tree/master/Project15_MultipleImageSelection)**
+<br />
+
+![Alt text](GIFs/MultipleImageSelection.gif)
+
 ## Image Licence 
 
 These projects use icons from Icons8. Thank [Icons8](https://icons8.com/) for your hard work. 
