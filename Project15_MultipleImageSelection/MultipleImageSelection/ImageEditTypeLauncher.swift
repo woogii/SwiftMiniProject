@@ -10,12 +10,14 @@ import Foundation
 import UIKit
 
 
-// MARK : - ImageEditTypeLauncherDelegate
+// MARK : - ImageEditTypeLauncherDelegate (Protocol)
   
 protocol ImageEditTypeLauncherDelegate {
   
   func performImageEditing(editTypIndex :ImageEditType, imageIndex:Int)
 }
+
+// MARK : - ImageEditType (Enum)
 
 enum ImageEditType {
   case modify
