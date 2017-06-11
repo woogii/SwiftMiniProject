@@ -65,7 +65,7 @@ This repository is inspired by Allen Wang's [30DaysofSwift](https://github.com/a
 
 ![Alt text](GIFs/CharacterLimit.gif)
 
-**Project 13 - [PinterestStyleList(In progress)](https://github.com/woogii/SwiftMiniProject/tree/master/Project13_PinterestStyleList)**
+**Project 13 - [PinterestStyleList (In progress)](https://github.com/woogii/SwiftMiniProject/tree/master/Project13_PinterestStyleList)**
 <br />
 
 ![Alt text](GIFs/PinterestStyleList.gif)
@@ -105,6 +105,8 @@ These projects use icons from Icons8. Thank [Icons8](https://icons8.com/) for yo
 [Natasha The Robot](https://www.natashatherobot.com/)
 
 [Objc](https://www.objc.io/)
+
+[Code & Trick](https://codentrick.com/create-a-tag-flow-layout-with-uicollectionview/)
 
 ## Compatibility 
 The code of this project works in Swift3.0, Xcode 8.2.1 and iOS9 
