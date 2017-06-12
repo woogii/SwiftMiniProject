@@ -35,10 +35,10 @@ class LogInViewController: UIViewController {
   
   let color1 = UIColor(colorLiteralRed: 2/255, green: 124/255, blue: 136/255, alpha: 1.0) // 027C88
   let color2 = UIColor(colorLiteralRed: 4/255, green: 162/255, blue: 151/255, alpha: 1.0) // 04A297
-  let inputValidator = InputValidator()
-  var user:User!
-  var emailValidateResult = false
-  var passwordValidateResult = false
+  fileprivate let inputValidator = InputValidator()
+  fileprivate var user:User!
+  fileprivate var emailValidateResult = false
+  fileprivate var passwordValidateResult = false
   
   
   // MARK : - View Life Cycle
@@ -130,6 +130,7 @@ class LogInViewController: UIViewController {
 
 extension LogInViewController : UITextFieldDelegate {
   
+  
   // MARK : - UITextFieldDelegate Delegate Methods
   
   func textField(_ textField: UITextField, shouldChangeCharactersIn range: NSRange, replacementString string: String) -> Bool {
@@ -161,7 +162,7 @@ extension LogInViewController : UITextFieldDelegate {
     passwordValidateResult = inputValidator.validatePassword(text: text)
     passwordCheckerImageView.isHidden = !passwordValidateResult
   }
-  
+
   func setButtonStatusBasedOnValidateResult(validationResult:(email:Bool,password:Bool)) {
     
     if validationResult.email && validationResult.password {
