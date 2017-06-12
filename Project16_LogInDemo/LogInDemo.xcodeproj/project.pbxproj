@@ -14,6 +14,7 @@
 		B816A3531EE597D000B2C97A /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B816A3521EE597D000B2C97A /* Assets.xcassets */; };
 		B816A3561EE597D000B2C97A /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B816A3541EE597D000B2C97A /* LaunchScreen.storyboard */; };
 		B816A3611EE597D000B2C97A /* LogInDemoTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = B816A3601EE597D000B2C97A /* LogInDemoTests.swift */; };
+		B8CDC3531EEE8E0900C04666 /* GoogleSignInBridgingHeader.m in Sources */ = {isa = PBXBuildFile; fileRef = B8CDC3521EEE8E0900C04666 /* GoogleSignInBridgingHeader.m */; };
 		B8DD94351EEC272B000F78D9 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = B8DD94341EEC272B000F78D9 /* GoogleService-Info.plist */; };
 		B8DD94401EED73A3000F78D9 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8DD943F1EED73A3000F78D9 /* User.swift */; };
 		B8DD94441EED85D4000F78D9 /* InputValidator.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8DD94431EED85D4000F78D9 /* InputValidator.swift */; };
@@ -43,6 +44,8 @@
 		B816A35C1EE597D000B2C97A /* LogInDemoTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = LogInDemoTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		B816A3601EE597D000B2C97A /* LogInDemoTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LogInDemoTests.swift; sourceTree = "<group>"; };
 		B816A3621EE597D000B2C97A /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		B8CDC3511EEE8E0900C04666 /* LogInDemo-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "LogInDemo-Bridging-Header.h"; sourceTree = "<group>"; };
+		B8CDC3521EEE8E0900C04666 /* GoogleSignInBridgingHeader.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = GoogleSignInBridgingHeader.m; path = ../GoogleSignInBridgingHeader.m; sourceTree = "<group>"; };
 		B8DD94341EEC272B000F78D9 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		B8DD94381EED42BB000F78D9 /* LogInDemo.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = LogInDemo.entitlements; sourceTree = "<group>"; };
 		B8DD943F1EED73A3000F78D9 /* User.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
@@ -93,6 +96,7 @@
 				B816A3491EE597D000B2C97A /* Products */,
 				87925935EF321BDE3C9E9467 /* Pods */,
 				2D2CB381C8BDF35C47F71C59 /* Frameworks */,
+				B8CDC3511EEE8E0900C04666 /* LogInDemo-Bridging-Header.h */,
 			);
 			sourceTree = "<group>";
 		};
@@ -109,9 +113,9 @@
 			isa = PBXGroup;
 			children = (
 				B8DD94421EED85B9000F78D9 /* Validation */,
-				B8DD94411EED73B3000F78D9 /* Storyboard Files */,
 				B8DD943E1EED7388000F78D9 /* Controller */,
 				B8DD943D1EED737D000F78D9 /* Model */,
+				B8DD94411EED73B3000F78D9 /* Storyboard Files */,
 				B8DD943C1EED7236000F78D9 /* Supporting Files */,
 			);
 			path = LogInDemo;
@@ -129,6 +133,7 @@
 		B8DD943C1EED7236000F78D9 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				B8CDC3521EEE8E0900C04666 /* GoogleSignInBridgingHeader.m */,
 				B8DD94381EED42BB000F78D9 /* LogInDemo.entitlements */,
 				B816A34B1EE597D000B2C97A /* AppDelegate.swift */,
 				B816A3521EE597D000B2C97A /* Assets.xcassets */,
@@ -225,6 +230,7 @@
 					B816A3471EE597D000B2C97A = {
 						CreatedOnToolsVersion = 8.2.1;
 						DevelopmentTeam = MFYH4C9VNG;
+						LastSwiftMigration = 0820;
 						ProvisioningStyle = Automatic;
 						SystemCapabilities = {
 							com.apple.Keychain = {
@@ -336,6 +342,7 @@
 				B816A34E1EE597D000B2C97A /* LogInViewController.swift in Sources */,
 				B816A34C1EE597D000B2C97A /* AppDelegate.swift in Sources */,
 				B8DD94441EED85D4000F78D9 /* InputValidator.swift in Sources */,
+				B8CDC3531EEE8E0900C04666 /* GoogleSignInBridgingHeader.m in Sources */,
 				B8DD94401EED73A3000F78D9 /* User.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -476,12 +483,15 @@
 			baseConfigurationReference = 89A09527CCF0B9EAAFF8CCDE /* Pods-LogInDemo.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_ENTITLEMENTS = LogInDemo/LogInDemo.entitlements;
 				DEVELOPMENT_TEAM = MFYH4C9VNG;
 				INFOPLIST_FILE = LogInDemo/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.woogii.LogInDemo;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "LogInDemo-Bridging-Header.h";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 3.0;
 			};
 			name = Debug;
@@ -491,12 +501,14 @@
 			baseConfigurationReference = 81074D711861057FE1075D90 /* Pods-LogInDemo.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_ENTITLEMENTS = LogInDemo/LogInDemo.entitlements;
 				DEVELOPMENT_TEAM = MFYH4C9VNG;
 				INFOPLIST_FILE = LogInDemo/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.woogii.LogInDemo;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "LogInDemo-Bridging-Header.h";
 				SWIFT_VERSION = 3.0;
 			};
 			name = Release;

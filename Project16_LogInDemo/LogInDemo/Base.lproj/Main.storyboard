@@ -103,6 +103,9 @@
                                 <state key="normal" title="Connect With Facebook">
                                     <color key="titleColor" red="0.0092437071730000001" green="0.48633879419999998" blue="0.5333281755" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 </state>
+                                <connections>
+                                    <action selector="tappedFacebookLogInButton:" destination="BYZ-38-t0r" eventType="touchUpInside" id="MWV-X8-sY5"/>
+                                </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="vJy-yF-64c">
                                 <rect key="frame" x="20" y="418" width="374" height="40"/>
@@ -114,6 +117,9 @@
                                 <state key="normal" title="Connect with Google">
                                     <color key="titleColor" red="0.0092437071730000001" green="0.48633879419999998" blue="0.5333281755" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 </state>
+                                <connections>
+                                    <action selector="tappedGoogleLogInButton:" destination="BYZ-38-t0r" eventType="touchUpInside" id="oms-yt-lhN"/>
+                                </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="q1P-Hs-O0Y">
                                 <rect key="frame" x="348" y="306" width="46" height="46"/>

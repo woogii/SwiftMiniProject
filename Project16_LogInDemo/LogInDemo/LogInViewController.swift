@@ -9,6 +9,7 @@
 import UIKit
 import Firebase
 import FirebaseAuth
+import GoogleSignIn
 
 // MARK : - Constants
 
@@ -51,6 +52,8 @@ class LogInViewController: UIViewController {
     applyRadiusToButtons()
     changeLogInButtonImageTintColor()
     setCheckImageViewHiddenStatus()
+    GIDSignIn.sharedInstance().delegate = self
+    GIDSignIn.sharedInstance().uiDelegate = self
     
   }
   
@@ -110,7 +113,15 @@ class LogInViewController: UIViewController {
       }
     })
   }
+  
+  @IBAction func tappedGoogleLogInButton(_ sender: UIButton) {
+    GIDSignIn.sharedInstance().signIn()
+  }
 
+  @IBAction func tappedFacebookLogInButton(_ sender: UIButton) {
+    
+  }
+  
   // MARK : - Show Alert Message
   
   func showAlertWith(message:String) {
@@ -123,6 +134,44 @@ class LogInViewController: UIViewController {
    
     self.present(alertController, animated: true, completion: nil)
   }
+}
+
+extension LogInViewController: GIDSignInDelegate, GIDSignInUIDelegate {
+  
+  func sign(_ signIn: GIDSignIn!, didSignInFor user: GIDGoogleUser!, withError error: Error?) {
+   
+    if let error = error {
+      showAlertWith(message: error.localizedDescription)
+      return
+    }
+    
+    guard let authentication = user.authentication else { return }
+    let credential = FIRGoogleAuthProvider.credential(withIDToken: authentication.idToken,
+                                                   accessToken: authentication.accessToken)
+    FIRAuth.auth()?.signIn(with: credential) { (user, error) in
+      
+      if let error = error {
+        self.showAlertWith(message: error.localizedDescription)
+        return
+      } else {
+        self.showAlertWith(message: Constants.LogInSuccessMessage)
+        print(user!)
+        self.user = User(userInfo: user!)
+      }
+    }
+    
+  }
+  
+  func sign(_ signIn: GIDSignIn!, didDisconnectWith user: GIDGoogleUser!, withError error: Error!) {
+    
+    do {
+      try FIRAuth.auth()?.signOut()
+    } catch let error {
+      print(error.localizedDescription)
+    }
+  }
+  
+  
 }
 
 // MARK : - LogInViewController : UITextFieldDelegate 
@@ -145,6 +194,7 @@ extension LogInViewController : UITextFieldDelegate {
         return false
       }
       
+      // ref. https://stackoverflow.com/a/17182871/5657370
       if (range.location > 0 && range.length == 1 && string.characters.count == 0)
       {
         // Stores cursor position
@@ -178,7 +228,7 @@ extension LogInViewController : UITextFieldDelegate {
         validatePassword(text:textAfterUpdate)
       }
     }
-      
+    
     setButtonStatusBasedOnValidateResult(validationResult: (emailValidateResult, passwordValidateResult))
     
     return true
