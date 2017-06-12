@@ -10,7 +10,16 @@ import UIKit
 import Firebase
 import FirebaseAuth
 
-// MARK : - LogInViewController: UIViewController 
+// MARK : - Constants
+
+struct Constants {
+  static let OkActionTitle = "Ok"
+  static let CancelActionTitle = "Cancel"
+  static let LogInSuccessMessage = "Log In Success"
+  static let PasswordLimitCount = 15
+}
+
+// MARK : - LogInViewController: UIViewController
 
 class LogInViewController: UIViewController {
 
@@ -26,7 +35,11 @@ class LogInViewController: UIViewController {
   
   let color1 = UIColor(colorLiteralRed: 2/255, green: 124/255, blue: 136/255, alpha: 1.0) // 027C88
   let color2 = UIColor(colorLiteralRed: 4/255, green: 162/255, blue: 151/255, alpha: 1.0) // 04A297
+  let inputValidator = InputValidator()
   var user:User!
+  var emailValidateResult = false
+  var passwordValidateResult = false
+  
   
   // MARK : - View Life Cycle
   
@@ -38,7 +51,13 @@ class LogInViewController: UIViewController {
     hideKeyboardWhenTappedAround()
     applyRadiusToButtons()
     changeLogInButtonImageTintColor()
+    setCheckImageViewHiddenStatus()
     
+  }
+  
+  func setCheckImageViewHiddenStatus() {
+    emailCheckerImageView.isHidden = true
+    passwordCheckerImageView.isHidden = true
   }
   
   func changeLogInButtonImageTintColor() {
@@ -87,26 +106,71 @@ class LogInViewController: UIViewController {
       if error != nil {
         self.showAlertWith(message: (error?.localizedDescription)!)
       } else {
-        self.showAlertWith(message: "Log In Success")
+        self.showAlertWith(message: Constants.LogInSuccessMessage)
         self.user = User(userInfo: user!)
-        print(self.user.email)
-        print(self.user.uid)
       }
-      
     })
   }
 
+  // MARK : - Show Alert Message
+  
   func showAlertWith(message:String) {
     
     let alertController = UIAlertController(title: nil, message: message, preferredStyle: .alert)
-    let okAction = UIAlertAction(title: "Ok", style: .default, handler: { action in
+    let okAction = UIAlertAction(title: Constants.OkActionTitle, style: .default, handler: { action in
       
     })
     alertController.addAction(okAction)
-    let cancelAction = UIAlertAction(title: "Cancel", style: .destructive, handler: nil)
-    alertController.addAction(cancelAction)
-    
+   
     self.present(alertController, animated: true, completion: nil)
+  }
+}
+
+// MARK : - LogInViewController : UITextFieldDelegate 
+
+extension LogInViewController : UITextFieldDelegate {
+  
+  // MARK : - UITextFieldDelegate Delegate Methods
+  
+  func textField(_ textField: UITextField, shouldChangeCharactersIn range: NSRange, replacementString string: String) -> Bool {
+    
+    let textFieldText: NSString = (textField.text ?? "") as NSString
+    let textAfterUpdate = textFieldText.replacingCharacters(in: range, with: string)
+   
+    if textField == emailTextField {
+      validateEmail(text:textAfterUpdate)
+    } else if textField == passwordTextField {
+  
+      guard textAfterUpdate.characters.count <= Constants.PasswordLimitCount else {
+        return false
+      }
+      validatePassword(text:textAfterUpdate)
+    }
+    
+    setButtonStatusBasedOnValidateResult(validationResult: (emailValidateResult, passwordValidateResult))
+    
+    return true
+  }
+  
+  func validateEmail(text:String) {
+    emailValidateResult = inputValidator.validateEmail(text: text)
+    emailCheckerImageView.isHidden = !emailValidateResult
+  }
+  
+  func validatePassword(text:String) {
+    passwordValidateResult = inputValidator.validatePassword(text: text)
+    passwordCheckerImageView.isHidden = !passwordValidateResult
+  }
+  
+  func setButtonStatusBasedOnValidateResult(validationResult:(email:Bool,password:Bool)) {
+    
+    if validationResult.email && validationResult.password {
+      logInButton.isEnabled = true
+      logInButton.backgroundColor = UIColor.white
+    } else {
+      logInButton.isEnabled = false
+      logInButton.backgroundColor = UIColor.white.withAlphaComponent(0.7)
+    }
   }
 }
 

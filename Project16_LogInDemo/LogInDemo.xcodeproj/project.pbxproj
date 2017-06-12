@@ -16,6 +16,7 @@
 		B816A3611EE597D000B2C97A /* LogInDemoTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = B816A3601EE597D000B2C97A /* LogInDemoTests.swift */; };
 		B8DD94351EEC272B000F78D9 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = B8DD94341EEC272B000F78D9 /* GoogleService-Info.plist */; };
 		B8DD94401EED73A3000F78D9 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8DD943F1EED73A3000F78D9 /* User.swift */; };
+		B8DD94441EED85D4000F78D9 /* InputValidator.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8DD94431EED85D4000F78D9 /* InputValidator.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -45,6 +46,7 @@
 		B8DD94341EEC272B000F78D9 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		B8DD94381EED42BB000F78D9 /* LogInDemo.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = LogInDemo.entitlements; sourceTree = "<group>"; };
 		B8DD943F1EED73A3000F78D9 /* User.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
+		B8DD94431EED85D4000F78D9 /* InputValidator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = InputValidator.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -106,6 +108,7 @@
 		B816A34A1EE597D000B2C97A /* LogInDemo */ = {
 			isa = PBXGroup;
 			children = (
+				B8DD94421EED85B9000F78D9 /* Validation */,
 				B8DD94411EED73B3000F78D9 /* Storyboard Files */,
 				B8DD943E1EED7388000F78D9 /* Controller */,
 				B8DD943D1EED737D000F78D9 /* Model */,
@@ -158,6 +161,14 @@
 				B816A34F1EE597D000B2C97A /* Main.storyboard */,
 			);
 			name = "Storyboard Files";
+			sourceTree = "<group>";
+		};
+		B8DD94421EED85B9000F78D9 /* Validation */ = {
+			isa = PBXGroup;
+			children = (
+				B8DD94431EED85D4000F78D9 /* InputValidator.swift */,
+			);
+			name = Validation;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -324,6 +335,7 @@
 			files = (
 				B816A34E1EE597D000B2C97A /* LogInViewController.swift in Sources */,
 				B816A34C1EE597D000B2C97A /* AppDelegate.swift in Sources */,
+				B8DD94441EED85D4000F78D9 /* InputValidator.swift in Sources */,
 				B8DD94401EED73A3000F78D9 /* User.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

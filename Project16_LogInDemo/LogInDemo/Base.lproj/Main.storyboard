@@ -48,6 +48,9 @@
                                 <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
                                 <textInputTraits key="textInputTraits"/>
+                                <connections>
+                                    <outlet property="delegate" destination="BYZ-38-t0r" id="K6t-1m-413"/>
+                                </connections>
                             </textField>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="DcY-au-90X">
                                 <rect key="frame" x="20" y="194" width="374" height="1"/>
@@ -56,7 +59,7 @@
                                     <constraint firstAttribute="height" constant="1" id="0bs-aJ-ft4"/>
                                 </constraints>
                             </view>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="KFi-FW-Z2e">
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="ic_checkMark" translatesAutoresizingMaskIntoConstraints="NO" id="KFi-FW-Z2e">
                                 <rect key="frame" x="370" y="159" width="24" height="24"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="24" id="cN6-wz-Lvq"/>
@@ -72,6 +75,9 @@
                                 <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
                                 <textInputTraits key="textInputTraits" secureTextEntry="YES"/>
+                                <connections>
+                                    <outlet property="delegate" destination="BYZ-38-t0r" id="C7r-2A-oQu"/>
+                                </connections>
                             </textField>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="KBO-mV-GMs">
                                 <rect key="frame" x="20" y="287" width="374" height="1"/>
@@ -80,7 +86,7 @@
                                     <constraint firstAttribute="height" constant="1" id="POg-DJ-L4f"/>
                                 </constraints>
                             </view>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="vLY-gf-YJb">
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="ic_checkMark" translatesAutoresizingMaskIntoConstraints="NO" id="vLY-gf-YJb">
                                 <rect key="frame" x="370" y="252" width="24" height="24"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="24" id="N0y-RB-jdF"/>
@@ -172,6 +178,7 @@
         </scene>
     </scenes>
     <resources>
+        <image name="ic_checkMark" width="50" height="50"/>
         <image name="img_arrow" width="18" height="18"/>
     </resources>
 </document>
