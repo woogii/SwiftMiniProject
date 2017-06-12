@@ -40,7 +40,6 @@ class LogInViewController: UIViewController {
   fileprivate var emailValidateResult = false
   fileprivate var passwordValidateResult = false
   
-  
   // MARK : - View Life Cycle
   
   override func viewDidLoad() {
@@ -141,13 +140,45 @@ extension LogInViewController : UITextFieldDelegate {
     if textField == emailTextField {
       validateEmail(text:textAfterUpdate)
     } else if textField == passwordTextField {
-  
+      
       guard textAfterUpdate.characters.count <= Constants.PasswordLimitCount else {
         return false
       }
-      validatePassword(text:textAfterUpdate)
+      
+      if (range.location > 0 && range.length == 1 && string.characters.count == 0)
+      {
+        // Stores cursor position
+        let beginning = textField.beginningOfDocument
+        let start = textField.position(from: beginning, offset: range.location)
+        let cursorOffset = textField.offset(from: beginning, to: start!) + string.characters.count
+        
+        // Save the current text, in case iOS deletes the whole text
+        let nsString = textField.text as NSString?
+        
+        // Trigger deletion
+        textField.deleteBackward()
+        
+        // iOS deleted the entire string
+        if ((textField.text?.characters.count)! != (nsString?.length)! - 1)
+        {
+          textField.text = nsString?.replacingCharacters(in: range, with: string)
+          
+          // Update cursor position
+          let newCursorPosition = textField.position(from: textField.beginningOfDocument, offset:cursorOffset)
+          
+          let newSelectedRange = textField.textRange(from: newCursorPosition!, to: newCursorPosition!)
+          textField.selectedTextRange = newSelectedRange
+        }
+        
+        validatePassword(text:textAfterUpdate)
+        setButtonStatusBasedOnValidateResult(validationResult: (emailValidateResult, passwordValidateResult))
+
+        return false
+      } else {
+        validatePassword(text:textAfterUpdate)
+      }
     }
-    
+      
     setButtonStatusBasedOnValidateResult(validationResult: (emailValidateResult, passwordValidateResult))
     
     return true
