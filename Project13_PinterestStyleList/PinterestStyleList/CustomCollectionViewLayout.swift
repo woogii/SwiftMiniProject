@@ -31,7 +31,7 @@ class CustomCollectionViewLayout: UICollectionViewLayout {
     let insets = collectionView!.contentInset
     return collectionView!.bounds.width - (insets.left + insets.right)
   }
-  private var attributesCache = [CustomCollectionViewLayoutAttributes]()
+  private var customAttributes = [CustomCollectionViewLayoutAttributes]()
   override var collectionViewContentSize: CGSize {
     return CGSize(width: contentWidth, height: contentHeight)
   }
@@ -39,7 +39,7 @@ class CustomCollectionViewLayout: UICollectionViewLayout {
   
   override func prepare() {
     
-    attributesCache = []
+    customAttributes = []
     
     let columnWidth = contentWidth / numberOfColumns
     var xOffsets = [CGFloat]()
@@ -72,7 +72,7 @@ class CustomCollectionViewLayout: UICollectionViewLayout {
       attributes.photoHeight = photoHeight
       attributes.frame = insetFrame
       
-      attributesCache.append(attributes)
+      customAttributes.append(attributes)
       
       
       // update column, yOffset
@@ -93,7 +93,7 @@ class CustomCollectionViewLayout: UICollectionViewLayout {
     
     var layoutAttributes = [UICollectionViewLayoutAttributes]()
     
-    for attributes in attributesCache {
+    for attributes in customAttributes {
       if attributes.frame.intersects(rect) {
         layoutAttributes.append(attributes)
       }
@@ -104,7 +104,7 @@ class CustomCollectionViewLayout: UICollectionViewLayout {
   
   override func layoutAttributesForItem(at indexPath: IndexPath) -> UICollectionViewLayoutAttributes? {
     
-    return attributesCache.first(where: { attributes -> Bool in
+    return customAttributes.first(where: { attributes -> Bool in
       return attributes.indexPath == indexPath
     })
     
