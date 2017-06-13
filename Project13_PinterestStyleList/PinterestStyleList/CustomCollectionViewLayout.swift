@@ -20,8 +20,8 @@ protocol CustomLayoutDelegate {
 // MARK : - CustomCollectionViewLayout: UICollectionViewLayout
 
 class CustomCollectionViewLayout: UICollectionViewLayout {
-
-  // MARK : - Property 
+  
+  // MARK : - Property
   var controller: ImageListViewController?
   var numberOfColumns:CGFloat = 2
   var cellPadding:CGFloat = 1.0
@@ -39,52 +39,53 @@ class CustomCollectionViewLayout: UICollectionViewLayout {
   
   override func prepare() {
     
-    if attributesCache.isEmpty {
-      let columnWidth = contentWidth / numberOfColumns
-      var xOffsets = [CGFloat]()
+    attributesCache = []
+    
+    let columnWidth = contentWidth / numberOfColumns
+    var xOffsets = [CGFloat]()
+    
+    for column in 0..<Int(numberOfColumns) {
+      xOffsets.append(CGFloat(column) * columnWidth)
+    }
+    
+    var column = 0
+    var yOffsets = [CGFloat](repeating:0, count:Int(numberOfColumns))
+    
+    for item in 0..<collectionView!.numberOfItems(inSection: 0) {
+      let indexPath = IndexPath(item: item, section: 0)
       
-      for column in 0..<Int(numberOfColumns) {
-        xOffsets.append(CGFloat(column) * columnWidth)
-      }
+      // calculate the frame
       
-      var column = 0
-      var yOffsets = [CGFloat](repeating:0, count:Int(numberOfColumns))
+      let width = columnWidth - cellPadding * 2
       
-      for item in 0..<collectionView!.numberOfItems(inSection: 0) {
-        let indexPath = IndexPath(item: item, section: 0)
-        
-        // calculate the frame
-        
-        let width = columnWidth - cellPadding * 2
-        
-        let photoHeight:CGFloat = (delegate?.collectionView(collectionView: collectionView!, heightForPhotoAt: indexPath, with: width))!
-        let captionHeight:CGFloat = (delegate?.collectionView(collectionView: collectionView!, heightForCaptionAt: indexPath, with: width))!
-        
-        
-        let height = cellPadding + photoHeight + captionHeight + cellPadding
-        
-        let frame = CGRect(x: xOffsets[column], y: yOffsets[column], width: columnWidth, height: height)
-        let insetFrame = frame.insetBy(dx: cellPadding, dy: cellPadding)
-        
-        // create layout attributes 
-        let attributes = CustomCollectionViewLayoutAttributes(forCellWith: indexPath)
-        attributes.photoHeight = photoHeight
-        attributes.frame = insetFrame
+      let photoHeight:CGFloat = (delegate?.collectionView(collectionView: collectionView!, heightForPhotoAt: indexPath, with: width))!
+      let captionHeight:CGFloat = (delegate?.collectionView(collectionView: collectionView!, heightForCaptionAt: indexPath, with: width))!
       
-        attributesCache.append(attributes)
-        
-        // update column, yOffset
-        contentHeight = max(contentHeight, frame.maxY)
-        yOffsets[column] = yOffsets[column] + height
-        
-        if column >= (Int(numberOfColumns) - 1) {
-          column = 0
-        } else {
-          column += 1
-        }
-        
+      
+      let height = cellPadding + photoHeight + captionHeight + cellPadding
+      
+      let frame = CGRect(x: xOffsets[column], y: yOffsets[column], width: columnWidth, height: height)
+      let insetFrame = frame.insetBy(dx: cellPadding, dy: cellPadding)
+      
+      // create layout attributes
+      let attributes = CustomCollectionViewLayoutAttributes(forCellWith: indexPath)
+      attributes.photoHeight = photoHeight
+      attributes.frame = insetFrame
+      
+      attributesCache.append(attributes)
+      
+      
+      // update column, yOffset
+      contentHeight = max(contentHeight, frame.maxY)
+      yOffsets[column] = yOffsets[column] + height
+      
+      if column >= (Int(numberOfColumns) - 1) {
+        column = 0
+      } else {
+        column += 1
       }
     }
+  
   }
   
   
@@ -102,7 +103,11 @@ class CustomCollectionViewLayout: UICollectionViewLayout {
   }
   
   override func layoutAttributesForItem(at indexPath: IndexPath) -> UICollectionViewLayoutAttributes? {
-    return self.attributesCache[indexPath.item]
+    
+    return attributesCache.first(where: { attributes -> Bool in
+      return attributes.indexPath == indexPath
+    })
+    
   }
   
   

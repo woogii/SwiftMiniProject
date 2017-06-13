@@ -167,8 +167,6 @@ class ImageListViewController: UICollectionViewController {
                     cell.backgroundImageView.image = backgroundImage
                     cell.profileImageView.image = profileImage
                     
-                    self.collectionView?.collectionViewLayout.invalidateLayout()
-                    
                   }
                   
                 }, completion: nil)
@@ -260,28 +258,31 @@ extension ImageListViewController : CustomLayoutDelegate {
   
   func collectionView(collectionView: UICollectionView, heightForPhotoAt indexPath: IndexPath, with width: CGFloat) -> CGFloat {
     
-//    let post = posts[indexPath.item]
-//    let boundingRect = CGRect(x: 0, y: 0, width: width, height: CGFloat(MAXFLOAT))
+    let post = posts[indexPath.item]
+    let boundingRect = CGRect(x: 0, y: 0, width: width, height: CGFloat(MAXFLOAT))
     
 
-//    if let image = post.backgroundImage {
-//      
-//      let rect = AVMakeRect(aspectRatio: image.size, insideRect: boundingRect)
-//      return rect.size.height
-//    }
-//
-//    return 0
-    if indexPath.item % 2 == 0 {
-      return 200.0
-    } else if indexPath.item % 3 == 0 {
-      return 150.0
-    } else {
-      return 130.0
+    if let image = post.backgroundImage {
+      
+      let rect = AVMakeRect(aspectRatio: image.size, insideRect: boundingRect)
+      return rect.size.height
     }
+
+    return 0
+    
   }
   
   func collectionView(collectionView: UICollectionView, heightForCaptionAt indexPath: IndexPath, with width: CGFloat) -> CGFloat {
-    return 80
+    let profileImageTopPadding = CGFloat(10)
+    let profileImageHeight = CGFloat(24)
+    let profileImageBottomPadding = CGFloat(5)
+    let separatorViewHeight = CGFloat(1)
+    let likeImageTopPadding = CGFloat(12)
+    let likeImageHeight = CGFloat(14)
+    let likeImageBottomPadding = CGFloat(13)
+    
+    let height = profileImageTopPadding + profileImageHeight + profileImageBottomPadding + separatorViewHeight + likeImageTopPadding + likeImageHeight + likeImageBottomPadding
+    return height
   }
 }
 
