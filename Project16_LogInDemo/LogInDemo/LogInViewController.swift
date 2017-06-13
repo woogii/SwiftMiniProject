@@ -10,6 +10,7 @@ import UIKit
 import Firebase
 import FirebaseAuth
 import GoogleSignIn
+import FBSDKLoginKit
 
 // MARK : - Constants
 
@@ -37,7 +38,7 @@ class LogInViewController: UIViewController {
   let color1 = UIColor(colorLiteralRed: 2/255, green: 124/255, blue: 136/255, alpha: 1.0) // 027C88
   let color2 = UIColor(colorLiteralRed: 4/255, green: 162/255, blue: 151/255, alpha: 1.0) // 04A297
   fileprivate let inputValidator = InputValidator()
-  fileprivate var user:User!
+  fileprivate var user:UserInfo!
   fileprivate var emailValidateResult = false
   fileprivate var passwordValidateResult = false
   
@@ -101,7 +102,7 @@ class LogInViewController: UIViewController {
     activityIndicator.center = view.center
     activityIndicator.startAnimating()
     
-    FIRAuth.auth()?.signIn(withEmail: emailTextField.text!, password: passwordTextField.text!,completion: { (user, error) in
+    Auth.auth().signIn(withEmail: emailTextField.text!, password: passwordTextField.text!,completion: { (user, error) in
       
       activityIndicator.removeFromSuperview()
       
@@ -109,7 +110,7 @@ class LogInViewController: UIViewController {
         self.showAlertWith(message: (error?.localizedDescription)!)
       } else {
         self.showAlertWith(message: Constants.LogInSuccessMessage)
-        self.user = User(userInfo: user!)
+        self.user = UserInfo(user: user!)
       }
     })
   }
@@ -120,8 +121,60 @@ class LogInViewController: UIViewController {
 
   @IBAction func tappedFacebookLogInButton(_ sender: UIButton) {
     
+    let loginManager: FBSDKLoginManager = FBSDKLoginManager()
+    
+    if FBSDKAccessToken.current() != nil {
+      loginManager.logOut()
+    }
+    
+    let facebookReadPermission = ["public_profile","email"]
+    
+    loginManager.logIn(withReadPermissions: facebookReadPermission, from:self, handler: { (result, error) -> Void in
+      
+      if error != nil {
+        loginManager.logOut()
+      } else if (result?.isCancelled)! {
+        loginManager.logOut()
+      } else {
+        
+        var allPermsGranted = true
+        
+        let grantedPermissions = Array(result!.grantedPermissions).map( {"\($0)"})
+        
+        for permission in facebookReadPermission {
+          
+          if !grantedPermissions.contains(permission) {
+            allPermsGranted = false
+            break
+          }
+        }
+        
+        if allPermsGranted {
+          
+          let accessToken  = FBSDKAccessToken.current().tokenString
+          
+          let credential = FacebookAuthProvider.credential(withAccessToken: accessToken!)
+          
+          Auth.auth().signIn(with: credential) { (user, error) in
+            
+            if let error = error {
+              self.showAlertWith(message: error.localizedDescription)
+              return
+            } else {
+              self.showAlertWith(message: Constants.LogInSuccessMessage)
+              print(user!)
+              self.user = UserInfo(user: user!)
+            }
+          }
+
+        }
+      }
+    })
+
   }
   
+  
+
   // MARK : - Show Alert Message
   
   func showAlertWith(message:String) {
@@ -146,9 +199,9 @@ extension LogInViewController: GIDSignInDelegate, GIDSignInUIDelegate {
     }
     
     guard let authentication = user.authentication else { return }
-    let credential = FIRGoogleAuthProvider.credential(withIDToken: authentication.idToken,
+    let credential = GoogleAuthProvider.credential(withIDToken: authentication.idToken,
                                                    accessToken: authentication.accessToken)
-    FIRAuth.auth()?.signIn(with: credential) { (user, error) in
+    Auth.auth().signIn(with: credential) { (user, error) in
       
       if let error = error {
         self.showAlertWith(message: error.localizedDescription)
@@ -156,7 +209,7 @@ extension LogInViewController: GIDSignInDelegate, GIDSignInUIDelegate {
       } else {
         self.showAlertWith(message: Constants.LogInSuccessMessage)
         print(user!)
-        self.user = User(userInfo: user!)
+        self.user = UserInfo(user: user!)
       }
     }
     
@@ -165,7 +218,7 @@ extension LogInViewController: GIDSignInDelegate, GIDSignInUIDelegate {
   func sign(_ signIn: GIDSignIn!, didDisconnectWith user: GIDGoogleUser!, withError error: Error!) {
     
     do {
-      try FIRAuth.auth()?.signOut()
+      try Auth.auth().signOut()
     } catch let error {
       print(error.localizedDescription)
     }

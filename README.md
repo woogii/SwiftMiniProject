@@ -80,7 +80,7 @@ This repository is inspired by Allen Wang's [30DaysofSwift](https://github.com/a
 
 ![Alt text](GIFs/MultipleImageSelection.gif)
 
-**Project 16 - [Log in with Firebase](https://github.com/woogii/SwiftMiniProject/tree/master/Project16_LogInDemo)**
+**Project 16 - [Email & Social Media Log-in with Firebase](https://github.com/woogii/SwiftMiniProject/tree/master/Project16_LogInDemo)**
 <br />
 
 ![Alt text](GIFs/LoginWithFirebase.gif)

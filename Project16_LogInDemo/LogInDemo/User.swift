@@ -11,7 +11,7 @@ import FirebaseAuth
 
 // MARK : - User 
 
-struct User {
+struct UserInfo {
 
   // MARK : - Property 
   
@@ -25,10 +25,10 @@ struct User {
     self.email = email
   }
   
-  init(userInfo:FIRUser) {
+  init(user:User) {
     
-    self.uid = userInfo.uid
-    self.email = userInfo.email!
+    self.uid = user.uid
+    self.email = user.email!
   }
   
 }
