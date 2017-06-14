@@ -66,8 +66,8 @@ class PinterestStyleList_applicationTests: XCTestCase {
   func testDataParsingAfterLoadingDataFromBundle() {
     
     do {
-      let dictionaryArray = try(JSONSerialization.jsonObject(with: bundleDataUnderTest!, options: .allowFragments)) as? [[String: AnyObject]]
-      postInfoUnderTest = PostInfo.createPostInfoListFromDictionaryArray(dictionaryArray: dictionaryArray!)
+      let dictionaryArray = try(JSONSerialization.jsonObject(with: bundleDataUnderTest!, options: .allowFragments)) as? [[String: Any]]
+      postInfoUnderTest = dictionaryArray?.flatMap(PostInfo.init)
       
     
       XCTAssertEqual(postInfoUnderTest.count, 10, "couldn't parse 10 items from bundle")
@@ -82,8 +82,8 @@ class PinterestStyleList_applicationTests: XCTestCase {
   func testImageRequestWithUrlString() {
     
     do {
-      let dictionaryArray = try(JSONSerialization.jsonObject(with: bundleDataUnderTest!, options: .allowFragments)) as? [[String: AnyObject]]
-      postInfoUnderTest = PostInfo.createPostInfoListFromDictionaryArray(dictionaryArray: dictionaryArray!)
+      let dictionaryArray = try(JSONSerialization.jsonObject(with: bundleDataUnderTest!, options: .allowFragments)) as? [[String: Any]]
+      postInfoUnderTest = dictionaryArray?.flatMap(PostInfo.init)
       
     } catch _ {}
     

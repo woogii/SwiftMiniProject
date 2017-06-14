@@ -8,8 +8,9 @@
 
 import XCTest
 
-class Mindvalley_applicationUITests: XCTestCase {
-        
+
+class PinterestStyleList_applicationUITests: XCTestCase {
+  
     override func setUp() {
         super.setUp()
         

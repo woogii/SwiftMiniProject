@@ -14,8 +14,8 @@
 		B8CAF3DA1EA0F054003D8A64 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B8CAF3D81EA0F054003D8A64 /* Main.storyboard */; };
 		B8CAF3DC1EA0F054003D8A64 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B8CAF3DB1EA0F054003D8A64 /* Assets.xcassets */; };
 		B8CAF3DF1EA0F054003D8A64 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B8CAF3DD1EA0F054003D8A64 /* LaunchScreen.storyboard */; };
-		B8CAF3EA1EA0F055003D8A64 /* Mindvalley_applicationTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8CAF3E91EA0F055003D8A64 /* Mindvalley_applicationTests.swift */; };
-		B8CAF3F51EA0F055003D8A64 /* Mindvalley_applicationUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8CAF3F41EA0F055003D8A64 /* Mindvalley_applicationUITests.swift */; };
+		B8CAF3EA1EA0F055003D8A64 /* PinterestStyleList_applicationTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8CAF3E91EA0F055003D8A64 /* PinterestStyleList_applicationTests.swift */; };
+		B8CAF3F51EA0F055003D8A64 /* PinterestStyleList_applicationUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8CAF3F41EA0F055003D8A64 /* PinterestStyleList_applicationUITests.swift */; };
 		B8CAF4071EA0F138003D8A64 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8CAF4061EA0F138003D8A64 /* Constants.swift */; };
 		B8CAF40A1EA1D294003D8A64 /* RestClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8CAF4091EA1D294003D8A64 /* RestClient.swift */; };
 		B8CAF40E1EA204C9003D8A64 /* DiscardableImageContent.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8CAF40D1EA204C9003D8A64 /* DiscardableImageContent.swift */; };
@@ -56,10 +56,10 @@
 		B8CAF3DE1EA0F054003D8A64 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		B8CAF3E01EA0F054003D8A64 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		B8CAF3E51EA0F054003D8A64 /* PinterestStyleListTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = PinterestStyleListTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		B8CAF3E91EA0F055003D8A64 /* Mindvalley_applicationTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Mindvalley_applicationTests.swift; sourceTree = "<group>"; };
+		B8CAF3E91EA0F055003D8A64 /* PinterestStyleList_applicationTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PinterestStyleList_applicationTests.swift; sourceTree = "<group>"; };
 		B8CAF3EB1EA0F055003D8A64 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		B8CAF3F01EA0F055003D8A64 /* PinterestStyleListUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = PinterestStyleListUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		B8CAF3F41EA0F055003D8A64 /* Mindvalley_applicationUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Mindvalley_applicationUITests.swift; sourceTree = "<group>"; };
+		B8CAF3F41EA0F055003D8A64 /* PinterestStyleList_applicationUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PinterestStyleList_applicationUITests.swift; sourceTree = "<group>"; };
 		B8CAF3F61EA0F055003D8A64 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		B8CAF4061EA0F138003D8A64 /* Constants.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 		B8CAF4091EA1D294003D8A64 /* RestClient.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RestClient.swift; sourceTree = "<group>"; };
@@ -136,7 +136,7 @@
 		B8CAF3E81EA0F054003D8A64 /* PinterestStyleList applicationTests */ = {
 			isa = PBXGroup;
 			children = (
-				B8CAF3E91EA0F055003D8A64 /* Mindvalley_applicationTests.swift */,
+				B8CAF3E91EA0F055003D8A64 /* PinterestStyleList_applicationTests.swift */,
 				B8F583321EA78A8100D8F669 /* sampleData.json */,
 				B8CAF3EB1EA0F055003D8A64 /* Info.plist */,
 			);
@@ -146,7 +146,7 @@
 		B8CAF3F31EA0F055003D8A64 /* PinterestStyleList applicationUITests */ = {
 			isa = PBXGroup;
 			children = (
-				B8CAF3F41EA0F055003D8A64 /* Mindvalley_applicationUITests.swift */,
+				B8CAF3F41EA0F055003D8A64 /* PinterestStyleList_applicationUITests.swift */,
 				B8CAF3F61EA0F055003D8A64 /* Info.plist */,
 			);
 			path = "PinterestStyleList applicationUITests";
@@ -385,7 +385,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				B8CAF3EA1EA0F055003D8A64 /* Mindvalley_applicationTests.swift in Sources */,
+				B8CAF3EA1EA0F055003D8A64 /* PinterestStyleList_applicationTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -393,7 +393,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				B8CAF3F51EA0F055003D8A64 /* Mindvalley_applicationUITests.swift in Sources */,
+				B8CAF3F51EA0F055003D8A64 /* PinterestStyleList_applicationUITests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
