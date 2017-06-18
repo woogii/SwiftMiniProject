@@ -111,9 +111,27 @@ class LogInViewController: UIViewController {
       } else {
         self.showAlertWith(message: Constants.LogInSuccessMessage)
         self.user = UserInfo(user: user!)
+       
       }
     })
   }
+  
+  func moveToUserListVC() {
+    
+    performSegue(withIdentifier: "showUserListVC", sender: self)
+  }
+  
+  func initSubViewsStatus() {
+    emailTextField.text = ""
+    passwordTextField.text = ""
+    logInButton.backgroundColor = UIColor.white.withAlphaComponent(0.7)
+    logInButton.isEnabled = false
+    emailValidateResult = false
+    passwordValidateResult = false
+    emailCheckerImageView.isHidden = true
+    passwordCheckerImageView.isHidden = true
+  }
+
   
   @IBAction func tappedGoogleLogInButton(_ sender: UIButton) {
     GIDSignIn.sharedInstance().signIn()
@@ -181,7 +199,10 @@ class LogInViewController: UIViewController {
     
     let alertController = UIAlertController(title: nil, message: message, preferredStyle: .alert)
     let okAction = UIAlertAction(title: Constants.OkActionTitle, style: .default, handler: { action in
-      
+      DispatchQueue.main.async {
+        self.moveToUserListVC()
+        self.initSubViewsStatus()
+      }
     })
     alertController.addAction(okAction)
    
@@ -214,6 +235,7 @@ extension LogInViewController: GIDSignInDelegate, GIDSignInUIDelegate {
     }
     
   }
+  
   
   func sign(_ signIn: GIDSignIn!, didDisconnectWith user: GIDGoogleUser!, withError error: Error!) {
     
