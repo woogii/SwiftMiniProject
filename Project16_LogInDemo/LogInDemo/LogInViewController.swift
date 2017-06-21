@@ -12,14 +12,6 @@ import FirebaseAuth
 import GoogleSignIn
 import FBSDKLoginKit
 
-// MARK : - Constants
-
-struct Constants {
-  static let OkActionTitle = "Ok"
-  static let CancelActionTitle = "Cancel"
-  static let LogInSuccessMessage = "Log In Success"
-  static let PasswordLimitCount = 15
-}
 
 // MARK : - LogInViewController: UIViewController
 
@@ -35,8 +27,6 @@ class LogInViewController: UIViewController {
   @IBOutlet weak var facebookLogInButton: UIButton!
   @IBOutlet weak var googleLogInButton: UIButton!
   
-  let color1 = UIColor(colorLiteralRed: 2/255, green: 124/255, blue: 136/255, alpha: 1.0) // 027C88
-  let color2 = UIColor(colorLiteralRed: 4/255, green: 162/255, blue: 151/255, alpha: 1.0) // 04A297
   fileprivate let inputValidator = InputValidator()
   fileprivate var user:UserInfo!
   fileprivate var emailValidateResult = false
@@ -67,7 +57,7 @@ class LogInViewController: UIViewController {
     
     let image = logInButton.imageView?.image?.withRenderingMode(.alwaysTemplate)
     logInButton.imageView?.image = image
-    logInButton.imageView?.tintColor = color2
+    logInButton.imageView?.tintColor = Constants.Color.BgGradientDarkColor
     
   }
   
@@ -85,7 +75,7 @@ class LogInViewController: UIViewController {
     let gradientLayer = CAGradientLayer()
     
     gradientLayer.frame = self.view.bounds
-    gradientLayer.colors = [color1.cgColor,color2.cgColor]
+    gradientLayer.colors = [Constants.Color.BgGradientLightColor.cgColor,Constants.Color.BgGradientDarkColor.cgColor]
     gradientLayer.startPoint = CGPoint(x:1, y:1)
     gradientLayer.endPoint = CGPoint(x:0, y:1)
     
@@ -109,7 +99,7 @@ class LogInViewController: UIViewController {
       if error != nil {
         self.showAlertWith(message: (error?.localizedDescription)!)
       } else {
-        self.showAlertWith(message: Constants.LogInSuccessMessage)
+        self.showAlertWith(message: Constants.Message.LogInSuccess)
         self.user = UserInfo(user: user!)
        
       }
@@ -118,7 +108,7 @@ class LogInViewController: UIViewController {
   
   func moveToUserListVC() {
     
-    performSegue(withIdentifier: "showUserListVC", sender: self)
+    performSegue(withIdentifier: Constants.SegueID.ShowUserListVC, sender: self)
   }
   
   func initSubViewsStatus() {
@@ -179,7 +169,7 @@ class LogInViewController: UIViewController {
               self.showAlertWith(message: error.localizedDescription)
               return
             } else {
-              self.showAlertWith(message: Constants.LogInSuccessMessage)
+              self.showAlertWith(message: Constants.Message.LogInSuccess)
               print(user!)
               self.user = UserInfo(user: user!)
             }
@@ -191,14 +181,12 @@ class LogInViewController: UIViewController {
 
   }
   
-  
-
   // MARK : - Show Alert Message
   
   func showAlertWith(message:String) {
     
     let alertController = UIAlertController(title: nil, message: message, preferredStyle: .alert)
-    let okAction = UIAlertAction(title: Constants.OkActionTitle, style: .default, handler: { action in
+    let okAction = UIAlertAction(title: Constants.Title.Ok, style: .default, handler: { action in
       DispatchQueue.main.async {
         self.moveToUserListVC()
         self.initSubViewsStatus()
@@ -228,7 +216,7 @@ extension LogInViewController: GIDSignInDelegate, GIDSignInUIDelegate {
         self.showAlertWith(message: error.localizedDescription)
         return
       } else {
-        self.showAlertWith(message: Constants.LogInSuccessMessage)
+        self.showAlertWith(message: Constants.Message.LogInSuccess)
         print(user!)
         self.user = UserInfo(user: user!)
       }
