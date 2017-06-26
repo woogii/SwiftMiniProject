@@ -176,7 +176,7 @@
                         <outlet property="logInButton" destination="q1P-Hs-O0Y" id="qdw-zI-XcF"/>
                         <outlet property="passwordCheckerImageView" destination="vLY-gf-YJb" id="IC1-W2-Hmf"/>
                         <outlet property="passwordTextField" destination="rpt-3L-eeR" id="zlK-Ao-36k"/>
-                        <segue destination="srb-Ho-QNu" kind="show" identifier="showUserListVC" id="8fp-yb-QlG"/>
+                        <segue destination="srb-Ho-QNu" kind="show" identifier="showBookListVC" id="8fp-yb-QlG"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>

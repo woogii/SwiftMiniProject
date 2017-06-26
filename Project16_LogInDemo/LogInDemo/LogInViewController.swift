@@ -31,6 +31,7 @@ class LogInViewController: UIViewController {
   fileprivate var user:UserInfo!
   fileprivate var emailValidateResult = false
   fileprivate var passwordValidateResult = false
+  fileprivate var segueID = "showBookListVC"
   
   // MARK : - View Life Cycle
   
@@ -38,14 +39,25 @@ class LogInViewController: UIViewController {
     
     super.viewDidLoad()
     
+    Auth.auth().addStateDidChangeListener() { auth, user in
+     
+      if user != nil {
+        self.performSegue(withIdentifier: segueID, sender: nil)
+      }
+    }
     addGradientForBackground()
     hideKeyboardWhenTappedAround()
     applyRadiusToButtons()
     changeLogInButtonImageTintColor()
     setCheckImageViewHiddenStatus()
+    setGoogleSignInDelegate()
+    
+    
+  }
+  
+  func setGoogleSignInDelegate() {
     GIDSignIn.sharedInstance().delegate = self
     GIDSignIn.sharedInstance().uiDelegate = self
-    
   }
   
   func setCheckImageViewHiddenStatus() {
