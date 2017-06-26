@@ -14,12 +14,13 @@
 		B816A3531EE597D000B2C97A /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B816A3521EE597D000B2C97A /* Assets.xcassets */; };
 		B816A3561EE597D000B2C97A /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B816A3541EE597D000B2C97A /* LaunchScreen.storyboard */; };
 		B816A3611EE597D000B2C97A /* LogInDemoTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = B816A3601EE597D000B2C97A /* LogInDemoTests.swift */; };
-		B88BD5CD1EF6C06900112DC9 /* UserListTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B88BD5CC1EF6C06900112DC9 /* UserListTableViewController.swift */; };
+		B88BD5CD1EF6C06900112DC9 /* BookListTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B88BD5CC1EF6C06900112DC9 /* BookListTableViewController.swift */; };
 		B8CDC3531EEE8E0900C04666 /* GoogleSignInBridgingHeader.m in Sources */ = {isa = PBXBuildFile; fileRef = B8CDC3521EEE8E0900C04666 /* GoogleSignInBridgingHeader.m */; };
 		B8DD94351EEC272B000F78D9 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = B8DD94341EEC272B000F78D9 /* GoogleService-Info.plist */; };
 		B8DD94401EED73A3000F78D9 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8DD943F1EED73A3000F78D9 /* User.swift */; };
 		B8DD94441EED85D4000F78D9 /* InputValidator.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8DD94431EED85D4000F78D9 /* InputValidator.swift */; };
 		B8EF0BAF1EFA23A6005ACA0C /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8EF0BAE1EFA23A6005ACA0C /* Constants.swift */; };
+		B8FBD3181F0135F300C146F0 /* Book.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8FBD3171F0135F300C146F0 /* Book.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -46,7 +47,7 @@
 		B816A35C1EE597D000B2C97A /* LogInDemoTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = LogInDemoTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		B816A3601EE597D000B2C97A /* LogInDemoTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LogInDemoTests.swift; sourceTree = "<group>"; };
 		B816A3621EE597D000B2C97A /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		B88BD5CC1EF6C06900112DC9 /* UserListTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserListTableViewController.swift; sourceTree = "<group>"; };
+		B88BD5CC1EF6C06900112DC9 /* BookListTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BookListTableViewController.swift; sourceTree = "<group>"; };
 		B8CDC3511EEE8E0900C04666 /* LogInDemo-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "LogInDemo-Bridging-Header.h"; sourceTree = "<group>"; };
 		B8CDC3521EEE8E0900C04666 /* GoogleSignInBridgingHeader.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = GoogleSignInBridgingHeader.m; path = ../GoogleSignInBridgingHeader.m; sourceTree = "<group>"; };
 		B8DD94341EEC272B000F78D9 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
@@ -54,6 +55,7 @@
 		B8DD943F1EED73A3000F78D9 /* User.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
 		B8DD94431EED85D4000F78D9 /* InputValidator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = InputValidator.swift; sourceTree = "<group>"; };
 		B8EF0BAE1EFA23A6005ACA0C /* Constants.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
+		B8FBD3171F0135F300C146F0 /* Book.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Book.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -152,6 +154,7 @@
 			isa = PBXGroup;
 			children = (
 				B8DD943F1EED73A3000F78D9 /* User.swift */,
+				B8FBD3171F0135F300C146F0 /* Book.swift */,
 			);
 			name = Model;
 			sourceTree = "<group>";
@@ -160,7 +163,7 @@
 			isa = PBXGroup;
 			children = (
 				B816A34D1EE597D000B2C97A /* LogInViewController.swift */,
-				B88BD5CC1EF6C06900112DC9 /* UserListTableViewController.swift */,
+				B88BD5CC1EF6C06900112DC9 /* BookListTableViewController.swift */,
 			);
 			name = Controller;
 			sourceTree = "<group>";
@@ -353,7 +356,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				B88BD5CD1EF6C06900112DC9 /* UserListTableViewController.swift in Sources */,
+				B8FBD3181F0135F300C146F0 /* Book.swift in Sources */,
+				B88BD5CD1EF6C06900112DC9 /* BookListTableViewController.swift in Sources */,
 				B816A34E1EE597D000B2C97A /* LogInViewController.swift in Sources */,
 				B816A34C1EE597D000B2C97A /* AppDelegate.swift in Sources */,
 				B8DD94441EED85D4000F78D9 /* InputValidator.swift in Sources */,

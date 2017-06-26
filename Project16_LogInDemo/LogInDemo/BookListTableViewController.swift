@@ -9,7 +9,7 @@
 import UIKit
 import FirebaseAuth
 
-class UserListTableViewController: UITableViewController {
+class BookListTableViewController: UITableViewController {
   
   override func viewDidLoad() {
     super.viewDidLoad()

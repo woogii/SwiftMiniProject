@@ -183,10 +183,10 @@
             </objects>
             <point key="canvasLocation" x="-116" y="125.4872563718141"/>
         </scene>
-        <!--User List-->
+        <!--Book List-->
         <scene sceneID="Ltr-9m-JkE">
             <objects>
-                <tableViewController id="jK6-qd-iML" customClass="UserListTableViewController" customModule="LogInDemo" customModuleProvider="target" sceneMemberID="viewController">
+                <tableViewController id="jK6-qd-iML" customClass="BookListTableViewController" customModule="LogInDemo" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" id="25B-Ue-qvP">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -196,11 +196,11 @@
                                 <rect key="frame" x="0.0" y="28" width="414" height="44"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="wER-QB-t4j" id="pHW-Qd-FW9">
-                                    <rect key="frame" x="0.0" y="0.0" width="414" height="43"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="414" height="43.666666666666664"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
                                         <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" text="Title" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="Jd1-8v-2Dz">
-                                            <rect key="frame" x="15" y="0.0" width="384" height="43"/>
+                                            <rect key="frame" x="15" y="0.0" width="384" height="43.666666666666664"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                             <nil key="textColor"/>
@@ -215,7 +215,7 @@
                             <outlet property="delegate" destination="jK6-qd-iML" id="n0F-Nf-xju"/>
                         </connections>
                     </tableView>
-                    <navigationItem key="navigationItem" title="User List" id="mdf-9c-BQG">
+                    <navigationItem key="navigationItem" title="Book List" id="mdf-9c-BQG">
                         <barButtonItem key="rightBarButtonItem" title="LogOut" id="gsK-MU-lTl">
                             <connections>
                                 <action selector="tappedLogOutButton:" destination="jK6-qd-iML" id="Y2Y-mA-3nK"/>
