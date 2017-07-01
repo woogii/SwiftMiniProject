@@ -15,6 +15,8 @@
 		B82B99771F0531CD00A82215 /* SideMenuAndSegmentedControlTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = B82B99761F0531CD00A82215 /* SideMenuAndSegmentedControlTests.swift */; };
 		B86AACD31F067983009A9570 /* BookItemTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B86AACD21F067983009A9570 /* BookItemTableViewCell.swift */; };
 		B86AACD51F07A7B3009A9570 /* Book.swift in Sources */ = {isa = PBXBuildFile; fileRef = B86AACD41F07A7B3009A9570 /* Book.swift */; };
+		B86AACDB1F07AC55009A9570 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = B86AACDA1F07AC55009A9570 /* Constants.swift */; };
+		B86AACDD1F07CFEE009A9570 /* bookList.json in Resources */ = {isa = PBXBuildFile; fileRef = B86AACDC1F07CFEE009A9570 /* bookList.json */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -40,6 +42,8 @@
 		B82B99781F0531CD00A82215 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		B86AACD21F067983009A9570 /* BookItemTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BookItemTableViewCell.swift; sourceTree = "<group>"; };
 		B86AACD41F07A7B3009A9570 /* Book.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Book.swift; sourceTree = "<group>"; };
+		B86AACDA1F07AC55009A9570 /* Constants.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
+		B86AACDC1F07CFEE009A9570 /* bookList.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = bookList.json; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -82,6 +86,7 @@
 			isa = PBXGroup;
 			children = (
 				B82B99651F0531CC00A82215 /* Main.storyboard */,
+				B86AACDA1F07AC55009A9570 /* Constants.swift */,
 				B86AACD81F07AAD1009A9570 /* Controller */,
 				B86AACD71F07AACB009A9570 /* View */,
 				B86AACD61F07AAC0009A9570 /* Model */,
@@ -126,6 +131,7 @@
 		B86AACD91F07AAEE009A9570 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				B86AACDC1F07CFEE009A9570 /* bookList.json */,
 				B82B99611F0531CC00A82215 /* AppDelegate.swift */,
 				B82B99681F0531CC00A82215 /* Assets.xcassets */,
 				B82B996A1F0531CC00A82215 /* LaunchScreen.storyboard */,
@@ -219,6 +225,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				B86AACDD1F07CFEE009A9570 /* bookList.json in Resources */,
 				B82B996C1F0531CD00A82215 /* LaunchScreen.storyboard in Resources */,
 				B82B99691F0531CC00A82215 /* Assets.xcassets in Resources */,
 				B82B99671F0531CC00A82215 /* Main.storyboard in Resources */,
@@ -239,6 +246,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				B86AACDB1F07AC55009A9570 /* Constants.swift in Sources */,
 				B86AACD51F07A7B3009A9570 /* Book.swift in Sources */,
 				B82B99641F0531CC00A82215 /* BookListViewController.swift in Sources */,
 				B86AACD31F067983009A9570 /* BookItemTableViewCell.swift in Sources */,
@@ -381,6 +389,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				DEVELOPMENT_TEAM = MFYH4C9VNG;
 				INFOPLIST_FILE = SideMenuAndSegmentedControl/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.woogii.SideMenuAndSegmentedControl;
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -394,6 +403,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				DEVELOPMENT_TEAM = MFYH4C9VNG;
 				INFOPLIST_FILE = SideMenuAndSegmentedControl/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.woogii.SideMenuAndSegmentedControl;
 				PRODUCT_NAME = "$(TARGET_NAME)";

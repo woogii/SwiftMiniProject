@@ -1,0 +1,50 @@
+[
+   {
+      "title" : "Steve Jobs",
+      "author": "Walter Issacson",
+      "lastPageRead":100,
+      "totalPage"   :656, 
+      "isbn":"1501127624",
+      "isDownloaded" : "true"
+   },
+   {
+      "title" : "The Things You Can See Only When You Slow Down",
+      "author": "Haemin Sunim",
+      "lastPageRead":288,
+      "totalPage"   :288, 
+      "isbn":"0143130773",
+      "isDownloaded" : "true"
+   },
+   {
+      "title" : "The Lean Startup",
+      "author": "Eric Ries",
+      "lastPageRead":10,
+      "totalPage"   :336, 
+      "isbn":"0307887898",
+      "isDownloaded" : "true"
+   },
+   {
+      "title" : "Zero to One",
+      "author": "Peter Thiel",
+      "lastPageRead":50,
+      "totalPage"   :224, 
+      "isbn":"0804139296",
+      "isDownloaded" : "false"
+   },
+   {
+      "title" : "Elon Musk: Tesla, SpaceX, and the Quest for a Fantastic Future",
+      "author": "Ashlee Vance",
+      "lastPageRead":400,
+      "totalPage"   :416, 
+      "isbn":"006230125X",
+      "isDownloaded" : "false"
+   },
+   {
+      "title" : "Shoe Dog: A Memoir by the Creator of Nike",
+      "author": "Phil Knight",
+      "lastPageRead":300,
+      "totalPage"   :400, 
+      "isbn":"1501135910",
+      "isDownloaded" : "true"
+   }
+]

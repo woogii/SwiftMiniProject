@@ -8,7 +8,7 @@
 
 import Foundation
 
-// MARK : - Book (Struct)
+// MARK : - Book
 
 struct Book {
 
@@ -24,14 +24,14 @@ struct Book {
   
   // MARK : - Initialization 
   
-  init(dictionary:[String:Any]) {
+  init?(dictionary:[String:Any]) {
     
-    title  = dictionary["title"] as? String ?? ""
-    author = dictionary["author"] as? String ?? ""
-    isbn   = dictionary["isbn"] as? String ?? ""
-    lastPageRead = dictionary["lastPageRead"] as? Int ?? 0
-    totalPage    = dictionary["totalPage"] as? Int ?? 0
-    isDownloaded = dictionary["isDownloaded"] as? Bool ?? false
+    title  = dictionary[Constants.JSONKeys.BookInfo.Title] as? String ?? ""
+    author = dictionary[Constants.JSONKeys.BookInfo.Author] as? String ?? ""
+    isbn   = dictionary[Constants.JSONKeys.BookInfo.Isbn] as? String ?? ""
+    lastPageRead = dictionary[Constants.JSONKeys.BookInfo.LastPageRead] as? Int ?? 0
+    totalPage    = dictionary[Constants.JSONKeys.BookInfo.TotalPage] as? Int ?? 0
+    isDownloaded = dictionary[Constants.JSONKeys.BookInfo.IsDownloaded] as? Bool ?? false
     bookCoverImageUrl = nil
     
   }
