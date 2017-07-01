@@ -8,11 +8,13 @@
 
 /* Begin PBXBuildFile section */
 		B82B99621F0531CC00A82215 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B82B99611F0531CC00A82215 /* AppDelegate.swift */; };
-		B82B99641F0531CC00A82215 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B82B99631F0531CC00A82215 /* ViewController.swift */; };
+		B82B99641F0531CC00A82215 /* BookListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B82B99631F0531CC00A82215 /* BookListViewController.swift */; };
 		B82B99671F0531CC00A82215 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B82B99651F0531CC00A82215 /* Main.storyboard */; };
 		B82B99691F0531CC00A82215 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B82B99681F0531CC00A82215 /* Assets.xcassets */; };
 		B82B996C1F0531CD00A82215 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B82B996A1F0531CC00A82215 /* LaunchScreen.storyboard */; };
 		B82B99771F0531CD00A82215 /* SideMenuAndSegmentedControlTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = B82B99761F0531CD00A82215 /* SideMenuAndSegmentedControlTests.swift */; };
+		B86AACD31F067983009A9570 /* BookItemTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B86AACD21F067983009A9570 /* BookItemTableViewCell.swift */; };
+		B86AACD51F07A7B3009A9570 /* Book.swift in Sources */ = {isa = PBXBuildFile; fileRef = B86AACD41F07A7B3009A9570 /* Book.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -28,7 +30,7 @@
 /* Begin PBXFileReference section */
 		B82B995E1F0531CC00A82215 /* SideMenuAndSegmentedControl.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SideMenuAndSegmentedControl.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		B82B99611F0531CC00A82215 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		B82B99631F0531CC00A82215 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		B82B99631F0531CC00A82215 /* BookListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BookListViewController.swift; sourceTree = "<group>"; };
 		B82B99661F0531CC00A82215 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		B82B99681F0531CC00A82215 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		B82B996B1F0531CC00A82215 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -36,6 +38,8 @@
 		B82B99721F0531CD00A82215 /* SideMenuAndSegmentedControlTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = SideMenuAndSegmentedControlTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		B82B99761F0531CD00A82215 /* SideMenuAndSegmentedControlTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SideMenuAndSegmentedControlTests.swift; sourceTree = "<group>"; };
 		B82B99781F0531CD00A82215 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		B86AACD21F067983009A9570 /* BookItemTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BookItemTableViewCell.swift; sourceTree = "<group>"; };
+		B86AACD41F07A7B3009A9570 /* Book.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Book.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -77,12 +81,11 @@
 		B82B99601F0531CC00A82215 /* SideMenuAndSegmentedControl */ = {
 			isa = PBXGroup;
 			children = (
-				B82B99611F0531CC00A82215 /* AppDelegate.swift */,
-				B82B99631F0531CC00A82215 /* ViewController.swift */,
 				B82B99651F0531CC00A82215 /* Main.storyboard */,
-				B82B99681F0531CC00A82215 /* Assets.xcassets */,
-				B82B996A1F0531CC00A82215 /* LaunchScreen.storyboard */,
-				B82B996D1F0531CD00A82215 /* Info.plist */,
+				B86AACD81F07AAD1009A9570 /* Controller */,
+				B86AACD71F07AACB009A9570 /* View */,
+				B86AACD61F07AAC0009A9570 /* Model */,
+				B86AACD91F07AAEE009A9570 /* Supporting Files */,
 			);
 			path = SideMenuAndSegmentedControl;
 			sourceTree = "<group>";
@@ -94,6 +97,41 @@
 				B82B99781F0531CD00A82215 /* Info.plist */,
 			);
 			path = SideMenuAndSegmentedControlTests;
+			sourceTree = "<group>";
+		};
+		B86AACD61F07AAC0009A9570 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				B86AACD41F07A7B3009A9570 /* Book.swift */,
+			);
+			name = Model;
+			sourceTree = "<group>";
+		};
+		B86AACD71F07AACB009A9570 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				B86AACD21F067983009A9570 /* BookItemTableViewCell.swift */,
+			);
+			name = View;
+			sourceTree = "<group>";
+		};
+		B86AACD81F07AAD1009A9570 /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				B82B99631F0531CC00A82215 /* BookListViewController.swift */,
+			);
+			name = Controller;
+			sourceTree = "<group>";
+		};
+		B86AACD91F07AAEE009A9570 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				B82B99611F0531CC00A82215 /* AppDelegate.swift */,
+				B82B99681F0531CC00A82215 /* Assets.xcassets */,
+				B82B996A1F0531CC00A82215 /* LaunchScreen.storyboard */,
+				B82B996D1F0531CD00A82215 /* Info.plist */,
+			);
+			name = "Supporting Files";
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -201,7 +239,9 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				B82B99641F0531CC00A82215 /* ViewController.swift in Sources */,
+				B86AACD51F07A7B3009A9570 /* Book.swift in Sources */,
+				B82B99641F0531CC00A82215 /* BookListViewController.swift in Sources */,
+				B86AACD31F067983009A9570 /* BookItemTableViewCell.swift in Sources */,
 				B82B99621F0531CC00A82215 /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -410,6 +450,7 @@
 				B82B997D1F0531CD00A82215 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		B82B997E1F0531CD00A82215 /* Build configuration list for PBXNativeTarget "SideMenuAndSegmentedControlTests" */ = {
 			isa = XCConfigurationList;
@@ -418,6 +459,7 @@
 				B82B99801F0531CD00A82215 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
