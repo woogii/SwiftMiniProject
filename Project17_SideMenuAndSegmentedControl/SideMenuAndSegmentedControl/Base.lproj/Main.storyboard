@@ -4,7 +4,6 @@
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
-        <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="12086"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -239,7 +238,6 @@
                                                 <constraint firstItem="6av-Ss-xAr" firstAttribute="leading" secondItem="qC0-cj-qS1" secondAttribute="leading" id="O7a-jR-ngO"/>
                                                 <constraint firstItem="qC0-cj-qS1" firstAttribute="leading" secondItem="eMf-pt-VCk" secondAttribute="leading" id="PYy-Sr-ydR"/>
                                                 <constraint firstItem="vvY-6G-7Ez" firstAttribute="bottom" secondItem="6av-Ss-xAr" secondAttribute="bottom" id="QGD-JU-0ra"/>
-                                                <constraint firstItem="Pmw-1e-CI4" firstAttribute="top" secondItem="yxy-nR-FUX" secondAttribute="top" constant="15" id="QuU-Jq-Tnz"/>
                                                 <constraint firstItem="mla-9m-6oT" firstAttribute="leading" secondItem="Tyj-rd-BpF" secondAttribute="trailing" constant="4" id="RH6-7c-0Tb"/>
                                                 <constraint firstItem="n0Y-Ps-yXa" firstAttribute="leading" secondItem="6av-Ss-xAr" secondAttribute="trailing" constant="4" id="Rlo-l1-ATj"/>
                                                 <constraint firstItem="Vkw-aC-Dxa" firstAttribute="bottom" secondItem="6av-Ss-xAr" secondAttribute="bottom" id="SVd-r0-sxX"/>
@@ -278,6 +276,7 @@
                                                 <constraint firstItem="MAE-gv-ieK" firstAttribute="leading" secondItem="fIj-yU-avs" secondAttribute="trailing" constant="4" id="vwb-Vu-Fji"/>
                                                 <constraint firstItem="1wn-pO-8ml" firstAttribute="bottom" secondItem="6av-Ss-xAr" secondAttribute="bottom" id="vxo-xd-BwS"/>
                                                 <constraint firstItem="Huy-ju-9Qb" firstAttribute="top" secondItem="6av-Ss-xAr" secondAttribute="top" id="ywB-ks-VjH"/>
+                                                <constraint firstItem="Pmw-1e-CI4" firstAttribute="centerY" secondItem="yxy-nR-FUX" secondAttribute="centerY" id="zPN-2d-mS6"/>
                                                 <constraint firstItem="5Nn-nT-WXR" firstAttribute="top" secondItem="6av-Ss-xAr" secondAttribute="top" id="zfM-sM-9gI"/>
                                             </constraints>
                                         </tableViewCellContentView>
@@ -385,7 +384,9 @@
                     </view>
                     <toolbarItems/>
                     <navigationItem key="navigationItem" title="All Items" id="kkQ-Q5-00u">
-                        <barButtonItem key="leftBarButtonItem" image="ic_menu" id="DgP-8K-KR3"/>
+                        <barButtonItem key="leftBarButtonItem" image="ic_menu" id="DgP-8K-KR3">
+                            <color key="tintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        </barButtonItem>
                     </navigationItem>
                     <simulatedToolbarMetrics key="simulatedBottomBarMetrics"/>
                     <connections>

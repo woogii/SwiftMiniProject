@@ -13,9 +13,31 @@ import Foundation
 
 struct Constants {
   
+  static let BookListJSONFileName = "bookList"
+  static let BookListJSONFileType = "json"
   
-  static let bookListJSON = "bookList.json"
+  // MARK : Google Book API 
+  
+  struct GoogleBookAPI {
+    
+    static let BaseUrl = "https://www.googleapis.com/books/v1/volumes?q=isbn:"
+    
+    struct JSONResponseKeys {
+      
+      static let Items = "items"
+      static let ImageLinks = "imageLinks"
+      static let VolumeInfo = "volumeInfo"
+      static let SmallThumbnail = "smallThumbnail"
+      static let Thumbnail = "thumbnail"
+      
+    }
+  }
+  
+  // MARK : - JSONKeys 
+  
   struct JSONKeys {
+  
+    // MARK : - BookInfo
     
     struct BookInfo {
       
@@ -29,6 +51,10 @@ struct Constants {
     }
     
   }
+  
+  
+  
+  // MARK : - CellID 
   
   struct CellID {
     static let BookItemTableViewCell = "bookItemTableViewCell"
