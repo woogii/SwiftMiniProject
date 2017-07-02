@@ -27,6 +27,8 @@ class BookItemTableViewCell: UITableViewCell {
     }
   }
   
+  // MARK : - Update Cell UI 
+  
   private func updateUI() {
     titleLabel.text = bookItemInfo.title
     authorLabel.text = bookItemInfo.author

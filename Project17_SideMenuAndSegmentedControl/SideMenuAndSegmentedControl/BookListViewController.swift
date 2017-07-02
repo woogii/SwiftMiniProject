@@ -68,11 +68,6 @@ class BookListViewController: UIViewController {
   
   
   @IBAction func tappedSideMenuButton(_ sender: UIBarButtonItem) {
-    
-    
-    
-    
-    
   }
   
 }

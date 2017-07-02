@@ -15,8 +15,25 @@ struct Constants {
   
   static let BookListJSONFileName = "bookList"
   static let BookListJSONFileType = "json"
+  static let MenuTitle = ["Search","Sync","All Items","Books","Newsstand",
+                   "Docs","Collections","Audio Companions",
+                   "Help","Settings"]
   
-  // MARK : Google Book API 
+
+  // MARK : - Storyboard Name
+  
+  struct StorybordName {
+    static let Main = "Main"
+  }
+  
+  // MARK : - Storyboard ID
+  
+  struct StoryboardID {
+    static let NavigationController = "NavigationController"
+    static let BookListVC = "BookListVC"
+  }
+
+  // MARK : - Google Book API
   
   struct GoogleBookAPI {
     
@@ -58,6 +75,24 @@ struct Constants {
   
   struct CellID {
     static let BookItemTableViewCell = "bookItemTableViewCell"
+    static let SideMenuTableViewCell = "sideMenuTableViewCell"
   }
   
 }
+
+// MARK : - MenuType (enum)
+
+enum MenuType : Int {
+  
+  case Search = 0
+  case Sync
+  case AllItems
+  case Books
+  case Newsstand
+  case Docs
+  case Collections
+  case AudioCompanions
+  case Help
+  case Settings
+}
+
