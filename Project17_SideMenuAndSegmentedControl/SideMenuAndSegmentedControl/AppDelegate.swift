@@ -15,7 +15,23 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
 
   func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
-    // Override point for customization after application launch.
+    
+    
+    let storyboard = UIStoryboard(name: "Main", bundle: nil)
+    let navigationController = storyboard.instantiateViewController(withIdentifier: "NavigationController") as! UINavigationController
+    
+    
+    navigationController.setViewControllers([storyboard.instantiateViewController(withIdentifier: "BookListVC")], animated: false)
+  
+    
+    let mainViewController = storyboard.instantiateInitialViewController() as! MainViewController
+    mainViewController.rootViewController = navigationController
+    //mainViewController.setup(type: UInt(indexPath.row))
+    
+    let window = UIApplication.shared.delegate!.window!!
+    window.rootViewController = mainViewController
+    
+    UIView.transition(with: window, duration: 0.3, options: [.transitionCrossDissolve], animations: nil, completion: nil)
     return true
   }
 

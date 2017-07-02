@@ -8,6 +8,7 @@
 
 import UIKit
 import Foundation
+import LGSideMenuController
 
 // MARK : - BookListViewController : UIViewController
 
@@ -26,6 +27,7 @@ class BookListViewController: UIViewController {
     fetchBookInfo()
     setNavigationBarProperty()
     changeStatusBarColor()
+    
     
   }
   
@@ -63,6 +65,16 @@ class BookListViewController: UIViewController {
       print(error.localizedDescription)
     }
   }
+  
+  
+  @IBAction func tappedSideMenuButton(_ sender: UIBarButtonItem) {
+    
+    
+    
+    
+    
+  }
+  
 }
 
 

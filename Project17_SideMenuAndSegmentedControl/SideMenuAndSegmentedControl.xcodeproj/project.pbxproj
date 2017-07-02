@@ -18,6 +18,8 @@
 		B86AACD51F07A7B3009A9570 /* Book.swift in Sources */ = {isa = PBXBuildFile; fileRef = B86AACD41F07A7B3009A9570 /* Book.swift */; };
 		B86AACDB1F07AC55009A9570 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = B86AACDA1F07AC55009A9570 /* Constants.swift */; };
 		B86AACDD1F07CFEE009A9570 /* bookList.json in Resources */ = {isa = PBXBuildFile; fileRef = B86AACDC1F07CFEE009A9570 /* bookList.json */; };
+		B87CAD6F1F0935400092A3A4 /* SideMenuViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B87CAD6E1F0935400092A3A4 /* SideMenuViewController.swift */; };
+		B87CAD711F093CC10092A3A4 /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B87CAD701F093CC10092A3A4 /* MainViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -48,6 +50,8 @@
 		B86AACD41F07A7B3009A9570 /* Book.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Book.swift; sourceTree = "<group>"; };
 		B86AACDA1F07AC55009A9570 /* Constants.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 		B86AACDC1F07CFEE009A9570 /* bookList.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = bookList.json; sourceTree = "<group>"; };
+		B87CAD6E1F0935400092A3A4 /* SideMenuViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SideMenuViewController.swift; sourceTree = "<group>"; };
+		B87CAD701F093CC10092A3A4 /* MainViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MainViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -148,6 +152,8 @@
 			isa = PBXGroup;
 			children = (
 				B82B99631F0531CC00A82215 /* BookListViewController.swift */,
+				B87CAD6E1F0935400092A3A4 /* SideMenuViewController.swift */,
+				B87CAD701F093CC10092A3A4 /* MainViewController.swift */,
 			);
 			name = Controller;
 			sourceTree = "<group>";
@@ -329,10 +335,12 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				B87CAD711F093CC10092A3A4 /* MainViewController.swift in Sources */,
 				B86AACDB1F07AC55009A9570 /* Constants.swift in Sources */,
 				B86AACD51F07A7B3009A9570 /* Book.swift in Sources */,
 				B82B99641F0531CC00A82215 /* BookListViewController.swift in Sources */,
 				B86AACD31F067983009A9570 /* BookItemTableViewCell.swift in Sources */,
+				B87CAD6F1F0935400092A3A4 /* SideMenuViewController.swift in Sources */,
 				B82B99621F0531CC00A82215 /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

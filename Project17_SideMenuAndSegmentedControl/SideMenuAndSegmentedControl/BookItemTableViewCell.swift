@@ -27,14 +27,14 @@ class BookItemTableViewCell: UITableViewCell {
     }
   }
   
-  func updateUI() {
+  private func updateUI() {
     titleLabel.text = bookItemInfo.title
     authorLabel.text = bookItemInfo.author
     fetchBookCoverImageUrl(isbn:bookItemInfo.isbn)
   
   }
   
-  func fetchBookCoverImageUrl(isbn:String) {
+  private func fetchBookCoverImageUrl(isbn:String) {
     
     let sharedSession = URLSession.shared
     let finalUrl = Constants.GoogleBookAPI.BaseUrl + isbn
@@ -76,7 +76,7 @@ class BookItemTableViewCell: UITableViewCell {
           return
         }
         
-        print(smallThumbnailUrl)
+        
         self.bookCoverImageView.sd_setImage(with: URL(string:smallThumbnailUrl)!, placeholderImage: UIImage(named:""), options: SDWebImageOptions(), completed: { (image, error, cacheType, url) in
           
           if image != nil {
@@ -105,14 +105,14 @@ class BookItemTableViewCell: UITableViewCell {
     setCornerRadiusForCircleViews()
   }
   
-  func addCustomSelectedBackgroundView() {
+  private func addCustomSelectedBackgroundView() {
     let view = UIView()
     view.backgroundColor = UIColor.black.withAlphaComponent(0.6)
     selectedBackgroundView = view
     
   }
   
-  func setCornerRadiusForCircleViews() {
+  private func setCornerRadiusForCircleViews() {
     for view in circleViews {
       view.layer.cornerRadius = view.frame.size.width/2
     }
