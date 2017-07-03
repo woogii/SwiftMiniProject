@@ -18,7 +18,7 @@ struct Constants {
   static let MenuTitle = ["Search","Sync","All Items","Books","Newsstand",
                    "Docs","Collections","Audio Companions",
                    "Help","Settings"]
-  
+  static let SyncDateInfoDefaultText = "Last synced on "
 
   // MARK : - Storyboard Name
   

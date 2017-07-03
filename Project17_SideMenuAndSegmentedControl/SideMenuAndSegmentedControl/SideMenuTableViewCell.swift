@@ -18,6 +18,8 @@ class SideMenuTableViewCell: UITableViewCell {
   @IBOutlet var separatorView: UIView!
   @IBOutlet weak var menuIconImageView: UIImageView!
   
+  @IBOutlet weak var syncDateLabel: UILabel!
+  @IBOutlet weak var titleLabelLeadingConstraint: NSLayoutConstraint!
   // MARK : - Nib File Loading
   
   override func awakeFromNib() {
@@ -25,7 +27,13 @@ class SideMenuTableViewCell: UITableViewCell {
     super.awakeFromNib()
     addCustomSelectedBackgroundView()
     setBackgroundColor()
+    setMenuIconAndSyncDateLabelHiddenStatus()
+    
+  }
+  
+  private func setMenuIconAndSyncDateLabelHiddenStatus() {
     menuIconImageView.isHidden = true
+    syncDateLabel.isHidden = true
   }
   
   private func setBackgroundColor() {

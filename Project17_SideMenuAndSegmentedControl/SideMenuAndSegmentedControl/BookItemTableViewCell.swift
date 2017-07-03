@@ -30,11 +30,48 @@ class BookItemTableViewCell: UITableViewCell {
   // MARK : - Update Cell UI 
   
   private func updateUI() {
+    setCircleViews()
     titleLabel.text = bookItemInfo.title
     authorLabel.text = bookItemInfo.author
     fetchBookCoverImageUrl(isbn:bookItemInfo.isbn)
-  
   }
+  
+  private func setCircleViews() {
+  
+    if bookItemInfo.isDownloaded == false {
+      setCircleViewsHiddenStatus(true)
+      
+    } else {
+      
+      setCircleViewsHiddenStatus(false)
+      
+      for i in 0..<18 {
+        circleViews[i].backgroundColor = UIColor.white
+      }
+      
+      let numberOfAmountRead = (Double)(bookItemInfo.lastPageRead)/(Double)(bookItemInfo.totalPage)
+      let numberOfColoredCircle = Int(numberOfAmountRead * 18)
+      print(numberOfColoredCircle)
+      displayCircleViews(numberOfColoredCircle)
+      
+    }
+  }
+  
+  private func displayCircleViews(_ numberOfColoredCircle:Int) {
+    
+    for i in 0..<numberOfColoredCircle {
+      circleViews[i].backgroundColor = UIColor.blue
+    }
+  }
+  
+  private func setCircleViewsHiddenStatus(_ isHidden:Bool) {
+    
+    for view in circleViews {
+      view.isHidden = isHidden
+    }
+  }
+  
+  
   
   private func fetchBookCoverImageUrl(isbn:String) {
     
@@ -87,14 +124,11 @@ class BookItemTableViewCell: UITableViewCell {
             }
           }
         })
-        
-        
-        
       } catch let error {
         print(error.localizedDescription)
       }
       
-      }.resume()
+    }.resume()
     
   }
   

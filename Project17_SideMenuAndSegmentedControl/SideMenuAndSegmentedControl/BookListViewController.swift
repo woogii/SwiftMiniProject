@@ -70,6 +70,19 @@ class BookListViewController: UIViewController {
   @IBAction func tappedSideMenuButton(_ sender: UIBarButtonItem) {
   }
   
+  @IBAction func segmentIndexChanged(_ sender: UISegmentedControl) {
+    switch sender.selectedSegmentIndex {
+      
+    case 0 :
+      
+      break
+    case 1:
+      
+      break
+    default:
+      break
+    }
+  }
 }
 
 

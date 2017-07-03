@@ -44,7 +44,9 @@ class SideMenuViewController : UITableViewController {
     let cell = tableView.dequeueReusableCell(withIdentifier: Constants.CellID.SideMenuTableViewCell, for: indexPath) as! SideMenuTableViewCell
     
     if indexPath.row == MenuType.Books.rawValue || indexPath.row == MenuType.Newsstand.rawValue || indexPath.row == MenuType.Docs.rawValue {
-      adjustAutolayout(cell)
+      cell.titleLabelLeadingConstraint.constant = 25
+    } else {
+      cell.titleLabelLeadingConstraint.constant = 15
     }
     
     if indexPath.row == MenuType.Search.rawValue || indexPath.row == MenuType.Sync.rawValue || indexPath.row == MenuType.Settings.rawValue {
@@ -63,17 +65,28 @@ class SideMenuViewController : UITableViewController {
     
     return cell
   }
-  
-  fileprivate func adjustAutolayout(_ cell:SideMenuTableViewCell) {
-    
-    cell.contentView.translatesAutoresizingMaskIntoConstraints = false
-    cell.titleLabel.centerYAnchor.constraint(equalTo: cell.centerYAnchor).isActive = true
-    cell.titleLabel.leadingAnchor.constraint(equalTo: cell.leadingAnchor, constant: 25).isActive = true
-    cell.separatorView.leadingAnchor.constraint(equalTo: cell.leadingAnchor, constant: 0).isActive = true
-    cell.separatorView.trailingAnchor.constraint(equalTo: cell.trailingAnchor, constant: 0).isActive = true
-    cell.separatorView.bottomAnchor.constraint(equalTo: cell.bottomAnchor, constant: 0).isActive = true
-    cell.separatorView.heightAnchor.constraint(equalToConstant: 0.5).isActive = true
 
+  
+  override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+    
+    let mainViewController = sideMenuController!
+    
+    if indexPath.row == MenuType.Search.rawValue {
+      
+      // let viewController = UIViewController()
+      // viewController.view.backgroundColor = .white
+      // viewController.title = "Test \(titlesArray[indexPath.row])"
+      
+      let main = UIStoryboard.init(name: Constants.StorybordName.Main, bundle: nil)
+      let searchBookVC = main.instantiateViewController(withIdentifier: "SearchBookVC") as! SearchBookViewController
+      
+      let navigationController = mainViewController.rootViewController as! UINavigationController
+      navigationController.present(searchBookVC, animated: true, completion: nil)
+      mainViewController.hideLeftView(animated: true, completionHandler: nil)
+
+    }
+    
+    tableView.deselectRow(at: indexPath, animated: true)
   }
   
 }
