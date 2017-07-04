@@ -90,33 +90,50 @@ This repository is inspired by Allen Wang's [30DaysofSwift](https://github.com/a
 
 ![Alt text](GIFs/SideMenu.gif)
 
+# Open Source Licence
+
+This project uses open source library. Thanks for the developers who are dedicated to developing great open source library. 
+
+*  [SDWebImage](https://github.com/rs/SDWebImage)
+*  [DKImagePickerController](https://github.com/zhangao0086/DKImagePickerController)
+*  [Firebase SDK](https://firebase.google.com/)
+*  [GoogleSignIn SDK](https://developers.google.com/identity/sign-in/ios/)
+*  [Facebook SDK](https://github.com/facebook/facebook-ios-sdk)
+*  [LGSideMenuController](https://github.com/Friend-LGA/LGSideMenuController)
+
+
 ## Image Licence 
 
 These projects use icons from Icons8. Thank [Icons8](https://icons8.com/) for your hard work. 
 
 ## References 
 
-[Udacity iOS Nanodegree](https://www.udacity.com/course/ios-developer-nanodegree--nd003)
+* [Udacity iOS Nanodegree](https://www.udacity.com/course/ios-developer-nanodegree--nd003)
 
-[Raywenderlich](https://www.raywenderlich.com/)
+* [Raywenderlich](https://www.raywenderlich.com/)
 
-[Youtube - Let's Build That App](https://www.youtube.com/channel/UCuP2vJ6kRutQBfRmdcI92mA)
+* [Youtube - Let's Build That App](https://www.youtube.com/channel/UCuP2vJ6kRutQBfRmdcI92mA)
 
-[Youtube - Duc Tran](https://www.youtube.com/channel/UCvPFGq6luCqAVGiFpzTvkIA)
+* [Youtube - Duc Tran](https://www.youtube.com/channel/UCvPFGq6luCqAVGiFpzTvkIA)
 
-[Cocoacasts](https://cocoacasts.com/)
+* [Cocoacasts](https://cocoacasts.com/)
 
-[AppCoda](https://www.appcoda.com/)
+* [AppCoda](https://www.appcoda.com/)
 
-[Stanford iOS Course](https://itunes.apple.com/us/course/developing-ios-10-apps-with-swift/id1198467120)
+* [Stanford iOS Course](https://itunes.apple.com/us/course/developing-ios-10-apps-with-swift/id1198467120)
 
-[Hacking With Swift](https://www.hackingwithswift.com/)
+* [Code & Trick](https://codentrick.com/create-a-tag-flow-layout-with-uicollectionview/)
 
-[Natasha The Robot](https://www.natashatherobot.com/)
+* [Use Your Loaf](https://useyourloaf.com/)
 
-[Objc](https://www.objc.io/)
+* [Hacking With Swift](https://www.hackingwithswift.com/)
 
-[Code & Trick](https://codentrick.com/create-a-tag-flow-layout-with-uicollectionview/)
+* [Andrew Bancroft](http://www.andrewcbancroft.com/)
+
+* [Natasha The Robot](https://www.natashatherobot.com/)
+
+* [Objc](https://www.objc.io/)
+
 
 ## Compatibility 
 The code of this project works in Swift3.0, Xcode 8.2.1 and iOS9 
