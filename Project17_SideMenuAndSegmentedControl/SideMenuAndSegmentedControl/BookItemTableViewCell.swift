@@ -18,8 +18,26 @@ class BookItemTableViewCell: UITableViewCell {
   @IBOutlet weak var bookCoverImageView: UIImageView!
   @IBOutlet weak var titleLabel: UILabel!
   @IBOutlet weak var authorLabel: UILabel!
-  @IBOutlet var downloadIndicatorImageView: UIImageView!
-  @IBOutlet var circleViews:[UIView]!
+  @IBOutlet weak var downloadIndicatorImageView: UIImageView!
+  @IBOutlet weak var view1: UIView!
+  @IBOutlet weak var view2: UIView!
+  @IBOutlet weak var view3: UIView!
+  @IBOutlet weak var view4: UIView!
+  @IBOutlet weak var view5: UIView!
+  @IBOutlet weak var view6: UIView!
+  @IBOutlet weak var view7: UIView!
+  @IBOutlet weak var view8: UIView!
+  @IBOutlet weak var view9: UIView!
+  @IBOutlet weak var view10: UIView!
+  @IBOutlet weak var view11: UIView!
+  @IBOutlet weak var view12: UIView!
+  @IBOutlet weak var view13: UIView!
+  @IBOutlet weak var view14: UIView!
+  @IBOutlet weak var view15: UIView!
+  @IBOutlet weak var view16: UIView!
+  @IBOutlet weak var view17: UIView!
+  @IBOutlet weak var view18: UIView!
+  var circleViews:[UIView] = [UIView]()
   
   var bookItemInfo : Book! {
     didSet {
@@ -40,28 +58,33 @@ class BookItemTableViewCell: UITableViewCell {
   
     if bookItemInfo.isDownloaded == false {
       setCircleViewsHiddenStatus(true)
-      
+      downloadIndicatorImageView.isHidden = true
     } else {
       
+      downloadIndicatorImageView.isHidden = false
+      downloadIndicatorImageView.image = #imageLiteral(resourceName: "ic_checked")
       setCircleViewsHiddenStatus(false)
-      
-      for i in 0..<18 {
-        circleViews[i].backgroundColor = UIColor.white
-      }
-      
+    
       let numberOfAmountRead = (Double)(bookItemInfo.lastPageRead)/(Double)(bookItemInfo.totalPage)
-      let numberOfColoredCircle = Int(numberOfAmountRead * 18)
-      print(numberOfColoredCircle)
+      let numberOfColoredCircle = Int(numberOfAmountRead * Double(circleViews.count))
+      
       displayCircleViews(numberOfColoredCircle)
       
     }
   }
   
   private func displayCircleViews(_ numberOfColoredCircle:Int) {
+    print(numberOfColoredCircle)
+    print(bookItemInfo.title)
     
     for i in 0..<numberOfColoredCircle {
       circleViews[i].backgroundColor = UIColor.blue
     }
+    
+    for i in numberOfColoredCircle..<circleViews.count {
+      circleViews[i].backgroundColor = UIColor.white
+    }
+    
   }
   
   private func setCircleViewsHiddenStatus(_ isHidden:Bool) {
@@ -137,8 +160,29 @@ class BookItemTableViewCell: UITableViewCell {
   override func awakeFromNib() {
     super.awakeFromNib()
     
+    circleViews = [view1,view2,
+                   view3,
+                   view4,
+                   view5,
+                   view6,
+                   view7,
+                   view8,
+                   view9,
+                   view10,
+                   view11,
+                   view12,
+                   view13,
+                   view14,
+                   view15,
+                   view16,
+                   view17,
+                   view18
+    ]
     addCustomSelectedBackgroundView()
     setCornerRadiusForCircleViews()
+    
+
+
   }
   
   private func addCustomSelectedBackgroundView() {
@@ -149,16 +193,27 @@ class BookItemTableViewCell: UITableViewCell {
   }
   
   private func setCornerRadiusForCircleViews() {
+    
     for view in circleViews {
-      view.layer.cornerRadius = view.frame.size.width/2
+      view.layer.cornerRadius = view1.frame.size.width/2
     }
+    
   }
   
   override func setSelected(_ selected: Bool, animated: Bool) {
-    let color = circleViews[0].backgroundColor
+    
+    var colors = [UIColor]()
+    
+    for i in 0..<circleViews.count {
+      if let color = circleViews[i].backgroundColor {
+        colors.append(color)
+      }
+    }
+    
     super.setSelected(selected, animated: animated)
-    for view in circleViews {
-      view.backgroundColor = color
+    
+    for i in 0..<circleViews.count {
+      circleViews[i].backgroundColor = colors[i]
     }
   }
   

@@ -18,6 +18,7 @@ class BookListViewController: UIViewController {
   
   @IBOutlet weak var tableView: UITableView!
   fileprivate var bookList = [Book]()
+   
  
   // MARK : - View Life Cycle
 
@@ -27,7 +28,6 @@ class BookListViewController: UIViewController {
     fetchBookInfo()
     setNavigationBarProperty()
     changeStatusBarColor()
-    
     
   }
   
