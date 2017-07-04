@@ -37,7 +37,7 @@ class SideMenuTableViewCell: UITableViewCell {
   }
   
   private func setBackgroundColor() {
-    backgroundColor = .clear
+    backgroundColor = UIColor.clear
   }
   
   private func addCustomSelectedBackgroundView() {

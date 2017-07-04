@@ -22,6 +22,7 @@
 		B87CAD711F093CC10092A3A4 /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B87CAD701F093CC10092A3A4 /* MainViewController.swift */; };
 		B87CAD731F094CAB0092A3A4 /* SideMenuTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B87CAD721F094CAB0092A3A4 /* SideMenuTableViewCell.swift */; };
 		B87CAD7A1F0A6EEE0092A3A4 /* SearchBookViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B87CAD791F0A6EEE0092A3A4 /* SearchBookViewController.swift */; };
+		B87CAD7D1F0B78EF0092A3A4 /* Enums.swift in Sources */ = {isa = PBXBuildFile; fileRef = B87CAD7C1F0B78EF0092A3A4 /* Enums.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -56,6 +57,7 @@
 		B87CAD701F093CC10092A3A4 /* MainViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MainViewController.swift; sourceTree = "<group>"; };
 		B87CAD721F094CAB0092A3A4 /* SideMenuTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SideMenuTableViewCell.swift; sourceTree = "<group>"; };
 		B87CAD791F0A6EEE0092A3A4 /* SearchBookViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SearchBookViewController.swift; sourceTree = "<group>"; };
+		B87CAD7C1F0B78EF0092A3A4 /* Enums.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Enums.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -117,11 +119,11 @@
 		B82B99601F0531CC00A82215 /* SideMenuAndSegmentedControl */ = {
 			isa = PBXGroup;
 			children = (
-				B82B99651F0531CC00A82215 /* Main.storyboard */,
 				B87CAD6D1F09009F0092A3A4 /* Constant */,
 				B86AACD81F07AAD1009A9570 /* Controller */,
 				B86AACD71F07AACB009A9570 /* View */,
 				B86AACD61F07AAC0009A9570 /* Model */,
+				B87CAD7B1F0B70120092A3A4 /* Storyboard */,
 				B86AACD91F07AAEE009A9570 /* Supporting Files */,
 			);
 			path = SideMenuAndSegmentedControl;
@@ -180,8 +182,17 @@
 			isa = PBXGroup;
 			children = (
 				B86AACDA1F07AC55009A9570 /* Constants.swift */,
+				B87CAD7C1F0B78EF0092A3A4 /* Enums.swift */,
 			);
 			name = Constant;
+			sourceTree = "<group>";
+		};
+		B87CAD7B1F0B70120092A3A4 /* Storyboard */ = {
+			isa = PBXGroup;
+			children = (
+				B82B99651F0531CC00A82215 /* Main.storyboard */,
+			);
+			name = Storyboard;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -343,6 +354,7 @@
 			files = (
 				B87CAD7A1F0A6EEE0092A3A4 /* SearchBookViewController.swift in Sources */,
 				B87CAD711F093CC10092A3A4 /* MainViewController.swift in Sources */,
+				B87CAD7D1F0B78EF0092A3A4 /* Enums.swift in Sources */,
 				B86AACDB1F07AC55009A9570 /* Constants.swift in Sources */,
 				B86AACD51F07A7B3009A9570 /* Book.swift in Sources */,
 				B87CAD731F094CAB0092A3A4 /* SideMenuTableViewCell.swift in Sources */,

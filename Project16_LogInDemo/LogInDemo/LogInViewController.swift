@@ -42,7 +42,7 @@ class LogInViewController: UIViewController {
     Auth.auth().addStateDidChangeListener() { auth, user in
      
       if user != nil {
-        self.performSegue(withIdentifier: segueID, sender: nil)
+        self.performSegue(withIdentifier: self.segueID, sender: nil)
       }
     }
     addGradientForBackground()

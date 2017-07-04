@@ -7,7 +7,7 @@
 //
 
 import Foundation
-
+import UIKit
 
 // MARK : - Constants 
 
@@ -18,8 +18,7 @@ struct Constants {
   static let MenuTitle = ["Search","Sync","All Items","Books","Newsstand",
                    "Docs","Collections","Audio Companions",
                    "Help","Settings"]
-  static let SyncDateInfoDefaultText = "Last synced on "
-
+  
   // MARK : - Storyboard Name
   
   struct StorybordName {
@@ -31,6 +30,8 @@ struct Constants {
   struct StoryboardID {
     static let NavigationController = "NavigationController"
     static let BookListVC = "BookListVC"
+    static let SearchBookVC = "SearchBookVC"
+    
   }
 
   // MARK : - Google Book API
@@ -68,8 +69,18 @@ struct Constants {
     }
     
   }
+
+  // MARK : - SideMenuVC
   
-  
+  struct SideMenuVC {
+    
+    static let RotationAnimationKey = "sidemenuVC.rotationanimationkey"
+    static let FirstDepthMenuLeadingConstraintValue:CGFloat  = 15
+    static let SecondDepthMenuLeadingConstraintValue:CGFloat = 25
+    static let RotateAnimationDelay:Double = 3
+    static let SyncDateInfoDefaultText = "Last synced on "
+    static let DefaultSyncDate = "2017.7.3 11:05 pm"
+  }
   
   // MARK : - CellID 
   
@@ -80,19 +91,4 @@ struct Constants {
   
 }
 
-// MARK : - MenuType (enum)
-
-enum MenuType : Int {
-  
-  case Search = 0
-  case Sync
-  case AllItems
-  case Books
-  case Newsstand
-  case Docs
-  case Collections
-  case AudioCompanions
-  case Help
-  case Settings
-}
 
