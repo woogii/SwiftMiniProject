@@ -24,7 +24,10 @@ class RestClient {
   
   func taskForGetMethod(_ method: String, parameters:[String:Any]?=nil, completionHandler:@escaping (_ result:[String:Any]?, _ error:Error?)->Void) {
     
-    let urlString = Constants.API.BaseUrl + Constants.API.Path + method
+    let escapedParamters = escapedParameters(parameters)
+    
+    let urlString = Constants.API.BaseUrl + Constants.API.Path + method +  escapedParamters
+  
     guard let url = URL(string: urlString) else {
       return
     }
@@ -38,14 +41,17 @@ class RestClient {
         
       } else {
         
+    
         guard let returnData = data else {
           print("data is not returned")
           return
         }
+    
+        print(returnData)
         
         do {
           
-          let jsonObject = try JSONSerialization.jsonObject(with: returnData, options: .allowFragments)
+          let jsonObject = try JSONSerialization.jsonObject(with: returnData, options: [])
           
           guard let jsonResult = jsonObject as? [String:Any] else {
             return
@@ -64,4 +70,33 @@ class RestClient {
   
   }
   
+  
+  func escapedParameters(_ parameters:[String:Any]?)-> String {
+    
+    guard let parameters = parameters else {
+      return ""
+    }
+    
+    var escapedUrlParameters:String = "/"
+    var keyValuePairs = [String]()
+    
+    for (key, value) in parameters {
+      
+      if let parameterValue = value as? String {
+        
+        let encodingValue = parameterValue.addingPercentEncoding(withAllowedCharacters: .urlQueryAllowed)
+        print(key)
+        print(encodingValue!)
+        
+        keyValuePairs.append(key + "=" + encodingValue!)
+      }
+      
+      _ = keyValuePairs.joined(separator: "&")
+    }
+    
+    escapedUrlParameters = "?" + keyValuePairs.first!
+    
+    return escapedUrlParameters
+    
+  }
 }

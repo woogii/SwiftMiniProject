@@ -16,17 +16,30 @@ struct Constants {
   
   struct API {
     
-    static let BaseUrl = "https://developers.themoviedb.org"
+    static let BaseUrl = "https://api.themoviedb.org"
     static let Path = "/3"
   
     struct ParameterKeys {
+      static let Method = "method"
+      static let ApiKey = "api_key"
       static let ListId = "list_id"
     }
     
     struct Methods {
+      static let Configuration = "/configuration"
       static let List = "/list"
     }
     
     
+  }
+  
+  
+  // MARK : - Cell ID
+  
+  struct CellID {
+    
+    struct CollectionView {
+      static let ListAndGenres = "listAndGenresCollectionViewCell"
+    }
   }
 }

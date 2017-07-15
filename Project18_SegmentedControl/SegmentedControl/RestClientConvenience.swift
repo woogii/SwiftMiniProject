@@ -17,6 +17,7 @@ extension RestClient {
   func requestFeaturedList(listId:String, completionHandler:@escaping (_ result:[String:Any]?, _ error:Error?)->Void) {
     
     var parameters = [String:Any]()
+    parameters[Constants.API.ParameterKeys.ApiKey] = ApiKey
     parameters[Constants.API.ParameterKeys.ListId] = listId
     let method = Constants.API.Methods.List
     
@@ -31,4 +32,23 @@ extension RestClient {
     }
   }
 
+  func requestConfigurationInfo(completionHandler:@escaping (_ result:[String:Any]?, _ error:Error?)->Void) {
+    
+
+    let method = Constants.API.Methods.Configuration
+    var parameters = [String:Any]()
+    parameters[Constants.API.ParameterKeys.ApiKey] = ApiKey
+    
+    taskForGetMethod(method,parameters: parameters) { (result, error) in
+      
+      if let error = error {
+        completionHandler(nil, error)
+      } else {
+        completionHandler(result, error)
+      }
+      
+    }
+  }
+
+  
 }

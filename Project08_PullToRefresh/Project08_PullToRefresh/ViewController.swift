@@ -74,8 +74,11 @@ class ViewController: UICollectionViewController {
     
     let methodParameters = setParameters()
     
-    let urlString = Constants.Flickr.APIBaseURL + Helper.escapedParameters(methodParameters as [String : AnyObject])
+    let escapedParameters = Helper.escapedParameters(methodParameters as [String : AnyObject])
+    let urlString = Constants.Flickr.APIBaseURL + escapedParameters
+    
     print("page : \(ViewController.page)")
+    print("escaped parameters : \(escapedParameters)")
     let url = URL(string: urlString)!
     let request = URLRequest(url: url)
     

@@ -7,8 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		B8F5BC391F1A1C7900CD2133 /* ListAndGenresCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8F5BC381F1A1C7900CD2133 /* ListAndGenresCollectionViewCell.swift */; };
 		B8FC0E261F10F53200A8AF5B /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8FC0E251F10F53200A8AF5B /* AppDelegate.swift */; };
-		B8FC0E281F10F53200A8AF5B /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8FC0E271F10F53200A8AF5B /* ViewController.swift */; };
+		B8FC0E281F10F53200A8AF5B /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8FC0E271F10F53200A8AF5B /* MainViewController.swift */; };
 		B8FC0E2B1F10F53200A8AF5B /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B8FC0E291F10F53200A8AF5B /* Main.storyboard */; };
 		B8FC0E2D1F10F53200A8AF5B /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B8FC0E2C1F10F53200A8AF5B /* Assets.xcassets */; };
 		B8FC0E301F10F53200A8AF5B /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B8FC0E2E1F10F53200A8AF5B /* LaunchScreen.storyboard */; };
@@ -30,9 +31,10 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		B8F5BC381F1A1C7900CD2133 /* ListAndGenresCollectionViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ListAndGenresCollectionViewCell.swift; sourceTree = "<group>"; };
 		B8FC0E221F10F53200A8AF5B /* SegmentedControl.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SegmentedControl.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		B8FC0E251F10F53200A8AF5B /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		B8FC0E271F10F53200A8AF5B /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		B8FC0E271F10F53200A8AF5B /* MainViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewController.swift; sourceTree = "<group>"; };
 		B8FC0E2A1F10F53200A8AF5B /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		B8FC0E2C1F10F53200A8AF5B /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		B8FC0E2F1F10F53200A8AF5B /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -64,6 +66,65 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		B8F5BC3A1F1A1C8400CD2133 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				B8F5BC381F1A1C7900CD2133 /* ListAndGenresCollectionViewCell.swift */,
+			);
+			name = View;
+			sourceTree = "<group>";
+		};
+		B8F5BC3B1F1A1C8900CD2133 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = Model;
+			sourceTree = "<group>";
+		};
+		B8F5BC3C1F1A1CA300CD2133 /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				B8FC0E271F10F53200A8AF5B /* MainViewController.swift */,
+			);
+			name = Controller;
+			sourceTree = "<group>";
+		};
+		B8F5BC3D1F1A1CBF00CD2133 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				B8FC0E251F10F53200A8AF5B /* AppDelegate.swift */,
+				B8FC0E2C1F10F53200A8AF5B /* Assets.xcassets */,
+				B8FC0E2E1F10F53200A8AF5B /* LaunchScreen.storyboard */,
+				B8FC0E311F10F53200A8AF5B /* Info.plist */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		B8F5BC3E1F1A1CD800CD2133 /* Network */ = {
+			isa = PBXGroup;
+			children = (
+				B8FC0E8D1F13781900A8AF5B /* RestClientConvenience.swift */,
+				B8FC0E891F136F5000A8AF5B /* RestClient.swift */,
+			);
+			name = Network;
+			sourceTree = "<group>";
+		};
+		B8F5BC3F1F1A1CF000CD2133 /* Constant */ = {
+			isa = PBXGroup;
+			children = (
+				B8FC0E8B1F13746900A8AF5B /* Constant.swift */,
+			);
+			name = Constant;
+			sourceTree = "<group>";
+		};
+		B8F5BC401F1A1D0A00CD2133 /* Storyboard */ = {
+			isa = PBXGroup;
+			children = (
+				B8FC0E291F10F53200A8AF5B /* Main.storyboard */,
+			);
+			name = Storyboard;
+			sourceTree = "<group>";
+		};
 		B8FC0E191F10F53200A8AF5B = {
 			isa = PBXGroup;
 			children = (
@@ -86,15 +147,13 @@
 			isa = PBXGroup;
 			children = (
 				B8FC0E451F10F54E00A8AF5B /* Secret.swift */,
-				B8FC0E251F10F53200A8AF5B /* AppDelegate.swift */,
-				B8FC0E891F136F5000A8AF5B /* RestClient.swift */,
-				B8FC0E8D1F13781900A8AF5B /* RestClientConvenience.swift */,
-				B8FC0E8B1F13746900A8AF5B /* Constant.swift */,
-				B8FC0E271F10F53200A8AF5B /* ViewController.swift */,
-				B8FC0E291F10F53200A8AF5B /* Main.storyboard */,
-				B8FC0E2C1F10F53200A8AF5B /* Assets.xcassets */,
-				B8FC0E2E1F10F53200A8AF5B /* LaunchScreen.storyboard */,
-				B8FC0E311F10F53200A8AF5B /* Info.plist */,
+				B8F5BC401F1A1D0A00CD2133 /* Storyboard */,
+				B8F5BC3F1F1A1CF000CD2133 /* Constant */,
+				B8F5BC3E1F1A1CD800CD2133 /* Network */,
+				B8F5BC3C1F1A1CA300CD2133 /* Controller */,
+				B8F5BC3B1F1A1C8900CD2133 /* Model */,
+				B8F5BC3A1F1A1C8400CD2133 /* View */,
+				B8F5BC3D1F1A1CBF00CD2133 /* Supporting Files */,
 			);
 			path = SegmentedControl;
 			sourceTree = "<group>";
@@ -214,10 +273,11 @@
 			buildActionMask = 2147483647;
 			files = (
 				B8FC0E8A1F136F5000A8AF5B /* RestClient.swift in Sources */,
-				B8FC0E281F10F53200A8AF5B /* ViewController.swift in Sources */,
+				B8FC0E281F10F53200A8AF5B /* MainViewController.swift in Sources */,
 				B8FC0E8C1F13746900A8AF5B /* Constant.swift in Sources */,
 				B8FC0E461F10F54E00A8AF5B /* Secret.swift in Sources */,
 				B8FC0E8E1F13781900A8AF5B /* RestClientConvenience.swift in Sources */,
+				B8F5BC391F1A1C7900CD2133 /* ListAndGenresCollectionViewCell.swift in Sources */,
 				B8FC0E261F10F53200A8AF5B /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
