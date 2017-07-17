@@ -94,12 +94,14 @@
                         <segmentedControl key="titleView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" id="lRb-B9-T8f">
                             <rect key="frame" x="20" y="7" width="335" height="30"/>
                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <color key="backgroundColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
                             <segments>
-                                <segment title="Top Lists"/>
+                                <segment title="Discover"/>
                                 <segment title="Genres"/>
                                 <segment title="In Theaters"/>
                                 <segment title="Upcoming"/>
                             </segments>
+                            <color key="tintColor" red="1" green="1" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                         </segmentedControl>
                     </navigationItem>
                     <connections>

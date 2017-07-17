@@ -19,12 +19,13 @@ class MainViewController: UIViewController {
   override func viewDidLoad() {
     super.viewDidLoad()
     
+    navigationController?.navigationBar.barTintColor = UIColor.black
     
-    RestClient.sharedInstance.requestConfigurationInfo { (results, error) in
-      
-      
+    RestClient.sharedInstance.requestDiscoverMovieList { (result, error) in
+      print(result)
     }
   }
+  
   
 }
 

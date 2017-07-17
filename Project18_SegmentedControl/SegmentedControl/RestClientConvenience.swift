@@ -18,8 +18,7 @@ extension RestClient {
     
     var parameters = [String:Any]()
     parameters[Constants.API.ParameterKeys.ApiKey] = ApiKey
-    parameters[Constants.API.ParameterKeys.ListId] = listId
-    let method = Constants.API.Methods.List
+    let method = Constants.API.Methods.List + "/" + "\(listId)"
     
     taskForGetMethod(method,parameters: parameters) { (result, error) in
       
@@ -31,6 +30,26 @@ extension RestClient {
       
     }
   }
+  
+  func requestDiscoverMovieList(completionHandler:@escaping (_ result:[String:Any]?, _ error:Error?)->Void) {
+    
+    var parameters = [String:Any]()
+    let method = Constants.API.Methods.DiscoverMovie
+    parameters[Constants.API.ParameterKeys.ApiKey] = ApiKey
+    parameters[Constants.API.ParameterKeys.Page] = 1
+    
+    
+    taskForGetMethod(method,parameters: parameters) { (result, error) in
+      
+      if let error = error {
+        completionHandler(nil, error)
+      } else {
+        completionHandler(result, error)
+      }
+      
+    }
+  }
+
 
   func requestConfigurationInfo(completionHandler:@escaping (_ result:[String:Any]?, _ error:Error?)->Void) {
     

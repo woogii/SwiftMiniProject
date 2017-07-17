@@ -31,7 +31,7 @@ class RestClient {
     guard let url = URL(string: urlString) else {
       return
     }
-    
+    print(urlString)
     session.dataTask(with: url) { (data,response, error) in
       
       if error != nil {

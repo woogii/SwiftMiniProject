@@ -18,14 +18,18 @@ struct Constants {
     
     static let BaseUrl = "https://api.themoviedb.org"
     static let Path = "/3"
-  
+    static let BaseImageUrl = "https://image.tmdb.org/t/p"
+    static let PosterImageSize = "/w500"
+    
     struct ParameterKeys {
       static let Method = "method"
       static let ApiKey = "api_key"
       static let ListId = "list_id"
+      static let Page = "page"
     }
     
     struct Methods {
+      static let DiscoverMovie = "/discover/movie"
       static let Configuration = "/configuration"
       static let List = "/list"
     }
