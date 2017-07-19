@@ -106,6 +106,12 @@ This project uses open source library. Thanks for the developers who are dedicat
 
 These projects use icons from Icons8. Thank [Icons8](https://icons8.com/) for your hard work. 
 
+## APIs 
+ 
+* [Flickr API](https://www.flickr.com/services/api/)
+* [The Movie Database API](https://www.themoviedb.org/documentation/api/) 
+
+
 ## References 
 
 * [Udacity iOS Nanodegree](https://www.udacity.com/course/ios-developer-nanodegree--nd003)

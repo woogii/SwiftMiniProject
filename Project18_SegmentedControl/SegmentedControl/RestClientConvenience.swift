@@ -14,7 +14,7 @@ extension RestClient {
 
   // MARK : - Request Featured List
   
-  func requestFeaturedList(listId:String, completionHandler:@escaping (_ result:[String:Any]?, _ error:Error?)->Void) {
+  func requestFeaturedList(listId:String, completionHandler:@escaping completionHanlder) {
     
     var parameters = [String:Any]()
     parameters[Constants.API.ParameterKeys.ApiKey] = ApiKey
@@ -31,13 +31,15 @@ extension RestClient {
     }
   }
   
-  func requestDiscoverMovieList(completionHandler:@escaping (_ result:[String:Any]?, _ error:Error?)->Void) {
+  func requestDiscoverMovieList(page:Int, completionHandler:@escaping completionHanlder) {
     
     var parameters = [String:Any]()
     let method = Constants.API.Methods.DiscoverMovie
     parameters[Constants.API.ParameterKeys.ApiKey] = ApiKey
-    parameters[Constants.API.ParameterKeys.Page] = 1
-    
+    parameters[Constants.API.ParameterKeys.Page] = "\(page)"
+    parameters[Constants.API.ParameterKeys.SortBy] = Constants.API.ParameterValues.PopularityDesc
+    parameters[Constants.API.ParameterKeys.IncludeAdult] = "false"
+    parameters[Constants.API.ParameterKeys.IncludeVideo] = "false"
     
     taskForGetMethod(method,parameters: parameters) { (result, error) in
       

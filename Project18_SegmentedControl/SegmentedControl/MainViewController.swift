@@ -14,18 +14,32 @@ class MainViewController: UIViewController {
 
   @IBOutlet weak var collectionView: UICollectionView!
 
+  var page = 1
+  
   // MARK : - View Life Cycle
   
   override func viewDidLoad() {
     super.viewDidLoad()
     
-    navigationController?.navigationBar.barTintColor = UIColor.black
+    setNavigationBarColor()
+    getDiscoverMovieList()
     
-    RestClient.sharedInstance.requestDiscoverMovieList { (result, error) in
-      print(result)
-    }
+    
   }
   
+  func getDiscoverMovieList() {
+    
+    RestClient.sharedInstance.requestDiscoverMovieList(page: page) { (result, error) in
+      
+    }
+    
+    
+    
+  }
+  
+  func setNavigationBarColor() {
+    navigationController?.navigationBar.barTintColor = UIColor.black
+  }
   
 }
 

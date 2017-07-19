@@ -16,13 +16,15 @@ class RestClient {
   
   static let sharedInstance = RestClient()
   
+  typealias completionHanlder = (_ result:[String:Any]?, _ error:Error?)->Void
+  
   var session : URLSession {
     return URLSession.shared
   }
   
   // MARK : - HTTP Get Request  
   
-  func taskForGetMethod(_ method: String, parameters:[String:Any]?=nil, completionHandler:@escaping (_ result:[String:Any]?, _ error:Error?)->Void) {
+  func taskForGetMethod(_ method: String, parameters:[String:Any]?=nil, completionHandler:@escaping completionHanlder) {
     
     let escapedParamters = escapedParameters(parameters)
     
@@ -32,6 +34,8 @@ class RestClient {
       return
     }
     print(urlString)
+    
+    
     session.dataTask(with: url) { (data,response, error) in
       
       if error != nil {
@@ -91,10 +95,10 @@ class RestClient {
         keyValuePairs.append(key + "=" + encodingValue!)
       }
       
-      _ = keyValuePairs.joined(separator: "&")
+      //_ = keyValuePairs.joined(separator: "&")
     }
     
-    escapedUrlParameters = "?" + keyValuePairs.first!
+    escapedUrlParameters = "?" + keyValuePairs.joined(separator: "&")
     
     return escapedUrlParameters
     

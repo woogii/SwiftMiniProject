@@ -26,6 +26,13 @@ struct Constants {
       static let ApiKey = "api_key"
       static let ListId = "list_id"
       static let Page = "page"
+      static let SortBy = "sort_by"
+      static let IncludeAdult = "include_adult"
+      static let IncludeVideo = "include_video"
+    }
+    
+    struct ParameterValues {
+      static let PopularityDesc = "popularity.desc"
     }
     
     struct Methods {
@@ -37,6 +44,18 @@ struct Constants {
     
   }
   
+  struct JSONParsingKeys {
+
+    static let Overview = "overview"
+    static let Popularity = "popularity"
+    static let Title      = "title"
+    static let PosterPath = "poster_path"
+    static let OriginalTitle = "original_title"
+    static let ReleaseDate = "release_date"
+    static let VoteAverage = "vote_average"
+    static let VoteCount = "vote_count"
+    
+  }
   
   // MARK : - Cell ID
   
