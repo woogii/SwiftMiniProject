@@ -12,24 +12,57 @@ import UIKit
 
 class MainViewController: UIViewController {
 
+  // MARK : - Property
+  
   @IBOutlet weak var collectionView: UICollectionView!
-
   var page = 1
+  var discoveredMovieList:[Movie] = [Movie]()
   
   // MARK : - View Life Cycle
   
   override func viewDidLoad() {
     super.viewDidLoad()
     
+    configureCollectionViewLayout()
     setNavigationBarColor()
     getDiscoverMovieList()
     
+  }
     
+  func configureCollectionViewLayout() {
+  
+    let flowLayout = UICollectionViewFlowLayout()
+    flowLayout.itemSize = CGSize(width: UIScreen.main.bounds.width, height: 140.0)
+    flowLayout.minimumInteritemSpacing = 0
+    flowLayout.minimumLineSpacing = 0
+    flowLayout.scrollDirection = .vertical
   }
   
   func getDiscoverMovieList() {
     
     RestClient.sharedInstance.requestDiscoverMovieList(page: page) { (result, error) in
+      
+      guard error == nil else {
+        print(error!.localizedDescription)
+        return
+      }
+      
+      guard let jsonResult = result else {
+        return
+      }
+      
+      guard let dictArray = jsonResult[Constants.JSONParsingKeys.Results] as? [[String:Any]] else {
+        return
+      }
+      
+      self.discoveredMovieList = dictArray.flatMap({ dict -> Movie? in
+        return Movie(dictionary: dict)
+      })
+      
+      DispatchQueue.main.async() {
+        self.collectionView.reloadData()
+      }
+      
       
     }
     
@@ -43,15 +76,23 @@ class MainViewController: UIViewController {
   
 }
 
+// MARK : - MainViewController : UICollectionViewDataSource, UICollectionViewDelegate
+
 extension MainViewController : UICollectionViewDataSource, UICollectionViewDelegate {
   
+  // MARK : - UITableViewDataSource Methods
   
   func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-    return 0
+    return discoveredMovieList.count
   }
   
   func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-    return UICollectionViewCell()
+    
+    let cell = collectionView.dequeueReusableCell(withReuseIdentifier: Constants.CellID.CollectionView.DiscoveredMovie, for: indexPath) as! DiscoveredMovieCollectionViewCell
+    
+    cell.movieInfo = discoveredMovieList[indexPath.row]
+    
+    return cell
   }
 }
 

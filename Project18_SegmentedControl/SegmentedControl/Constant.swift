@@ -19,7 +19,7 @@ struct Constants {
     static let BaseUrl = "https://api.themoviedb.org"
     static let Path = "/3"
     static let BaseImageUrl = "https://image.tmdb.org/t/p"
-    static let PosterImageSize = "/w500"
+    static let PosterImageSize = "/w342"
     
     struct ParameterKeys {
       static let Method = "method"
@@ -44,16 +44,19 @@ struct Constants {
     
   }
   
+  // MARK : - JSON Parsing Keys
+  
   struct JSONParsingKeys {
 
-    static let Overview = "overview"
-    static let Popularity = "popularity"
-    static let Title      = "title"
-    static let PosterPath = "poster_path"
+    static let Results       = "results"
+    static let Overview      = "overview"
+    static let Popularity    = "popularity"
+    static let Title         = "title"
+    static let PosterPath    = "poster_path"
     static let OriginalTitle = "original_title"
-    static let ReleaseDate = "release_date"
-    static let VoteAverage = "vote_average"
-    static let VoteCount = "vote_count"
+    static let ReleaseDate   = "release_date"
+    static let VoteAverage   = "vote_average"
+    static let VoteCount     = "vote_count"
     
   }
   
@@ -62,7 +65,7 @@ struct Constants {
   struct CellID {
     
     struct CollectionView {
-      static let ListAndGenres = "listAndGenresCollectionViewCell"
+      static let DiscoveredMovie = "discoveredMovieCollectionViewCell"
     }
   }
 }

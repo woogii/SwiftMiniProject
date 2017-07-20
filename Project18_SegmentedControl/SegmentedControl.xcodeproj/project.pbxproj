@@ -8,7 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		8972FAD51B63AD192A2B820A /* Pods_SegmentedControl.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0A1A4ADC17817D405C045933 /* Pods_SegmentedControl.framework */; };
-		B8F5BC391F1A1C7900CD2133 /* ListAndGenresCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8F5BC381F1A1C7900CD2133 /* ListAndGenresCollectionViewCell.swift */; };
+		B8F5BC391F1A1C7900CD2133 /* DiscoveredMovieCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8F5BC381F1A1C7900CD2133 /* DiscoveredMovieCollectionViewCell.swift */; };
 		B8F5BC441F1F597400CD2133 /* Movie.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8F5BC431F1F597400CD2133 /* Movie.swift */; };
 		B8FC0E261F10F53200A8AF5B /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8FC0E251F10F53200A8AF5B /* AppDelegate.swift */; };
 		B8FC0E281F10F53200A8AF5B /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8FC0E271F10F53200A8AF5B /* MainViewController.swift */; };
@@ -35,7 +35,7 @@
 /* Begin PBXFileReference section */
 		0A1A4ADC17817D405C045933 /* Pods_SegmentedControl.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_SegmentedControl.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		AAEB74DCBC7992456F89E310 /* Pods-SegmentedControl.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SegmentedControl.release.xcconfig"; path = "Pods/Target Support Files/Pods-SegmentedControl/Pods-SegmentedControl.release.xcconfig"; sourceTree = "<group>"; };
-		B8F5BC381F1A1C7900CD2133 /* ListAndGenresCollectionViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ListAndGenresCollectionViewCell.swift; sourceTree = "<group>"; };
+		B8F5BC381F1A1C7900CD2133 /* DiscoveredMovieCollectionViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DiscoveredMovieCollectionViewCell.swift; sourceTree = "<group>"; };
 		B8F5BC431F1F597400CD2133 /* Movie.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Movie.swift; sourceTree = "<group>"; };
 		B8FC0E221F10F53200A8AF5B /* SegmentedControl.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SegmentedControl.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		B8FC0E251F10F53200A8AF5B /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -84,7 +84,7 @@
 		B8F5BC3A1F1A1C8400CD2133 /* View */ = {
 			isa = PBXGroup;
 			children = (
-				B8F5BC381F1A1C7900CD2133 /* ListAndGenresCollectionViewCell.swift */,
+				B8F5BC381F1A1C7900CD2133 /* DiscoveredMovieCollectionViewCell.swift */,
 			);
 			name = View;
 			sourceTree = "<group>";
@@ -355,7 +355,7 @@
 				B8FC0E8C1F13746900A8AF5B /* Constant.swift in Sources */,
 				B8FC0E461F10F54E00A8AF5B /* Secret.swift in Sources */,
 				B8FC0E8E1F13781900A8AF5B /* RestClientConvenience.swift in Sources */,
-				B8F5BC391F1A1C7900CD2133 /* ListAndGenresCollectionViewCell.swift in Sources */,
+				B8F5BC391F1A1C7900CD2133 /* DiscoveredMovieCollectionViewCell.swift in Sources */,
 				B8F5BC441F1F597400CD2133 /* Movie.swift in Sources */,
 				B8FC0E261F10F53200A8AF5B /* AppDelegate.swift in Sources */,
 			);
