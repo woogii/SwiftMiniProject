@@ -10,11 +10,11 @@ import Foundation
 import UIKit
 import SDWebImage
 
-// MARK : - DiscoveredMovieCollectionViewCell : UICollectionViewCell  
+// MARK : - DiscoveredMovieCollectionViewCell : UICollectionViewCell
 
 class DiscoveredMovieCollectionViewCell : UICollectionViewCell  {
   
-  // MARK : - Property 
+  // MARK : - Property
   
   @IBOutlet weak var titleLabel: UILabel!
   @IBOutlet weak var likesImageView: UIImageView!
@@ -30,70 +30,66 @@ class DiscoveredMovieCollectionViewCell : UICollectionViewCell  {
   override func awakeFromNib() {
     super.awakeFromNib()
     
-    posterImageView.layer.shadowColor = UIColor.black.cgColor
-    posterImageView.layer.shadowOffset = CGSize(width: 0, height: 1)
-    posterImageView.layer.shadowOpacity = 1
-    posterImageView.layer.shadowRadius = 1.0
-    posterImageView.clipsToBounds = false
+    addOverlayView()
+  }
+  
+  private func addOverlayView() {
+    let overlayView: UIView = UIView(frame: CGRect(x: 0, y: 0, width: posterImageView.frame.size.width, height: posterImageView.frame.size.height))
+    overlayView.backgroundColor = UIColor(red: 0/255, green: 0/255, blue: 0/255, alpha: 0.4)
+    posterImageView.addSubview(overlayView)
   }
   
   
-  // MARK : - Update UI 
+  // MARK : - Update UI
   
-  func updateUI() {
+  private func updateUI() {
     
     setTitleLabel()
     setVoteAverage()
     setPosterImageView()
   }
   
-  func setTitleLabel() {
+  private func setTitleLabel() {
     titleLabel.text = movieInfo.originalTitle
   }
   
-  func setVoteAverage() {
+  private func setVoteAverage() {
     numberOfLikesLabel.text = "\(movieInfo.voteAverage)"
   }
   
-  func setPosterImageView() {
-  
-    let imageUrlString = Constants.API.BaseImageUrl + Constants.API.PosterImageSize + movieInfo.posterPath
+  private func setPosterImageView() {
     
-    print(imageUrlString)
+    let imageUrlString = buildImageUrl()
     
     guard let imageUrl = URL(string: imageUrlString) else {
       return
     }
     
-    
     posterImageView.sd_setImage(with: imageUrl, placeholderImage: UIImage(), options: SDWebImageOptions() ) { (image, error, cacheType, url) in
       
       if image != nil {
-        DispatchQueue.main.async {
-          
-          self.posterImageView.image = image//self.resizeImage(sourceImage: image!, scaledToWidth: UIScreen.main.bounds.size.width)
-          
-          let shadowPath = UIBezierPath(rect: self.posterImageView.bounds).cgPath
-          self.posterImageView.layer.shadowColor = UIColor.black.cgColor
-          //(white: 0.7, alpha: 0.7).cgColor
-          self.posterImageView.layer.shadowOffset = CGSize(width: 3, height: 3)
-          self.posterImageView.layer.shadowOpacity = 0.4
-          self.posterImageView.layer.masksToBounds = false
-          self.posterImageView.layer.shadowPath = shadowPath
-          self.posterImageView.layer.cornerRadius = 2
-        }
+        
+        UIView.transition(with: self.posterImageView, duration: 0.5, options: .transitionCrossDissolve, animations: {
+          DispatchQueue.main.async {
+            self.posterImageView.image = image
+          }
+        }, completion: nil)
+
       }
       
     }
   }
   
-
+  private func buildImageUrl()->String {
+    return Constants.API.BaseImageUrl + Constants.API.PosterImageSize + movieInfo.posterPath
+  }
+  
+  
   func resizeImage (sourceImage:UIImage, scaledToWidth: CGFloat) -> UIImage {
     
     let oldWidth = sourceImage.size.width
     let scaleFactor = scaledToWidth / oldWidth
     
-    //let newHeight:CGFloat = imageHieghtConstraint   // sourceImage.size.height * scaleFactor
     let newHeight:CGFloat = sourceImage.size.height * scaleFactor
     let newWidth = oldWidth * scaleFactor
     
@@ -103,19 +99,7 @@ class DiscoveredMovieCollectionViewCell : UICollectionViewCell  {
     UIGraphicsEndImageContext()
     return newImage!
   }
-
-  
+    
 }
 
-
-extension UIView {
-  
-  func addShadow() {
-    layer.shadowColor = UIColor.black.cgColor
-    layer.shadowOffset = CGSize(width: 0, height: 1)
-    layer.shadowOpacity = 1
-    layer.shadowRadius = 5
-    clipsToBounds = false
-  }
-}
 
