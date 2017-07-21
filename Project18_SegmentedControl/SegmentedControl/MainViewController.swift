@@ -56,7 +56,12 @@ class MainViewController: UIViewController {
       }
       
       self.discoveredMovieList = dictArray.flatMap({ dict -> Movie? in
-        return Movie(dictionary: dict)
+        do {
+          return try Movie(dictionary: dict)
+        } catch let error {
+          print(error.localizedDescription)
+          return Movie()
+        }
       })
       
       DispatchQueue.main.async() {
