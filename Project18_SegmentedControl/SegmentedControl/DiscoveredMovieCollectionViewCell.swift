@@ -65,18 +65,23 @@ class DiscoveredMovieCollectionViewCell : UICollectionViewCell  {
       return
     }
     
-    posterImageView.sd_setImage(with: imageUrl, placeholderImage: UIImage(), options: SDWebImageOptions() ) { (image, error, cacheType, url) in
+    if let image = SDImageCache.shared().imageFromMemoryCache(forKey: imageUrl.absoluteString) {
+      self.posterImageView.image = image
       
-      if image != nil {
+    } else {
+      
+      posterImageView.sd_setImage(with: imageUrl, placeholderImage: UIImage(), options: SDWebImageOptions() ) { (image, error, cacheType, url) in
         
-        UIView.transition(with: self.posterImageView, duration: 0.5, options: .transitionCrossDissolve, animations: {
-          DispatchQueue.main.async {
-            self.posterImageView.image = image
-          }
-        }, completion: nil)
-
+        if image != nil {
+          
+          UIView.transition(with: self.posterImageView, duration: 0.5, options: .transitionCrossDissolve, animations: {
+            DispatchQueue.main.async {
+              self.posterImageView.image = image
+            }
+          }, completion: nil)
+          
+        }
       }
-      
     }
   }
   
@@ -99,7 +104,7 @@ class DiscoveredMovieCollectionViewCell : UICollectionViewCell  {
     UIGraphicsEndImageContext()
     return newImage!
   }
-    
+  
 }
 
 

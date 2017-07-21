@@ -91,7 +91,7 @@ class ViewController: UICollectionViewController {
       }
       
       guard (error == nil) else {
-        displayError("There was an error with your request: \(error)")
+        displayError("There was an error with your request: \(error!.localizedDescription)")
         return
       }
       
@@ -153,7 +153,7 @@ class ViewController: UICollectionViewController {
   // MARK: - UIScrollViewDelegate
   
   override func scrollViewDidEndDecelerating(_ scrollView: UIScrollView) {
-    //stopRefreshControl()
+    
   }
   
   // MARK : - End Refreshing

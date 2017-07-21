@@ -22,12 +22,12 @@ enum SerializaionError : Error {
 struct Movie {
   
   var overview:String
-  var popularity:Double      // = "250.123363";
-  var posterPath:String      // = "/5qcUGqWoWhEsoQwNUrtf3y3fcWn.jpg"
-  var originalTitle: String  //= "Despicable Me 3"
-  var releaseDate:String     // "2017-06-29"
-  var voteAverage:Float      // "6.2"
-  var voteCount:Int          // 543
+  var popularity:Double
+  var posterPath:String
+  var originalTitle: String
+  var releaseDate:String
+  var voteAverage:Float
+  var voteCount:Int          
   
   init() {
     overview = ""

@@ -89,13 +89,8 @@ class RestClient {
       if let parameterValue = value as? String {
         
         let encodingValue = parameterValue.addingPercentEncoding(withAllowedCharacters: .urlQueryAllowed)
-        print(key)
-        print(encodingValue!)
-        
         keyValuePairs.append(key + "=" + encodingValue!)
       }
-      
-      //_ = keyValuePairs.joined(separator: "&")
     }
     
     escapedUrlParameters = "?" + keyValuePairs.joined(separator: "&")

@@ -110,6 +110,9 @@
                                 <segment title="Upcoming"/>
                             </segments>
                             <color key="tintColor" red="1" green="1" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                            <connections>
+                                <action selector="segmentedValueChanged:" destination="BYZ-38-t0r" eventType="valueChanged" id="ZoI-fk-cZh"/>
+                            </connections>
                         </segmentedControl>
                     </navigationItem>
                     <connections>
