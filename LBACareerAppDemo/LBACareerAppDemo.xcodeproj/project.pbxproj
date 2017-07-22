@@ -14,6 +14,7 @@
 		B82284401F22F43C00A7566B /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B822843E1F22F43C00A7566B /* LaunchScreen.storyboard */; };
 		B822844B1F22F43D00A7566B /* LBACareerAppDemoTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = B822844A1F22F43D00A7566B /* LBACareerAppDemoTests.swift */; };
 		B82284561F22F5CE00A7566B /* DescriptionItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = B82284551F22F5CE00A7566B /* DescriptionItem.swift */; };
+		B82284581F22FBE000A7566B /* DescriptionCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B82284571F22FBE000A7566B /* DescriptionCollectionViewCell.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -38,6 +39,7 @@
 		B822844A1F22F43D00A7566B /* LBACareerAppDemoTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LBACareerAppDemoTests.swift; sourceTree = "<group>"; };
 		B822844C1F22F43D00A7566B /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		B82284551F22F5CE00A7566B /* DescriptionItem.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DescriptionItem.swift; sourceTree = "<group>"; };
+		B82284571F22FBE000A7566B /* DescriptionCollectionViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DescriptionCollectionViewCell.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -82,6 +84,7 @@
 				B82284351F22F43C00A7566B /* AppDelegate.swift */,
 				B82284371F22F43C00A7566B /* MainViewController.swift */,
 				B82284551F22F5CE00A7566B /* DescriptionItem.swift */,
+				B82284571F22FBE000A7566B /* DescriptionCollectionViewCell.swift */,
 				B82284391F22F43C00A7566B /* Main.storyboard */,
 				B822843C1F22F43C00A7566B /* Assets.xcassets */,
 				B822843E1F22F43C00A7566B /* LaunchScreen.storyboard */,
@@ -205,6 +208,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				B82284381F22F43C00A7566B /* MainViewController.swift in Sources */,
+				B82284581F22FBE000A7566B /* DescriptionCollectionViewCell.swift in Sources */,
 				B82284361F22F43C00A7566B /* AppDelegate.swift in Sources */,
 				B82284561F22F5CE00A7566B /* DescriptionItem.swift in Sources */,
 			);
