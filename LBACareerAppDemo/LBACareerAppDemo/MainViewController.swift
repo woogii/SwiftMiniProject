@@ -11,7 +11,7 @@ import UIKit
 // MARK : - MainViewController: UICollectionViewController
 
 class MainViewController: UICollectionViewController {
-
+  
   // MARK : - Property
   
   // @IBOutlet weak var collectionView: UICollectionView!
@@ -25,81 +25,63 @@ class MainViewController: UICollectionViewController {
   fileprivate let UnexpectedHeaderTypeError = "Unexpected element kind"
   
   private var gradientLayer:CAGradientLayer? = nil
-  private var skyblue = UIColor(red: 135.0/255.0, green: 206.0/255.0, blue: 235.0/255.0, alpha: 1.0).cgColor
-  private var magneta = UIColor(red: 147.0/255.0, green: 112.0/255.0, blue: 219.0/255.0, alpha: 1.0).cgColor
+  private var skyblue = UIColor(red: 135.0/255.0, green: 206.0/255.0, blue: 235.0/255.0, alpha: 1.0)
+  private var lightMagneta = UIColor(red: 147.0/255.0, green: 112.0/255.0, blue: 219.0/255.0, alpha: 0.6)
   
-  // 147, 112, 219
-  // 135, 206, 235
-  
-  
-  // MARK : - View Life Cycle 
+  // MARK : - View Life Cycle
   
   override func viewDidLoad() {
     super.viewDidLoad()
     
     fetchItemList()
-    fixCollectionViewHeader()
-  
-  }
-  
-  override func viewWillAppear(_ animated: Bool) {
-    
-  
-    super.viewWillAppear(animated)
-    
   }
   
   override func viewDidLayoutSubviews() {
     super.viewDidLayoutSubviews()
     
-    if gradientLayer == nil {
+    setGradientLayerForCollectionViewBg()
+  }
+  
+  // MARK : - Set Gradient Layer
+  
+  func setGradientLayerForCollectionViewBg() {
+    if self.gradientLayer == nil {
       
-      gradientLayer = CAGradientLayer()
-      
-      gradientLayer!.colors = [skyblue, magneta]
-      gradientLayer!.locations = [0.0, 1.0]
-      //print(collectionView?.frame)
-      //print(collectionView?.bounds)
-      gradientLayer!.bounds = (self.collectionView?.bounds)!
-      gradientLayer!.masksToBounds = true
-      
-      collectionView?.backgroundView?.layer.addSublayer(gradientLayer!)
-      
+      self.gradientLayer = CAGradientLayer()
+      self.gradientLayer!.colors = [skyblue.cgColor, skyblue.cgColor, lightMagneta.cgColor]
+      self.gradientLayer!.locations = [0.0, 0.3, 1.0]
+      self.gradientLayer!.frame = self.view.bounds
+      self.gradientLayer!.masksToBounds = true
+      collectionView?.backgroundView = UIView()
+      collectionView?.backgroundView?.layer.insertSublayer(self.gradientLayer!, at: 0)
       
     }
-
-    
   }
   
-  
-  func fixCollectionViewHeader() {
-    let flowLayout = collectionView?.collectionViewLayout as!  UICollectionViewFlowLayout
-    //flowLayout.sectionHeadersPinToVisibleBounds = true
-  }
+  // MARK : - Fetch Item List
   
   func fetchItemList() {
     descriptionItemList = DescriptionItem.getListOfDescriptionItems()
-    
   }
   
+  // MARK : - UICollectionView DataSource Methods
   
   override func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
     return descriptionItemList.count
   }
   
-  
   override func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
+    
+    let cell = collectionView.dequeueReusableCell(withReuseIdentifier: cellIdentifier, for: indexPath) as! DescriptionCollectionViewCell
+    cell.layer.cornerRadius = cellCornerRadius
+    cell.layer.masksToBounds = true
+    
+    cell.descriptionItem = descriptionItemList[indexPath.row]
+    
+    return cell
+  }
   
-      let cell = collectionView.dequeueReusableCell(withReuseIdentifier: cellIdentifier, for: indexPath) as! DescriptionCollectionViewCell
-      cell.layer.cornerRadius = cellCornerRadius
-      cell.layer.masksToBounds = true
-  
-      cell.descriptionItem = descriptionItemList[indexPath.row]
-  
-      return cell
-    }
-  
-   override func collectionView(_ collectionView: UICollectionView, viewForSupplementaryElementOfKind kind: String, at indexPath: IndexPath) -> UICollectionReusableView {
+  override func collectionView(_ collectionView: UICollectionView, viewForSupplementaryElementOfKind kind: String, at indexPath: IndexPath) -> UICollectionReusableView {
     
     switch kind {
       
@@ -112,27 +94,9 @@ class MainViewController: UICollectionViewController {
     }
   }
   
+  
 }
 
-
-//extension MainViewController : UICollectionViewDataSource {
-//  
-//  func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-//    return descriptionItemList.count
-//  }
-//  
-//  func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-//    
-//    let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "descriptionCollectionViewCell", for: indexPath) as! DescriptionCollectionViewCell
-//    cell.layer.cornerRadius = cellCornerRadius
-//    cell.layer.masksToBounds = true
-//    
-//    cell.descriptionItem = descriptionItemList[indexPath.row]
-//    
-//    return cell
-//  }
-//  
-//}
 
 // MARK : - MainViewController: UICollectionViewDelegateFlowLayout
 

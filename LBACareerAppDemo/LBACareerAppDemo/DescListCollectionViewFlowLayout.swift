@@ -8,6 +8,8 @@
 
 import UIKit
 
+// MARK : - DescListCollectionViewFlowLayout: UICollectionViewFlowLayout
+
 class DescListCollectionViewFlowLayout: UICollectionViewFlowLayout {
 
   override func layoutAttributesForElements(in rect: CGRect) -> [UICollectionViewLayoutAttributes]? {
