@@ -63,8 +63,10 @@ class MainViewController: UIViewController {
       
     
       self.discoveredMovieList.append(contentsOf: fetchedDiscoveredList)
-     
-      print("Discovered list count : \(self.discoveredMovieList.count)")
+      
+      #if DEBUG
+        print("Discovered list count : \(self.discoveredMovieList.count)")
+      #endif 
       
       DispatchQueue.main.async() {
         self.collectionView.reloadData()
