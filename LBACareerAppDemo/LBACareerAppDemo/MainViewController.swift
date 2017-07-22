@@ -27,6 +27,12 @@ class MainViewController: UICollectionViewController {
   private var gradientLayer:CAGradientLayer? = nil
   private var skyblue = UIColor(red: 135.0/255.0, green: 206.0/255.0, blue: 235.0/255.0, alpha: 1.0)
   private var lightMagneta = UIColor(red: 147.0/255.0, green: 112.0/255.0, blue: 219.0/255.0, alpha: 0.6)
+  private var magneta = UIColor(red: 147.0/255.0, green: 112.0/255.0, blue: 219.0/255.0, alpha: 0.6)
+  fileprivate let opaqueView: UIView = {
+    let opaqueView = UIView()
+    opaqueView.backgroundColor = UIColor.black.withAlphaComponent(0.5)
+    return opaqueView
+  }()
   
   // MARK : - View Life Cycle
   
@@ -38,7 +44,6 @@ class MainViewController: UICollectionViewController {
   
   override func viewDidLayoutSubviews() {
     super.viewDidLayoutSubviews()
-    
     setGradientLayerForCollectionViewBg()
   }
   
@@ -73,12 +78,18 @@ class MainViewController: UICollectionViewController {
   override func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
     
     let cell = collectionView.dequeueReusableCell(withReuseIdentifier: cellIdentifier, for: indexPath) as! DescriptionCollectionViewCell
+    
+    configureCell(cell: cell, indexPath: indexPath)
+    return cell
+  }
+  
+  // MARK : - Configure Cell 
+  
+  private func configureCell(cell:DescriptionCollectionViewCell, indexPath:IndexPath) {
+    
     cell.layer.cornerRadius = cellCornerRadius
     cell.layer.masksToBounds = true
-    
     cell.descriptionItem = descriptionItemList[indexPath.row]
-    
-    return cell
   }
   
   override func collectionView(_ collectionView: UICollectionView, viewForSupplementaryElementOfKind kind: String, at indexPath: IndexPath) -> UICollectionReusableView {
@@ -94,6 +105,46 @@ class MainViewController: UICollectionViewController {
     }
   }
   
+  override func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+    
+    guard let cell = collectionView.cellForItem(at: indexPath) as? DescriptionCollectionViewCell else {
+      return
+    }
+    
+    showCellDetailWithAnimation(collectionView, cell: cell, indexPath: indexPath)
+   
+    
+  }
+  
+  // MARK : - Show Cell Detail
+  
+  private func showCellDetailWithAnimation(_ collectionView:UICollectionView, cell:DescriptionCollectionViewCell, indexPath:IndexPath) {
+    
+    showOpaqueViewBackground(collectionView)
+    showCellInTopLayer(cell: cell)
+    
+    UIView.animate(withDuration: 0.5, delay: 0, options: .curveEaseInOut, animations: {
+      cell.frame = CGRect(x: 15.0, y: 34.0, width: collectionView.frame.size.width-30.0, height: collectionView.frame.size.height - 50.0)
+      collectionView.isScrollEnabled = false
+      cell.secondSeparatorView.isHidden = false
+      cell.thirdSeparatorView.isHidden = false
+      cell.dismissButton.isHidden = false
+      cell.descriptionLabel.numberOfLines = 0
+      cell.dismissAndRemoveButton.isHidden = false
+      
+    }, completion: nil)
+
+  }
+
+  func showOpaqueViewBackground(_ collectionView:UICollectionView) {
+    opaqueView.frame = view.frame
+    collectionView.addSubview(opaqueView)
+  }
+  
+  func showCellInTopLayer(cell:DescriptionCollectionViewCell) {
+    cell.superview?.bringSubview(toFront: cell)
+  }
+    
   
 }
 
