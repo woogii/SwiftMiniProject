@@ -34,6 +34,8 @@ class MainViewController: UICollectionViewController {
     return opaqueView
   }()
   
+  var originalCellFrame = CGRect()
+  
   // MARK : - View Life Cycle
   
   override func viewDidLoad() {
@@ -123,8 +125,16 @@ class MainViewController: UICollectionViewController {
     showOpaqueViewBackground(collectionView)
     showCellInTopLayer(cell: cell)
     
+    collectionView.setContentOffset(CGPoint(x:0,y:0), animated: true)
+    
     UIView.animate(withDuration: 0.5, delay: 0, options: .curveEaseInOut, animations: {
-      cell.frame = CGRect(x: 15.0, y: 34.0, width: collectionView.frame.size.width-30.0, height: collectionView.frame.size.height - 50.0)
+    
+      self.originalCellFrame = cell.frame
+      print("original frame : \(self.originalCellFrame)")
+      print("collectionView frame : \(self.collectionView!.frame)")
+      
+      cell.frame = CGRect(x: 15.0, y: 36.0, width: collectionView.frame.size.width-30.0, height: collectionView.frame.size.height - 50.0)
+    
       collectionView.isScrollEnabled = false
       cell.secondSeparatorView.isHidden = false
       cell.thirdSeparatorView.isHidden = false
@@ -132,8 +142,32 @@ class MainViewController: UICollectionViewController {
       cell.descriptionLabel.numberOfLines = 0
       cell.dismissAndRemoveButton.isHidden = false
       
+      cell.dismissButton.addTarget(self, action: #selector(self.tappedDismissButton(_:)), for: .touchUpInside)
     }, completion: nil)
 
+  }
+  
+  func tappedDismissButton(_ sender:Any) {
+  
+    let button = sender as? UIButton
+    let cell = button?.superview?.superview as? DescriptionCollectionViewCell
+    collectionView?.isScrollEnabled = true
+    opaqueView.removeFromSuperview()
+    
+    UIView.animate(withDuration: 0.5, delay: 0, options: .curveEaseInOut, animations: {
+    cell?.frame = self.originalCellFrame
+    
+    cell?.secondSeparatorView.isHidden = true
+    cell?.thirdSeparatorView.isHidden = true
+    cell?.dismissButton.isHidden = true
+    cell?.descriptionLabel.numberOfLines = 5
+    cell?.dismissAndRemoveButton.isHidden = true
+    
+    
+    }, completion : { finished in 
+      self.collectionView?.sendSubview(toBack: cell!)
+    })
+    
   }
 
   func showOpaqueViewBackground(_ collectionView:UICollectionView) {
