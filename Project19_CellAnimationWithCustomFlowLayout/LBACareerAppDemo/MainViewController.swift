@@ -131,15 +131,15 @@ class MainViewController: UICollectionViewController {
     
     showOpaqueViewBackground(collectionView)
     showCellInTopLayer(cell: cell)
-    
-    collectionView.setContentOffset(CGPoint(x:0,y:0), animated: true)
-    collectionView.isScrollEnabled = false
-    
+  
     UIView.animate(withDuration: 0.5, delay: 0, options: .curveEaseInOut, animations: {
       
       self.configureCellWhenExpanding(collectionView,cell: cell)
+      collectionView.setContentOffset(CGPoint(x:0,y:0), animated: true)
+      collectionView.isScrollEnabled = false
+    }, completion: { finished in
       
-    }, completion: nil)
+    })
     
   }
   
@@ -223,6 +223,7 @@ class MainViewController: UICollectionViewController {
   }
   
   func backUpCellFrame(_ cell: DescriptionCollectionViewCell) {
+    print("backup : \(cell.frame)")
     self.originalCellFrame = cell.frame
   }
   
@@ -232,6 +233,7 @@ class MainViewController: UICollectionViewController {
   }
   
   func restoreCellFrame(_ cell: DescriptionCollectionViewCell) {
+    print("restore : \(self.originalCellFrame)")
     cell.frame = self.originalCellFrame
   }
   
