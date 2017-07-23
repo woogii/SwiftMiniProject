@@ -136,8 +136,8 @@ class MainViewController: UICollectionViewController {
       cell.frame = CGRect(x: 15.0, y: 36.0, width: collectionView.frame.size.width-30.0, height: collectionView.frame.size.height - 50.0)
     
       collectionView.isScrollEnabled = false
-      cell.secondSeparatorView.isHidden = false
-      cell.thirdSeparatorView.isHidden = false
+      cell.middleSeparatorImageView.isHidden = false
+      cell.lowerSeparatorImageView.isHidden = false
       cell.dismissButton.isHidden = false
       cell.descriptionLabel.numberOfLines = 0
       cell.dismissAndRemoveButton.isHidden = false
@@ -157,8 +157,8 @@ class MainViewController: UICollectionViewController {
     UIView.animate(withDuration: 0.5, delay: 0, options: .curveEaseInOut, animations: {
     cell?.frame = self.originalCellFrame
     
-    cell?.secondSeparatorView.isHidden = true
-    cell?.thirdSeparatorView.isHidden = true
+    cell?.middleSeparatorImageView.isHidden = true
+    cell?.lowerSeparatorImageView.isHidden = true
     cell?.dismissButton.isHidden = true
     cell?.descriptionLabel.numberOfLines = 5
     cell?.dismissAndRemoveButton.isHidden = true
@@ -207,4 +207,29 @@ extension MainViewController : UICollectionViewDelegateFlowLayout {
     return CGSize(width: view.frame.size.width, height: 140)
   }
   
+}
+
+
+// MARK : - UIImage Extension
+
+extension UIImage {
+  
+  static func drawDottedImage(width: CGFloat, height: CGFloat, color: UIColor) -> UIImage {
+    
+    let path = UIBezierPath()
+    path.move(to: CGPoint(x: 1.0, y: 1.0))
+    path.addLine(to: CGPoint(x: width, y: 1))
+    path.lineWidth = 1.5
+    let dashes: [CGFloat] = [path.lineWidth, path.lineWidth * 5]
+    path.setLineDash(dashes, count: Int(1.5), phase: 0)
+    path.lineCapStyle = .butt
+    UIGraphicsBeginImageContextWithOptions(CGSize(width: width, height: height), false, 2)
+    color.setStroke()
+    path.stroke()
+    
+    let image: UIImage = UIGraphicsGetImageFromCurrentImageContext()!
+    UIGraphicsEndImageContext()
+    
+    return image
+  }
 }
