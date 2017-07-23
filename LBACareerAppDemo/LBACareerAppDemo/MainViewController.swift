@@ -23,6 +23,8 @@ class MainViewController: UICollectionViewController {
   fileprivate let cellIdentifier = "descriptionCollectionViewCell"
   fileprivate let headerIdentifier = "descriptionHeaderView"
   fileprivate let UnexpectedHeaderTypeError = "Unexpected element kind"
+  fileprivate let enlargedCellTopMargin:CGFloat = 36
+  fileprivate let enlargedCellHeightMargin:CGFloat = 50
   
   private var gradientLayer:CAGradientLayer? = nil
   private var skyblue = UIColor(red: 135.0/255.0, green: 206.0/255.0, blue: 235.0/255.0, alpha: 1.0)
@@ -52,9 +54,11 @@ class MainViewController: UICollectionViewController {
   // MARK : - Set Gradient Layer
   
   func setGradientLayerForCollectionViewBg() {
+    
     if self.gradientLayer == nil {
       
       self.gradientLayer = CAGradientLayer()
+      
       self.gradientLayer!.colors = [skyblue.cgColor, skyblue.cgColor, lightMagneta.cgColor]
       self.gradientLayer!.locations = [0.0, 0.3, 1.0]
       self.gradientLayer!.frame = self.view.bounds
@@ -85,12 +89,13 @@ class MainViewController: UICollectionViewController {
     return cell
   }
   
-  // MARK : - Configure Cell 
+  // MARK : - Configure Cell
   
   private func configureCell(cell:DescriptionCollectionViewCell, indexPath:IndexPath) {
     
     cell.layer.cornerRadius = cellCornerRadius
     cell.layer.masksToBounds = true
+    cell.dismissAndRemoveButton.tag = indexPath.row
     cell.descriptionItem = descriptionItemList[indexPath.row]
   }
   
@@ -101,6 +106,7 @@ class MainViewController: UICollectionViewController {
     case UICollectionElementKindSectionHeader :
       let headerView = collectionView.dequeueReusableSupplementaryView(ofKind: kind, withReuseIdentifier: headerIdentifier, for: indexPath) as! DescriptionHeaderView
       
+      headerView.refreshButton.addTarget(self, action: #selector(self.tappedRefreshButton), for: .touchUpInside)
       return headerView
     default:
       assert(false, UnexpectedHeaderTypeError)
@@ -114,7 +120,6 @@ class MainViewController: UICollectionViewController {
     }
     
     showCellDetailWithAnimation(collectionView, cell: cell, indexPath: indexPath)
-   
     
   }
   
@@ -128,14 +133,13 @@ class MainViewController: UICollectionViewController {
     collectionView.setContentOffset(CGPoint(x:0,y:0), animated: true)
     
     UIView.animate(withDuration: 0.5, delay: 0, options: .curveEaseInOut, animations: {
-    
-      self.originalCellFrame = cell.frame
-      print("original frame : \(self.originalCellFrame)")
-      print("collectionView frame : \(self.collectionView!.frame)")
       
-      cell.frame = CGRect(x: 15.0, y: 36.0, width: collectionView.frame.size.width-30.0, height: collectionView.frame.size.height - 50.0)
-    
+      self.originalCellFrame = cell.frame
+      
+      cell.frame = CGRect(x: self.sectionInsets.left, y: self.enlargedCellTopMargin, width: collectionView.frame.size.width - self.sectionInsets.left*2, height: collectionView.frame.size.height - self.enlargedCellHeightMargin)
+      
       collectionView.isScrollEnabled = false
+      
       cell.middleSeparatorImageView.isHidden = false
       cell.lowerSeparatorImageView.isHidden = false
       cell.dismissButton.isHidden = false
@@ -143,33 +147,88 @@ class MainViewController: UICollectionViewController {
       cell.dismissAndRemoveButton.isHidden = false
       
       cell.dismissButton.addTarget(self, action: #selector(self.tappedDismissButton(_:)), for: .touchUpInside)
+      cell.dismissAndRemoveButton.addTarget(self, action: #selector(self.tappedDismissAndRemoveButton(_:)), for: .touchUpInside)
+      
     }, completion: nil)
-
+    
   }
   
-  func tappedDismissButton(_ sender:Any) {
+  // MARK : - Target Action Methods
   
+  func tappedDismissButton(_ sender:Any) {
+    
     let button = sender as? UIButton
     let cell = button?.superview?.superview as? DescriptionCollectionViewCell
     collectionView?.isScrollEnabled = true
     opaqueView.removeFromSuperview()
     
     UIView.animate(withDuration: 0.5, delay: 0, options: .curveEaseInOut, animations: {
-    cell?.frame = self.originalCellFrame
-    
-    cell?.middleSeparatorImageView.isHidden = true
-    cell?.lowerSeparatorImageView.isHidden = true
-    cell?.dismissButton.isHidden = true
-    cell?.descriptionLabel.numberOfLines = 5
-    cell?.dismissAndRemoveButton.isHidden = true
-    
-    
-    }, completion : { finished in 
+      
+      cell?.frame = self.originalCellFrame
+      cell?.middleSeparatorImageView.isHidden = true
+      cell?.lowerSeparatorImageView.isHidden = true
+      cell?.dismissButton.isHidden = true
+      cell?.descriptionLabel.numberOfLines = 5
+      cell?.dismissAndRemoveButton.isHidden = true
+      
+      
+    }, completion : { finished in
       self.collectionView?.sendSubview(toBack: cell!)
     })
     
   }
-
+  
+  func tappedDismissAndRemoveButton(_ sender:Any) {
+    
+    let button = sender as? UIButton
+    let cell = button?.superview?.superview as? DescriptionCollectionViewCell
+    let rowIndex = button?.tag
+    
+    collectionView?.isScrollEnabled = true
+    opaqueView.removeFromSuperview()
+    
+    UIView.animate(withDuration: 0.5, delay: 0, options: .curveEaseInOut, animations: {
+      
+      cell?.frame = self.originalCellFrame
+      cell?.middleSeparatorImageView.isHidden = true
+      cell?.lowerSeparatorImageView.isHidden = true
+      cell?.dismissButton.isHidden = true
+      cell?.descriptionLabel.numberOfLines = 5
+      cell?.dismissAndRemoveButton.isHidden = true
+      
+      
+    }, completion : { finished in
+      self.collectionView?.sendSubview(toBack: cell!)
+      self.remove(rowIndex!)
+    })
+  }
+  
+  
+  func tappedRefreshButton() {
+    collectionView?.reloadData()
+  }
+  
+  // MARK : - Remove A Row
+  
+  func remove(_ i: Int) {
+    
+    descriptionItemList.remove(at: i)
+    
+    let indexPath = IndexPath(row: i, section: 0)
+    
+    self.collectionView?.performBatchUpdates({
+      self.collectionView?.deleteItems(at: [indexPath])
+    }) { (finished) in
+      
+      guard let visibleItems = self.collectionView?.indexPathsForVisibleItems else {
+        return
+      }
+      self.collectionView?.reloadItems(at: visibleItems)
+    }
+    
+  }
+  
+  
   func showOpaqueViewBackground(_ collectionView:UICollectionView) {
     opaqueView.frame = view.frame
     collectionView.addSubview(opaqueView)
@@ -178,7 +237,7 @@ class MainViewController: UICollectionViewController {
   func showCellInTopLayer(cell:DescriptionCollectionViewCell) {
     cell.superview?.bringSubview(toFront: cell)
   }
-    
+  
   
 }
 

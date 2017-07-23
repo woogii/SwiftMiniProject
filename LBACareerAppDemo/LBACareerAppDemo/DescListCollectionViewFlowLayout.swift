@@ -11,10 +11,14 @@ import UIKit
 // MARK : - DescListCollectionViewFlowLayout: UICollectionViewFlowLayout
 
 class DescListCollectionViewFlowLayout: UICollectionViewFlowLayout {
-
+  
+  // MARK : - Property
+  
+  var deleteIndexPaths = [IndexPath]()
+  
   override func layoutAttributesForElements(in rect: CGRect) -> [UICollectionViewLayoutAttributes]? {
     
-    let layoutAttributes = super.layoutAttributesForElements(in: rect)
+    let layoutAttributes = super.layoutAttributesForElements(in: rect)?.map { $0.copy() as! UICollectionViewLayoutAttributes }
     
     let offset = collectionView!.contentOffset
     
@@ -55,5 +59,63 @@ class DescListCollectionViewFlowLayout: UICollectionViewFlowLayout {
   
   override func shouldInvalidateLayout(forBoundsChange newBounds: CGRect) -> Bool {
     return true
+  }
+  
+  override func layoutAttributesForItem(at indexPath: IndexPath) -> UICollectionViewLayoutAttributes? {
+    
+    let attributes = super.layoutAttributesForItem(at: indexPath)
+    
+    return attributes
+  }
+  
+  override func finalLayoutAttributesForDisappearingItem(at itemIndexPath: IndexPath) -> UICollectionViewLayoutAttributes? {
+    
+    guard let superAttributes = super.finalLayoutAttributesForDisappearingItem(at: itemIndexPath) else{
+      return nil
+    }
+    
+    if self.deleteIndexPaths.contains(itemIndexPath) {
+      
+      print(superAttributes as Any)
+      
+      guard let attributesArray = self.layoutAttributesForElements(in: superAttributes.frame) else {
+        return superAttributes
+      }
+      
+        print(attributesArray.count as Any)
+      
+      if attributesArray.count > 0 {
+      
+        guard let layoutAttributes = attributesArray.first else {
+          return superAttributes
+        }
+        
+        var frame = layoutAttributes.frame
+        frame.origin.x = frame.origin.x - frame.size.width
+        layoutAttributes.frame = frame
+        
+        return layoutAttributes
+      } else {
+        return superAttributes
+      }
+    }
+    
+    return superAttributes
+  }
+  
+  override func prepare(forCollectionViewUpdates updateItems: [UICollectionViewUpdateItem]) {
+    
+    for item in updateItems {
+      
+      if item.updateAction == .delete {
+        deleteIndexPaths.append(item.indexPathBeforeUpdate!)
+      }
+    }
+  }
+  
+  override func finalizeCollectionViewUpdates() {
+    super.finalizeCollectionViewUpdates()
+    
+    deleteIndexPaths = [IndexPath]()
   }
 }
