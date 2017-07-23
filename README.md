@@ -90,6 +90,11 @@ This repository is inspired by Allen Wang's [30DaysofSwift](https://github.com/a
 
 ![Alt text](GIFs/SideMenu.gif)
 
+**Project 19 - [CellAnimationWithCustomFlowLayout](https://github.com/woogii/SwiftMiniProject/tree/master/Project19_CellAnimationWithCustomFlowLayout)**
+<br />
+
+![Alt text](GIFs/CellAnimationWithCustomFlowLayout.gif)
+
 # Open Source Licence
 
 This project uses open source library. Thanks for the developers who are dedicated to developing great open source library. 

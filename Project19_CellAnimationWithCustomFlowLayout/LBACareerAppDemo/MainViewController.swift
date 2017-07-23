@@ -25,6 +25,8 @@ class MainViewController: UICollectionViewController {
   fileprivate let UnexpectedHeaderTypeError = "Unexpected element kind"
   fileprivate let enlargedCellTopMargin:CGFloat = 36
   fileprivate let enlargedCellHeightMargin:CGFloat = 50
+  fileprivate let defaultDescriptionLabelLine = 0
+  fileprivate let abbreviatedDescriptionLabelLine = 5
   
   private var gradientLayer:CAGradientLayer? = nil
   private var skyblue = UIColor(red: 135.0/255.0, green: 206.0/255.0, blue: 235.0/255.0, alpha: 1.0)
@@ -131,23 +133,11 @@ class MainViewController: UICollectionViewController {
     showCellInTopLayer(cell: cell)
     
     collectionView.setContentOffset(CGPoint(x:0,y:0), animated: true)
+    collectionView.isScrollEnabled = false
     
     UIView.animate(withDuration: 0.5, delay: 0, options: .curveEaseInOut, animations: {
       
-      self.originalCellFrame = cell.frame
-      
-      cell.frame = CGRect(x: self.sectionInsets.left, y: self.enlargedCellTopMargin, width: collectionView.frame.size.width - self.sectionInsets.left*2, height: collectionView.frame.size.height - self.enlargedCellHeightMargin)
-      
-      collectionView.isScrollEnabled = false
-      
-      cell.middleSeparatorImageView.isHidden = false
-      cell.lowerSeparatorImageView.isHidden = false
-      cell.dismissButton.isHidden = false
-      cell.descriptionLabel.numberOfLines = 0
-      cell.dismissAndRemoveButton.isHidden = false
-      
-      cell.dismissButton.addTarget(self, action: #selector(self.tappedDismissButton(_:)), for: .touchUpInside)
-      cell.dismissAndRemoveButton.addTarget(self, action: #selector(self.tappedDismissAndRemoveButton(_:)), for: .touchUpInside)
+      self.configureCellWhenExpanding(collectionView,cell: cell)
       
     }, completion: nil)
     
@@ -158,22 +148,19 @@ class MainViewController: UICollectionViewController {
   func tappedDismissButton(_ sender:Any) {
     
     let button = sender as? UIButton
-    let cell = button?.superview?.superview as? DescriptionCollectionViewCell
+    guard let cell = button?.superview?.superview as? DescriptionCollectionViewCell else {
+      return
+    }
+    
     collectionView?.isScrollEnabled = true
     opaqueView.removeFromSuperview()
-    
+
     UIView.animate(withDuration: 0.5, delay: 0, options: .curveEaseInOut, animations: {
       
-      cell?.frame = self.originalCellFrame
-      cell?.middleSeparatorImageView.isHidden = true
-      cell?.lowerSeparatorImageView.isHidden = true
-      cell?.dismissButton.isHidden = true
-      cell?.descriptionLabel.numberOfLines = 5
-      cell?.dismissAndRemoveButton.isHidden = true
-      
-      
+      self.configureCellWhenCollapsing(cell: cell)
+    
     }, completion : { finished in
-      self.collectionView?.sendSubview(toBack: cell!)
+      self.collectionView?.sendSubview(toBack: cell)
     })
     
   }
@@ -181,7 +168,9 @@ class MainViewController: UICollectionViewController {
   func tappedDismissAndRemoveButton(_ sender:Any) {
     
     let button = sender as? UIButton
-    let cell = button?.superview?.superview as? DescriptionCollectionViewCell
+    guard let cell = button?.superview?.superview as? DescriptionCollectionViewCell else {
+      return
+    }
     let rowIndex = button?.tag
     
     collectionView?.isScrollEnabled = true
@@ -189,16 +178,10 @@ class MainViewController: UICollectionViewController {
     
     UIView.animate(withDuration: 0.5, delay: 0, options: .curveEaseInOut, animations: {
       
-      cell?.frame = self.originalCellFrame
-      cell?.middleSeparatorImageView.isHidden = true
-      cell?.lowerSeparatorImageView.isHidden = true
-      cell?.dismissButton.isHidden = true
-      cell?.descriptionLabel.numberOfLines = 5
-      cell?.dismissAndRemoveButton.isHidden = true
-      
+      self.configureCellWhenCollapsing(cell: cell)
       
     }, completion : { finished in
-      self.collectionView?.sendSubview(toBack: cell!)
+      self.collectionView?.sendSubview(toBack: cell)
       self.remove(rowIndex!)
     })
   }
@@ -208,7 +191,55 @@ class MainViewController: UICollectionViewController {
     collectionView?.reloadData()
   }
   
-  // MARK : - Remove A Row
+  func configureCellWhenExpanding(_ collectionView:UICollectionView, cell:DescriptionCollectionViewCell) {
+    
+    
+    backUpCellFrame(cell)
+    changeCellFrame(cell, frame: collectionView.frame)
+    displaySubviews(cell, hiddenStatus: false)
+    adjustDescriptionLabelLines(cell, numberOfLines: defaultDescriptionLabelLine)
+    addButtonActions(cell)
+    
+  }
+  
+  func addButtonActions(_ cell:DescriptionCollectionViewCell) {
+    
+    cell.dismissButton.addTarget(self, action: #selector(self.tappedDismissButton(_:)), for: .touchUpInside)
+    cell.dismissAndRemoveButton.addTarget(self, action: #selector(self.tappedDismissAndRemoveButton(_:)), for: .touchUpInside)
+  }
+  
+  func configureCellWhenCollapsing(cell:DescriptionCollectionViewCell) {
+    
+    restoreCellFrame(cell)
+    adjustDescriptionLabelLines(cell, numberOfLines: abbreviatedDescriptionLabelLine)
+    displaySubviews(cell, hiddenStatus: true)
+  }
+  
+  func displaySubviews(_ cell: DescriptionCollectionViewCell, hiddenStatus:Bool) {
+    cell.middleSeparatorImageView.isHidden = hiddenStatus
+    cell.lowerSeparatorImageView.isHidden = hiddenStatus
+    cell.dismissButton.isHidden = hiddenStatus
+    cell.dismissAndRemoveButton.isHidden = hiddenStatus
+  }
+  
+  func backUpCellFrame(_ cell: DescriptionCollectionViewCell) {
+    self.originalCellFrame = cell.frame
+  }
+  
+  func changeCellFrame(_ cell: DescriptionCollectionViewCell, frame:CGRect) {
+    cell.frame = CGRect(x: self.sectionInsets.left, y: self.enlargedCellTopMargin, width: frame.size.width - self.sectionInsets.left*2, height: frame.size.height - self.enlargedCellHeightMargin)
+
+  }
+  
+  func restoreCellFrame(_ cell: DescriptionCollectionViewCell) {
+    cell.frame = self.originalCellFrame
+  }
+  
+  func adjustDescriptionLabelLines(_ cell: DescriptionCollectionViewCell,numberOfLines:Int) {
+    cell.descriptionLabel.numberOfLines = numberOfLines
+  }
+  
+  // MARK : - Remove Single Row
   
   func remove(_ i: Int) {
     

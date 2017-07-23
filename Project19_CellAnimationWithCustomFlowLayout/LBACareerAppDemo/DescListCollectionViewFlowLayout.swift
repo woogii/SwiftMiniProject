@@ -18,6 +18,8 @@ class DescListCollectionViewFlowLayout: UICollectionViewFlowLayout {
   
   override func layoutAttributesForElements(in rect: CGRect) -> [UICollectionViewLayoutAttributes]? {
     
+    // reference : https://www.youtube.com/watch?v=faUirawzPaY
+    
     let layoutAttributes = super.layoutAttributesForElements(in: rect)?.map { $0.copy() as! UICollectionViewLayoutAttributes }
     
     let offset = collectionView!.contentOffset
@@ -64,25 +66,26 @@ class DescListCollectionViewFlowLayout: UICollectionViewFlowLayout {
   override func layoutAttributesForItem(at indexPath: IndexPath) -> UICollectionViewLayoutAttributes? {
     
     let attributes = super.layoutAttributesForItem(at: indexPath)
-    
     return attributes
   }
   
   override func finalLayoutAttributesForDisappearingItem(at itemIndexPath: IndexPath) -> UICollectionViewLayoutAttributes? {
     
+    // reference : https://github.com/mpospese/CircleLayout/blob/master/CircleLayout/CircleLayout.m
+    // https://stackoverflow.com/questions/13498052/initiallayoutattributesforappearingitematindexpath-fired-for-all-visible-cells
+    // https://markpospesel.wordpress.com/2012/10/25/fixing-circlelayout/
+    
     guard let superAttributes = super.finalLayoutAttributesForDisappearingItem(at: itemIndexPath) else{
       return nil
     }
     
+    // Change the frame of the deleted row
+    
     if self.deleteIndexPaths.contains(itemIndexPath) {
-      
-      print(superAttributes as Any)
       
       guard let attributesArray = self.layoutAttributesForElements(in: superAttributes.frame) else {
         return superAttributes
       }
-      
-        print(attributesArray.count as Any)
       
       if attributesArray.count > 0 {
       
@@ -95,6 +98,7 @@ class DescListCollectionViewFlowLayout: UICollectionViewFlowLayout {
         layoutAttributes.frame = frame
         
         return layoutAttributes
+        
       } else {
         return superAttributes
       }
