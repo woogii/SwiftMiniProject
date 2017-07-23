@@ -121,7 +121,9 @@ class MainViewController: UICollectionViewController {
       return
     }
     
-    showCellDetailWithAnimation(collectionView, cell: cell, indexPath: indexPath)
+    if cell.frame.size.height == cellHeight {
+      showCellDetailWithAnimation(collectionView, cell: cell, indexPath: indexPath)
+    }
     
   }
   
