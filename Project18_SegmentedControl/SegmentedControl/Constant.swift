@@ -67,6 +67,7 @@ struct Constants {
     
     struct CollectionView {
       static let DiscoveredMovie = "discoveredMovieCollectionViewCell"
+      static let InTheatersMovie = "inTheatersMovieCollectionViewCell"
     }
   }
 }

@@ -8,7 +8,7 @@
 
 import UIKit
 
-// MARK : - SelectedIndex:Int 
+// MARK : - SelectedIndex:Int
 
 enum SelectedIndex:Int {
   case discover = 0, genres, inTheaters, upcoming
@@ -20,8 +20,10 @@ class MainViewController: UIViewController {
   
   // MARK : - Property
   
-  @IBOutlet weak var collectionView: UICollectionView!
+  @IBOutlet weak var discoverCollectionView: UICollectionView!
+  @IBOutlet weak var inTheatersCollectionView: UICollectionView!
   fileprivate var page = 1
+  fileprivate var inTheatersListPage = 1
   fileprivate var discoveredMovieList:[Movie] = [Movie]()
   fileprivate var inTheatersMovieList:[Movie] = [Movie]()
   fileprivate let sectionInsets = UIEdgeInsets(top: 5.0, left: 0.0, bottom: 0.0, right: 0.0)
@@ -31,12 +33,12 @@ class MainViewController: UIViewController {
   override func viewDidLoad() {
     super.viewDidLoad()
     
+    inTheatersCollectionView.isHidden = true
     setNavigationBarColor()
     getDiscoverMovieList(page)
   }
   
   func getDiscoverMovieList(_ page:Int) {
-    
     
     RestClient.sharedInstance.requestDiscoverMovieList(page: page) { (result, error) in
       
@@ -70,7 +72,7 @@ class MainViewController: UIViewController {
       #endif 
       
       DispatchQueue.main.async() {
-        self.collectionView.reloadData()
+        self.discoverCollectionView.reloadData()
       }
     }
     
@@ -91,6 +93,10 @@ class MainViewController: UIViewController {
       
       break
     case SelectedIndex.inTheaters.rawValue:
+      
+      discoverCollectionView.isHidden = true
+      inTheatersCollectionView.isHidden = false
+      
       RestClient.sharedInstance.requestMovieListInTheaters(page: 1, completionHandler: { (results, error) in
         
         if let error = error {
@@ -108,8 +114,11 @@ class MainViewController: UIViewController {
               print(error.localizedDescription)
               return nil
             }
-            
           })
+          
+          DispatchQueue.main.async {
+            self.inTheatersCollectionView.reloadData()
+          }
           
           print(self.inTheatersMovieList)
         }
@@ -134,16 +143,31 @@ extension MainViewController : UICollectionViewDataSource, UICollectionViewDeleg
   // MARK : - UITableViewDataSource Methods
   
   func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-    return discoveredMovieList.count
+    if collectionView == discoverCollectionView {
+      return discoveredMovieList.count
+    } else if collectionView == inTheatersCollectionView {
+      return inTheatersMovieList.count
+    } else {
+      return 0
+    }
   }
   
   func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
     
-    let cell = collectionView.dequeueReusableCell(withReuseIdentifier: Constants.CellID.CollectionView.DiscoveredMovie, for: indexPath) as! DiscoveredMovieCollectionViewCell
+    if collectionView == discoverCollectionView {
+      
+      let cell = collectionView.dequeueReusableCell(withReuseIdentifier: Constants.CellID.CollectionView.DiscoveredMovie, for: indexPath) as! DiscoveredMovieCollectionViewCell
+      cell.movieInfo = discoveredMovieList[indexPath.row]
+      return cell
+    } else if collectionView == inTheatersCollectionView {
+      
+      let cell = collectionView.dequeueReusableCell(withReuseIdentifier: Constants.CellID.CollectionView.InTheatersMovie, for: indexPath) as! InTheatersMovieCollectionViewCell
+      cell.movieInfo = inTheatersMovieList[indexPath.row]
+      return cell
+    } else {
+      return UICollectionViewCell()
+    }
     
-    cell.movieInfo = discoveredMovieList[indexPath.row]
-    
-    return cell
   }
   
 }
@@ -156,19 +180,25 @@ extension MainViewController : UIScrollViewDelegate {
    
     let scrollViewHeight = scrollView.frame.size.height
   
-    if scrollView.contentSize.height <= scrollView.contentOffset.y + scrollViewHeight {
-      page = page + 1
-      getDiscoverMovieList(page)
+    if scrollView == discoverCollectionView {
+      
+      if scrollView.contentSize.height <= scrollView.contentOffset.y + scrollViewHeight {
+        page = page + 1
+        getDiscoverMovieList(page)
+      }
+      
     }
-    
   }
 }
 
 extension MainViewController : UICollectionViewDelegateFlowLayout {
   
   func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
-    
-    return CGSize(width: view.frame.size.width , height: 140)
+    if collectionView == discoverCollectionView {
+      return CGSize(width: view.frame.size.width , height: 140)
+    } else {
+      return CGSize(width: view.frame.size.width/3 - 4, height: 160)
+    }
   }
   
   

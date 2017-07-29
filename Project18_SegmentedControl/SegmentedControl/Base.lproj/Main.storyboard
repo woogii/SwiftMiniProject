@@ -88,13 +88,55 @@
                                     <outlet property="delegate" destination="BYZ-38-t0r" id="aWh-2x-WQe"/>
                                 </connections>
                             </collectionView>
+                            <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" prefetchingEnabled="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ArG-WC-8o1">
+                                <rect key="frame" x="0.0" y="64" width="375" height="603"/>
+                                <color key="backgroundColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
+                                <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="0.0" minimumInteritemSpacing="0.0" id="IOf-s1-W8Q">
+                                    <size key="itemSize" width="106" height="129"/>
+                                    <size key="headerReferenceSize" width="0.0" height="0.0"/>
+                                    <size key="footerReferenceSize" width="0.0" height="0.0"/>
+                                    <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
+                                </collectionViewFlowLayout>
+                                <cells>
+                                    <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="inTheatersMovieCollectionViewCell" id="2nd-N8-9eg" customClass="InTheatersMovieCollectionViewCell" customModule="SegmentedControl" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="0.0" width="106" height="129"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
+                                            <rect key="frame" x="0.0" y="0.0" width="106" height="129"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="nau-Zz-4jH">
+                                                    <rect key="frame" x="0.0" y="0.0" width="106" height="129"/>
+                                                </imageView>
+                                            </subviews>
+                                        </view>
+                                        <constraints>
+                                            <constraint firstItem="nau-Zz-4jH" firstAttribute="top" secondItem="2nd-N8-9eg" secondAttribute="top" id="R6W-sg-hlY"/>
+                                            <constraint firstItem="nau-Zz-4jH" firstAttribute="leading" secondItem="2nd-N8-9eg" secondAttribute="leading" id="aOB-NE-mHn"/>
+                                            <constraint firstAttribute="trailing" secondItem="nau-Zz-4jH" secondAttribute="trailing" id="jf4-ut-ArM"/>
+                                            <constraint firstAttribute="bottom" secondItem="nau-Zz-4jH" secondAttribute="bottom" id="vb9-m1-YSH"/>
+                                        </constraints>
+                                        <connections>
+                                            <outlet property="posterImageView" destination="nau-Zz-4jH" id="w1T-Ay-hBg"/>
+                                        </connections>
+                                    </collectionViewCell>
+                                </cells>
+                                <connections>
+                                    <outlet property="dataSource" destination="BYZ-38-t0r" id="lAo-4B-llD"/>
+                                    <outlet property="delegate" destination="BYZ-38-t0r" id="6x3-wM-BfC"/>
+                                </connections>
+                            </collectionView>
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
                             <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="KfW-aE-dfS" secondAttribute="bottom" id="40o-55-aNu"/>
+                            <constraint firstItem="ArG-WC-8o1" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" id="KnT-k6-72Q"/>
+                            <constraint firstItem="ArG-WC-8o1" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" id="Txr-B4-pQP"/>
                             <constraint firstAttribute="trailing" secondItem="KfW-aE-dfS" secondAttribute="trailing" id="ZMm-WV-gx8"/>
                             <constraint firstItem="KfW-aE-dfS" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" id="iPx-xt-V0g"/>
+                            <constraint firstAttribute="trailing" secondItem="ArG-WC-8o1" secondAttribute="trailing" id="nCS-ul-H1z"/>
                             <constraint firstItem="KfW-aE-dfS" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" id="nwa-gf-2Ge"/>
+                            <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="ArG-WC-8o1" secondAttribute="bottom" id="tnF-fj-BV1"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="zYW-Ar-FrL">
@@ -116,7 +158,8 @@
                         </segmentedControl>
                     </navigationItem>
                     <connections>
-                        <outlet property="collectionView" destination="KfW-aE-dfS" id="C9T-6s-KtJ"/>
+                        <outlet property="discoverCollectionView" destination="KfW-aE-dfS" id="W92-LF-Gak"/>
+                        <outlet property="inTheatersCollectionView" destination="ArG-WC-8o1" id="ebW-4c-82A"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
