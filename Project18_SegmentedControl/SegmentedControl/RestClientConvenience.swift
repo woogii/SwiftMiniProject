@@ -51,6 +51,25 @@ extension RestClient {
       
     }
   }
+  
+  func requestMovieListInTheaters(page:Int, completionHandler:@escaping completionHanlder) {
+    
+    var parameters = [String:Any]()
+    let method = Constants.API.Methods.MovieNowPlaying
+    parameters[Constants.API.ParameterKeys.ApiKey] = ApiKey
+    parameters[Constants.API.ParameterKeys.Page] = "\(page)"
+    
+    taskForGetMethod(method,parameters: parameters) { (result, error) in
+      
+      if let error = error {
+        completionHandler(nil, error)
+      } else {
+        completionHandler(result, error)
+      }
+      
+    }
+  }
+
 
 
   func requestConfigurationInfo(completionHandler:@escaping (_ result:[String:Any]?, _ error:Error?)->Void) {

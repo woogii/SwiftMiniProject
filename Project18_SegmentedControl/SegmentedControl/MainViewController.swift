@@ -23,6 +23,7 @@ class MainViewController: UIViewController {
   @IBOutlet weak var collectionView: UICollectionView!
   fileprivate var page = 1
   fileprivate var discoveredMovieList:[Movie] = [Movie]()
+  fileprivate var inTheatersMovieList:[Movie] = [Movie]()
   fileprivate let sectionInsets = UIEdgeInsets(top: 5.0, left: 0.0, bottom: 0.0, right: 0.0)
   
   // MARK : - View Life Cycle
@@ -57,7 +58,7 @@ class MainViewController: UIViewController {
           return try Movie(dictionary: dict)
         } catch let error {
           print(error.localizedDescription)
-          return Movie()
+          return nil
         }
       })
       
@@ -90,7 +91,30 @@ class MainViewController: UIViewController {
       
       break
     case SelectedIndex.inTheaters.rawValue:
-      
+      RestClient.sharedInstance.requestMovieListInTheaters(page: 1, completionHandler: { (results, error) in
+        
+        if let error = error {
+          print(error.localizedDescription)
+        } else {
+          
+          guard let dictionaryArray = results?["results"] as? [[String:Any]] else {
+            return
+          }
+          
+          self.inTheatersMovieList = dictionaryArray.flatMap({ dict -> Movie? in
+            do {
+              return try Movie(dictionary: dict)
+            } catch let error {
+              print(error.localizedDescription)
+              return nil
+            }
+            
+          })
+          
+          print(self.inTheatersMovieList)
+        }
+        
+      })
       break
     case SelectedIndex.upcoming.rawValue:
       

@@ -51,8 +51,6 @@ class RestClient {
           return
         }
     
-        print(returnData)
-        
         do {
           
           let jsonObject = try JSONSerialization.jsonObject(with: returnData, options: [])
@@ -61,7 +59,6 @@ class RestClient {
             return
           }
           
-          print(jsonResult)
           completionHandler(jsonResult, nil)
           
         } catch let error {
