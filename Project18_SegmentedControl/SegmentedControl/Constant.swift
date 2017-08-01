@@ -42,6 +42,7 @@ struct Constants {
       static let List = "/list"
       static let MovieNowPlaying = "/movie/now_playing"
       static let MovieUpcoming = "/movie/upcoming"
+      static let GenreList = "/genre/movie/list"
     }
     
     

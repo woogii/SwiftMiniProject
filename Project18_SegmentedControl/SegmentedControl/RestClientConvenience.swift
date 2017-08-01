@@ -70,8 +70,6 @@ extension RestClient {
     }
   }
 
-
-
   func requestConfigurationInfo(completionHandler:@escaping (_ result:[String:Any]?, _ error:Error?)->Void) {
     
 
@@ -90,5 +88,20 @@ extension RestClient {
     }
   }
 
+  func requestGenresList(completionHandler:@escaping (_ result:[String:Any]?, _ error:Error?)->Void) {
+    
+    let method = Constants.API.Methods.GenreList
+    var parameters = [String:Any]()
+    parameters[Constants.API.ParameterKeys.ApiKey] = ApiKey
+    
+    taskForGetMethod(method,parameters: parameters) { (result, error) in
+      
+      if let error = error {
+        completionHandler(nil, error)
+      } else {
+        completionHandler(result, error)
+      }
+    }
+  }
   
 }

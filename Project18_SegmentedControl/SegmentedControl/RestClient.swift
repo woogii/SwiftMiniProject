@@ -85,8 +85,9 @@ class RestClient {
       
       if let parameterValue = value as? String {
         
-        let encodingValue = parameterValue.addingPercentEncoding(withAllowedCharacters: .urlQueryAllowed)
-        keyValuePairs.append(key + "=" + encodingValue!)
+        if let encodingValue = parameterValue.addingPercentEncoding(withAllowedCharacters: .urlQueryAllowed) {
+          keyValuePairs.append(key + "=" + encodingValue)
+        }
       }
     }
     

@@ -12,10 +12,21 @@ import UIKit
 class AppDelegate: UIResponder, UIApplicationDelegate {
 
   var window: UIWindow?
-
+  
 
   func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
     // Override point for customization after application launch.
+    
+    RestClient.sharedInstance.requestGenresList { (results, error) in
+      
+      if let error = error {
+        print(error.localizedDescription)
+      } else {
+        print(results)
+      }
+      
+    }
+    
     return true
   }
 
