@@ -52,10 +52,10 @@ extension RestClient {
     }
   }
   
-  func requestMovieListInTheaters(page:Int, completionHandler:@escaping completionHanlder) {
+  func requestMovieListBasedOnUserSelection(method:String, page:Int, completionHandler:@escaping completionHanlder) {
     
     var parameters = [String:Any]()
-    let method = Constants.API.Methods.MovieNowPlaying
+    
     parameters[Constants.API.ParameterKeys.ApiKey] = ApiKey
     parameters[Constants.API.ParameterKeys.Page] = "\(page)"
     

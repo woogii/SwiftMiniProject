@@ -20,13 +20,21 @@ class MainViewController: UIViewController {
   
   // MARK : - Property
   
+  @IBOutlet weak var upcomingCollectionView: UICollectionView!
   @IBOutlet weak var discoverCollectionView: UICollectionView!
   @IBOutlet weak var inTheatersCollectionView: UICollectionView!
   fileprivate var page = 1
   fileprivate var inTheatersListPage = 1
+  fileprivate var upcomingListPage = 1
   fileprivate var discoveredMovieList:[Movie] = [Movie]()
   fileprivate var inTheatersMovieList:[Movie] = [Movie]()
+  fileprivate var upcomingMovieList:[Movie] = [Movie]()
   fileprivate let sectionInsets = UIEdgeInsets(top: 5.0, left: 0.0, bottom: 0.0, right: 0.0)
+  fileprivate let numberOfColumnsForUpcomingCV:CGFloat = 3
+  fileprivate let minimumSpacingForUpcomingCell:CGFloat = 3
+  fileprivate let discoverMovieCellHeight:CGFloat = 140
+  fileprivate let upcomingMovieCellHeight:CGFloat = 160
+  
   
   // MARK : - View Life Cycle
   
@@ -34,6 +42,8 @@ class MainViewController: UIViewController {
     super.viewDidLoad()
     
     inTheatersCollectionView.isHidden = true
+    upcomingCollectionView.isHidden = true
+    
     setNavigationBarColor()
     getDiscoverMovieList(page)
   }
@@ -68,7 +78,7 @@ class MainViewController: UIViewController {
       self.discoveredMovieList.append(contentsOf: fetchedDiscoveredList)
       
       #if DEBUG
-        print("Discovered list count : \(self.discoveredMovieList.count)")
+        //print("Discovered list count : \(self.discoveredMovieList.count)")
       #endif 
       
       DispatchQueue.main.async() {
@@ -87,7 +97,10 @@ class MainViewController: UIViewController {
     switch sender.selectedSegmentIndex {
       
     case SelectedIndex.discover.rawValue:
-      
+      discoverCollectionView.isHidden = false
+      inTheatersCollectionView.isHidden = true
+      upcomingCollectionView.isHidden = true
+
       break
     case SelectedIndex.genres.rawValue:
       
@@ -96,8 +109,11 @@ class MainViewController: UIViewController {
       
       discoverCollectionView.isHidden = true
       inTheatersCollectionView.isHidden = false
+      upcomingCollectionView.isHidden = true
       
-      RestClient.sharedInstance.requestMovieListInTheaters(page: 1, completionHandler: { (results, error) in
+      let method = Constants.API.Methods.MovieNowPlaying
+      
+      RestClient.sharedInstance.requestMovieListBasedOnUserSelection(method: method, page: 1, completionHandler: { (results, error) in
         
         if let error = error {
           print(error.localizedDescription)
@@ -120,13 +136,46 @@ class MainViewController: UIViewController {
             self.inTheatersCollectionView.reloadData()
           }
           
-          print(self.inTheatersMovieList)
+          //print(self.inTheatersMovieList)
         }
         
       })
       break
     case SelectedIndex.upcoming.rawValue:
       
+      discoverCollectionView.isHidden = true
+      inTheatersCollectionView.isHidden = true
+      upcomingCollectionView.isHidden = false
+      
+      let method = Constants.API.Methods.MovieUpcoming
+
+      RestClient.sharedInstance.requestMovieListBasedOnUserSelection(method: method, page: 1, completionHandler: { (results, error) in
+        
+        if let error = error {
+          print(error.localizedDescription)
+        } else {
+          
+          guard let dictionaryArray = results?["results"] as? [[String:Any]] else {
+            return
+          }
+          
+          self.upcomingMovieList = dictionaryArray.flatMap({ dict -> Movie? in
+            do {
+              return try Movie(dictionary: dict)
+            } catch let error {
+              print(error.localizedDescription)
+              return nil
+            }
+          })
+          
+          DispatchQueue.main.async {
+            self.upcomingCollectionView.reloadData()
+          }
+          
+          print(self.upcomingMovieList)
+        }
+        
+      })
       break
       
     default:
@@ -147,6 +196,8 @@ extension MainViewController : UICollectionViewDataSource, UICollectionViewDeleg
       return discoveredMovieList.count
     } else if collectionView == inTheatersCollectionView {
       return inTheatersMovieList.count
+    } else if collectionView == upcomingCollectionView {
+      return upcomingMovieList.count
     } else {
       return 0
     }
@@ -164,6 +215,12 @@ extension MainViewController : UICollectionViewDataSource, UICollectionViewDeleg
       let cell = collectionView.dequeueReusableCell(withReuseIdentifier: Constants.CellID.CollectionView.InTheatersMovie, for: indexPath) as! InTheatersMovieCollectionViewCell
       cell.movieInfo = inTheatersMovieList[indexPath.row]
       return cell
+    } else if collectionView == upcomingCollectionView {
+      
+      let cell = collectionView.dequeueReusableCell(withReuseIdentifier: Constants.CellID.CollectionView.InTheatersMovie, for: indexPath) as! InTheatersMovieCollectionViewCell
+      cell.movieInfo = upcomingMovieList[indexPath.row]
+      return cell
+      
     } else {
       return UICollectionViewCell()
     }
@@ -195,9 +252,9 @@ extension MainViewController : UICollectionViewDelegateFlowLayout {
   
   func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
     if collectionView == discoverCollectionView {
-      return CGSize(width: view.frame.size.width , height: 140)
+      return CGSize(width: view.frame.size.width , height: discoverMovieCellHeight)
     } else {
-      return CGSize(width: view.frame.size.width/3 - 4, height: 160)
+      return CGSize(width: view.frame.size.width/numberOfColumnsForUpcomingCV - numberOfColumnsForUpcomingCV, height: upcomingMovieCellHeight)
     }
   }
   

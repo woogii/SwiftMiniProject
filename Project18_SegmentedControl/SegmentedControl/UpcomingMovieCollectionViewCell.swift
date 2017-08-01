@@ -1,18 +1,19 @@
 //
-//  InTheatersMovieCollectionViewCell.swift
+//  UpcomingMovieCollectionViewCell.swift
 //  SegmentedControl
 //
-//  Created by siwook on 2017. 7. 29..
+//  Created by siwook on 2017. 8. 1..
 //  Copyright © 2017년 siwook. All rights reserved.
 //
 
 import UIKit
 import SDWebImage
 
-// MARK : - InTheatersMovieCollectionViewCell : UICollectionViewCell
 
-class InTheatersMovieCollectionViewCell: UICollectionViewCell {
-  
+// MARK : - UpcomingMovieCollectionViewCell : UICollectionViewCell
+
+class UpcomingMovieCollectionViewCell: UICollectionViewCell {
+
   // MARK : - Property
   
   @IBOutlet weak var posterImageView: UIImageView!
@@ -22,7 +23,7 @@ class InTheatersMovieCollectionViewCell: UICollectionViewCell {
       updateUI()
     }
   }
-
+  
   // MARK : - Update UI
   
   private func updateUI() {
@@ -56,7 +57,7 @@ class InTheatersMovieCollectionViewCell: UICollectionViewCell {
       }
     }
   }
-
+  
   private func buildImageUrl()->String {
     return Constants.API.BaseImageUrl + Constants.API.PosterImageSize + movieInfo.posterPath
   }

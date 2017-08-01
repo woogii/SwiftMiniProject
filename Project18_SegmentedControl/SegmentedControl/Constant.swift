@@ -36,10 +36,12 @@ struct Constants {
     }
     
     struct Methods {
+      
       static let DiscoverMovie = "/discover/movie"
       static let Configuration = "/configuration"
       static let List = "/list"
       static let MovieNowPlaying = "/movie/now_playing"
+      static let MovieUpcoming = "/movie/upcoming"
     }
     
     

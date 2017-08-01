@@ -126,17 +126,59 @@
                                     <outlet property="delegate" destination="BYZ-38-t0r" id="6x3-wM-BfC"/>
                                 </connections>
                             </collectionView>
+                            <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="cwa-dF-aDa">
+                                <rect key="frame" x="0.0" y="64" width="375" height="603"/>
+                                <color key="backgroundColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
+                                <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="0.0" minimumInteritemSpacing="0.0" id="bRO-Nz-W5d">
+                                    <size key="itemSize" width="151" height="183"/>
+                                    <size key="headerReferenceSize" width="0.0" height="0.0"/>
+                                    <size key="footerReferenceSize" width="0.0" height="0.0"/>
+                                    <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
+                                </collectionViewFlowLayout>
+                                <cells>
+                                    <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="inTheatersMovieCollectionViewCell" id="xmV-uH-xem" customClass="InTheatersMovieCollectionViewCell" customModule="SegmentedControl" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="0.0" width="151" height="183"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
+                                            <rect key="frame" x="0.0" y="0.0" width="151" height="183"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="HI6-Dr-ZPz">
+                                                    <rect key="frame" x="0.0" y="0.0" width="151" height="183"/>
+                                                </imageView>
+                                            </subviews>
+                                        </view>
+                                        <constraints>
+                                            <constraint firstAttribute="bottom" secondItem="HI6-Dr-ZPz" secondAttribute="bottom" id="4FM-2O-yBT"/>
+                                            <constraint firstAttribute="trailing" secondItem="HI6-Dr-ZPz" secondAttribute="trailing" id="CLJ-iW-NwX"/>
+                                            <constraint firstItem="HI6-Dr-ZPz" firstAttribute="top" secondItem="xmV-uH-xem" secondAttribute="top" id="FvZ-cC-eX6"/>
+                                            <constraint firstItem="HI6-Dr-ZPz" firstAttribute="leading" secondItem="xmV-uH-xem" secondAttribute="leading" id="zOU-bS-yzf"/>
+                                        </constraints>
+                                        <connections>
+                                            <outlet property="posterImageView" destination="HI6-Dr-ZPz" id="AxZ-hr-XIu"/>
+                                        </connections>
+                                    </collectionViewCell>
+                                </cells>
+                                <connections>
+                                    <outlet property="dataSource" destination="BYZ-38-t0r" id="oDR-aX-e6o"/>
+                                    <outlet property="delegate" destination="BYZ-38-t0r" id="6R9-ht-XSn"/>
+                                </connections>
+                            </collectionView>
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
                             <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="KfW-aE-dfS" secondAttribute="bottom" id="40o-55-aNu"/>
+                            <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="cwa-dF-aDa" secondAttribute="bottom" id="ASh-Dz-Acj"/>
                             <constraint firstItem="ArG-WC-8o1" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" id="KnT-k6-72Q"/>
+                            <constraint firstItem="cwa-dF-aDa" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" id="LFm-zA-qrU"/>
+                            <constraint firstItem="cwa-dF-aDa" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" id="O9a-Ln-gRd"/>
                             <constraint firstItem="ArG-WC-8o1" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" id="Txr-B4-pQP"/>
                             <constraint firstAttribute="trailing" secondItem="KfW-aE-dfS" secondAttribute="trailing" id="ZMm-WV-gx8"/>
                             <constraint firstItem="KfW-aE-dfS" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" id="iPx-xt-V0g"/>
                             <constraint firstAttribute="trailing" secondItem="ArG-WC-8o1" secondAttribute="trailing" id="nCS-ul-H1z"/>
                             <constraint firstItem="KfW-aE-dfS" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" id="nwa-gf-2Ge"/>
                             <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="ArG-WC-8o1" secondAttribute="bottom" id="tnF-fj-BV1"/>
+                            <constraint firstAttribute="trailing" secondItem="cwa-dF-aDa" secondAttribute="trailing" id="zY3-G7-QRx"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="zYW-Ar-FrL">
@@ -160,6 +202,7 @@
                     <connections>
                         <outlet property="discoverCollectionView" destination="KfW-aE-dfS" id="W92-LF-Gak"/>
                         <outlet property="inTheatersCollectionView" destination="ArG-WC-8o1" id="ebW-4c-82A"/>
+                        <outlet property="upcomingCollectionView" destination="cwa-dF-aDa" id="GhZ-eu-anz"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
