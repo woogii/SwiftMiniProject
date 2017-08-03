@@ -20,6 +20,7 @@ class MainViewController: UIViewController {
   
   // MARK : - Property
   
+  @IBOutlet weak var genreCollectionView: UICollectionView!
   @IBOutlet weak var upcomingCollectionView: UICollectionView!
   @IBOutlet weak var discoverCollectionView: UICollectionView!
   @IBOutlet weak var inTheatersCollectionView: UICollectionView!
@@ -34,7 +35,13 @@ class MainViewController: UIViewController {
   fileprivate let minimumSpacingForUpcomingCell:CGFloat = 3
   fileprivate let discoverMovieCellHeight:CGFloat = 140
   fileprivate let upcomingMovieCellHeight:CGFloat = 160
+  fileprivate var genreList:[Genre] = [Genre]()
   
+//  fileprivate let genreList:[Genre] = {
+//    let appDelegate = UIApplication.shared.delegate as! AppDelegate
+//    let genreList = appDelegate.genreList
+//    return genreList
+//  }()
   
   // MARK : - View Life Cycle
   
@@ -43,10 +50,24 @@ class MainViewController: UIViewController {
     
     inTheatersCollectionView.isHidden = true
     upcomingCollectionView.isHidden = true
+    genreCollectionView.isHidden = true
     
     setNavigationBarColor()
     getDiscoverMovieList(page)
+    
+    
+    NotificationCenter.default.addObserver(self, selector: #selector(reloadGenreCollectionView), name: NSNotification.Name(rawValue: "genre"), object: nil)
   }
+  
+  func reloadGenreCollectionView() {
+    
+    let appDelegate = UIApplication.shared.delegate as! AppDelegate
+    genreList = appDelegate.genreList
+    genreCollectionView.reloadData()
+  }
+  
+  
+  
   
   func getDiscoverMovieList(_ page:Int) {
     
@@ -100,16 +121,22 @@ class MainViewController: UIViewController {
       discoverCollectionView.isHidden = false
       inTheatersCollectionView.isHidden = true
       upcomingCollectionView.isHidden = true
-
+      genreCollectionView.isHidden = true
       break
     case SelectedIndex.genres.rawValue:
       
+      discoverCollectionView.isHidden = true
+      inTheatersCollectionView.isHidden = true
+      upcomingCollectionView.isHidden = true
+      genreCollectionView.isHidden = false
       break
+      
     case SelectedIndex.inTheaters.rawValue:
       
       discoverCollectionView.isHidden = true
       inTheatersCollectionView.isHidden = false
       upcomingCollectionView.isHidden = true
+      genreCollectionView.isHidden = true
       
       let method = Constants.API.Methods.MovieNowPlaying
       
@@ -119,7 +146,7 @@ class MainViewController: UIViewController {
           print(error.localizedDescription)
         } else {
           
-          guard let dictionaryArray = results?["results"] as? [[String:Any]] else {
+          guard let dictionaryArray = results?[Constants.JSONParsingKeys.Results] as? [[String:Any]] else {
             return
           }
           
@@ -146,6 +173,7 @@ class MainViewController: UIViewController {
       discoverCollectionView.isHidden = true
       inTheatersCollectionView.isHidden = true
       upcomingCollectionView.isHidden = false
+      genreCollectionView.isHidden = true
       
       let method = Constants.API.Methods.MovieUpcoming
 
@@ -155,7 +183,7 @@ class MainViewController: UIViewController {
           print(error.localizedDescription)
         } else {
           
-          guard let dictionaryArray = results?["results"] as? [[String:Any]] else {
+          guard let dictionaryArray = results?[Constants.JSONParsingKeys.Results] as? [[String:Any]] else {
             return
           }
           
@@ -198,6 +226,8 @@ extension MainViewController : UICollectionViewDataSource, UICollectionViewDeleg
       return inTheatersMovieList.count
     } else if collectionView == upcomingCollectionView {
       return upcomingMovieList.count
+    } else if collectionView == genreCollectionView {
+      return genreList.count
     } else {
       return 0
     }
@@ -210,11 +240,18 @@ extension MainViewController : UICollectionViewDataSource, UICollectionViewDeleg
       let cell = collectionView.dequeueReusableCell(withReuseIdentifier: Constants.CellID.CollectionView.DiscoveredMovie, for: indexPath) as! DiscoveredMovieCollectionViewCell
       cell.movieInfo = discoveredMovieList[indexPath.row]
       return cell
+      
+    } else if collectionView == genreCollectionView {
+      
+      let cell = collectionView.dequeueReusableCell(withReuseIdentifier: Constants.CellID.CollectionView.Genre, for: indexPath) as! GenreCollectionViewCell
+      cell.genreInfo = genreList[indexPath.row]
+      return cell
     } else if collectionView == inTheatersCollectionView {
       
       let cell = collectionView.dequeueReusableCell(withReuseIdentifier: Constants.CellID.CollectionView.InTheatersMovie, for: indexPath) as! InTheatersMovieCollectionViewCell
       cell.movieInfo = inTheatersMovieList[indexPath.row]
       return cell
+      
     } else if collectionView == upcomingCollectionView {
       
       let cell = collectionView.dequeueReusableCell(withReuseIdentifier: Constants.CellID.CollectionView.InTheatersMovie, for: indexPath) as! InTheatersMovieCollectionViewCell
@@ -251,7 +288,7 @@ extension MainViewController : UIScrollViewDelegate {
 extension MainViewController : UICollectionViewDelegateFlowLayout {
   
   func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
-    if collectionView == discoverCollectionView {
+    if collectionView == discoverCollectionView || collectionView == genreCollectionView {
       return CGSize(width: view.frame.size.width , height: discoverMovieCellHeight)
     } else {
       return CGSize(width: view.frame.size.width/numberOfColumnsForUpcomingCV - numberOfColumnsForUpcomingCV, height: upcomingMovieCellHeight)

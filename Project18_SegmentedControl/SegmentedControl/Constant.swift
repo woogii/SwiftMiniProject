@@ -20,6 +20,8 @@ struct Constants {
     static let Path = "/3"
     static let BaseImageUrl = "https://image.tmdb.org/t/p"
     static let PosterImageSize = "/w342"
+    static let StringTrue = "true"
+    static let StringFalse = "false"
     
     struct ParameterKeys {
       static let Method = "method"
@@ -29,6 +31,7 @@ struct Constants {
       static let SortBy = "sort_by"
       static let IncludeAdult = "include_adult"
       static let IncludeVideo = "include_video"
+      static let WithGenres = "with_genres"
     }
     
     struct ParameterValues {
@@ -61,6 +64,9 @@ struct Constants {
     static let ReleaseDate   = "release_date"
     static let VoteAverage   = "vote_average"
     static let VoteCount     = "vote_count"
+    static let Id            = "id"
+    static let Name          = "name"
+    static let Genres        = "genres"
     
   }
   
@@ -71,6 +77,7 @@ struct Constants {
     struct CollectionView {
       static let DiscoveredMovie = "discoveredMovieCollectionViewCell"
       static let InTheatersMovie = "inTheatersMovieCollectionViewCell"
+      static let Genre = "genreCollectionViewCell"
     }
   }
 }
