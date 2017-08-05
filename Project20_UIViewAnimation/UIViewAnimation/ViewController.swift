@@ -10,6 +10,7 @@ import UIKit
 
 class ViewController: UIViewController {
 
+  // 좋음 : 하트 , 보통 : 스마일, 나쁨 : 찡그림, 매우나쁨 : 악마
   @IBOutlet weak var faceView: FaceView!
   override func viewDidLoad() {
     super.viewDidLoad()
@@ -25,7 +26,7 @@ class ViewController: UIViewController {
     
     UIView.animate(withDuration: 1.0, delay: 0.0, usingSpringWithDamping: 0.5, initialSpringVelocity: 5, options: .curveEaseInOut, animations: {
       
-      print(self.faceView.frame)
+      //print(self.faceView.frame)
       self.faceView.frame = CGRect(x: self.view.center.x - self.faceView.frame.size.width/2, y: 110, width: 160, height: 140)
       
       //print(self.faceView.frame)
