@@ -8,29 +8,6 @@
 
 import UIKit
 
-// MARK : - Constants
-
-struct Constants {
-  
-  struct JSONResponseKeys {
-  
-    static let Weather = "weather"
-    static let Dust = "dust"
-    static let PM10 = "pm10"
-    static let Grade = "grade"
-    static let Value = "value"
-    static let Station = "station"
-    static let Id = "id"
-    static let Latitude = "latitude"
-    static let Longitude = "longitude"
-    static let LocationName = "LocationName"
-    static let TimeObservation = "timeObservation"
-    
-  }
-  
-  
-  
-}
 
 // MARK : - SplashViewController: UIViewController
 
@@ -48,13 +25,12 @@ class SplashViewController: UIViewController {
     super.viewDidLoad()
     
     loadingIndicatorLabel.startBlink()
-    //test()
     fetchDustInformation()
   }
 
   func test() {
     
-    let when = DispatchTime.now() + 2 // change 2 to desired number of seconds
+    let when = DispatchTime.now() + 2 
     DispatchQueue.main.asyncAfter(deadline: when) {
       self.performSegue(withIdentifier: self.segueID, sender: self)
       self.loadingIndicatorLabel.stopBlink()

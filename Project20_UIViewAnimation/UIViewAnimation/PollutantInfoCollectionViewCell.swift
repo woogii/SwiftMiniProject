@@ -14,9 +14,9 @@ class PollutantInfoCollectionViewCell: UICollectionViewCell {
 
   // MARK : - Property 
   
-  @IBOutlet weak var timeInfoLabel: UILabel!
+  @IBOutlet weak var pollutantTypeLabel: UILabel!
   @IBOutlet weak var pollutantLevelLabel: UILabel!
-  let miniFaceViewFrame = CGRect(x: 20, y: 60, width: 40, height: 40)
+  let miniFaceViewFrame = CGRect(x: 15, y: 60, width: 40, height: 40)
   
   var polltantInfo:DustInfo! {
     didSet {
@@ -30,11 +30,8 @@ class PollutantInfoCollectionViewCell: UICollectionViewCell {
     //self.backgroundColor = UIColor.red
     
     // 0~30: 좋음, 31~80: 보통, 81~120: 약간나쁨, 121~200: 나쁨, 201~300: 매우나쁨
-    let valueString = polltantInfo.value.components(separatedBy: ".")[0]
-
-    guard let calculatedValue = Int(valueString) else {
-      return
-    }
+  
+    let calculatedValue = Int(polltantInfo.pm10Value)
     
     var faceView:FaceView!
     
@@ -68,9 +65,6 @@ class PollutantInfoCollectionViewCell: UICollectionViewCell {
       break
     default:
       faceView = FaceView()
-      faceView.lineWidth = 3
-      faceView.backgroundColor = UIColor.red
-      faceView.frame = CGRect(x: 20, y: 60, width: 40, height: 40)
       break
     }
     
@@ -87,5 +81,6 @@ class PollutantInfoCollectionViewCell: UICollectionViewCell {
     }
 
   }
+  
   
 }

@@ -1,41 +1,133 @@
  [
   {
-  "grade" : "Good",
-  "value" : "27.33",
+  "pm10":{
+  "value":27.32,
+  "grade" : "Good"
+  },
+  "o3":{
+  "value":60,
+  "grade" : "Moderate"
+  },
+  "no2":{
+  "value":185,
+  "grade" : "Unhealthy"
+  },
+  "so2":{
+  "value":1000,
+  "grade" : "Very Unhealthy"
+  },
+  "co":{
+  "value":2.5,
+  "grade" : "Hazardous"
+  },
   "latitude" : "37.5172300000",
   "longitude" : "127.0473200000",
-  "locationInfo" : "Gangnam-gu, Seoul",
+  "locationName" : "Gangnam-gu, Seoul",
   "timeObservation" : "2017-08-06 23:00:00"
   },
   {
-  "grade" : "Moderate",
-  "value" : "33.33",
+  "pm10":{
+  "value":33.33,
+  "grade" : "Moderate"
+  },
+  "o3":{
+  "value":60,
+  "grade" : "Moderate"
+  },
+  "no2":{
+  "value":185,
+  "grade" : "Unhealthy"
+  },
+  "so2":{
+  "value":1000,
+  "grade" : "Very Unhealthy"
+  },
+  "co":{
+  "value":2.5,
+  "grade" : "Hazardous"
+  },
   "latitude" : "37.3422200000",
   "longitude" : "127.9201580000",
   "locationName" : "Wonju-si, Gangwon-do",
   "timeObservation" : "2017-08-06 23:00:00"
   },
   {
-  "grade" : "Good",
-  "value" : "91",
+  "pm10":{
+  "value":91,
+  "grade" : "Unhealthy"
+  },
+  "o3":{
+  "value":60,
+  "grade" : "Moderate"
+  },
+  "no2":{
+  "value":185,
+  "grade" : "Unhealthy"
+  },
+  "so2":{
+  "value":1000,
+  "grade" : "Very Unhealthy"
+  },
+  "co":{
+  "value":2.5,
+  "grade" : "Hazardous"
+  },
   "latitude" : "36.9921070000",
   "longitude" : "127.1129460000",
-  "locationInfo" : "Pyeongtaek-si, Gyeonggi-do",
+  "locationName" : "Pyeongtaek-si, Gyeonggi-do",
   "timeObservation" : "2017-08-06 23:00:00"
   },
   {
+  "pm10":{
+  "value":123.34,
+  "grade" : "VeryUnhealthy"
+  },
+  "o3":{
+  "value":60,
+  "grade" : "Moderate"
+  },
+  "no2":{
+  "value":185,
+  "grade" : "Unhealthy"
+  },
+  "so2":{
+  "value":1000,
+  "grade" : "Very Unhealthy"
+  },
+  "co":{
+  "value":2.5,
+  "grade" : "Hazardous"
+  },
   "grade" : "Good",
   "value" : "123.34",
   "latitude" : "37.4562570000",
   "longitude" : "126.7052080000",
-  "locationInfo" : "Incheon",
+  "locationName" : "Incheon",
   "timeObservation" : "2017-08-06 23:00:00"
   },
   {
-  "grade" : "Good",
-  "value" : "205.45",
+  "pm10":{
+  "value":205.45,
+  "grade" : "Hazardous"
+  },
+  "o3":{
+  "value":60,
+  "grade" : "Moderate"
+  },
+  "no2":{
+  "value":185,
+  "grade" : "Unhealthy"
+  },
+  "so2":{
+  "value":1000,
+  "grade" : "Very Unhealthy"
+  },
+  "co":{
+  "value":2.5,
+  "grade" : "Hazardous"
+  },
   "latitude" : "33.2541000000",
   "longitude" : "126.5601000000",
-  "locationInfo" : "Seogwipo",
+  "locationName" : "Seogwipo",
   "timeObservation" : "2017-08-06 23:00:00"
   }]
