@@ -292,7 +292,7 @@ class MiniHeartFaceView : FaceView {
     scaleFactorHeartSize = 5
     heartEyeOffset = 7.3
     lineWidth = 3
-    
+
   }
   
   required init?(coder aDecoder: NSCoder) {

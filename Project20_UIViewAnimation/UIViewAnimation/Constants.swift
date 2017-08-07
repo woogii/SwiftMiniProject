@@ -7,7 +7,7 @@
 //
 
 import Foundation
-
+import UIKit
 
 // MARK : - Constants
 
@@ -30,6 +30,16 @@ struct Constants {
     static let Longitude = "longitude"
     static let LocationName = "locationName"
     static let TimeObservation = "timeObservation"
+    
+  }
+  
+  struct Colors {
+    
+    static let DarkBlue = UIColor(colorLiteralRed: 0.0/255.0, green: 0.0/255.0, blue: 128.0/255.0, alpha: 1.0)
+    static let DarkGreen = UIColor(colorLiteralRed: 0.0/255.0, green: 100.0/255.0, blue: 0.0/255.0, alpha: 1.0)
+    static let DarkOrange = UIColor(colorLiteralRed: 238.0/255.0, green: 118.0/255.0, blue: 0.0/255.0, alpha: 1.0)
+    static let DarkRed = UIColor(colorLiteralRed: 179.0/255.0, green: 27.0/255.0, blue: 27.0/255.0, alpha: 1.0)
+    static let LightBlack = UIColor.black.withAlphaComponent(0.8)
     
   }
   

@@ -17,6 +17,7 @@ class PollutantInfoCollectionViewCell: UICollectionViewCell {
   @IBOutlet weak var pollutantTypeLabel: UILabel!
   @IBOutlet weak var pollutantLevelLabel: UILabel!
   let miniFaceViewFrame = CGRect(x: 15, y: 60, width: 40, height: 40)
+  var faceViewColor:UIColor!
   
   var polltantInfo:DustInfo! {
     didSet {
@@ -27,46 +28,38 @@ class PollutantInfoCollectionViewCell: UICollectionViewCell {
   
   func updateUI() {
     
-    //self.backgroundColor = UIColor.red
-    
     // 0~30: 좋음, 31~80: 보통, 81~120: 약간나쁨, 121~200: 나쁨, 201~300: 매우나쁨
   
     let calculatedValue = Int(polltantInfo.pm10Value)
     
     var faceView:FaceView!
     
+
     switch calculatedValue {
       
     case 0...30:  
       faceView = MiniHeartFaceView(frame:miniFaceViewFrame)
-      faceView.backgroundColor = UIColor.red
-
       break
       
     case 31...80:
       faceView = MiniSmileFaceView(frame:miniFaceViewFrame)
-      faceView.backgroundColor = UIColor.red
-
       break
     case 81...120:
       faceView = MiniPokerFaceView(frame:miniFaceViewFrame)
-      faceView.backgroundColor = UIColor.red
-      
       break
     case 121...200:
-      
       faceView = MiniFrownFaceView(frame:miniFaceViewFrame)
-      faceView.backgroundColor = UIColor.red
       break
       
     case 201...300:
       faceView = MiniAwfulFaceView(frame:miniFaceViewFrame)
-      faceView.backgroundColor = UIColor.red
       break
     default:
       faceView = FaceView()
       break
     }
+    
+    faceView.backgroundColor = faceViewColor
     
     self.contentView.addSubview(faceView)
     faceView.transform = CGAffineTransform(scaleX: 0.0, y: 0.0)
