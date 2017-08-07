@@ -7,15 +7,22 @@
 
 import UIKit
 
+// MARK : - FaceView: UIView
+
 class FaceView: UIView {
   
   
   var scale:CGFloat = 0.9
   var eyesOpen : Bool = true
   var lineWidth: CGFloat = 5.0
-  var color: UIColor = UIColor.blue
+  var color: UIColor = UIColor.white
   
-  var mouthCurvature : Double = -0.5 // 1.0 is full smile and -1.0 is full frown
+  var mouthCurvature : Double = 1.0  // 1.0 is full smile and -1.0 is full frown
+                                     // 0.2 poker face
+  var scaleFactorHeartSize:CGFloat = 1
+  let heartSize:CGFloat = 40
+  var scaleFactorForHeartEye:CGFloat = 1
+  var heartEyeOffset:CGFloat = 0
   
   private var skullRadius : CGFloat {
     return min(bounds.size.width, bounds.size.height)/2 * scale
@@ -25,7 +32,7 @@ class FaceView: UIView {
     return CGPoint(x:bounds.midX, y:bounds.midY)
   }
   
-  private func pathForSkull() -> UIBezierPath {
+  fileprivate func pathForSkull() -> UIBezierPath {
     let path = UIBezierPath(arcCenter: skullCenter, radius: skullRadius, startAngle: 0, endAngle: CGFloat.pi*2, clockwise: false)
     
     path.lineWidth = lineWidth
@@ -33,17 +40,18 @@ class FaceView: UIView {
     return path
   }
   
-  private enum Eye {
+  fileprivate enum Eye {
     case left
     case right
   }
   
-  private enum Mouth {
+  fileprivate enum Mouth {
     case smile
     case frown
+    case pokerFace
   }
   
-  private func centerOfEye(_ eye:Eye) -> CGPoint {
+  fileprivate func centerOfEye(_ eye:Eye) -> CGPoint {
     let eyeOffset = skullRadius / Ratios.skullRadiusToEyeOffSet
     var eyeCenter = skullCenter
     eyeCenter.y -= eyeOffset
@@ -51,7 +59,7 @@ class FaceView: UIView {
     return eyeCenter
   }
   
-  private func pathForEye(_ eye:Eye) -> UIBezierPath {
+  fileprivate func pathForEye(_ eye:Eye) -> UIBezierPath {
     
     let eyeRadius = skullRadius / Ratios.skullRadiusToEyeRadius
     let eyeCenter = centerOfEye(eye)
@@ -60,47 +68,46 @@ class FaceView: UIView {
     
     if eyesOpen {
       path = UIBezierPath(arcCenter: eyeCenter, radius: eyeRadius, startAngle: 0, endAngle: CGFloat.pi*2, clockwise: true)
-      path.fill()
       
     }else  {
       path = UIBezierPath()
       path.move(to: CGPoint(x: eyeCenter.x - eyeRadius, y: eyeCenter.y))
       path.addLine(to: CGPoint(x: eyeCenter.x + eyeRadius, y: eyeCenter.y))
     }
+    path.lineWidth = lineWidth
+    path.fill()
     
     return path
   }
-  
-  
-  
-  private func pathForHeart(_ eye:Eye)-> UIBezierPath {
+
+  fileprivate func pathForHeart(_ eye:Eye)-> UIBezierPath {
     
-    func centerOfEye(_ eye:Eye) -> CGPoint {
-      let eyeOffset = skullRadius / Ratios.skullRadiusToEyeOffSet
-      var eyeCenter = skullCenter
-      eyeCenter.y -= eyeOffset
-      eyeCenter.x += ((eye == .left) ? -1:1) * eyeOffset
-      return eyeCenter
+    func startPointOfEye(_ eye:Eye) -> CGPoint {
+      
+      var startPoint = CGPoint(x:10 - heartEyeOffset, y: 20 - (heartEyeOffset*2))
+      startPoint.x += ((eye == .left) ? 0: 10 - heartEyeOffset)
+      
+      return startPoint
     }
     
     
-    let eyeCenter = centerOfEye(eye)
+    let startPoint = startPointOfEye(eye)
     let path: UIBezierPath
     
-    print("eyeCenter : \(eyeCenter)")
+    print("startPoint : \(startPoint)")
+    print("bounds : \(bounds)")
     
-    if eye == .left {
-      path = UIBezierPath(heartIn: CGRect(x: self.bounds.origin.x + 10, y: self.bounds.origin.y + 20, width: 30, height: 30))
-    } else {
-      path = UIBezierPath(heartIn: CGRect(x: self.bounds.origin.x + 22, y: self.bounds.origin.y + 20, width: 30, height: 30))
-    }
+    let heartWidth  = heartSize / scaleFactorHeartSize
+    let heartHeight = heartSize / scaleFactorHeartSize
+   
+    path = UIBezierPath(heartIn: CGRect(x: startPoint.x, y: startPoint.y, width: heartWidth, height: heartHeight))
     
     path.fill()
     
     return path
   }
   
-  private func pathForMouth() -> UIBezierPath {
+  fileprivate func pathForMouth() -> UIBezierPath {
     
     let mouthWidth = skullRadius / Ratios.skullRadiusToMouthWidth
     
@@ -116,89 +123,175 @@ class FaceView: UIView {
     let start = CGPoint(x: mouthRect.minX, y: mouthRect.midY)
     let end = CGPoint(x: mouthRect.maxX, y: mouthRect.midY)
     
-    let cp1 = CGPoint(x: start.x + mouthRect.width/3, y: start.y + smileOffset - 5)
-    let cp2 = CGPoint(x: end.x - mouthRect.width/3, y: start.y + smileOffset - 5 )
+    let cp1 = CGPoint(x: start.x + mouthRect.width/3, y: start.y + smileOffset)
+    let cp2 = CGPoint(x: end.x - mouthRect.width/3, y: start.y + smileOffset)
     
-    // smile
-    
-    //    let start = CGPoint(x: mouthRect.minX, y: mouthRect.midY - 10)
-    //    let end = CGPoint(x: mouthRect.maxX, y: mouthRect.midY - 10)
-    //    let cp1 = CGPoint(x: start.x + mouthRect.width/3, y: start.y + smileOffset + 28)
-    //    let cp2 = CGPoint(x: end.x - mouthRect.width/3, y: start.y + smileOffset + 28 )
-    
-    let path = UIBezierPath() //UIBezierPath(rect: mouthRect)
+    let path = UIBezierPath()
     path.move(to: start)
-    //    print(start)
-    //    print(cp1)
-    //    print(cp2)
-    //    print(end)
     path.addCurve(to: end, controlPoint1: cp1, controlPoint2: cp2)
     path.lineWidth = lineWidth
     
     return path
   }
   
-  private func pathForFrown(_ eye: Eye) -> UIBezierPath {
+  fileprivate func pathForFrown(_ eye: Eye) -> UIBezierPath {
     
-    let eyeRadius = skullRadius / Ratios.skullRadiusToEyeRadius
+    let eyeRadius = skullRadius / 3//Ratios.skullRadiusToEyeRadius
     let eyeCenter = centerOfEye(eye)
-    print("eyeRadius : \(eyeRadius)")
     let path: UIBezierPath
-    print("pi : \(CGFloat.pi)")
-    print("eyeCenter: \(eyeCenter)")
-    
+   
+
     if eye == .left {
       let angle = CGFloat.pi/8
-      print("left start angle : \(angle)")
-      path = UIBezierPath(arcCenter: eyeCenter, radius: eyeRadius + 10, startAngle: CGFloat.pi/8, endAngle: CGFloat.pi , clockwise: true)
-      path.fill()
-      
+      path = UIBezierPath(arcCenter: eyeCenter, radius: eyeRadius, startAngle: angle, endAngle: CGFloat.pi , clockwise: true)
+    
     }else  {
       
       let angle = -CGFloat.pi/32
-      print("right start angle : \(angle)")
-      path = UIBezierPath(arcCenter: eyeCenter, radius: eyeRadius + 10, startAngle:  angle, endAngle: CGFloat.pi - CGFloat.pi/8, clockwise: true)
-      path.fill()
+      path = UIBezierPath(arcCenter: eyeCenter, radius: eyeRadius, startAngle:  angle, endAngle: CGFloat.pi - CGFloat.pi/8, clockwise: true)
+      
     }
+    path.fill()
     
     return path
   
   }
   
-  
-  
-  private struct Ratios {
-    
+
+  struct Ratios {
     static let skullRadiusToEyeOffSet:CGFloat = 3
-    static let skullRadiusToEyeRadius:CGFloat = 6 //10
+    static let skullRadiusToEyeRadius:CGFloat = 6 // 10
     static let skullRadiusToMouthWidth:CGFloat = 1
     static let skullRadiusToMouthHeight:CGFloat = 3
     static let skullRadiusToMouthOffSet:CGFloat = 3
-    
   }
-  
-  override func draw(_ rect: CGRect) {
-    // Drawing code
-    
-    color.set()
-    pathForSkull().stroke()
-    //pathForEye(.left).stroke()
-    //pathForEye(.right).stroke()
-    //pathForHeart(.left).stroke()
-    //pathForHeart(.right).stroke()
-    pathForMouth().stroke()
+
+  func drawFrown() {
     
     pathForFrown(.left).stroke()
     pathForFrown(.right).stroke()
     
   }
+  
+  override func draw(_ rect: CGRect) {
+    // Drawing code
+    super.draw(rect)
+    color.set()
+    pathForSkull().stroke()
+  
+  }
 }
+
+// MARK : - FrownFaceView: UIView
+
+class FrownFaceView : FaceView {
+  
+  override func draw(_ rect: CGRect) {
+    
+    super.draw(rect)
+    
+    drawSkullAndHeart()
+  }
+  
+  private func drawSkullAndHeart() {
+    color.set()
+    pathForSkull().stroke()
+    pathForFrown(.left).stroke()
+    pathForFrown(.right).stroke()
+    pathForMouth().stroke()
+  }
+}
+
+// MARK : - HeartFaceView : UIView
+
+class HeartFaceView : FaceView {
+  
+  override func draw(_ rect: CGRect) {
+    
+    super.draw(rect)
+    
+    drawSkullAndHeart()
+  }
+  
+  private func drawSkullAndHeart() {
+    pathForSkull().stroke()
+    pathForHeart(.left).stroke()
+    pathForHeart(.right).stroke()
+    pathForMouth().stroke()
+  }
+}
+
+// MARK : - SmileView : UIView
+
+class SmileView : FaceView {
+  
+  override func draw(_ rect: CGRect) {
+    
+    super.draw(rect)
+    
+    drawSkullAndHeart()
+  }
+  
+  private func drawSkullAndHeart() {
+    color.set()
+    mouthCurvature = 1.0
+    pathForSkull().stroke()
+    pathForEye(.left).stroke()
+    pathForEye(.right).stroke()
+    pathForMouth().stroke()
+  }
+}
+
+// MARK : - AwfulFaceView : UIView
+
+class AwfulFaceView : FaceView {
+  
+  override func draw(_ rect: CGRect) {
+    
+    super.draw(rect)
+    
+    drawSkullAndHeart()
+  }
+  
+  private func drawSkullAndHeart() {
+    pathForSkull().stroke()
+    pathForFrown(.left).stroke()
+    pathForFrown(.right).stroke()
+    pathForMouth().stroke()
+  }
+}
+
+
+
+// MARK : - PokerFaceView : UIView
+
+class PokerFaceView : FaceView {
+  
+  override func draw(_ rect: CGRect) {
+    
+    super.draw(rect)
+    
+    drawSkullAndHeart()
+  }
+  
+  private func drawSkullAndHeart() {
+    pathForSkull().stroke()
+    pathForEye(.left).stroke()
+    pathForEye(.right).stroke()
+    pathForMouth().stroke()
+  }
+}
+
+
+
+// MARK : - Extension : Int
 
 extension Int {
   var degreesToRadians: CGFloat { return CGFloat(self) * .pi / 180 }
 }
 
 
+// MARK : - Extension : UIBezierPath 
 
 extension UIBezierPath {
   
@@ -212,8 +305,8 @@ extension UIBezierPath {
     let sideOne = rect.width * 0.4
     let sideTwo = rect.height * 0.3
     let arcRadius = sqrt(sideOne*sideOne + sideTwo*sideTwo)/2
-    print("rect : \(rect)")
-    print("origin: \(rect.origin)")
+    //print("rect : \(rect)")
+    //print("origin: \(rect.origin)")
     let originX:CGFloat = rect.origin.x * 4
     let originY:CGFloat = rect.origin.y * 2
     

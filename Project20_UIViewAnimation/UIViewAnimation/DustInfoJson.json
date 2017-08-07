@@ -1,0 +1,41 @@
+ [
+  {
+  "grade" : "Good",
+  "value" : "27.33",
+  "latitude" : "37.5172300000",
+  "longitude" : "127.0473200000",
+  "locationInfo" : "Gangnam-gu, Seoul",
+  "timeObservation" : "2017-08-06 23:00:00"
+  },
+  {
+  "grade" : "Moderate",
+  "value" : "33.33",
+  "latitude" : "37.3422200000",
+  "longitude" : "127.9201580000",
+  "locationName" : "Wonju-si, Gangwon-do",
+  "timeObservation" : "2017-08-06 23:00:00"
+  },
+  {
+  "grade" : "Good",
+  "value" : "91",
+  "latitude" : "36.9921070000",
+  "longitude" : "127.1129460000",
+  "locationInfo" : "Pyeongtaek-si, Gyeonggi-do",
+  "timeObservation" : "2017-08-06 23:00:00"
+  },
+  {
+  "grade" : "Good",
+  "value" : "123.34",
+  "latitude" : "37.4562570000",
+  "longitude" : "126.7052080000",
+  "locationInfo" : "Incheon",
+  "timeObservation" : "2017-08-06 23:00:00"
+  },
+  {
+  "grade" : "Good",
+  "value" : "205.45",
+  "latitude" : "33.2541000000",
+  "longitude" : "126.5601000000",
+  "locationInfo" : "Seogwipo",
+  "timeObservation" : "2017-08-06 23:00:00"
+  }]
