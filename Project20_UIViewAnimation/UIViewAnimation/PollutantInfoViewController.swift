@@ -25,7 +25,7 @@ class PollutantInfoViewController: UIViewController {
   @IBOutlet weak var separatorView: UIView!
   var dustInfoList:[DustInfo]!
 
-  var frawnFace = FrownFaceView()
+  var frawnFace = AwfulFaceView()
   var faceAnimated = false
   let cellID = "pollutantInfoCollectionViewCell"
   
@@ -35,11 +35,13 @@ class PollutantInfoViewController: UIViewController {
     super.viewDidLoad()
     
     print(dustInfoList)
+    
+    
     view.backgroundColor = UIColor.red
     collectionView.backgroundColor = UIColor.red
-    frawnFace.backgroundColor = UIColor.red
+
     separatorView.backgroundColor = UIColor(colorLiteralRed: 179.0/255.0, green: 27.0/255.0, blue: 27.0/255.0, alpha: 1.0)
-    frawnFace.lineWidth = 10
+  
   
     frawnFace.backgroundColor = UIColor.red
     
@@ -82,8 +84,6 @@ extension PollutantInfoViewController : UICollectionViewDataSource {
   func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
     let cell = collectionView.dequeueReusableCell(withReuseIdentifier: cellID, for: indexPath) as! PollutantInfoCollectionViewCell
   
-    ///cell.faceView.lineWidth = 2
-    //cell.faceView.drawFrown()
     cell.contentView.backgroundColor = UIColor.red
     //cell.faceView.backgroundColor = UIColor.red
     

@@ -16,7 +16,8 @@ class PollutantInfoCollectionViewCell: UICollectionViewCell {
   
   @IBOutlet weak var timeInfoLabel: UILabel!
   @IBOutlet weak var pollutantLevelLabel: UILabel!
-
+  let miniFaceViewFrame = CGRect(x: 20, y: 60, width: 40, height: 40)
+  
   var polltantInfo:DustInfo! {
     didSet {
       updateUI()
@@ -39,49 +40,31 @@ class PollutantInfoCollectionViewCell: UICollectionViewCell {
     
     switch calculatedValue {
       
-    case 0...30:
+    case 0...30:  
+      faceView = MiniHeartFaceView(frame:miniFaceViewFrame)
+      faceView.backgroundColor = UIColor.red
 
-      faceView = FrownFaceView()
-      faceView.backgroundColor = UIColor.red
-      faceView.lineWidth = 3
-      faceView.mouthCurvature = 0.1 //1.0
-      faceView.frame = CGRect(x: 20, y: 60, width: 40, height: 40)
-      
       break
+      
     case 31...80:
-      faceView = SmileView()
+      faceView = MiniSmileFaceView(frame:miniFaceViewFrame)
       faceView.backgroundColor = UIColor.red
-      faceView.lineWidth = 3
-      faceView.frame = CGRect(x: 20, y: 60, width: 40, height: 40)
+
       break
     case 81...120:
-      faceView = PokerFaceView()
-      faceView.eyesOpen = false 
+      faceView = MiniPokerFaceView(frame:miniFaceViewFrame)
       faceView.backgroundColor = UIColor.red
-      faceView.mouthCurvature = 0.1 //1.0
-      faceView.lineWidth = 3
-      faceView.frame = CGRect(x: 20, y: 60, width: 40, height: 40)
-      break
-    case 121...200:
-      faceView = FrownFaceView()
-      faceView.backgroundColor = UIColor.red
-      faceView.lineWidth = 3
-      faceView.scaleFactorForHeartEye = 8
-      faceView.scaleFactorHeartSize = 5
-      faceView.mouthCurvature = 0.1
-      faceView.heartEyeOffset = 7.3
-      faceView.frame = CGRect(x: 20, y: 60, width: 40, height: 40)
       
       break
-    case 201...300:
-      faceView = AwfulFaceView()
-      faceView.mouthCurvature = -1
-      faceView.lineWidth = 3
-      faceView.scaleFactorForHeartEye = 8
-      faceView.scaleFactorHeartSize = 5
-      faceView.heartEyeOffset = 7.3
+    case 121...200:
+      
+      faceView = MiniFrownFaceView(frame:miniFaceViewFrame)
       faceView.backgroundColor = UIColor.red
-      faceView.frame = CGRect(x: 20, y: 60, width: 40, height: 40)
+      break
+      
+    case 201...300:
+      faceView = MiniAwfulFaceView(frame:miniFaceViewFrame)
+      faceView.backgroundColor = UIColor.red
       break
     default:
       faceView = FaceView()

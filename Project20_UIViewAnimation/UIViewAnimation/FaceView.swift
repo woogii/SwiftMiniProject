@@ -14,15 +14,24 @@ class FaceView: UIView {
   
   var scale:CGFloat = 0.9
   var eyesOpen : Bool = true
-  var lineWidth: CGFloat = 5.0
+  var lineWidth: CGFloat = 10.0
   var color: UIColor = UIColor.white
   
   var mouthCurvature : Double = 1.0  // 1.0 is full smile and -1.0 is full frown
-                                     // 0.2 poker face
+  // 0.2 poker face
   var scaleFactorHeartSize:CGFloat = 1
   let heartSize:CGFloat = 40
   var scaleFactorForHeartEye:CGFloat = 1
   var heartEyeOffset:CGFloat = 0
+  
+
+  override init(frame: CGRect) {
+    super.init(frame: frame)
+  }
+  
+  required init?(coder aDecoder: NSCoder) {
+    fatalError("init(coder:) has not been implemented")
+  }
   
   private var skullRadius : CGFloat {
     return min(bounds.size.width, bounds.size.height)/2 * scale
@@ -79,7 +88,7 @@ class FaceView: UIView {
     
     return path
   }
-
+  
   fileprivate func pathForHeart(_ eye:Eye)-> UIBezierPath {
     
     func startPointOfEye(_ eye:Eye) -> CGPoint {
@@ -99,7 +108,7 @@ class FaceView: UIView {
     
     let heartWidth  = heartSize / scaleFactorHeartSize
     let heartHeight = heartSize / scaleFactorHeartSize
-   
+    
     path = UIBezierPath(heartIn: CGRect(x: startPoint.x, y: startPoint.y, width: heartWidth, height: heartHeight))
     
     path.fill()
@@ -136,15 +145,15 @@ class FaceView: UIView {
   
   fileprivate func pathForFrown(_ eye: Eye) -> UIBezierPath {
     
-    let eyeRadius = skullRadius / 3//Ratios.skullRadiusToEyeRadius
+    let eyeRadius = skullRadius / 3  //Ratios.skullRadiusToEyeRadius
     let eyeCenter = centerOfEye(eye)
     let path: UIBezierPath
-   
-
+    
+    
     if eye == .left {
       let angle = CGFloat.pi/8
       path = UIBezierPath(arcCenter: eyeCenter, radius: eyeRadius, startAngle: angle, endAngle: CGFloat.pi , clockwise: true)
-    
+      
     }else  {
       
       let angle = -CGFloat.pi/32
@@ -154,10 +163,10 @@ class FaceView: UIView {
     path.fill()
     
     return path
-  
+    
   }
   
-
+  
   struct Ratios {
     static let skullRadiusToEyeOffSet:CGFloat = 3
     static let skullRadiusToEyeRadius:CGFloat = 6 // 10
@@ -165,7 +174,7 @@ class FaceView: UIView {
     static let skullRadiusToMouthHeight:CGFloat = 3
     static let skullRadiusToMouthOffSet:CGFloat = 3
   }
-
+  
   func drawFrown() {
     
     pathForFrown(.left).stroke()
@@ -178,7 +187,7 @@ class FaceView: UIView {
     super.draw(rect)
     color.set()
     pathForSkull().stroke()
-  
+    
   }
 }
 
@@ -189,8 +198,16 @@ class FrownFaceView : FaceView {
   override func draw(_ rect: CGRect) {
     
     super.draw(rect)
-    
     drawSkullAndHeart()
+  }
+  
+  override init(frame:CGRect) {
+    super.init(frame: frame)
+    mouthCurvature = 0.1
+  }
+  
+  required init?(coder aDecoder: NSCoder) {
+    fatalError("init(coder:) has not been implemented")
   }
   
   private func drawSkullAndHeart() {
@@ -202,6 +219,42 @@ class FrownFaceView : FaceView {
   }
 }
 
+// MARK : - MiniFrownFaceView : UIView
+
+class MiniFrownFaceView : FaceView {
+  
+  override func draw(_ rect: CGRect) {
+    
+    super.draw(rect)
+    
+    drawSkullAndHeart()
+  }
+  
+  override init(frame:CGRect) {
+    
+    super.init(frame: frame)
+    
+    lineWidth = 3
+    scaleFactorForHeartEye = 8
+    scaleFactorHeartSize = 5
+    mouthCurvature = 0.1
+    heartEyeOffset = 7.3
+  }
+  
+  required init?(coder aDecoder: NSCoder) {
+    fatalError("init(coder:) has not been implemented")
+  }
+  
+  private func drawSkullAndHeart() {
+    color.set()
+    pathForSkull().stroke()
+    pathForFrown(.left).stroke()
+    pathForFrown(.right).stroke()
+    pathForMouth().stroke()
+  }
+}
+
+
 // MARK : - HeartFaceView : UIView
 
 class HeartFaceView : FaceView {
@@ -209,7 +262,6 @@ class HeartFaceView : FaceView {
   override func draw(_ rect: CGRect) {
     
     super.draw(rect)
-    
     drawSkullAndHeart()
   }
   
@@ -221,9 +273,45 @@ class HeartFaceView : FaceView {
   }
 }
 
-// MARK : - SmileView : UIView
+// MARK : - MiniHeartFaceView : UIView
 
-class SmileView : FaceView {
+class MiniHeartFaceView : FaceView {
+  
+  override func draw(_ rect: CGRect) {
+    
+    super.draw(rect)
+    
+    drawSkullAndHeart()
+  }
+  
+  override init(frame:CGRect) {
+    
+    super.init(frame: frame)
+    
+    scaleFactorForHeartEye = 8
+    scaleFactorHeartSize = 5
+    heartEyeOffset = 7.3
+    lineWidth = 3
+    
+  }
+  
+  required init?(coder aDecoder: NSCoder) {
+    fatalError("init(coder:) has not been implemented")
+  }
+  
+  private func drawSkullAndHeart() {
+    pathForSkull().stroke()
+    pathForHeart(.left).stroke()
+    pathForHeart(.right).stroke()
+    pathForMouth().stroke()
+  }
+}
+
+
+
+// MARK : - SmileFaceView : UIView
+
+class SmileFaceView : FaceView {
   
   override func draw(_ rect: CGRect) {
     
@@ -242,6 +330,41 @@ class SmileView : FaceView {
   }
 }
 
+
+// MARK : - MiniSmileView : UIView
+
+class MiniSmileFaceView : FaceView {
+  
+  override init(frame:CGRect) {
+    
+    super.init(frame: frame)
+    
+    self.lineWidth = 3
+    self.mouthCurvature = 1.0
+    self.lineWidth = 3
+  }
+  
+  required init?(coder aDecoder: NSCoder) {
+    fatalError("init(coder:) has not been implemented")
+  }
+  
+  override func draw(_ rect: CGRect) {
+    
+    super.draw(rect)
+    drawSkullAndHeart()
+  }
+  
+  private func drawSkullAndHeart() {
+    color.set()
+    pathForSkull().stroke()
+    pathForEye(.left).stroke()
+    pathForEye(.right).stroke()
+    pathForMouth().stroke()
+  }
+}
+
+
+
 // MARK : - AwfulFaceView : UIView
 
 class AwfulFaceView : FaceView {
@@ -249,8 +372,16 @@ class AwfulFaceView : FaceView {
   override func draw(_ rect: CGRect) {
     
     super.draw(rect)
-    
     drawSkullAndHeart()
+  }
+ 
+  override init(frame:CGRect) {
+    super.init(frame: frame)
+    mouthCurvature = -1
+  }
+  
+  required init?(coder aDecoder: NSCoder) {
+    fatalError("init(coder:) has not been implemented")
   }
   
   private func drawSkullAndHeart() {
@@ -261,7 +392,33 @@ class AwfulFaceView : FaceView {
   }
 }
 
+// MARK : - MiniAwfulFaceView : UIView
 
+class MiniAwfulFaceView : FaceView {
+  
+  override func draw(_ rect: CGRect) {
+    
+    super.draw(rect)
+    drawSkullAndHeart()
+  }
+  
+  override init(frame:CGRect) {
+    super.init(frame: frame)
+    mouthCurvature = -1
+    lineWidth = 3
+  }
+  
+  required init?(coder aDecoder: NSCoder) {
+    fatalError("init(coder:) has not been implemented")
+  }
+  
+  private func drawSkullAndHeart() {
+    pathForSkull().stroke()
+    pathForFrown(.left).stroke()
+    pathForFrown(.right).stroke()
+    pathForMouth().stroke()
+  }
+}
 
 // MARK : - PokerFaceView : UIView
 
@@ -270,8 +427,53 @@ class PokerFaceView : FaceView {
   override func draw(_ rect: CGRect) {
     
     super.draw(rect)
+    drawSkullAndHeart()
+  }
+
+  override init(frame:CGRect) {
+    
+    super.init(frame: frame)
+    
+    eyesOpen = false
+    mouthCurvature = 0.1
+  }
+  
+  required init?(coder aDecoder: NSCoder) {
+    fatalError("init(coder:) has not been implemented")
+  }
+
+  
+  private func drawSkullAndHeart() {
+    pathForSkull().stroke()
+    pathForEye(.left).stroke()
+    pathForEye(.right).stroke()
+    pathForMouth().stroke()
+  }
+}
+
+
+// MARK : - MiniPokerFaceView : UIView
+
+class MiniPokerFaceView : FaceView {
+  
+  override func draw(_ rect: CGRect) {
+    
+    super.draw(rect)
     
     drawSkullAndHeart()
+  }
+  
+  override init(frame:CGRect) {
+    
+    super.init(frame: frame)
+    
+    eyesOpen = false
+    mouthCurvature = 0.1
+    lineWidth = 3
+  }
+  
+  required init?(coder aDecoder: NSCoder) {
+    fatalError("init(coder:) has not been implemented")
   }
   
   private func drawSkullAndHeart() {
@@ -291,7 +493,7 @@ extension Int {
 }
 
 
-// MARK : - Extension : UIBezierPath 
+// MARK : - Extension : UIBezierPath
 
 extension UIBezierPath {
   

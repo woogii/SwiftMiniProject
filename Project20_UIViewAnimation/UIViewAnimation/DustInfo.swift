@@ -8,8 +8,11 @@
 
 import Foundation
 
+// MARK : - DustInfo
 
 struct DustInfo {
+
+  // MARK : - Property
   
   var grade:String
   var value :String
@@ -17,6 +20,8 @@ struct DustInfo {
   var latitude:String
   var locationName:String
   var timeObservation : String
+  
+  // MARK : - Initialization 
   
   init(dictionary:[String:Any]) {
   
