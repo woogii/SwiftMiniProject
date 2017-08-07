@@ -13,11 +13,11 @@ import UIKit
 class PollutantInfoViewController: UIViewController {
   
   
-  // 0~30  :  Good,             Heart,      Blue   , 좋음
-  // 31~80 :  Moderate,         Smile,      Green  , 보통
-  // 81~120:  Unhealthy,        Pokerface,  Orange , 약간나쁨
-  // 121~200: Very Unhealthy,   Frown,       Red   , 나쁨
-  // 201~300: Hazardous,        Awful,      Black  , 아주 나쁨
+  // 0~30  :  Good,             Heart,      Blue   
+  // 31~80 :  Moderate,         Smile,      Green  
+  // 81~120:  Unhealthy,        Pokerface,  Orange 
+  // 121~200: Very Unhealthy,   Frown,       Red   
+  // 201~300: Hazardous,        Awful,      Black
 
   // MARK : - Property
   @IBOutlet weak var locationLabel: UILabel!
@@ -52,9 +52,6 @@ class PollutantInfoViewController: UIViewController {
     
     let mainFaceFrame = CGRect(x: self.view.center.x - 160/2, y: -200, width: 160, height: 140)
     
-    print(dustInfoList)
-    
-  
     indexLabel.text = dustInfoList[0].pm10Grade
     timeLabel.text = dateFormatter.string(from:Date())
     locationLabel.text = dustInfoList[0].locationName
@@ -113,10 +110,8 @@ class PollutantInfoViewController: UIViewController {
     mainFace.isHidden = false
     UIView.animate(withDuration: 1.0, delay: 0.0, usingSpringWithDamping: 0.5, initialSpringVelocity: 5, options: .curveEaseInOut, animations: {
       
-      
       self.mainFace.frame = CGRect(x: self.view.center.x - 160/2, y: 160, width: 160, height: 140)
-    
-    
+  
     }, completion: nil)
     
   }
@@ -139,10 +134,7 @@ extension PollutantInfoViewController : UICollectionViewDataSource {
   
     cell.pollutantTypeLabel.text = pollutantType[indexPath.row]
     cell.faceViewColor = themeColor
-  
     cell.polltantInfo = dustInfoList[indexPath.row]
-    
-    
     
     switch indexPath.row {
     case 0:

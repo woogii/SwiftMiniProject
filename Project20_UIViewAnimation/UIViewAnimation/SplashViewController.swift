@@ -25,15 +25,14 @@ class SplashViewController: UIViewController {
     super.viewDidLoad()
     
     loadingIndicatorLabel.startBlink()
-    fetchDustInformation()
+    launchApp()
+    
   }
 
-  func test() {
-    
-    let when = DispatchTime.now() + 2 
+  func launchApp() {
+    let when = DispatchTime.now() + 4
     DispatchQueue.main.asyncAfter(deadline: when) {
-      self.performSegue(withIdentifier: self.segueID, sender: self)
-      self.loadingIndicatorLabel.stopBlink()
+      self.fetchDustInformation()
     }
   }
   
