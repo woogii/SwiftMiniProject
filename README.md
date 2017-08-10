@@ -100,7 +100,7 @@ This repository is inspired by Allen Wang's [30DaysofSwift](https://github.com/a
 
 ![Alt text](GIFs/CellAnimationWithCustomFlowLayout.gif)
 
-**Project 20 - [UIViewAnimation With UIBeizerPath](https://github.com/woogii/SwiftMiniProject/tree/master/Project20_UIViewAnimation)**
+**Project 20 - [UIViewAnimation With UIBeizerPath -MiseMise UI clone](https://github.com/woogii/SwiftMiniProject/tree/master/Project20_UIViewAnimation)**
 <br />
 
 ![Alt text](GIFs/UIViewAnimation.gif)

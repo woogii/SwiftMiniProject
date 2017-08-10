@@ -40,7 +40,7 @@ class PollutantInfoViewController: UIViewController {
   let cellHeight:CGFloat = 170
   let mainFaceXPositionAdjustment:CGFloat = 80
   let mainFaceInitialPosition:CGFloat = -200
-  let mainFaceAfterPosition:CGFloat = 160
+  let mainFaceAfterPosition:CGFloat = 200
   let mainFaceWidth:CGFloat = 160
   let mainFaceHeight:CGFloat = 140
   
