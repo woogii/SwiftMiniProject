@@ -13,6 +13,26 @@ import UIKit
 
 struct Constants {
   
+  
+  static let DustInfoJson = "DustInfoJson"
+  static let JsonFileExtension = "json"
+  static let MicroGram = "µg/m³"
+  static let PartsPerMillion = "ppm"
+  
+  // 0~30  :  Good,             Heart,      Blue
+  // 31~80 :  Moderate,         Smile,      Green
+  // 81~120:  Unhealthy,        Pokerface,  Orange
+  // 121~200: Very Unhealthy,   Frown,       Red
+  // 201~300: Hazardous,        Awful,      Black
+
+  static let GoodLevel = 0...30
+  static let ModerateLevel = 31...80
+  static let UnhealthyLevel = 81...120
+  static let VeryUnhealthyLevel = 121...200
+  static let HazardousLevel = 201...300
+  
+  // MARK : - JSONResponseKeys
+  
   struct JSONResponseKeys {
     
     static let Weather = "weather"
@@ -32,6 +52,8 @@ struct Constants {
     static let TimeObservation = "timeObservation"
     
   }
+  
+  // MARK : - Colors
   
   struct Colors {
     

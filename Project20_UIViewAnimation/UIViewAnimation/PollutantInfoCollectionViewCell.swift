@@ -25,54 +25,67 @@ class PollutantInfoCollectionViewCell: UICollectionViewCell {
     }
   }
   
+  // MARK : - Update Cell UI
   
   func updateUI() {
     
     // 0~30: 좋음, 31~80: 보통, 81~120: 약간나쁨, 121~200: 나쁨, 201~300: 매우나쁨
   
-    let calculatedValue = Int(polltantInfo.pm10Value)
+    let pm10Value = Int(polltantInfo.pm10Value)
+    
+    let faceView:FaceView = setFaceViewTypeBasedOnPM10Value(pm10Value)
+    
+    setFaceBackgroundColor(faceView: faceView)
+    self.contentView.addSubview(faceView)
+    animateMiniFaceView(faceView: faceView)
+    
+  }
+  
+  func animateMiniFaceView(faceView:FaceView) {
+    faceView.transform = CGAffineTransform(scaleX: 0.0, y: 0.0)
+    
+    UIView.animate(withDuration: 0.7, animations: {
+      faceView.transform = CGAffineTransform(scaleX: 1.3, y: 1.3)
+    }) { (finished) in
+      
+      UIView.animate(withDuration: 0.4, animations: {
+        faceView.transform = CGAffineTransform.identity
+      })
+    }
+  }
+  
+  func setFaceBackgroundColor(faceView:FaceView) {
+    faceView.backgroundColor = faceViewColor
+  }
+  
+  func setFaceViewTypeBasedOnPM10Value(_ pm10Value:Int)->FaceView {
     
     var faceView:FaceView!
     
-
-    switch calculatedValue {
+    switch pm10Value {
       
-    case 0...30:  
+    case Constants.GoodLevel:
       faceView = MiniHeartFaceView(frame:miniFaceViewFrame)
       break
       
-    case 31...80:
+    case Constants.ModerateLevel:
       faceView = MiniSmileFaceView(frame:miniFaceViewFrame)
       break
-    case 81...120:
+    case Constants.UnhealthyLevel:
       faceView = MiniPokerFaceView(frame:miniFaceViewFrame)
       break
-    case 121...200:
+    case Constants.VeryUnhealthyLevel:
       faceView = MiniFrownFaceView(frame:miniFaceViewFrame)
       break
-      
-    case 201...300:
+    case Constants.HazardousLevel:
       faceView = MiniAwfulFaceView(frame:miniFaceViewFrame)
       break
     default:
       faceView = FaceView()
       break
     }
-    
-    faceView.backgroundColor = faceViewColor
-    
-    self.contentView.addSubview(faceView)
-    faceView.transform = CGAffineTransform(scaleX: 0.0, y: 0.0)
-    
-    UIView.animate(withDuration: 0.7, animations: {
-        faceView.transform = CGAffineTransform(scaleX: 1.3, y: 1.3)
-    }) { (finished) in
-        
-      UIView.animate(withDuration: 0.4, animations: {
-          faceView.transform = CGAffineTransform.identity
-        })
-    }
 
+    return faceView
   }
   
   

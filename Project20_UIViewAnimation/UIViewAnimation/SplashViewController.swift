@@ -40,10 +40,14 @@ class SplashViewController: UIViewController {
     super.viewDidAppear(animated)
   }
   
+  // MARK : - Fetch JSON file
+  
   private func fetchDustInformation() {
     
-    guard let filePath = Bundle.main.url(forResource: "DustInfoJson", withExtension: "json") else {
-      print("Cannot find the url of the file")
+    guard let filePath = Bundle.main.url(forResource: Constants.DustInfoJson, withExtension: Constants.JsonFileExtension) else {
+      #if DEBUG
+        print("Cannot find the url of the file")
+      #endif
       return
     }
     
@@ -72,7 +76,7 @@ class SplashViewController: UIViewController {
 
   }
   
-  
+  // MARK : - Prepare For Segue
   
   override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
     let destinationVC = segue.destination as! PollutantInfoViewController
@@ -82,6 +86,9 @@ class SplashViewController: UIViewController {
   
  }
 
+
+
+// MARK : - UILabel Extension
 
 extension UILabel {
   

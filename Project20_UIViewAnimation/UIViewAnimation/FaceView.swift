@@ -11,18 +11,17 @@ import UIKit
 
 class FaceView: UIView {
   
+  // MARK : - Properties 
   
   var scale:CGFloat = 0.9
   var eyesOpen : Bool = true
   var lineWidth: CGFloat = 10.0
   var color: UIColor = UIColor.white
-  
-  var mouthCurvature : Double = 1.0  // 1.0 is full smile and -1.0 is full frown
-  // 0.2 poker face
   var scaleFactorHeartSize:CGFloat = 1
   let heartSize:CGFloat = 40
   var scaleFactorForHeartEye:CGFloat = 1
   var heartEyeOffset:CGFloat = 0
+  var mouthCurvature : Double = 1.0 // 1.0 : full smile, -1.0 : full frown, 0.2 : poker face
   
 
   override init(frame: CGRect) {
@@ -176,10 +175,8 @@ class FaceView: UIView {
   }
   
   func drawFrown() {
-    
     pathForFrown(.left).stroke()
     pathForFrown(.right).stroke()
-    
   }
   
   override func draw(_ rect: CGRect) {
@@ -203,6 +200,10 @@ class FrownFaceView : FaceView {
   
   override init(frame:CGRect) {
     super.init(frame: frame)
+    configureFrownFaceViewProperties()
+  }
+  
+  func configureFrownFaceViewProperties() {
     mouthCurvature = 0.1
   }
   
@@ -233,7 +234,11 @@ class MiniFrownFaceView : FaceView {
   override init(frame:CGRect) {
     
     super.init(frame: frame)
-    
+  
+    configureMiniFrownFaceViewProperties()
+  }
+  
+  func configureMiniFrownFaceViewProperties() {
     lineWidth = 3
     scaleFactorForHeartEye = 8
     scaleFactorHeartSize = 5
@@ -288,11 +293,15 @@ class MiniHeartFaceView : FaceView {
     
     super.init(frame: frame)
     
+    configureMiniHeartFaceViewProperties()
+    
+  }
+  
+  func configureMiniHeartFaceViewProperties() {
     scaleFactorForHeartEye = 8
     scaleFactorHeartSize = 5
     heartEyeOffset = 7.3
     lineWidth = 3
-
   }
   
   required init?(coder aDecoder: NSCoder) {
@@ -339,6 +348,10 @@ class MiniSmileFaceView : FaceView {
     
     super.init(frame: frame)
     
+    configureMiniSmileFaceViewProperties()
+  }
+  
+  func configureMiniSmileFaceViewProperties() {
     self.lineWidth = 3
     self.mouthCurvature = 1.0
     self.lineWidth = 3
@@ -377,6 +390,10 @@ class AwfulFaceView : FaceView {
  
   override init(frame:CGRect) {
     super.init(frame: frame)
+    configureAwfulFaceViewProperties()
+  }
+  
+  func configureAwfulFaceViewProperties() {
     mouthCurvature = -1
   }
   
@@ -404,6 +421,10 @@ class MiniAwfulFaceView : FaceView {
   
   override init(frame:CGRect) {
     super.init(frame: frame)
+    configureMiniAwfulFaceViewProperties()
+  }
+  
+  func configureMiniAwfulFaceViewProperties() {
     mouthCurvature = -1
     lineWidth = 3
   }
@@ -433,7 +454,11 @@ class PokerFaceView : FaceView {
   override init(frame:CGRect) {
     
     super.init(frame: frame)
-    
+    configurePokerFaceViewProperties()
+  
+  }
+  
+  func configurePokerFaceViewProperties() {
     eyesOpen = false
     mouthCurvature = 0.1
   }
@@ -467,6 +492,10 @@ class MiniPokerFaceView : FaceView {
     
     super.init(frame: frame)
     
+    configureMiniPokerFaceViewProperties()
+  }
+  
+  func configureMiniPokerFaceViewProperties() {
     eyesOpen = false
     mouthCurvature = 0.1
     lineWidth = 3

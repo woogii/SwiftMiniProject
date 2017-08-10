@@ -12,14 +12,8 @@ import UIKit
 
 class PollutantInfoViewController: UIViewController {
   
-  
-  // 0~30  :  Good,             Heart,      Blue   
-  // 31~80 :  Moderate,         Smile,      Green  
-  // 81~120:  Unhealthy,        Pokerface,  Orange 
-  // 121~200: Very Unhealthy,   Frown,       Red   
-  // 201~300: Hazardous,        Awful,      Black
-
   // MARK : - Property
+  
   @IBOutlet weak var locationLabel: UILabel!
   
   @IBOutlet weak var collectionView: UICollectionView!
@@ -41,26 +35,40 @@ class PollutantInfoViewController: UIViewController {
     
     return dateFormatter
   }()
-  
-  
   var themeColor:UIColor!
+  let cellWidth:CGFloat = 80
+  let cellHeight:CGFloat = 170
+  let mainFaceXPositionAdjustment:CGFloat = 80
+  let mainFaceInitialPosition:CGFloat = -200
+  let mainFaceAfterPosition:CGFloat = 160
+  let mainFaceWidth:CGFloat = 160
+  let mainFaceHeight:CGFloat = 140
   
   // MARK : - View Life Cycle
   
   override func viewDidLoad() {
     super.viewDidLoad()
     
-    let mainFaceFrame = CGRect(x: self.view.center.x - 160/2, y: -200, width: 160, height: 140)
-    
     indexLabel.text = dustInfoList[0].pm10Grade
     timeLabel.text = dateFormatter.string(from:Date())
     locationLabel.text = dustInfoList[0].locationName
     
-    let calculatedValue = Int(dustInfoList[0].pm10Value)
+    let pm10Value = Int(dustInfoList[0].pm10Value)
+    setFaceViewTypeBasedOnPM10Value(pm10Value)
+  
+    mainFace.isHidden = true
+    view.addSubview(mainFace)
+  }
+  
+  
+  
+  func setFaceViewTypeBasedOnPM10Value(_ pm10Value:Int) {
     
-    switch calculatedValue {
+    let mainFaceFrame = CGRect(x: self.view.center.x - mainFaceXPositionAdjustment, y: mainFaceInitialPosition, width: mainFaceWidth, height: mainFaceHeight)
+    
+    switch pm10Value {
       
-    case 0...30:
+    case Constants.GoodLevel:
       mainFace = HeartFaceView(frame:mainFaceFrame)
       mainFace.backgroundColor = UIColor.blue
       view.backgroundColor = UIColor.blue
@@ -68,53 +76,56 @@ class PollutantInfoViewController: UIViewController {
       themeColor = UIColor.blue
       separatorView.backgroundColor = Constants.Colors.DarkBlue
       break
-      
-    case 31...80:
+
+    case Constants.ModerateLevel:
       mainFace = SmileFaceView(frame:mainFaceFrame)
       mainFace.backgroundColor = UIColor.green
       separatorView.backgroundColor = Constants.Colors.DarkGreen
       themeColor = UIColor.red
       break
-    case 81...120:
+    case Constants.UnhealthyLevel:
       mainFace = PokerFaceView(frame:mainFaceFrame)
       mainFace.backgroundColor = UIColor.orange
       separatorView.backgroundColor = Constants.Colors.DarkOrange
       themeColor = UIColor.orange
       break
-    case 121...200:
-      
-      mainFace = FrownFaceView(frame:mainFaceFrame)
-      mainFace.backgroundColor = UIColor.red
-      separatorView.backgroundColor = Constants.Colors.DarkRed
-      break
-      
-    case 201...300:
+
+    case Constants.VeryUnhealthyLevel:
       mainFace = AwfulFaceView(frame:mainFaceFrame)
       mainFace.backgroundColor = UIColor.red
       separatorView.backgroundColor = Constants.Colors.LightBlack
       break
+      
     default:
       mainFace = FaceView()
       break
     }
-    
-    
   
-    mainFace.isHidden = true
-    view.addSubview(mainFace)
   }
+
   
   override func viewDidAppear(_ animated: Bool) {
     
     super.viewDidAppear(animated)
-    mainFace.isHidden = false
-    UIView.animate(withDuration: 1.0, delay: 0.0, usingSpringWithDamping: 0.5, initialSpringVelocity: 5, options: .curveEaseInOut, animations: {
-      
-      self.mainFace.frame = CGRect(x: self.view.center.x - 160/2, y: 160, width: 160, height: 140)
-  
-    }, completion: nil)
     
+    hideMainFace()
+    animateMainFace()
+  
   }
+  
+  func hideMainFace() {
+    mainFace.isHidden = false
+  }
+  
+  func animateMainFace() {
+    
+    UIView.animate(withDuration: 1.0, delay: 0.0, usingSpringWithDamping: 0.5, initialSpringVelocity: 5, options: .curveEaseInOut, animations: {
+
+      self.mainFace.frame = CGRect(x: self.view.center.x - self.mainFaceXPositionAdjustment, y: self.mainFaceAfterPosition, width: self.mainFaceWidth, height: self.mainFaceHeight)
+      
+    }, completion: nil)
+  }
+  
   
   
 }
@@ -132,6 +143,13 @@ extension PollutantInfoViewController : UICollectionViewDataSource {
   func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
     let cell = collectionView.dequeueReusableCell(withReuseIdentifier: cellID, for: indexPath) as! PollutantInfoCollectionViewCell
   
+    configureCell(cell, indexPath: indexPath)
+    
+    return cell
+  }
+  
+  func configureCell(_ cell:PollutantInfoCollectionViewCell, indexPath: IndexPath) {
+    
     cell.pollutantTypeLabel.text = pollutantType[indexPath.row]
     cell.faceViewColor = themeColor
     cell.polltantInfo = dustInfoList[indexPath.row]
@@ -139,30 +157,29 @@ extension PollutantInfoViewController : UICollectionViewDataSource {
     switch indexPath.row {
     case 0:
       if #available(iOS 10.0, *) {
-        cell.pollutantLevelLabel.text = String(dustInfoList[indexPath.row].pm10Value) + "µg/m³" 
+        cell.pollutantLevelLabel.text = String(dustInfoList[indexPath.row].pm10Value) + Constants.MicroGram
+
       } else {
         // Fallback on earlier versions
       }
       break
     case 1:
-      cell.pollutantLevelLabel.text = String(dustInfoList[indexPath.row].o3Value) + "ppm"
+      cell.pollutantLevelLabel.text = String(dustInfoList[indexPath.row].o3Value) + Constants.PartsPerMillion
       break
     case 2:
-      cell.pollutantLevelLabel.text = String(dustInfoList[indexPath.row].no2Value) + "ppm"
+      cell.pollutantLevelLabel.text = String(dustInfoList[indexPath.row].no2Value) + Constants.PartsPerMillion
       break
     case 3:
-      cell.pollutantLevelLabel.text = String(dustInfoList[indexPath.row].so2Value) + "ppm"
+      cell.pollutantLevelLabel.text = String(dustInfoList[indexPath.row].so2Value) + Constants.PartsPerMillion
       break
     case 4:
-      cell.pollutantLevelLabel.text = String(dustInfoList[indexPath.row].coValue) + "ppm"
+      cell.pollutantLevelLabel.text = String(dustInfoList[indexPath.row].coValue) + Constants.PartsPerMillion
       break
     default:
       break
     }
-    return cell
+    
   }
-  
-  
 }
 
 
