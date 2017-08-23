@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import MWFeedParser
 
 class ViewController: UIViewController {
 
