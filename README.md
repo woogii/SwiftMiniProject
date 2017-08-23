@@ -116,7 +116,7 @@ This project uses open source library. Thanks for the developers who are dedicat
 *  [GoogleSignIn SDK](https://developers.google.com/identity/sign-in/ios/)
 *  [Facebook SDK](https://github.com/facebook/facebook-ios-sdk)
 *  [LGSideMenuController](https://github.com/Friend-LGA/LGSideMenuController)
-
+*  [MWFeedParser](https://github.com/mwaterfall/MWFeedParser)
 
 ## Image Licence 
 
@@ -138,6 +138,10 @@ These projects use icons from Icons8. Thank [Icons8](https://icons8.com/) for yo
 
 * [Youtube - Duc Tran](https://www.youtube.com/channel/UCvPFGq6luCqAVGiFpzTvkIA)
 
+* [Youtube - Jared Davidson](https://www.youtube.com/user/Archetapp)
+
+* [Youtube - Brian Advent](https://www.youtube.com/channel/UCysEngjfeIYapEER9K8aikw)
+* 
 * [Cocoacasts](https://cocoacasts.com/)
 
 * [AppCoda](https://www.appcoda.com/)

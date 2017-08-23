@@ -9,11 +9,12 @@
 /* Begin PBXBuildFile section */
 		2A19C291AA158C8FB79D7A6F /* Pods_RSS_Reader.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 212A02916DCBAC4144E33F26 /* Pods_RSS_Reader.framework */; };
 		B8A3277B1F4DAE7A00EDFA0C /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8A3277A1F4DAE7A00EDFA0C /* AppDelegate.swift */; };
-		B8A3277D1F4DAE7A00EDFA0C /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8A3277C1F4DAE7A00EDFA0C /* ViewController.swift */; };
+		B8A3277D1F4DAE7A00EDFA0C /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8A3277C1F4DAE7A00EDFA0C /* MainViewController.swift */; };
 		B8A327801F4DAE7A00EDFA0C /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B8A3277E1F4DAE7A00EDFA0C /* Main.storyboard */; };
 		B8A327821F4DAE7A00EDFA0C /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B8A327811F4DAE7A00EDFA0C /* Assets.xcassets */; };
 		B8A327851F4DAE7A00EDFA0C /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B8A327831F4DAE7A00EDFA0C /* LaunchScreen.storyboard */; };
 		B8A327901F4DAE7A00EDFA0C /* RSS_ReaderTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8A3278F1F4DAE7A00EDFA0C /* RSS_ReaderTests.swift */; };
+		B8A3279B1F4DF43B00EDFA0C /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8A3279A1F4DF43B00EDFA0C /* Constants.swift */; };
 		DD4F077F0CD501085F73B01F /* Pods_RSS_ReaderTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CF7EF7DE63E014887A81526D /* Pods_RSS_ReaderTests.framework */; };
 /* End PBXBuildFile section */
 
@@ -33,7 +34,7 @@
 		6FA1ABC6E6CFE3D6CFC670F8 /* Pods-RSS_Reader.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-RSS_Reader.debug.xcconfig"; path = "Pods/Target Support Files/Pods-RSS_Reader/Pods-RSS_Reader.debug.xcconfig"; sourceTree = "<group>"; };
 		B8A327771F4DAE7A00EDFA0C /* RSS_Reader.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = RSS_Reader.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		B8A3277A1F4DAE7A00EDFA0C /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		B8A3277C1F4DAE7A00EDFA0C /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		B8A3277C1F4DAE7A00EDFA0C /* MainViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewController.swift; sourceTree = "<group>"; };
 		B8A3277F1F4DAE7A00EDFA0C /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		B8A327811F4DAE7A00EDFA0C /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		B8A327841F4DAE7A00EDFA0C /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -41,6 +42,7 @@
 		B8A3278B1F4DAE7A00EDFA0C /* RSS_ReaderTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = RSS_ReaderTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		B8A3278F1F4DAE7A00EDFA0C /* RSS_ReaderTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RSS_ReaderTests.swift; sourceTree = "<group>"; };
 		B8A327911F4DAE7A00EDFA0C /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		B8A3279A1F4DF43B00EDFA0C /* Constants.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 		BF62E93789B06B55084E23A4 /* Pods-RSS_ReaderTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-RSS_ReaderTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-RSS_ReaderTests/Pods-RSS_ReaderTests.release.xcconfig"; sourceTree = "<group>"; };
 		CBFDECBF2D0EE40CA8011D0D /* Pods-RSS_Reader.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-RSS_Reader.release.xcconfig"; path = "Pods/Target Support Files/Pods-RSS_Reader/Pods-RSS_Reader.release.xcconfig"; sourceTree = "<group>"; };
 		CF7EF7DE63E014887A81526D /* Pods_RSS_ReaderTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_RSS_ReaderTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -90,7 +92,8 @@
 			isa = PBXGroup;
 			children = (
 				B8A3277A1F4DAE7A00EDFA0C /* AppDelegate.swift */,
-				B8A3277C1F4DAE7A00EDFA0C /* ViewController.swift */,
+				B8A3277C1F4DAE7A00EDFA0C /* MainViewController.swift */,
+				B8A3279A1F4DF43B00EDFA0C /* Constants.swift */,
 				B8A3277E1F4DAE7A00EDFA0C /* Main.storyboard */,
 				B8A327811F4DAE7A00EDFA0C /* Assets.xcassets */,
 				B8A327831F4DAE7A00EDFA0C /* LaunchScreen.storyboard */,
@@ -332,8 +335,9 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				B8A3277D1F4DAE7A00EDFA0C /* ViewController.swift in Sources */,
+				B8A3277D1F4DAE7A00EDFA0C /* MainViewController.swift in Sources */,
 				B8A3277B1F4DAE7A00EDFA0C /* AppDelegate.swift in Sources */,
+				B8A3279B1F4DF43B00EDFA0C /* Constants.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -547,6 +551,7 @@
 				B8A327961F4DAE7A00EDFA0C /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		B8A327971F4DAE7A00EDFA0C /* Build configuration list for PBXNativeTarget "RSS_ReaderTests" */ = {
 			isa = XCConfigurationList;
@@ -555,6 +560,7 @@
 				B8A327991F4DAE7A00EDFA0C /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
