@@ -141,7 +141,7 @@ These projects use icons from Icons8. Thank [Icons8](https://icons8.com/) for yo
 * [Youtube - Jared Davidson](https://www.youtube.com/user/Archetapp)
 
 * [Youtube - Brian Advent](https://www.youtube.com/channel/UCysEngjfeIYapEER9K8aikw)
-* 
+
 * [Cocoacasts](https://cocoacasts.com/)
 
 * [AppCoda](https://www.appcoda.com/)
