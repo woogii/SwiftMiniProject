@@ -8,12 +8,18 @@
 
 import Foundation
 
+// MARK : - Comment 
+
 struct Comment {
+
+  // MARK : - Properties 
   
   var text:String
   var name:String
   var date:Date
   var isQuestion:Bool
+  
+  // MARK : - Initialization
   
   init(text:String, name:String, date:Date, isQuestion:Bool) {
     self.text = text
@@ -21,6 +27,8 @@ struct Comment {
     self.date = date
     self.isQuestion = isQuestion
   }
+  
+  // MARK : - Create a list of comments
   
   static func createCommentList()->[Comment] {
   
@@ -40,6 +48,8 @@ struct Comment {
     
     return commentList
   }
+  
+  // MARK : - Create a single comment 
   
   static func createEnteredComment(text:String, name:String, minuteAgo : Double, isQuestion:Bool)->Comment {
     return Comment(text: text, name: name, date: Date().addingTimeInterval(-minuteAgo * 60), isQuestion: isQuestion)

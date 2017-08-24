@@ -66,7 +66,7 @@ class ReplyViewController: UIViewController {
     addKeyboardObserver()
   }
   
-  func addKeyboardObserver() {
+  private func addKeyboardObserver() {
     NotificationCenter.default.addObserver(self, selector: #selector(handleKeyboardNotification), name: .UIKeyboardWillShow, object: nil)
     NotificationCenter.default.addObserver(self, selector: #selector(handleKeyboardNotification), name: .UIKeyboardWillHide, object: nil)
   }
@@ -105,7 +105,7 @@ class ReplyViewController: UIViewController {
     
   }
   
-  fileprivate func configureMessageInputContainerLayout() {
+  private func configureMessageInputContainerLayout() {
     
     view.addSubview(messageInputContainerView)
     view.addSubview(messageInputAccessoryView)
@@ -117,7 +117,7 @@ class ReplyViewController: UIViewController {
     view.addConstraint(bottomConstraint!)
   }
   
-  fileprivate func setupInputComponent() {
+  private func setupInputComponent() {
     
     messageInputContainerView.addSubview(inputTextField)
     messageInputContainerView.addSubview(registerButton)

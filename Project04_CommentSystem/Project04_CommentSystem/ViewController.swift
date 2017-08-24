@@ -62,26 +62,40 @@ class ViewController: UIViewController {
     
   }
   
-  func addKeyboardObserver() {
+  private func addKeyboardObserver() {
     NotificationCenter.default.addObserver(self, selector: #selector(handleKeyboardNotification), name: .UIKeyboardWillShow, object: nil)
     NotificationCenter.default.addObserver(self, selector: #selector(handleKeyboardNotification), name: .UIKeyboardWillHide, object: nil)
   }
   
   func handleRegister() {
     
-    let comment = Comment.createEnteredComment(text: inputTextField.text ?? "", name: "Kim", minuteAgo: 0, isQuestion: true)
-    commentList.insert(comment, at: 0)
-    
+    addEnteredComment()
+    updateUIAfterAddComment()
+  }
+  
+  private func updateUIAfterAddComment() {
+    updateTableView()
+    updateInputTextField()
+  }
+  
+  private func updateTableView() {
     let insertionIndexPath = IndexPath(item: 0, section: 0)
-    
+  
     tableView.beginUpdates()
     tableView.insertRows(at: [insertionIndexPath], with: .automatic)
     tableView.scrollToRow(at: insertionIndexPath, at: .top, animated: true)
     tableView.endUpdates()
-    
-    inputTextField.text = nil
-    
   }
+  
+  private func updateInputTextField() {
+      inputTextField.text = nil
+  }
+  
+  private func addEnteredComment() {
+    let comment = Comment.createEnteredComment(text: inputTextField.text ?? "", name: "Kim", minuteAgo: 0, isQuestion: true)
+    commentList.insert(comment, at: 0)
+  }
+  
   
   func handleDismiss() {
     view.endEditing(true)
@@ -107,11 +121,11 @@ class ViewController: UIViewController {
     
   }
   
-  func fetchCommentList() {
+  private func fetchCommentList() {
     commentList = Comment.createCommentList()
   }
 
-  fileprivate func configureMessageInputContainerLayout() {
+  private func configureMessageInputContainerLayout() {
     
     view.addSubview(messageInputContainerView)
     view.addSubview(messageInputAccessoryView)
@@ -123,7 +137,7 @@ class ViewController: UIViewController {
     view.addConstraint(bottomConstraint!)
   }
   
-  fileprivate func setupInputComponent() {
+  private func setupInputComponent() {
     
     messageInputContainerView.addSubview(inputTextField)
     messageInputContainerView.addSubview(registerButton)

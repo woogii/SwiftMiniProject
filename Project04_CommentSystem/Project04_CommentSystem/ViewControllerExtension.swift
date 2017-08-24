@@ -15,10 +15,6 @@ extension ViewController : UITableViewDelegate, UITableViewDataSource {
   
   // MARK : - UITableViewDataSource Methods
   
-  func numberOfSections(in tableView: UITableView) -> Int {
-    return 1
-  }
-  
   func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
     
     let singleComment = commentList[indexPath.row]
