@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		B8A327D71F4F2B9600EDFA0C /* UIView+VisualFormat.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8A327D61F4F2B9600EDFA0C /* UIView+VisualFormat.swift */; };
 		D25C34771E88A62600C9DD92 /* CommentHeaderCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = D25C34761E88A62600C9DD92 /* CommentHeaderCell.xib */; };
 		D25C34791E88AB6700C9DD92 /* CommentTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D25C34781E88AB6700C9DD92 /* CommentTableViewCell.swift */; };
 		D25C347B1E88AB9000C9DD92 /* CommentTableViewHeader.swift in Sources */ = {isa = PBXBuildFile; fileRef = D25C347A1E88AB9000C9DD92 /* CommentTableViewHeader.swift */; };
@@ -41,6 +42,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		B8A327D61F4F2B9600EDFA0C /* UIView+VisualFormat.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIView+VisualFormat.swift"; sourceTree = "<group>"; };
 		D25C34761E88A62600C9DD92 /* CommentHeaderCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = CommentHeaderCell.xib; sourceTree = "<group>"; };
 		D25C34781E88AB6700C9DD92 /* CommentTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CommentTableViewCell.swift; sourceTree = "<group>"; };
 		D25C347A1E88AB9000C9DD92 /* CommentTableViewHeader.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CommentTableViewHeader.swift; sourceTree = "<group>"; };
@@ -88,6 +90,30 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		B8A327CB1F4F27DA00EDFA0C /* Cases */ = {
+			isa = PBXGroup;
+			children = (
+				D2A3FA811DAB43C800FDEBB1 /* Project04_CommentSystemTests.swift */,
+			);
+			name = Cases;
+			sourceTree = "<group>";
+		};
+		B8A327CC1F4F27E800EDFA0C /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				D2A3FA831DAB43C800FDEBB1 /* Info.plist */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		B8A327D51F4F2B6700EDFA0C /* Extension */ = {
+			isa = PBXGroup;
+			children = (
+				B8A327D61F4F2B9600EDFA0C /* UIView+VisualFormat.swift */,
+			);
+			name = Extension;
+			sourceTree = "<group>";
+		};
 		D25C347C1E88AC9000C9DD92 /* Support */ = {
 			isa = PBXGroup;
 			children = (
@@ -153,6 +179,7 @@
 			isa = PBXGroup;
 			children = (
 				D25C34831E88BBA400C9DD92 /* Controller */,
+				B8A327D51F4F2B6700EDFA0C /* Extension */,
 				D25C347E1E88B22300C9DD92 /* Model */,
 				D25C347D1E88ACB500C9DD92 /* View */,
 				D25C347C1E88AC9000C9DD92 /* Support */,
@@ -163,8 +190,8 @@
 		D2A3FA801DAB43C800FDEBB1 /* Project04_CommentSystemTests */ = {
 			isa = PBXGroup;
 			children = (
-				D2A3FA811DAB43C800FDEBB1 /* Project04_CommentSystemTests.swift */,
-				D2A3FA831DAB43C800FDEBB1 /* Info.plist */,
+				B8A327CC1F4F27E800EDFA0C /* Supporting Files */,
+				B8A327CB1F4F27DA00EDFA0C /* Cases */,
 			);
 			path = Project04_CommentSystemTests;
 			sourceTree = "<group>";
@@ -324,6 +351,7 @@
 				D25C34791E88AB6700C9DD92 /* CommentTableViewCell.swift in Sources */,
 				D25C347B1E88AB9000C9DD92 /* CommentTableViewHeader.swift in Sources */,
 				D2A3FA6D1DAB43C800FDEBB1 /* AppDelegate.swift in Sources */,
+				B8A327D71F4F2B9600EDFA0C /* UIView+VisualFormat.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
