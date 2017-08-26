@@ -8,11 +8,50 @@
 
 import Foundation
 
+// MARK : - Constants
+
 struct Constants {
   
-  static let TechRssFeedURL = "http://feeds.bbci.co.uk/news/rss.xml?edition=uk"  //"http://feeds.feedburner.com/TechCrunch/startups" //"http://feeds.nytimes.com/nyt/rss/Technology"
-  static let BitsBlogRssFeedURL = "http://bits.blogs.nytimes.com/feed/"
-  static let PersonalTechRssFeedURL = "http://www.nytimes.com/services/xml/rss/nyt/PersonalTech.xml"
-  static let CellIdentifier = "cell"
+  
+  //https://newsapi.org/v1/articles?source=techcrunch&sortBy=top&apiKey=d85af49e60034e1c895a4b3c71d30100
+  
+  // MARK : - APIRequest
+  
+  struct APIRequest {
+    
+    static let BaseUrl = "https://newsapi.org/v1/articles"
+    
+    // MARK : - UrlQuery
+    struct UrlQuery {
+      static let Source = "source"
+      static let SortBy = "sortBy"
+      static let ApiKey = "apiKey"
+    }
+  }
+  
+  // MARK : - JSONResponseKeys
+  
+  struct JSONResponseKeys {
+    static let Author = "author"
+    static let Title = "title"
+    static let Description = "description"
+    static let Url = "url"
+    static let UrlToImage = "urlToImage"
+    static let PublishedAt = "publishedAt"
+  }
+  
+  // MARK : - Cell Identifiers
+  struct CellID {
+    static let NewsCell = "cell"
+  }
+  
+  // MARK : - NewsSource
+  
+  struct NewsSource {
+    static let TechCrunch = "techcrunch"
+    static let TechRadar = "techRadar"
+    static let Recode = "recode"
+  }
+  
 }
 

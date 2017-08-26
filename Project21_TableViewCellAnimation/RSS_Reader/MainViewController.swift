@@ -14,21 +14,9 @@ import UIKit
 class MainViewController: UITableViewController {
 
   // MARK : - Properties
-  let cellID = "cell"
-//  private let techFeedParser : MWFeedParser = {
-//    
-//    guard let techFeedUrl = URL(string: Constants.TechRssFeedURL) else {
-//      return MWFeedParser()
-//    }
-//    guard let techFeedParser = MWFeedParser(feedURL: techFeedUrl) else {
-//      return MWFeedParser()
-//    }
-//    techFeedParser.connectionType = ConnectionTypeAsynchronously
-//    techFeedParser.feedParseType = ParseTypeFull
-//    return techFeedParser
-//  }()
-//  fileprivate var techFeedItems = [MWFeedItem]()
-
+  
+  
+  
   // MARK : - View Life Cycle
   
   override func viewDidLoad() {
@@ -37,11 +25,18 @@ class MainViewController: UITableViewController {
     
     registerTableViewCell()
     
-    
+    RestClient.sharedInstance.requestNews(with: "techCrunch") { (result, error) in
+      
+      guard error == nil else {
+        return
+      }
+      
+      print(result!)
+    }
   }
   
   private func registerTableViewCell() {
-    tableView.register(UITableViewCell.self, forCellReuseIdentifier: cellID)
+    tableView.register(UITableViewCell.self, forCellReuseIdentifier: Constants.CellID.NewsCell)
   }
   
   
@@ -51,8 +46,9 @@ class MainViewController: UITableViewController {
   override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
     return 0
   }
+  
   override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-    let cell = tableView.dequeueReusableCell(withIdentifier: Constants.CellIdentifier, for: indexPath)
+    let cell = tableView.dequeueReusableCell(withIdentifier: Constants.CellID.NewsCell, for: indexPath)
     
   
     return cell
