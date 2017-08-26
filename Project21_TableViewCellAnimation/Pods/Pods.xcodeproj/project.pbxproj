@@ -1,0 +1,505 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		101FD507EA247A0451E46F7147DCDAE3 /* Pods-RSS_Reader-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = 7970E3D5D6C7EAD7C7DF706A06956011 /* Pods-RSS_Reader-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		7F5F0C259F49B202E3724F4A819A597B /* Pods-RSS_Reader-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = D3C0CA33F7AC6A2BF6D8737DE2FAF707 /* Pods-RSS_Reader-dummy.m */; };
+		87F7C5C92EF29AA04E25064436A41FB1 /* Pods-RSS_ReaderTests-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = E6CE73BD6DB383EB8CEA2D7E559320FD /* Pods-RSS_ReaderTests-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		A455D23A457B7900C043903A030C5557 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CBB3DE36805AF21409EC968A9691732F /* Foundation.framework */; };
+		DCFA8B2F22994C928CCFB18E94B8F957 /* Pods-RSS_ReaderTests-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = 41014C8C4FCC1D6DF4A0FEF41E2EA1FA /* Pods-RSS_ReaderTests-dummy.m */; };
+		F0B21DD1B253870E665C5CA45CF26C30 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CBB3DE36805AF21409EC968A9691732F /* Foundation.framework */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXFileReference section */
+		1674A779662BF9466F2BD02DFD0B7639 /* Pods-RSS_ReaderTests-acknowledgements.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Pods-RSS_ReaderTests-acknowledgements.plist"; sourceTree = "<group>"; };
+		23D949EB9A07868275E16D68033DEC8B /* Pods_RSS_ReaderTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = Pods_RSS_ReaderTests.framework; path = "Pods-RSS_ReaderTests.framework"; sourceTree = BUILT_PRODUCTS_DIR; };
+		2BE9727DB013C4B1E40ADFB624007DDB /* Pods-RSS_ReaderTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-RSS_ReaderTests.release.xcconfig"; sourceTree = "<group>"; };
+		3403A4E3A60C6253B36A16B300FFF8D6 /* Pods-RSS_Reader-acknowledgements.markdown */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; path = "Pods-RSS_Reader-acknowledgements.markdown"; sourceTree = "<group>"; };
+		3F0BCAC26E744EA415FB32CA5EC64C60 /* Pods-RSS_Reader.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-RSS_Reader.release.xcconfig"; sourceTree = "<group>"; };
+		40A47C73A786960C998ED3F7E9363F1A /* Pods-RSS_Reader-frameworks.sh */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.script.sh; path = "Pods-RSS_Reader-frameworks.sh"; sourceTree = "<group>"; };
+		41014C8C4FCC1D6DF4A0FEF41E2EA1FA /* Pods-RSS_ReaderTests-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "Pods-RSS_ReaderTests-dummy.m"; sourceTree = "<group>"; };
+		456F40E27FE0672FE75F1FF89417E230 /* Pods-RSS_ReaderTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-RSS_ReaderTests.debug.xcconfig"; sourceTree = "<group>"; };
+		45DD2C3EE7247F90A5495AB67ACF8CD1 /* Pods-RSS_ReaderTests-frameworks.sh */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.script.sh; path = "Pods-RSS_ReaderTests-frameworks.sh"; sourceTree = "<group>"; };
+		5709755D8DDBAB5FAC9C3AD4C12F5351 /* Pods-RSS_Reader.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; path = "Pods-RSS_Reader.modulemap"; sourceTree = "<group>"; };
+		7970E3D5D6C7EAD7C7DF706A06956011 /* Pods-RSS_Reader-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "Pods-RSS_Reader-umbrella.h"; sourceTree = "<group>"; };
+		7AC015A23EE439C780E1085485F8044E /* Pods-RSS_ReaderTests-resources.sh */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.script.sh; path = "Pods-RSS_ReaderTests-resources.sh"; sourceTree = "<group>"; };
+		840B61EDEEEE8230E4AF7E3E22AC0D63 /* Pods-RSS_Reader-resources.sh */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.script.sh; path = "Pods-RSS_Reader-resources.sh"; sourceTree = "<group>"; };
+		8B7B2AB0BD6E999D433E8592679FA6A9 /* Pods-RSS_Reader.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-RSS_Reader.debug.xcconfig"; sourceTree = "<group>"; };
+		8F9D46F762F741159365E019B20E56BE /* Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		93A4A3777CF96A4AAC1D13BA6DCCEA73 /* Podfile */ = {isa = PBXFileReference; explicitFileType = text.script.ruby; includeInIndex = 1; lastKnownFileType = text; name = Podfile; path = ../Podfile; sourceTree = SOURCE_ROOT; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
+		A99906B2B251714A01BEC99EBE57CB73 /* Pods-RSS_Reader-acknowledgements.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Pods-RSS_Reader-acknowledgements.plist"; sourceTree = "<group>"; };
+		C6B32073E5960BF60823D74EE6E3CF18 /* Pods-RSS_ReaderTests.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; path = "Pods-RSS_ReaderTests.modulemap"; sourceTree = "<group>"; };
+		C6C421A6F478A0F55A27521735963873 /* Pods-RSS_ReaderTests-acknowledgements.markdown */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; path = "Pods-RSS_ReaderTests-acknowledgements.markdown"; sourceTree = "<group>"; };
+		CBB3DE36805AF21409EC968A9691732F /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS10.0.sdk/System/Library/Frameworks/Foundation.framework; sourceTree = DEVELOPER_DIR; };
+		D3C0CA33F7AC6A2BF6D8737DE2FAF707 /* Pods-RSS_Reader-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "Pods-RSS_Reader-dummy.m"; sourceTree = "<group>"; };
+		DE88A98033FD1ADCF1D9D5EC399B1E27 /* Pods_RSS_Reader.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = Pods_RSS_Reader.framework; path = "Pods-RSS_Reader.framework"; sourceTree = BUILT_PRODUCTS_DIR; };
+		E6CE73BD6DB383EB8CEA2D7E559320FD /* Pods-RSS_ReaderTests-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "Pods-RSS_ReaderTests-umbrella.h"; sourceTree = "<group>"; };
+		EBCB6F115CCAE985C2D92CA6B3CD5A9A /* Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		725E0E53B88EC5ABD7F79B72F0CA5308 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				A455D23A457B7900C043903A030C5557 /* Foundation.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		7A27C835964043E2EF17CA1FDA1C24B6 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				F0B21DD1B253870E665C5CA45CF26C30 /* Foundation.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		2096DDE23F34F177D45EC3B82213E8BF /* Targets Support Files */ = {
+			isa = PBXGroup;
+			children = (
+				B0FAB1DED9FBE7933086F8E8D661DF07 /* Pods-RSS_Reader */,
+				4C64D2426C15A18E61688152FBEF725C /* Pods-RSS_ReaderTests */,
+			);
+			name = "Targets Support Files";
+			sourceTree = "<group>";
+		};
+		4C64D2426C15A18E61688152FBEF725C /* Pods-RSS_ReaderTests */ = {
+			isa = PBXGroup;
+			children = (
+				EBCB6F115CCAE985C2D92CA6B3CD5A9A /* Info.plist */,
+				C6B32073E5960BF60823D74EE6E3CF18 /* Pods-RSS_ReaderTests.modulemap */,
+				C6C421A6F478A0F55A27521735963873 /* Pods-RSS_ReaderTests-acknowledgements.markdown */,
+				1674A779662BF9466F2BD02DFD0B7639 /* Pods-RSS_ReaderTests-acknowledgements.plist */,
+				41014C8C4FCC1D6DF4A0FEF41E2EA1FA /* Pods-RSS_ReaderTests-dummy.m */,
+				45DD2C3EE7247F90A5495AB67ACF8CD1 /* Pods-RSS_ReaderTests-frameworks.sh */,
+				7AC015A23EE439C780E1085485F8044E /* Pods-RSS_ReaderTests-resources.sh */,
+				E6CE73BD6DB383EB8CEA2D7E559320FD /* Pods-RSS_ReaderTests-umbrella.h */,
+				456F40E27FE0672FE75F1FF89417E230 /* Pods-RSS_ReaderTests.debug.xcconfig */,
+				2BE9727DB013C4B1E40ADFB624007DDB /* Pods-RSS_ReaderTests.release.xcconfig */,
+			);
+			name = "Pods-RSS_ReaderTests";
+			path = "Target Support Files/Pods-RSS_ReaderTests";
+			sourceTree = "<group>";
+		};
+		533937815E0FE7F8F9547D1386468BD7 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				DE88A98033FD1ADCF1D9D5EC399B1E27 /* Pods_RSS_Reader.framework */,
+				23D949EB9A07868275E16D68033DEC8B /* Pods_RSS_ReaderTests.framework */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		7531C8F8DE19F1AA3C8A7AC97A91DC29 /* iOS */ = {
+			isa = PBXGroup;
+			children = (
+				CBB3DE36805AF21409EC968A9691732F /* Foundation.framework */,
+			);
+			name = iOS;
+			sourceTree = "<group>";
+		};
+		7DB346D0F39D3F0E887471402A8071AB = {
+			isa = PBXGroup;
+			children = (
+				93A4A3777CF96A4AAC1D13BA6DCCEA73 /* Podfile */,
+				BC3CA7F9E30CC8F7E2DD044DD34432FC /* Frameworks */,
+				533937815E0FE7F8F9547D1386468BD7 /* Products */,
+				2096DDE23F34F177D45EC3B82213E8BF /* Targets Support Files */,
+			);
+			sourceTree = "<group>";
+		};
+		B0FAB1DED9FBE7933086F8E8D661DF07 /* Pods-RSS_Reader */ = {
+			isa = PBXGroup;
+			children = (
+				8F9D46F762F741159365E019B20E56BE /* Info.plist */,
+				5709755D8DDBAB5FAC9C3AD4C12F5351 /* Pods-RSS_Reader.modulemap */,
+				3403A4E3A60C6253B36A16B300FFF8D6 /* Pods-RSS_Reader-acknowledgements.markdown */,
+				A99906B2B251714A01BEC99EBE57CB73 /* Pods-RSS_Reader-acknowledgements.plist */,
+				D3C0CA33F7AC6A2BF6D8737DE2FAF707 /* Pods-RSS_Reader-dummy.m */,
+				40A47C73A786960C998ED3F7E9363F1A /* Pods-RSS_Reader-frameworks.sh */,
+				840B61EDEEEE8230E4AF7E3E22AC0D63 /* Pods-RSS_Reader-resources.sh */,
+				7970E3D5D6C7EAD7C7DF706A06956011 /* Pods-RSS_Reader-umbrella.h */,
+				8B7B2AB0BD6E999D433E8592679FA6A9 /* Pods-RSS_Reader.debug.xcconfig */,
+				3F0BCAC26E744EA415FB32CA5EC64C60 /* Pods-RSS_Reader.release.xcconfig */,
+			);
+			name = "Pods-RSS_Reader";
+			path = "Target Support Files/Pods-RSS_Reader";
+			sourceTree = "<group>";
+		};
+		BC3CA7F9E30CC8F7E2DD044DD34432FC /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				7531C8F8DE19F1AA3C8A7AC97A91DC29 /* iOS */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXHeadersBuildPhase section */
+		4B3452D27441308255E70D502E0787C1 /* Headers */ = {
+			isa = PBXHeadersBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				87F7C5C92EF29AA04E25064436A41FB1 /* Pods-RSS_ReaderTests-umbrella.h in Headers */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		A3C41F4A5BEB758BAFCD9634837424EF /* Headers */ = {
+			isa = PBXHeadersBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				101FD507EA247A0451E46F7147DCDAE3 /* Pods-RSS_Reader-umbrella.h in Headers */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXHeadersBuildPhase section */
+
+/* Begin PBXNativeTarget section */
+		830A4D25C5E8D2901156B57A7A97B513 /* Pods-RSS_Reader */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 75EDC69691CCDC7D9B7EF5E3EC788B08 /* Build configuration list for PBXNativeTarget "Pods-RSS_Reader" */;
+			buildPhases = (
+				C6C80FBDF7A621D25FD9D87D6D5FCD59 /* Sources */,
+				7A27C835964043E2EF17CA1FDA1C24B6 /* Frameworks */,
+				A3C41F4A5BEB758BAFCD9634837424EF /* Headers */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = "Pods-RSS_Reader";
+			productName = "Pods-RSS_Reader";
+			productReference = DE88A98033FD1ADCF1D9D5EC399B1E27 /* Pods_RSS_Reader.framework */;
+			productType = "com.apple.product-type.framework";
+		};
+		F3671938533AF5713AE8BB26A7359324 /* Pods-RSS_ReaderTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = D6C527A0B1C64F8D463DFB282E776B3B /* Build configuration list for PBXNativeTarget "Pods-RSS_ReaderTests" */;
+			buildPhases = (
+				D79ADD3E7658459861EE6539E50F3EF7 /* Sources */,
+				725E0E53B88EC5ABD7F79B72F0CA5308 /* Frameworks */,
+				4B3452D27441308255E70D502E0787C1 /* Headers */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = "Pods-RSS_ReaderTests";
+			productName = "Pods-RSS_ReaderTests";
+			productReference = 23D949EB9A07868275E16D68033DEC8B /* Pods_RSS_ReaderTests.framework */;
+			productType = "com.apple.product-type.framework";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		D41D8CD98F00B204E9800998ECF8427E /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastSwiftUpdateCheck = 0730;
+				LastUpgradeCheck = 0700;
+			};
+			buildConfigurationList = 2D8E8EC45A3A1A1D94AE762CB5028504 /* Build configuration list for PBXProject "Pods" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+			);
+			mainGroup = 7DB346D0F39D3F0E887471402A8071AB;
+			productRefGroup = 533937815E0FE7F8F9547D1386468BD7 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				830A4D25C5E8D2901156B57A7A97B513 /* Pods-RSS_Reader */,
+				F3671938533AF5713AE8BB26A7359324 /* Pods-RSS_ReaderTests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXSourcesBuildPhase section */
+		C6C80FBDF7A621D25FD9D87D6D5FCD59 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				7F5F0C259F49B202E3724F4A819A597B /* Pods-RSS_Reader-dummy.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		D79ADD3E7658459861EE6539E50F3EF7 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				DCFA8B2F22994C928CCFB18E94B8F957 /* Pods-RSS_ReaderTests-dummy.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin XCBuildConfiguration section */
+		156284431C64CB05C59BDA0595A1E95A /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGNING_REQUIRED = NO;
+				COPY_PHASE_STRIP = YES;
+				ENABLE_NS_ASSERTIONS = NO;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"POD_CONFIGURATION_RELEASE=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.3;
+				PROVISIONING_PROFILE_SPECIFIER = NO_SIGNING/;
+				STRIP_INSTALLED_PRODUCT = NO;
+				SYMROOT = "${SRCROOT}/../build";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		1C3810A5C9D54BCCB792C349063BBF3E /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 8B7B2AB0BD6E999D433E8592679FA6A9 /* Pods-RSS_Reader.debug.xcconfig */;
+			buildSettings = {
+				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
+				CURRENT_PROJECT_VERSION = 1;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_NO_COMMON_BLOCKS = YES;
+				INFOPLIST_FILE = "Target Support Files/Pods-RSS_Reader/Info.plist";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 10.3;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				MACH_O_TYPE = staticlib;
+				MODULEMAP_FILE = "Target Support Files/Pods-RSS_Reader/Pods-RSS_Reader.modulemap";
+				MTL_ENABLE_DEBUG_INFO = YES;
+				OTHER_LDFLAGS = "";
+				OTHER_LIBTOOLFLAGS = "";
+				PODS_ROOT = "$(SRCROOT)";
+				PRODUCT_BUNDLE_IDENTIFIER = "org.cocoapods.${PRODUCT_NAME:rfc1034identifier}";
+				PRODUCT_NAME = Pods_RSS_Reader;
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Debug;
+		};
+		3FF9DEBF02A73B6A23B94677A68F27DA /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 456F40E27FE0672FE75F1FF89417E230 /* Pods-RSS_ReaderTests.debug.xcconfig */;
+			buildSettings = {
+				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
+				CURRENT_PROJECT_VERSION = 1;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_NO_COMMON_BLOCKS = YES;
+				INFOPLIST_FILE = "Target Support Files/Pods-RSS_ReaderTests/Info.plist";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 10.3;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				MACH_O_TYPE = staticlib;
+				MODULEMAP_FILE = "Target Support Files/Pods-RSS_ReaderTests/Pods-RSS_ReaderTests.modulemap";
+				MTL_ENABLE_DEBUG_INFO = YES;
+				OTHER_LDFLAGS = "";
+				OTHER_LIBTOOLFLAGS = "";
+				PODS_ROOT = "$(SRCROOT)";
+				PRODUCT_BUNDLE_IDENTIFIER = "org.cocoapods.${PRODUCT_NAME:rfc1034identifier}";
+				PRODUCT_NAME = Pods_RSS_ReaderTests;
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Debug;
+		};
+		449EC6197BD5080408DDD85235161A4A /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 2BE9727DB013C4B1E40ADFB624007DDB /* Pods-RSS_ReaderTests.release.xcconfig */;
+			buildSettings = {
+				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
+				CURRENT_PROJECT_VERSION = 1;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_NO_COMMON_BLOCKS = YES;
+				INFOPLIST_FILE = "Target Support Files/Pods-RSS_ReaderTests/Info.plist";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 10.3;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				MACH_O_TYPE = staticlib;
+				MODULEMAP_FILE = "Target Support Files/Pods-RSS_ReaderTests/Pods-RSS_ReaderTests.modulemap";
+				MTL_ENABLE_DEBUG_INFO = NO;
+				OTHER_LDFLAGS = "";
+				OTHER_LIBTOOLFLAGS = "";
+				PODS_ROOT = "$(SRCROOT)";
+				PRODUCT_BUNDLE_IDENTIFIER = "org.cocoapods.${PRODUCT_NAME:rfc1034identifier}";
+				PRODUCT_NAME = Pods_RSS_ReaderTests;
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Release;
+		};
+		948EC9A9C5D7F03B546261C3D530A2B5 /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 3F0BCAC26E744EA415FB32CA5EC64C60 /* Pods-RSS_Reader.release.xcconfig */;
+			buildSettings = {
+				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
+				CURRENT_PROJECT_VERSION = 1;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_NO_COMMON_BLOCKS = YES;
+				INFOPLIST_FILE = "Target Support Files/Pods-RSS_Reader/Info.plist";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 10.3;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				MACH_O_TYPE = staticlib;
+				MODULEMAP_FILE = "Target Support Files/Pods-RSS_Reader/Pods-RSS_Reader.modulemap";
+				MTL_ENABLE_DEBUG_INFO = NO;
+				OTHER_LDFLAGS = "";
+				OTHER_LIBTOOLFLAGS = "";
+				PODS_ROOT = "$(SRCROOT)";
+				PRODUCT_BUNDLE_IDENTIFIER = "org.cocoapods.${PRODUCT_NAME:rfc1034identifier}";
+				PRODUCT_NAME = Pods_RSS_Reader;
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Release;
+		};
+		C382132BB6BF8CA1A911872A2062FD0D /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGNING_REQUIRED = NO;
+				COPY_PHASE_STRIP = NO;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"POD_CONFIGURATION_DEBUG=1",
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.3;
+				ONLY_ACTIVE_ARCH = YES;
+				PROVISIONING_PROFILE_SPECIFIER = NO_SIGNING/;
+				STRIP_INSTALLED_PRODUCT = NO;
+				SYMROOT = "${SRCROOT}/../build";
+			};
+			name = Debug;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		2D8E8EC45A3A1A1D94AE762CB5028504 /* Build configuration list for PBXProject "Pods" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				C382132BB6BF8CA1A911872A2062FD0D /* Debug */,
+				156284431C64CB05C59BDA0595A1E95A /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		75EDC69691CCDC7D9B7EF5E3EC788B08 /* Build configuration list for PBXNativeTarget "Pods-RSS_Reader" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				1C3810A5C9D54BCCB792C349063BBF3E /* Debug */,
+				948EC9A9C5D7F03B546261C3D530A2B5 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		D6C527A0B1C64F8D463DFB282E776B3B /* Build configuration list for PBXNativeTarget "Pods-RSS_ReaderTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				3FF9DEBF02A73B6A23B94677A68F27DA /* Debug */,
+				449EC6197BD5080408DDD85235161A4A /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = D41D8CD98F00B204E9800998ECF8427E /* Project object */;
+}

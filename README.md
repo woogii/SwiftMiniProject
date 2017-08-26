@@ -116,7 +116,6 @@ This project uses open source library. Thanks for the developers who are dedicat
 *  [GoogleSignIn SDK](https://developers.google.com/identity/sign-in/ios/)
 *  [Facebook SDK](https://github.com/facebook/facebook-ios-sdk)
 *  [LGSideMenuController](https://github.com/Friend-LGA/LGSideMenuController)
-*  [MWFeedParser](https://github.com/mwaterfall/MWFeedParser)
 
 ## Image Licence 
 
@@ -126,7 +125,7 @@ These projects use icons from Icons8. Thank [Icons8](https://icons8.com/) for yo
  
 * [Flickr API](https://www.flickr.com/services/api/)
 * [The Movie Database API](https://www.themoviedb.org/documentation/api/) 
-
+* [News API](https://newsapi.org/)
 
 ## References 
 
