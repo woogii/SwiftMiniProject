@@ -20,8 +20,6 @@ class ReplyViewController: UIViewController {
   @IBOutlet weak var tableView: UITableView!
 
   var commentList:[Comment]!
-  let questionCommentCell = "commentCell"
-  let answerCommentCell = "answerCell"
   let messageInputAccessoryView : UIView = {
     let view = UIView()
     view.backgroundColor = UIColor.white
@@ -35,13 +33,13 @@ class ReplyViewController: UIViewController {
   }()
   let inputTextField : UITextField = {
     let textField = UITextField()
-    textField.placeholder = "Enter comment..."
+    textField.placeholder = Constant.PlaceHolder.CommentTextField
     textField.becomeFirstResponder()
     return textField
   }()
   lazy var registerButton : UIButton = {
     let button = UIButton(type: .system)
-    button.setTitle("Register", for: .normal)
+    button.setTitle(Constant.ButtonTitle.Register, for: .normal)
     let titleColor = UIColor.black
     button.setTitleColor(titleColor, for: .normal)
     button.titleLabel?.font = UIFont.boldSystemFont(ofSize: 12)
@@ -73,7 +71,7 @@ class ReplyViewController: UIViewController {
   
   func handleRegister() {
     
-    let comment = Comment.createEnteredComment(text: inputTextField.text ?? "", name: "Kim", minuteAgo: 0, isQuestion: false)
+    let comment = Comment.createEnteredComment(text: inputTextField.text ?? "", name: Constant.CommenterName, minuteAgo: 0, isQuestion: false)
   
     delegate?.updateCommentList(newComment: comment, index: insertedIndex!)
     inputTextField.text = nil
@@ -148,11 +146,11 @@ extension ReplyViewController : UITableViewDelegate, UITableViewDataSource {
     let singleComment = commentList[indexPath.row]
     
     if singleComment.isQuestion {
-      let cell = tableView.dequeueReusableCell(withIdentifier: questionCommentCell, for: indexPath) as! CommentTableViewCell
+      let cell = tableView.dequeueReusableCell(withIdentifier: Constant.CellID.QuestionCommentCell, for: indexPath) as! CommentTableViewCell
       cell.questionComment = singleComment
       return cell
     } else {
-      let cell = tableView.dequeueReusableCell(withIdentifier: answerCommentCell, for: indexPath) as! AnswerTableViewCell
+      let cell = tableView.dequeueReusableCell(withIdentifier: Constant.CellID.AnswerCommentCell, for: indexPath) as! AnswerTableViewCell
       cell.answerComment = singleComment
       cell.tag = indexPath.row
       return cell

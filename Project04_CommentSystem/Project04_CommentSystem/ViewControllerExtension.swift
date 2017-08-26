@@ -20,13 +20,13 @@ extension ViewController : UITableViewDelegate, UITableViewDataSource {
     let singleComment = commentList[indexPath.row]
     
     if singleComment.isQuestion {
-      let cell = tableView.dequeueReusableCell(withIdentifier: questionCommentCell, for: indexPath) as! CommentTableViewCell
+      let cell = tableView.dequeueReusableCell(withIdentifier: Constant.CellID.QuestionCommentCell, for: indexPath) as! CommentTableViewCell
       cell.questionComment = singleComment
       cell.tag = indexPath.row
       addTapGestureForCell(cell: cell)
       return cell
     } else {
-      let cell = tableView.dequeueReusableCell(withIdentifier: answerCommentCell, for: indexPath) as! AnswerTableViewCell
+      let cell = tableView.dequeueReusableCell(withIdentifier: Constant.CellID.AnswerCommentCell, for: indexPath) as! AnswerTableViewCell
       cell.answerComment = singleComment
       cell.tag = indexPath.row
       addTapGestureForCell(cell: cell)
@@ -52,7 +52,7 @@ extension ViewController : UITableViewDelegate, UITableViewDataSource {
     
     let actionSheetController = UIAlertController(title: nil, message: nil, preferredStyle: .actionSheet)
     
-    let writeCommentVCAction = UIAlertAction(title: "Reply", style: .default, handler: { action in
+    let writeCommentVCAction = UIAlertAction(title: Constant.ButtonTitle.Reply, style: .default, handler: { action in
       
       if self.commentList[cellIndex].isQuestion == true {
   
@@ -69,7 +69,7 @@ extension ViewController : UITableViewDelegate, UITableViewDataSource {
   
     actionSheetController.addAction(writeCommentVCAction)
     
-    let cancelAction = UIAlertAction(title: "cancel", style: .cancel, handler: nil)
+    let cancelAction = UIAlertAction(title: Constant.ButtonTitle.Cancel, style: .cancel, handler: nil)
     actionSheetController.addAction(cancelAction)
     
     present(actionSheetController, animated: true, completion: nil)
@@ -135,8 +135,8 @@ extension ViewController : UITableViewDelegate, UITableViewDataSource {
   
   func prepareToWriteComment(commentStartIndex:Int, commentLastIndex:Int) {
     
-    let storyBoard = UIStoryboard(name: "Main", bundle: nil)
-    let destinationVC = storyBoard.instantiateViewController(withIdentifier: "replyVC") as! ReplyViewController
+    let storyBoard = UIStoryboard(name: Constant.StoryBoardName.Main, bundle: nil)
+    let destinationVC = storyBoard.instantiateViewController(withIdentifier: Constant.StoryBoardID.ReplyViewController) as! ReplyViewController
     destinationVC.commentList = Array(commentList[commentStartIndex...commentLastIndex])
     destinationVC.insertedIndex = commentLastIndex
     destinationVC.delegate = self

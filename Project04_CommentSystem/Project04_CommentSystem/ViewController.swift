@@ -16,8 +16,6 @@ class ViewController: UIViewController {
   
   @IBOutlet weak var tableView: UITableView!
   var commentList:[Comment]!
-  let questionCommentCell = "commentCell"
-  let answerCommentCell = "answerCell"
   let messageInputAccessoryView : UIView = {
     let view = UIView()
     view.backgroundColor = UIColor.white
@@ -31,12 +29,12 @@ class ViewController: UIViewController {
   }()
   let inputTextField : UITextField = {
     let textField = UITextField()
-    textField.placeholder = "Enter comment..."
+    textField.placeholder = Constant.PlaceHolder.CommentTextField
     return textField
   }()
   lazy var registerButton : UIButton = {
     let button = UIButton(type: .system)
-    button.setTitle("Register", for: .normal)
+    button.setTitle(Constant.ButtonTitle.Register, for: .normal)
     let titleColor = UIColor.black
     button.setTitleColor(titleColor, for: .normal)
     button.titleLabel?.font = UIFont.boldSystemFont(ofSize: 12)
