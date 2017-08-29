@@ -31,8 +31,12 @@ class ViewController: UICollectionViewController {
   override func viewDidLoad() {
 
     super.viewDidLoad()
-    addRefreshControl()
-    getImageListFromFlickr(isRefreshing: false)
+    PhotoInfo.requestPhotoInfoList(currentPage: ViewController.page, completionHandler: { results, error in
+      
+    })
+    
+    //addRefreshControl()
+    //getImageListFromFlickr(isRefreshing: false)
   }
   
   // MARK : - Add Refresh Control
@@ -54,8 +58,9 @@ class ViewController: UICollectionViewController {
     getImageListFromFlickr(isRefreshing: true)
   }
   
+  
   // MARK : - Set API Parameters
-
+  
   func setParameters()->[String:String]{
     return [
       Constants.FlickrParameterKeys.Method  : Constants.FlickrParameterValues.RecentPhotosMethod,
@@ -72,72 +77,9 @@ class ViewController: UICollectionViewController {
   
   private func getImageListFromFlickr(isRefreshing:Bool) {
     
-    let methodParameters = setParameters()
-    
-    let escapedParameters = Helper.escapedParameters(methodParameters as [String : AnyObject])
-    let urlString = Constants.Flickr.APIBaseURL + escapedParameters
-    
-    print("page : \(ViewController.page)")
-    print("escaped parameters : \(escapedParameters)")
-    let url = URL(string: urlString)!
-    let request = URLRequest(url: url)
-    
-    let task = sharedSession.dataTask(with: request) { (data, response, error) in
-      
-      // if an error occurs, print it and re-enable the UI
-      func displayError(_ error: String) {
-        print(error)
-        print("URL at time of error: \(url)")
-      }
-      
-      guard (error == nil) else {
-        displayError("There was an error with your request: \(error!.localizedDescription)")
-        return
-      }
-      
-      guard let data = data else {
-        displayError("No data was returned by the request!")
-        return
-      }
-      
-      // parse the data
-      let parsedResult: [String:AnyObject]!
-      do {
-        parsedResult = try JSONSerialization.jsonObject(with: data, options: .allowFragments) as! [String:AnyObject]
-        // print("result : \(parsedResult)")
-      } catch {
-        displayError("Could not parse the data as JSON: '\(data)'")
-        return
-      }
-      
-      /* GUARD: Did Flickr return an error (stat != ok)? */
-      guard let stat = parsedResult[Constants.FlickrResponseKeys.Status] as? String, stat == Constants.FlickrResponseValues.OKStatus else {
-        displayError("Flickr API returned an error. See error code and message in \(parsedResult)")
-        return
-      }
-      
-      /* GUARD: Are the "photos" and "photo" keys in our result? */
-      guard let photosDictionary = parsedResult[Constants.FlickrResponseKeys.Photos] as? [String:AnyObject], let photoArray = photosDictionary[Constants.FlickrResponseKeys.Photo] as? [[String:AnyObject]] else {
-        displayError("Cannot find keys '\(Constants.FlickrResponseKeys.Photos)' and '\(Constants.FlickrResponseKeys.Photo)' in \(parsedResult)")
-        return
-      }
-      
-      if isRefreshing == true {
-        self.photoInfoList = []
-      }
-      
-      self.photoInfoList = PhotoInfo.createPhotoInfoList(photoInfoDictionaryArray: photoArray)
-      
-      DispatchQueue.main.async {
-        self.collectionView?.reloadData()
-        self.stopRefreshControl()
-      }
-    
-    }
-    task.resume()
   }
-  
-  // MARK : - CollectionView DataSource Methods 
+
+  // MARK : - CollectionView DataSource Methods
   
   override func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
     let cell = collectionView.dequeueReusableCell(withReuseIdentifier: Constants.CollectionViewCellIdentifier, for: indexPath) as! CustomCollectionViewCell
@@ -158,7 +100,7 @@ class ViewController: UICollectionViewController {
   
   // MARK : - End Refreshing
   
-  func stopRefreshControl() {
+  private func stopRefreshControl() {
     
     if #available(iOS 10.0, *) {
       self.collectionView?.refreshControl?.endRefreshing()

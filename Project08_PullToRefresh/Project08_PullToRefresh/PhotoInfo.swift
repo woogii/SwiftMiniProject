@@ -20,6 +20,8 @@ struct PhotoInfo {
   var numberOfLikes:Int
   var registeredDate: Date
   
+  typealias PhotoRequestResult = (_ result:[PhotoInfo]?,_ error:Error?)->(Void)
+  
   // MARK : - Initialization
   
   init(photoInfoDictionary:[String:AnyObject]) {
@@ -37,11 +39,13 @@ struct PhotoInfo {
     self.numberOfLikes = numberOfLikes
     self.registeredDate = date
     print("title : \(title)")
+    
   }
   
   // MARK : - Create PhotoInfo List
   
   static func createPhotoInfoList(photoInfoDictionaryArray:[[String:AnyObject]])->[PhotoInfo] {
+    
     
     var photoInfoArray = [PhotoInfo]()
     
@@ -51,7 +55,54 @@ struct PhotoInfo {
       photoInfoArray.append(photoInfo)
     }
     
+    
     return photoInfoArray
   }
+  
+
+}
+
+extension PhotoInfo {
+  
+  static func requestPhotoInfoList(currentPage: Int, completionHandler:@escaping PhotoRequestResult) {
+    
+    guard let photoListUrl = buildRequestUrl(currentPage: currentPage) else {
+      return
+    }
+    
+    URLSession.shared.dataTask(with:photoListUrl, completionHandler: { (data, _, error) in
+      
+      if let data = data,
+        let json = try? JSONSerialization.jsonObject(with: data, options: []) as? [String:Any] {
+        
+          print(json)
+        
+      }
+      
+    }).resume()
+    
+  }
+  
+  
+  static func buildRequestUrl(currentPage:Int)->URL?{
+    
+    guard var urlComponent = URLComponents(string: Constants.Flickr.APIBaseURL) else {
+      return nil
+    }
+    
+    urlComponent.queryItems = [
+      URLQueryItem(name: Constants.FlickrParameterKeys.Method, value: Constants.FlickrParameterValues.RecentPhotosMethod)
+      ,URLQueryItem(name: Constants.FlickrParameterKeys.APIKey, value: Secret.APIKey)
+      ,URLQueryItem(name: Constants.FlickrParameterKeys.Extras, value: Constants.FlickrParameterValues.MediumURL)
+      ,URLQueryItem(name: Constants.FlickrParameterKeys.Format, value: Constants.FlickrParameterValues.ResponseFormat)
+    ,URLQueryItem(name: Constants.FlickrParameterKeys.PerPage, value: Constants.FlickrParameterValues.NumberOfItems)
+    ,URLQueryItem(name: Constants.FlickrParameterKeys.Page, value: String(currentPage))
+     ,URLQueryItem(name: Constants.FlickrParameterKeys.NoJSONCallback, value: Constants.FlickrParameterValues.DisableJSONCallback)
+    ]
+    
+    return urlComponent.url
+  }
+  
+
   
 }
