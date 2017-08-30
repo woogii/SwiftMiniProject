@@ -14,6 +14,7 @@ import UIKit
 class HighScoreTableViewController : UIViewController {
     
     // MARK : - Property
+  
     @IBOutlet weak var tableView: UITableView!
     @IBOutlet weak var scoreLabel: UILabel!
     @IBOutlet weak var rankLabel: UILabel!
@@ -117,19 +118,26 @@ extension HighScoreTableViewController : UITableViewDelegate, UITableViewDataSou
         
         cell.rankLabel.text = String(indexPath.row+1)
         cell.nameLabel.text = highScoreList[indexPath.row].name
-        cell.scoreLabel.text = String(highScoreList[indexPath.row].score as Int)
+      
+      guard let score = highScoreList[indexPath.row].score as? Int else {
+        return
+      }
+      
+      cell.scoreLabel.text = String(score)
         
     }
     
     func sortScoreList() {
         
         highScoreList.sort(by: {
-            
+          
+           guard let firstScore = $0.score as? Int, let secondScore = $1.score as? Int else { return false }
+          
             // If there are records with same score, then sort records by the 'date' property
-            if $0.score as Int == $1.score as Int {
+            if firstScore == secondScore {
                 return $0.recordTime.compare($1.recordTime as Date) == ComparisonResult.orderedDescending
             }
-            return $0.score as Int > $1.score as Int
+            return firstScore > secondScore
         })
 
     }

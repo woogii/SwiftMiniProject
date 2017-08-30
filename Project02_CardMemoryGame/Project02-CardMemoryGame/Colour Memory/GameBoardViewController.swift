@@ -155,10 +155,13 @@ class GameBoardViewController: UIViewController {
         // Sort ScoreList after appending data
         scoreList.sort(by: {
             // If there are records with same score, then sort records by the 'date' property
-            if $0.score as Int == $1.score as Int {
+          
+          guard let firstScore = $0.score as? Int, let secondScore = $1.score as? Int else { return false }
+          
+            if firstScore == secondScore as Int {
                 return $0.recordTime.compare($1.recordTime as Date) == ComparisonResult.orderedDescending
             }
-            return $0.score as Int > $1.score as Int
+            return firstScore > secondScore
         })
         
         
@@ -446,16 +449,4 @@ class GameBoardViewController: UIViewController {
 }
 
 
-// MARK : - Dictionary ( Subscripting support )
-
-extension Dictionary {
-    
-    // MARK : Subscripting Dictionary By Index
-    subscript(i:Int) -> (key:Key,value:Value) {
-        get {
-            return self[self.index(self.startIndex, offsetBy: i)]
-        }
-    }
-    
-}
 
