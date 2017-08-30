@@ -29,17 +29,16 @@ struct PhotoInfo {
   init(photoInfoDictionary:[String:Any]) throws {
     
     guard let title = photoInfoDictionary[Constants.FlickrResponseKeys.Title] as? String else {
-      throw SerializationError.missing("Title is missing")
+      throw SerializationError.missing(Constants.SerializationErrorDesc.TitleMissing)
     }
     
     guard let mediumUrl = photoInfoDictionary[Constants.FlickrResponseKeys.MediumURL] as? String else {
-      throw SerializationError.missing("URL is missing")
+      throw SerializationError.missing(Constants.SerializationErrorDesc.URLMissing)
     }
     
     guard let id = photoInfoDictionary[Constants.FlickrResponseKeys.ID] as? String else {
-      throw SerializationError.missing("ID is missing")
+      throw SerializationError.missing(Constants.SerializationErrorDesc.IdMissing)
     }
-    
     
     let numberOfLikes = Int(arc4random_uniform(UInt32(photoInfoDictionary.count)))
     let timeInterval = Int(arc4random_uniform(UInt32(3600*24))) * -1
@@ -50,11 +49,8 @@ struct PhotoInfo {
     self.id = id
     self.numberOfLikes = numberOfLikes
     self.registeredDate = date
-
-    
   }
   
-
 }
 
 // MARK : - Extension
@@ -68,8 +64,6 @@ extension PhotoInfo {
     guard let photoListUrl = buildRequestUrl(currentPage: currentPage) else {
       return
     }
-    
-    print(photoListUrl)
     
     URLSession.shared.dataTask(with:photoListUrl, completionHandler: { (data, _, error) in
       
@@ -85,15 +79,13 @@ extension PhotoInfo {
             photoInfoList.append(photoInfo)
           }
         }
-        
-        
+      
         completionHandler(photoInfoList, error)
       }
       
     }).resume()
     
   }
-  
   
   static func buildRequestUrl(currentPage:Int)->URL?{
     
@@ -113,7 +105,5 @@ extension PhotoInfo {
     
     return urlComponent.url
   }
-  
-
   
 }

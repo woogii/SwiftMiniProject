@@ -16,9 +16,6 @@ class ViewController: UICollectionViewController {
   // MARK : - Property
   
   var photoInfoList = [PhotoInfo]()
-  var sharedSession : URLSession {
-    return URLSession.shared
-  }
   let refreshControl : UIRefreshControl = {
     let refreshControl  = UIRefreshControl()
     refreshControl.addTarget(self, action: #selector(ViewController.handleRefresh(_:)), for: UIControlEvents.valueChanged)
@@ -32,13 +29,8 @@ class ViewController: UICollectionViewController {
 
     super.viewDidLoad()
     
-    PhotoInfo.requestPhotoInfoList(currentPage: ViewController.page, completionHandler: { results, error in
-      
-      print(results as Any)
-    })
-    
-    //addRefreshControl()
-    //getImageListFromFlickr(isRefreshing: false)
+    addRefreshControl()
+    getImageListFromFlickr(isRefreshing: false)
   }
   
   // MARK : - Add Refresh Control
@@ -50,54 +42,6 @@ class ViewController: UICollectionViewController {
     } else {
       self.collectionView?.addSubview(refreshControl)
     }
-    
-  }
-  
-  // MARK : - Action Method
-  
-  func handleRefresh(_ refreshControlForCollectionView:UIRefreshControl) {
-    ViewController.page += 1
-    getImageListFromFlickr(isRefreshing: true)
-  }
-  
-  
-  // MARK : - Set API Parameters
-  
-  func setParameters()->[String:String]{
-    return [
-      Constants.FlickrParameterKeys.Method  : Constants.FlickrParameterValues.RecentPhotosMethod,
-      Constants.FlickrParameterKeys.APIKey  : Secret.APIKey,
-      Constants.FlickrParameterKeys.Extras  : Constants.FlickrParameterValues.MediumURL,
-      Constants.FlickrParameterKeys.Format  : Constants.FlickrParameterValues.ResponseFormat,
-      Constants.FlickrParameterKeys.PerPage : Constants.FlickrParameterValues.NumberOfItems,
-      Constants.FlickrParameterKeys.Page    : String(ViewController.page),
-      Constants.FlickrParameterKeys.NoJSONCallback: Constants.FlickrParameterValues.DisableJSONCallback
-    ]
-  }
-  
-  // MARK: Make Network Request
-  
-  private func getImageListFromFlickr(isRefreshing:Bool) {
-    
-  }
-
-  // MARK : - CollectionView DataSource Methods
-  
-  override func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-    let cell = collectionView.dequeueReusableCell(withReuseIdentifier: Constants.CollectionViewCellIdentifier, for: indexPath) as! CustomCollectionViewCell
-    cell.photoInfo = photoInfoList[indexPath.row]
-    return cell
-  }
-  
-  
-  override func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-    return photoInfoList.count
-  }
-  
-  // MARK: - UIScrollViewDelegate
-  
-  override func scrollViewDidEndDecelerating(_ scrollView: UIScrollView) {
-    
   }
   
   // MARK : - End Refreshing
@@ -109,9 +53,55 @@ class ViewController: UICollectionViewController {
     } else {
       self.refreshControl.endRefreshing()
     }
-    
   }
   
+  
+  // MARK : - Action Method
+  
+  func handleRefresh(_ refreshControlForCollectionView:UIRefreshControl) {
+    ViewController.page += 1
+    getImageListFromFlickr(isRefreshing: true)
+  }
+  
+  
+  // MARK: Make Network Request
+  
+  private func getImageListFromFlickr(isRefreshing:Bool) {
+    
+    PhotoInfo.requestPhotoInfoList(currentPage: ViewController.page, completionHandler: { results, error in
+      
+      guard error == nil else {
+        print("image request error..\(error!.localizedDescription)")
+        return
+      }
+      
+      guard let returnedResult = results else {
+        return
+      }
+      
+      self.photoInfoList = returnedResult
+      
+      DispatchQueue.main.async {
+        self.collectionView?.reloadData()
+        
+        if isRefreshing == true {
+          self.stopRefreshControl()
+        }
+      }
+    })
+  }
+
+  // MARK : - CollectionView DataSource Methods
+  
+  override func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
+    let cell = collectionView.dequeueReusableCell(withReuseIdentifier: Constants.CollectionViewCellIdentifier, for: indexPath) as! CustomCollectionViewCell
+    cell.photoInfo = photoInfoList[indexPath.row]
+    return cell
+  }
+  
+  override func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
+    return photoInfoList.count
+  }
 }
 
 

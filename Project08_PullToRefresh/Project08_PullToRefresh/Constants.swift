@@ -12,14 +12,18 @@ import Foundation
 
 struct Constants {
   
+  // MARK: - Cell ID
+  
   static let CollectionViewCellIdentifier = "customCollectionViewCell"
   
-  // MARK: Flickr
+  // MARK: - Flickr
+  
   struct Flickr {
     static let APIBaseURL = "https://api.flickr.com/services/rest/"
   }
   
-  // MARK: Flickr Parameter Keys
+  // MARK: - Flickr Parameter Keys
+  
   struct FlickrParameterKeys {
     static let Method = "method"
     static let APIKey = "api_key"
@@ -31,7 +35,8 @@ struct Constants {
     static let Page = "page"
   }
   
-  // MARK: Flickr Parameter Values
+  // MARK: - Flickr Parameter Values
+  
   struct FlickrParameterValues {
     static let ResponseFormat = "json"
     static let DisableJSONCallback = "1" /* 1 means "yes" */
@@ -43,7 +48,8 @@ struct Constants {
     static let InitialPage = "1"
   }
   
-  // MARK: Flickr Response Keys
+  // MARK: - Flickr Response Keys
+  
   struct FlickrResponseKeys {
     static let Status = "stat"
     static let Photos = "photos"
@@ -53,14 +59,17 @@ struct Constants {
     static let ID = "id"
   }
   
-  // MARK: Flickr Response Values
+  // MARK: - Flickr Response Values
+  
   struct FlickrResponseValues {
     static let OKStatus = "ok"
   }
   
+  // MARK: - SerializationError Description 
+  
   struct SerializationErrorDesc {
-    static let TitleMissing = " "
-    static let URLMissing   = " "
-    static let IDMissing    =  " "
+    static let TitleMissing = "Title is missing"
+    static let URLMissing   = "URL is missing"
+    static let IdMissing    = "ID is missing"
   }
 }
