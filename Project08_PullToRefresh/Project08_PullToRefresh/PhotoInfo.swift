@@ -19,16 +19,28 @@ struct PhotoInfo {
   var id:String
   var numberOfLikes:Int
   var registeredDate: Date
-  
   typealias PhotoRequestResult = (_ result:[PhotoInfo]?,_ error:Error?)->(Void)
+  enum SerializationError: Error {
+    case missing(String)
+  }
   
   // MARK : - Initialization
   
-  init(photoInfoDictionary:[String:AnyObject]) {
+  init(photoInfoDictionary:[String:Any]) throws {
     
-    let title = photoInfoDictionary[Constants.FlickrResponseKeys.Title] as? String ?? ""
-    let mediumUrl = photoInfoDictionary[Constants.FlickrResponseKeys.MediumURL] as? String ?? ""
-    let id = photoInfoDictionary[Constants.FlickrResponseKeys.ID] as? String ?? ""
+    guard let title = photoInfoDictionary[Constants.FlickrResponseKeys.Title] as? String else {
+      throw SerializationError.missing("Title is missing")
+    }
+    
+    guard let mediumUrl = photoInfoDictionary[Constants.FlickrResponseKeys.MediumURL] as? String else {
+      throw SerializationError.missing("URL is missing")
+    }
+    
+    guard let id = photoInfoDictionary[Constants.FlickrResponseKeys.ID] as? String else {
+      throw SerializationError.missing("ID is missing")
+    }
+    
+    
     let numberOfLikes = Int(arc4random_uniform(UInt32(photoInfoDictionary.count)))
     let timeInterval = Int(arc4random_uniform(UInt32(3600*24))) * -1
     let date = Date(timeIntervalSinceNow: (Double)(timeInterval))
@@ -38,31 +50,18 @@ struct PhotoInfo {
     self.id = id
     self.numberOfLikes = numberOfLikes
     self.registeredDate = date
-    print("title : \(title)")
+
     
-  }
-  
-  // MARK : - Create PhotoInfo List
-  
-  static func createPhotoInfoList(photoInfoDictionaryArray:[[String:AnyObject]])->[PhotoInfo] {
-    
-    
-    var photoInfoArray = [PhotoInfo]()
-    
-    for photoInfoDict in photoInfoDictionaryArray {
-      
-      let photoInfo = PhotoInfo(photoInfoDictionary: photoInfoDict)
-      photoInfoArray.append(photoInfo)
-    }
-    
-    
-    return photoInfoArray
   }
   
 
 }
 
+// MARK : - Extension
+
 extension PhotoInfo {
+
+  // MARK : - Network Request 
   
   static func requestPhotoInfoList(currentPage: Int, completionHandler:@escaping PhotoRequestResult) {
     
@@ -70,13 +69,25 @@ extension PhotoInfo {
       return
     }
     
+    print(photoListUrl)
+    
     URLSession.shared.dataTask(with:photoListUrl, completionHandler: { (data, _, error) in
       
+      var photoInfoList:[PhotoInfo] = []
+
       if let data = data,
-        let json = try? JSONSerialization.jsonObject(with: data, options: []) as? [String:Any] {
+        let json = try? JSONSerialization.jsonObject(with: data, options: []) as? [String:Any],
+        let jsonDict = json?[Constants.FlickrResponseKeys.Photos] as? [String:Any],
+        let photoInfoArray = jsonDict[Constants.FlickrResponseKeys.Photo] as? [[String:Any]] {
         
-          print(json)
+        for case let photoItem in photoInfoArray {
+          if let photoInfo = try? PhotoInfo(photoInfoDictionary: photoItem) {
+            photoInfoList.append(photoInfo)
+          }
+        }
         
+        
+        completionHandler(photoInfoList, error)
       }
       
     }).resume()

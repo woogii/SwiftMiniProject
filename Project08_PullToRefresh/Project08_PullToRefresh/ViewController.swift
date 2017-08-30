@@ -31,8 +31,10 @@ class ViewController: UICollectionViewController {
   override func viewDidLoad() {
 
     super.viewDidLoad()
+    
     PhotoInfo.requestPhotoInfoList(currentPage: ViewController.page, completionHandler: { results, error in
       
+      print(results as Any)
     })
     
     //addRefreshControl()

@@ -57,4 +57,10 @@ struct Constants {
   struct FlickrResponseValues {
     static let OKStatus = "ok"
   }
+  
+  struct SerializationErrorDesc {
+    static let TitleMissing = " "
+    static let URLMissing   = " "
+    static let IDMissing    =  " "
+  }
 }
