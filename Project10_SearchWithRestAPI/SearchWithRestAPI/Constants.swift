@@ -15,15 +15,18 @@ import UIKit
 
 struct Constants {
   
-  // MARK: TMDB
+  // MARK: - TMDB (stands for 'The Movie DataBase')
+  
   struct TMDB {
     static let ApiScheme = "http"
     static let ApiHost = "api.themoviedb.org"
-    static let ApiPathForSearch = "/3/search/movie"
-    static let APiPathForUpcoming = "/3/movie/upcoming"
+    static let ApiPathForSearch = "search/movie"
+    static let APiPathForUpcoming = "movie/upcoming"
+    static let ApiBaseURL = "https://api.themoviedb.org/3/"
   }
   
   // MARK: TMDB Parameter Keys
+  
   struct TMDBParameterKeys {
     static let ApiKey = "api_key"
     static let RequestToken = "request_token"
@@ -34,11 +37,13 @@ struct Constants {
   }
   
   // MARK: TMDB Parameter Values
+  
   struct TMDBParameterValues {
     static let ApiKey = ""
   }
   
   // MARK: TMDB Response Keys
+  
   struct TMDBResponseKeys {
     static let Title = "title"
     static let ID = "id"
@@ -53,5 +58,12 @@ struct Constants {
   
   }
   
-    
+  // MARK: SerializationErrorDesc 
+  
+  struct SerializationErrorDesc {
+    static let TitleMissing = "Title is missing"
+    static let OverviewMissing = "Overview is missing"
+    static let ReleaseDateMissing = "Release data is missing"
+  }
+  
  }
