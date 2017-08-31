@@ -25,7 +25,7 @@ struct Constants {
     static let ApiBaseURL = "https://api.themoviedb.org/3/"
   }
   
-  // MARK: TMDB Parameter Keys
+  // MARK: - TMDB Parameter Keys
   
   struct TMDBParameterKeys {
     static let ApiKey = "api_key"
@@ -36,13 +36,13 @@ struct Constants {
     static let SearchKeyword = "query"
   }
   
-  // MARK: TMDB Parameter Values
+  // MARK: - TMDB Parameter Values
   
   struct TMDBParameterValues {
     static let ApiKey = ""
   }
   
-  // MARK: TMDB Response Keys
+  // MARK: - TMDB Response Keys
   
   struct TMDBResponseKeys {
     static let Title = "title"
@@ -52,18 +52,26 @@ struct Constants {
     static let StatusMessage = "status_message"
     static let SessionID = "session_id"
     static let RequestToken = "request_token"
+    static let ReleaseDate = "release_date"
+    static let Overview = "overview"
     static let Success = "success"
     static let UserID = "id"
     static let Results = "results"
   
   }
   
-  // MARK: SerializationErrorDesc 
+  // MARK: - SerializationErrorDesc 
   
   struct SerializationErrorDesc {
     static let TitleMissing = "Title is missing"
     static let OverviewMissing = "Overview is missing"
     static let ReleaseDateMissing = "Release data is missing"
+  }
+  
+  // MARK : - Cell ID 
+  
+  struct CellID {
+    static let MovieTitleCell = "cell"
   }
   
  }

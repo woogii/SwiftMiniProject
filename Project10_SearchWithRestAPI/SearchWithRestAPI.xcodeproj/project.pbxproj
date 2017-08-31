@@ -15,7 +15,7 @@
 		B869EA771ECB30110013BC2B /* SearchWithRestAPITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = B869EA761ECB30110013BC2B /* SearchWithRestAPITests.swift */; };
 		B869EA821ECC46C00013BC2B /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = B869EA811ECC46C00013BC2B /* Constants.swift */; };
 		B8EA39421F58147C00590177 /* Secret.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8EA39411F58147C00590177 /* Secret.swift */; };
-		B8EA39441F58158400590177 /* MovieTitle.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8EA39431F58158400590177 /* MovieTitle.swift */; };
+		B8EA39441F58158400590177 /* Movie.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8EA39431F58158400590177 /* Movie.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -41,7 +41,7 @@
 		B869EA781ECB30110013BC2B /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		B869EA811ECC46C00013BC2B /* Constants.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 		B8EA39411F58147C00590177 /* Secret.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Secret.swift; sourceTree = "<group>"; };
-		B8EA39431F58158400590177 /* MovieTitle.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MovieTitle.swift; sourceTree = "<group>"; };
+		B8EA39431F58158400590177 /* Movie.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Movie.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -124,7 +124,7 @@
 		B8EA393E1F58138B00590177 /* Model */ = {
 			isa = PBXGroup;
 			children = (
-				B8EA39431F58158400590177 /* MovieTitle.swift */,
+				B8EA39431F58158400590177 /* Movie.swift */,
 			);
 			name = Model;
 			sourceTree = "<group>";
@@ -250,7 +250,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				B8EA39441F58158400590177 /* MovieTitle.swift in Sources */,
+				B8EA39441F58158400590177 /* Movie.swift in Sources */,
 				B869EA641ECB30100013BC2B /* SearchMovieViewController.swift in Sources */,
 				B8EA39421F58147C00590177 /* Secret.swift in Sources */,
 				B869EA621ECB30100013BC2B /* AppDelegate.swift in Sources */,
@@ -336,7 +336,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 10.2;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				MTL_ENABLE_DEBUG_INFO = YES;
 				ONLY_ACTIVE_ARCH = YES;
 				SDKROOT = iphoneos;
@@ -380,7 +380,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 10.2;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				SDKROOT = iphoneos;
 				SWIFT_OPTIMIZATION_LEVEL = "-Owholemodule";

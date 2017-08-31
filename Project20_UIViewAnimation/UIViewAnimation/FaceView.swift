@@ -40,7 +40,7 @@ class FaceView: UIView {
     return CGPoint(x:bounds.midX, y:bounds.midY)
   }
   
-  fileprivate func pathForSkull() -> UIBezierPath {
+  func pathForSkull() -> UIBezierPath {
     let path = UIBezierPath(arcCenter: skullCenter, radius: skullRadius, startAngle: 0, endAngle: CGFloat.pi*2, clockwise: false)
     
     path.lineWidth = lineWidth
@@ -48,7 +48,7 @@ class FaceView: UIView {
     return path
   }
   
-  fileprivate enum Eye {
+  enum Eye {
     case left
     case right
   }
@@ -67,7 +67,7 @@ class FaceView: UIView {
     return eyeCenter
   }
   
-  fileprivate func pathForEye(_ eye:Eye) -> UIBezierPath {
+  func pathForEye(_ eye:Eye) -> UIBezierPath {
     
     let eyeRadius = skullRadius / Ratios.skullRadiusToEyeRadius
     let eyeCenter = centerOfEye(eye)
@@ -88,7 +88,7 @@ class FaceView: UIView {
     return path
   }
   
-  fileprivate func pathForHeart(_ eye:Eye)-> UIBezierPath {
+  func pathForHeart(_ eye:Eye)-> UIBezierPath {
     
     func startPointOfEye(_ eye:Eye) -> CGPoint {
       
@@ -98,13 +98,8 @@ class FaceView: UIView {
       return startPoint
     }
     
-    
     let startPoint = startPointOfEye(eye)
     let path: UIBezierPath
-    
-    print("startPoint : \(startPoint)")
-    print("bounds : \(bounds)")
-    
     let heartWidth  = heartSize / scaleFactorHeartSize
     let heartHeight = heartSize / scaleFactorHeartSize
     
@@ -115,7 +110,7 @@ class FaceView: UIView {
     return path
   }
   
-  fileprivate func pathForMouth() -> UIBezierPath {
+  func pathForMouth() -> UIBezierPath {
     
     let mouthWidth = skullRadius / Ratios.skullRadiusToMouthWidth
     
@@ -125,7 +120,6 @@ class FaceView: UIView {
     let mouthRect = CGRect(x: skullCenter.x - mouthWidth/2, y: skullCenter.y + mouthOffset, width: mouthWidth, height: mouthHeight)
     
     let smileOffset = CGFloat(max(-1,min(mouthCurvature,1))) * mouthRect.height
-    
     
     // .frown
     let start = CGPoint(x: mouthRect.minX, y: mouthRect.midY)
@@ -142,9 +136,9 @@ class FaceView: UIView {
     return path
   }
   
-  fileprivate func pathForFrown(_ eye: Eye) -> UIBezierPath {
+  func pathForFrown(_ eye: Eye) -> UIBezierPath {
     
-    let eyeRadius = skullRadius / 3  //Ratios.skullRadiusToEyeRadius
+    let eyeRadius = skullRadius / Ratios.skullRadiusToFrownEyeRadius
     let eyeCenter = centerOfEye(eye)
     let path: UIBezierPath
     
@@ -164,11 +158,11 @@ class FaceView: UIView {
     return path
     
   }
-  
-  
+
   struct Ratios {
     static let skullRadiusToEyeOffSet:CGFloat = 3
-    static let skullRadiusToEyeRadius:CGFloat = 6 // 10
+    static let skullRadiusToEyeRadius:CGFloat = 6
+    static let skullRadiusToFrownEyeRadius:CGFloat = 3
     static let skullRadiusToMouthWidth:CGFloat = 1
     static let skullRadiusToMouthHeight:CGFloat = 3
     static let skullRadiusToMouthOffSet:CGFloat = 3
@@ -188,375 +182,5 @@ class FaceView: UIView {
   }
 }
 
-// MARK : - FrownFaceView: UIView
 
-class FrownFaceView : FaceView {
-  
-  override func draw(_ rect: CGRect) {
-    
-    super.draw(rect)
-    drawSkullAndHeart()
-  }
-  
-  override init(frame:CGRect) {
-    super.init(frame: frame)
-    configureFrownFaceViewProperties()
-  }
-  
-  func configureFrownFaceViewProperties() {
-    mouthCurvature = 0.1
-  }
-  
-  required init?(coder aDecoder: NSCoder) {
-    fatalError("init(coder:) has not been implemented")
-  }
-  
-  private func drawSkullAndHeart() {
-    color.set()
-    pathForSkull().stroke()
-    pathForFrown(.left).stroke()
-    pathForFrown(.right).stroke()
-    pathForMouth().stroke()
-  }
-}
-
-// MARK : - MiniFrownFaceView : UIView
-
-class MiniFrownFaceView : FaceView {
-  
-  override func draw(_ rect: CGRect) {
-    
-    super.draw(rect)
-    
-    drawSkullAndHeart()
-  }
-  
-  override init(frame:CGRect) {
-    
-    super.init(frame: frame)
-  
-    configureMiniFrownFaceViewProperties()
-  }
-  
-  func configureMiniFrownFaceViewProperties() {
-    lineWidth = 3
-    scaleFactorForHeartEye = 8
-    scaleFactorHeartSize = 5
-    mouthCurvature = 0.1
-    heartEyeOffset = 7.3
-  }
-  
-  required init?(coder aDecoder: NSCoder) {
-    fatalError("init(coder:) has not been implemented")
-  }
-  
-  private func drawSkullAndHeart() {
-    color.set()
-    pathForSkull().stroke()
-    pathForFrown(.left).stroke()
-    pathForFrown(.right).stroke()
-    pathForMouth().stroke()
-  }
-}
-
-
-// MARK : - HeartFaceView : UIView
-
-class HeartFaceView : FaceView {
-  
-  override func draw(_ rect: CGRect) {
-    
-    super.draw(rect)
-    drawSkullAndHeart()
-  }
-  
-  private func drawSkullAndHeart() {
-    pathForSkull().stroke()
-    pathForHeart(.left).stroke()
-    pathForHeart(.right).stroke()
-    pathForMouth().stroke()
-  }
-}
-
-// MARK : - MiniHeartFaceView : UIView
-
-class MiniHeartFaceView : FaceView {
-  
-  override func draw(_ rect: CGRect) {
-    
-    super.draw(rect)
-    
-    drawSkullAndHeart()
-  }
-  
-  override init(frame:CGRect) {
-    
-    super.init(frame: frame)
-    
-    configureMiniHeartFaceViewProperties()
-    
-  }
-  
-  func configureMiniHeartFaceViewProperties() {
-    scaleFactorForHeartEye = 8
-    scaleFactorHeartSize = 5
-    heartEyeOffset = 7.3
-    lineWidth = 3
-  }
-  
-  required init?(coder aDecoder: NSCoder) {
-    fatalError("init(coder:) has not been implemented")
-  }
-  
-  private func drawSkullAndHeart() {
-    pathForSkull().stroke()
-    pathForHeart(.left).stroke()
-    pathForHeart(.right).stroke()
-    pathForMouth().stroke()
-  }
-}
-
-
-
-// MARK : - SmileFaceView : UIView
-
-class SmileFaceView : FaceView {
-  
-  override func draw(_ rect: CGRect) {
-    
-    super.draw(rect)
-    
-    drawSkullAndHeart()
-  }
-  
-  private func drawSkullAndHeart() {
-    color.set()
-    mouthCurvature = 1.0
-    pathForSkull().stroke()
-    pathForEye(.left).stroke()
-    pathForEye(.right).stroke()
-    pathForMouth().stroke()
-  }
-}
-
-
-// MARK : - MiniSmileView : UIView
-
-class MiniSmileFaceView : FaceView {
-  
-  override init(frame:CGRect) {
-    
-    super.init(frame: frame)
-    
-    configureMiniSmileFaceViewProperties()
-  }
-  
-  func configureMiniSmileFaceViewProperties() {
-    self.lineWidth = 3
-    self.mouthCurvature = 1.0
-    self.lineWidth = 3
-  }
-  
-  required init?(coder aDecoder: NSCoder) {
-    fatalError("init(coder:) has not been implemented")
-  }
-  
-  override func draw(_ rect: CGRect) {
-    
-    super.draw(rect)
-    drawSkullAndHeart()
-  }
-  
-  private func drawSkullAndHeart() {
-    color.set()
-    pathForSkull().stroke()
-    pathForEye(.left).stroke()
-    pathForEye(.right).stroke()
-    pathForMouth().stroke()
-  }
-}
-
-
-
-// MARK : - AwfulFaceView : UIView
-
-class AwfulFaceView : FaceView {
-  
-  override func draw(_ rect: CGRect) {
-    
-    super.draw(rect)
-    drawSkullAndHeart()
-  }
- 
-  override init(frame:CGRect) {
-    super.init(frame: frame)
-    configureAwfulFaceViewProperties()
-  }
-  
-  func configureAwfulFaceViewProperties() {
-    mouthCurvature = -1
-  }
-  
-  required init?(coder aDecoder: NSCoder) {
-    fatalError("init(coder:) has not been implemented")
-  }
-  
-  private func drawSkullAndHeart() {
-    pathForSkull().stroke()
-    pathForFrown(.left).stroke()
-    pathForFrown(.right).stroke()
-    pathForMouth().stroke()
-  }
-}
-
-// MARK : - MiniAwfulFaceView : UIView
-
-class MiniAwfulFaceView : FaceView {
-  
-  override func draw(_ rect: CGRect) {
-    
-    super.draw(rect)
-    drawSkullAndHeart()
-  }
-  
-  override init(frame:CGRect) {
-    super.init(frame: frame)
-    configureMiniAwfulFaceViewProperties()
-  }
-  
-  func configureMiniAwfulFaceViewProperties() {
-    mouthCurvature = -1
-    lineWidth = 3
-  }
-  
-  required init?(coder aDecoder: NSCoder) {
-    fatalError("init(coder:) has not been implemented")
-  }
-  
-  private func drawSkullAndHeart() {
-    pathForSkull().stroke()
-    pathForFrown(.left).stroke()
-    pathForFrown(.right).stroke()
-    pathForMouth().stroke()
-  }
-}
-
-// MARK : - PokerFaceView : UIView
-
-class PokerFaceView : FaceView {
-  
-  override func draw(_ rect: CGRect) {
-    
-    super.draw(rect)
-    drawSkullAndHeart()
-  }
-
-  override init(frame:CGRect) {
-    
-    super.init(frame: frame)
-    configurePokerFaceViewProperties()
-  
-  }
-  
-  func configurePokerFaceViewProperties() {
-    eyesOpen = false
-    mouthCurvature = 0.1
-  }
-  
-  required init?(coder aDecoder: NSCoder) {
-    fatalError("init(coder:) has not been implemented")
-  }
-
-  
-  private func drawSkullAndHeart() {
-    pathForSkull().stroke()
-    pathForEye(.left).stroke()
-    pathForEye(.right).stroke()
-    pathForMouth().stroke()
-  }
-}
-
-
-// MARK : - MiniPokerFaceView : UIView
-
-class MiniPokerFaceView : FaceView {
-  
-  override func draw(_ rect: CGRect) {
-    
-    super.draw(rect)
-    
-    drawSkullAndHeart()
-  }
-  
-  override init(frame:CGRect) {
-    
-    super.init(frame: frame)
-    
-    configureMiniPokerFaceViewProperties()
-  }
-  
-  func configureMiniPokerFaceViewProperties() {
-    eyesOpen = false
-    mouthCurvature = 0.1
-    lineWidth = 3
-  }
-  
-  required init?(coder aDecoder: NSCoder) {
-    fatalError("init(coder:) has not been implemented")
-  }
-  
-  private func drawSkullAndHeart() {
-    pathForSkull().stroke()
-    pathForEye(.left).stroke()
-    pathForEye(.right).stroke()
-    pathForMouth().stroke()
-  }
-}
-
-
-
-// MARK : - Extension : Int
-
-extension Int {
-  var degreesToRadians: CGFloat { return CGFloat(self) * .pi / 180 }
-}
-
-
-// MARK : - Extension : UIBezierPath
-
-extension UIBezierPath {
-  
-  
-  convenience init(heartIn rect: CGRect) {
-    
-    self.init()
-    
-    
-    //Calculate Radius of Arcs using Pythagoras
-    let sideOne = rect.width * 0.4
-    let sideTwo = rect.height * 0.3
-    let arcRadius = sqrt(sideOne*sideOne + sideTwo*sideTwo)/2
-    //print("rect : \(rect)")
-    //print("origin: \(rect.origin)")
-    let originX:CGFloat = rect.origin.x * 4
-    let originY:CGFloat = rect.origin.y * 2
-    
-    //self.move(to: CGPoint(x: originX + 15, y: originY + 28.5))
-    
-    //Left Hand Curve
-    self.addArc(withCenter: CGPoint(x: originX + rect.width * 0.3, y: originY + rect.height * 0.35), radius: arcRadius, startAngle: 135.degreesToRadians, endAngle: 315.degreesToRadians, clockwise: true)
-    
-    //Top Centre Dip
-    self.addLine(to: CGPoint(x: originX + rect.width/2, y: originY + rect.height * 0.2))
-    
-    //Right Hand Curve
-    self.addArc(withCenter: CGPoint(x: originX + rect.width * 0.7, y: originY + rect.height * 0.35), radius: arcRadius, startAngle: 225.degreesToRadians, endAngle: 45.degreesToRadians, clockwise: true)
-    
-    //Right Bottom Line
-    self.addLine(to: CGPoint(x: originX + rect.width * 0.5, y: originY + rect.height * 0.95))
-    
-    //Left Bottom Line
-    self.close()
-  }
-}
 

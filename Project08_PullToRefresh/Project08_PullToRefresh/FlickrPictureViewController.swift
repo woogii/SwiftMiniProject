@@ -1,5 +1,5 @@
 //
-//  ViewController.swift
+//  FlickrPictureViewController.swift
 //  Project08_PullToRefresh
 //
 //  Created by siwook on 2017. 4. 12..
@@ -9,16 +9,16 @@
 import UIKit
 
 
-// MARK : - ViewController: UICollectionViewController
+// MARK : - FlickrPictureViewController: UICollectionViewController
 
-class ViewController: UICollectionViewController {
+class FlickrPictureViewController: UICollectionViewController {
 
   // MARK : - Property
   
   var photoInfoList = [PhotoInfo]()
   let refreshControl : UIRefreshControl = {
     let refreshControl  = UIRefreshControl()
-    refreshControl.addTarget(self, action: #selector(ViewController.handleRefresh(_:)), for: UIControlEvents.valueChanged)
+    refreshControl.addTarget(self, action: #selector(FlickrPictureViewController.handleRefresh(_:)), for: UIControlEvents.valueChanged)
     return refreshControl
   }()
   static var page = 1
@@ -35,7 +35,7 @@ class ViewController: UICollectionViewController {
   
   // MARK : - Add Refresh Control
   
-  func addRefreshControl() {
+  private func addRefreshControl() {
     
     if #available(iOS 10.0, *) {
       self.collectionView?.refreshControl = refreshControl
@@ -59,7 +59,7 @@ class ViewController: UICollectionViewController {
   // MARK : - Action Method
   
   func handleRefresh(_ refreshControlForCollectionView:UIRefreshControl) {
-    ViewController.page += 1
+    FlickrPictureViewController.page += 1
     getImageListFromFlickr(isRefreshing: true)
   }
   
@@ -68,10 +68,12 @@ class ViewController: UICollectionViewController {
   
   private func getImageListFromFlickr(isRefreshing:Bool) {
     
-    PhotoInfo.requestPhotoInfoList(currentPage: ViewController.page, completionHandler: { results, error in
+    PhotoInfo.requestPhotoInfoList(currentPage: FlickrPictureViewController.page, completionHandler: { results, error in
       
       guard error == nil else {
-        print("image request error..\(error!.localizedDescription)")
+        #if DEBUG
+          print("image request error..\(error!.localizedDescription)")
+        #endif 
         return
       }
       

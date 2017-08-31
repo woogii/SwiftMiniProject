@@ -20,6 +20,18 @@
 		B882D8281F376D9A00C7C346 /* DustInfoJson.json in Resources */ = {isa = PBXBuildFile; fileRef = B882D8271F376D9A00C7C346 /* DustInfoJson.json */; };
 		B882D82D1F383EBB00C7C346 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = B882D82C1F383EBB00C7C346 /* Constants.swift */; };
 		B8B80B661F3722BA0002FCCD /* DustInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8B80B651F3722BA0002FCCD /* DustInfo.swift */; };
+		B8EA39461F58392F00590177 /* UIBezierPath+InitForHeartShape.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8EA39451F58392F00590177 /* UIBezierPath+InitForHeartShape.swift */; };
+		B8EA39491F5839BC00590177 /* Int+Radians.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8EA39481F5839BC00590177 /* Int+Radians.swift */; };
+		B8EA394D1F583A1400590177 /* SmileFaceView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8EA394C1F583A1400590177 /* SmileFaceView.swift */; };
+		B8EA394F1F583ABA00590177 /* FrownFaceView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8EA394E1F583ABA00590177 /* FrownFaceView.swift */; };
+		B8EA39511F583B1000590177 /* AwfulFaceView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8EA39501F583B1000590177 /* AwfulFaceView.swift */; };
+		B8EA39531F584B1D00590177 /* HeartFaceView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8EA39521F584B1D00590177 /* HeartFaceView.swift */; };
+		B8EA39551F584C1000590177 /* PokerFaceView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8EA39541F584C1000590177 /* PokerFaceView.swift */; };
+		B8EA39571F584EDB00590177 /* MiniFrownFaceView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8EA39561F584EDB00590177 /* MiniFrownFaceView.swift */; };
+		B8EA39591F584EFA00590177 /* MiniHeartFaceView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8EA39581F584EFA00590177 /* MiniHeartFaceView.swift */; };
+		B8EA395B1F584F2400590177 /* MiniSmileFaceView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8EA395A1F584F2400590177 /* MiniSmileFaceView.swift */; };
+		B8EA395D1F584F6200590177 /* MiniAwfulFaceView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8EA395C1F584F6200590177 /* MiniAwfulFaceView.swift */; };
+		B8EA395F1F58508900590177 /* MiniPokerFaceView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8EA395E1F58508900590177 /* MiniPokerFaceView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -50,6 +62,18 @@
 		B882D8271F376D9A00C7C346 /* DustInfoJson.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = DustInfoJson.json; sourceTree = "<group>"; };
 		B882D82C1F383EBB00C7C346 /* Constants.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 		B8B80B651F3722BA0002FCCD /* DustInfo.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DustInfo.swift; sourceTree = "<group>"; };
+		B8EA39451F58392F00590177 /* UIBezierPath+InitForHeartShape.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIBezierPath+InitForHeartShape.swift"; sourceTree = "<group>"; };
+		B8EA39481F5839BC00590177 /* Int+Radians.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Int+Radians.swift"; sourceTree = "<group>"; };
+		B8EA394C1F583A1400590177 /* SmileFaceView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SmileFaceView.swift; sourceTree = "<group>"; };
+		B8EA394E1F583ABA00590177 /* FrownFaceView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FrownFaceView.swift; sourceTree = "<group>"; };
+		B8EA39501F583B1000590177 /* AwfulFaceView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AwfulFaceView.swift; sourceTree = "<group>"; };
+		B8EA39521F584B1D00590177 /* HeartFaceView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HeartFaceView.swift; sourceTree = "<group>"; };
+		B8EA39541F584C1000590177 /* PokerFaceView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PokerFaceView.swift; sourceTree = "<group>"; };
+		B8EA39561F584EDB00590177 /* MiniFrownFaceView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MiniFrownFaceView.swift; sourceTree = "<group>"; };
+		B8EA39581F584EFA00590177 /* MiniHeartFaceView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MiniHeartFaceView.swift; sourceTree = "<group>"; };
+		B8EA395A1F584F2400590177 /* MiniSmileFaceView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MiniSmileFaceView.swift; sourceTree = "<group>"; };
+		B8EA395C1F584F6200590177 /* MiniAwfulFaceView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MiniAwfulFaceView.swift; sourceTree = "<group>"; };
+		B8EA395E1F58508900590177 /* MiniPokerFaceView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MiniPokerFaceView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -91,6 +115,7 @@
 			isa = PBXGroup;
 			children = (
 				B82284F41F36D2B500A7566B /* Secret.swift */,
+				B8EA39471F58393A00590177 /* Extension */,
 				B882D8291F383D7B00C7C346 /* Constants */,
 				B8B80B671F3722C00002FCCD /* Model */,
 				B82284C51F32DED000A7566B /* View */,
@@ -143,7 +168,8 @@
 		B82284C51F32DED000A7566B /* View */ = {
 			isa = PBXGroup;
 			children = (
-				B82284C61F32DEE900A7566B /* FaceView.swift */,
+				B8EA394B1F5839F400590177 /* FaceViews */,
+				B8EA394A1F5839EA00590177 /* MiniFaceViews */,
 				B82284F61F36E9AF00A7566B /* PollutantInfoCollectionViewCell.swift */,
 			);
 			name = View;
@@ -163,6 +189,40 @@
 				B8B80B651F3722BA0002FCCD /* DustInfo.swift */,
 			);
 			name = Model;
+			sourceTree = "<group>";
+		};
+		B8EA39471F58393A00590177 /* Extension */ = {
+			isa = PBXGroup;
+			children = (
+				B8EA39451F58392F00590177 /* UIBezierPath+InitForHeartShape.swift */,
+				B8EA39481F5839BC00590177 /* Int+Radians.swift */,
+			);
+			name = Extension;
+			sourceTree = "<group>";
+		};
+		B8EA394A1F5839EA00590177 /* MiniFaceViews */ = {
+			isa = PBXGroup;
+			children = (
+				B8EA39561F584EDB00590177 /* MiniFrownFaceView.swift */,
+				B8EA39581F584EFA00590177 /* MiniHeartFaceView.swift */,
+				B8EA395A1F584F2400590177 /* MiniSmileFaceView.swift */,
+				B8EA395C1F584F6200590177 /* MiniAwfulFaceView.swift */,
+				B8EA395E1F58508900590177 /* MiniPokerFaceView.swift */,
+			);
+			name = MiniFaceViews;
+			sourceTree = "<group>";
+		};
+		B8EA394B1F5839F400590177 /* FaceViews */ = {
+			isa = PBXGroup;
+			children = (
+				B82284C61F32DEE900A7566B /* FaceView.swift */,
+				B8EA39521F584B1D00590177 /* HeartFaceView.swift */,
+				B8EA394C1F583A1400590177 /* SmileFaceView.swift */,
+				B8EA394E1F583ABA00590177 /* FrownFaceView.swift */,
+				B8EA39501F583B1000590177 /* AwfulFaceView.swift */,
+				B8EA39541F584C1000590177 /* PokerFaceView.swift */,
+			);
+			name = FaceViews;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -273,11 +333,23 @@
 			files = (
 				B82284A51F32DE0A00A7566B /* PollutantInfoViewController.swift in Sources */,
 				B8B80B661F3722BA0002FCCD /* DustInfo.swift in Sources */,
+				B8EA395F1F58508900590177 /* MiniPokerFaceView.swift in Sources */,
+				B8EA394D1F583A1400590177 /* SmileFaceView.swift in Sources */,
 				B82284F71F36E9AF00A7566B /* PollutantInfoCollectionViewCell.swift in Sources */,
+				B8EA394F1F583ABA00590177 /* FrownFaceView.swift in Sources */,
+				B8EA39571F584EDB00590177 /* MiniFrownFaceView.swift in Sources */,
+				B8EA39591F584EFA00590177 /* MiniHeartFaceView.swift in Sources */,
+				B8EA395D1F584F6200590177 /* MiniAwfulFaceView.swift in Sources */,
 				B82284F51F36D2B500A7566B /* Secret.swift in Sources */,
+				B8EA39491F5839BC00590177 /* Int+Radians.swift in Sources */,
+				B8EA395B1F584F2400590177 /* MiniSmileFaceView.swift in Sources */,
 				B82284FD1F37120700A7566B /* SplashViewController.swift in Sources */,
+				B8EA39551F584C1000590177 /* PokerFaceView.swift in Sources */,
 				B82284A31F32DE0A00A7566B /* AppDelegate.swift in Sources */,
 				B82284C71F32DEE900A7566B /* FaceView.swift in Sources */,
+				B8EA39511F583B1000590177 /* AwfulFaceView.swift in Sources */,
+				B8EA39461F58392F00590177 /* UIBezierPath+InitForHeartShape.swift in Sources */,
+				B8EA39531F584B1D00590177 /* HeartFaceView.swift in Sources */,
 				B882D82D1F383EBB00C7C346 /* Constants.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

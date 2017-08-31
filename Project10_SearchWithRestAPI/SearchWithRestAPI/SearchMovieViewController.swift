@@ -16,12 +16,8 @@ class SearchMovieViewController: UIViewController {
   
   @IBOutlet weak var tableView: UITableView!
   let searchController = UISearchController(searchResultsController: nil)
-  
-  var session : URLSession {
-    return URLSession.shared
-  }
-  var titleList = [String]()
-  var upcomingList = [String]()
+  var searchedMovieList = [Movie]()
+  var upcomingMovieList = [Movie]()
 
   // MARK : - View Life Cycle
   
@@ -29,22 +25,56 @@ class SearchMovieViewController: UIViewController {
     super.viewDidLoad()
     
     configureSearchController()
-    Movie.requestUpcomingMovieList { (movieTitleList, error) in
+    fetchMovieListWith(keyword: nil)
+  }
+  
+  // MARK : - Fetch Upcoming Movie List
+  
+  fileprivate func fetchMovieListWith(keyword:String?) {
+    
+    Movie.requestMovieList(searchKeyword: keyword) { (movieList, error) in
+      
+      guard error == nil else {
+        #if DEBUG
+          print(error!.localizedDescription)
+        #endif
+        return
+      }
+      
+      guard let unwrappedMovieList = movieList else {
+        return
+      }
+      
+      if let _ = keyword {
+        self.searchedMovieList = unwrappedMovieList
+      } else {
+        self.upcomingMovieList = unwrappedMovieList
+      }
+      
+      DispatchQueue.main.async {
+        self.tableView.reloadData()
+      }
       
     }
-  }
 
-  func configureSearchController() {
+  }
+ 
+  // MARK : - Configure UISearchController
+  
+  private func configureSearchController() {
     searchController.searchResultsUpdater = self
     searchController.dimsBackgroundDuringPresentation = false
     definesPresentationContext = true
     tableView.tableHeaderView = searchController.searchBar
   }
   
-  func performSearch(keyword :String) {
-    
+  fileprivate func resetSearchController() {
+    searchedMovieList = []
+    DispatchQueue.main.async {
+      self.tableView.reloadData()
+    }
   }
-
+  
 }
 
 // MARK : - SearchMovieViewController : UISearchResultsUpdating
@@ -55,9 +85,12 @@ extension SearchMovieViewController : UISearchResultsUpdating {
   
   func updateSearchResults(for searchController: UISearchController) {
     
-    performSearch(keyword: searchController.searchBar.text ?? "")
+    if !searchController.isActive { // if the cancle button is tapped
+      resetSearchController()
+    } else {
+      fetchMovieListWith(keyword: searchController.searchBar.text ?? "")
+    }
   }
-  
 }
 
 // MARK : - SearchMovieViewController : UITableViewDataSource
@@ -68,19 +101,19 @@ extension SearchMovieViewController : UITableViewDataSource {
   
   func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
     if searchController.isActive && searchController.searchBar.text != "" {
-      return titleList.count
+      return searchedMovieList.count
     }
-    return upcomingList.count
+    return upcomingMovieList.count
   }
   
   func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
     
-    let cell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath)
+    let cell = tableView.dequeueReusableCell(withIdentifier: Constants.CellID.MovieTitleCell, for: indexPath)
     
     if searchController.isActive && searchController.searchBar.text != "" {
-      cell.textLabel?.text = titleList[indexPath.row]
+      cell.textLabel?.text = searchedMovieList[indexPath.row].title
     } else {
-      cell.textLabel?.text = upcomingList[indexPath.row]
+      cell.textLabel?.text = upcomingMovieList[indexPath.row].title
     }
   
     return cell

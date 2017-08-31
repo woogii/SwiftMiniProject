@@ -29,15 +29,15 @@ struct Movie {
   init(dictionary:[String:Any]) throws {
     
     guard let title = dictionary[Constants.TMDBResponseKeys.Title] as? String else {
-      throw SerializationError.missing("")
+      throw SerializationError.missing(Constants.SerializationErrorDesc.TitleMissing)
     }
     
-    guard let overview = dictionary[Constants.TMDBResponseKeys.Title] as? String else {
-      throw SerializationError.missing("")
+    guard let overview = dictionary[Constants.TMDBResponseKeys.Overview] as? String else {
+      throw SerializationError.missing(Constants.SerializationErrorDesc.OverviewMissing)
     }
     
-    guard let releaseDate = dictionary[Constants.TMDBResponseKeys.Title] as? String else {
-      throw SerializationError.missing("")
+    guard let releaseDate = dictionary[Constants.TMDBResponseKeys.ReleaseDate] as? String else {
+      throw SerializationError.missing(Constants.SerializationErrorDesc.ReleaseDateMissing)
     }
     
     self.title = title
@@ -47,9 +47,9 @@ struct Movie {
   
   // MARK : - Request Upcoming Movie List
   
-  static func requestUpcomingMovieList(completionHandler:QueryResult) {
+  static func requestMovieList(searchKeyword:String?, completionHandler:@escaping QueryResult) {
     
-    let upcomingMovieListUrl:URL? = createURLBasedOnRequestType(searchKeyword: nil)
+    let upcomingMovieListUrl:URL? = createURLBasedOnRequestType(searchKeyword: searchKeyword)
     
     guard let url = upcomingMovieListUrl else {
       return
@@ -57,25 +57,25 @@ struct Movie {
   
     URLSession.shared.dataTask(with: url, completionHandler: { (data, _, error) in
       
+      var movieList:[Movie] = []
+      
       if let data = data,
-        let json = try? JSONSerialization.jsonObject(with: data, options: []) as? [String:Any] {
-        print(json as Any)
+      let json = try? JSONSerialization.jsonObject(with: data, options: []) as? [String:Any], let dictArray = json?[Constants.TMDBResponseKeys.Results] as? [[String:Any]] {
+        
+        for case let dict in dictArray {
+          guard let movie = try? Movie(dictionary: dict) else {
+            return
+          }
+          movieList.append(movie)
+        }
+        
+        completionHandler(movieList, error)
       }
       
     }).resume()
   }
   
-  static func performSearch(keyword :String) {
-    
-    let searchUrl = createURLBasedOnRequestType(searchKeyword: keyword)
-    
-    guard let _ = searchUrl else {
-      return
-    }
-    
-  }
-  
-  // MARK : - Create URL for API Request 
+  // MARK : - Create URL for API Request
   
   static func createURLBasedOnRequestType(searchKeyword:String?)-> URL? {
     
