@@ -25,6 +25,7 @@ class MainViewController: UIViewController {
   @IBOutlet weak var discoverCollectionView: UICollectionView!
   @IBOutlet weak var inTheatersCollectionView: UICollectionView!
   fileprivate var page = 1
+  fileprivate var isDataLoading:Bool = false
   fileprivate var inTheatersListPage = 1
   fileprivate var upcomingListPage = 1
   fileprivate var discoveredMovieList:[Movie] = [Movie]()
@@ -37,26 +38,30 @@ class MainViewController: UIViewController {
   fileprivate let upcomingMovieCellHeight:CGFloat = 160
   fileprivate var genreList:[Genre] = [Genre]()
   
-//  fileprivate let genreList:[Genre] = {
-//    let appDelegate = UIApplication.shared.delegate as! AppDelegate
-//    let genreList = appDelegate.genreList
-//    return genreList
-//  }()
-  
   // MARK : - View Life Cycle
   
   override func viewDidLoad() {
     super.viewDidLoad()
     
-    inTheatersCollectionView.isHidden = true
-    upcomingCollectionView.isHidden = true
-    genreCollectionView.isHidden = true
-    
+    displayCollectionViewsBasedOnHiddenStatus(discoverIsHidden: false, genreListIsHidden: true, inTheatersIsHidden: true, upcomingListIsHidden: true)
     setNavigationBarColor()
     getDiscoverMovieList(page)
+    addNotificationObserver()
+  }
+  
+  private func displayCollectionViewsBasedOnHiddenStatus(discoverIsHidden:Bool,genreListIsHidden:Bool,inTheatersIsHidden:Bool, upcomingListIsHidden:Bool) {
+  
+    inTheatersCollectionView.isHidden = inTheatersIsHidden
+    upcomingCollectionView.isHidden = upcomingListIsHidden
+    genreCollectionView.isHidden = genreListIsHidden
+    discoverCollectionView.isHidden = discoverIsHidden
+  
+  }
+  
+  private func addNotificationObserver() {
     
-    
-    NotificationCenter.default.addObserver(self, selector: #selector(reloadGenreCollectionView), name: NSNotification.Name(rawValue: "genre"), object: nil)
+    NotificationCenter.default.addObserver(self, selector: #selector(reloadGenreCollectionView), name: NSNotification.Name(rawValue: Constants.NotificationName.Genre), object: nil)
+
   }
   
   func reloadGenreCollectionView() {
@@ -66,10 +71,7 @@ class MainViewController: UIViewController {
     genreCollectionView.reloadData()
   }
   
-  
-  
-  
-  func getDiscoverMovieList(_ page:Int) {
+  fileprivate func getDiscoverMovieList(_ page:Int) {
     
     RestClient.sharedInstance.requestDiscoverMovieList(page: page) { (result, error) in
       
@@ -109,7 +111,7 @@ class MainViewController: UIViewController {
     
   }
   
-  func setNavigationBarColor() {
+  private func setNavigationBarColor() {
     navigationController?.navigationBar.barTintColor = UIColor.black
   }
   
@@ -118,25 +120,20 @@ class MainViewController: UIViewController {
     switch sender.selectedSegmentIndex {
       
     case SelectedIndex.discover.rawValue:
-      discoverCollectionView.isHidden = false
-      inTheatersCollectionView.isHidden = true
-      upcomingCollectionView.isHidden = true
-      genreCollectionView.isHidden = true
+      
+       displayCollectionViewsBasedOnHiddenStatus(discoverIsHidden: false, genreListIsHidden: true, inTheatersIsHidden: true, upcomingListIsHidden: true)
+     
       break
     case SelectedIndex.genres.rawValue:
       
-      discoverCollectionView.isHidden = true
-      inTheatersCollectionView.isHidden = true
-      upcomingCollectionView.isHidden = true
-      genreCollectionView.isHidden = false
+       displayCollectionViewsBasedOnHiddenStatus(discoverIsHidden: true, genreListIsHidden: false, inTheatersIsHidden: true, upcomingListIsHidden: true)
+      
       break
       
     case SelectedIndex.inTheaters.rawValue:
       
-      discoverCollectionView.isHidden = true
-      inTheatersCollectionView.isHidden = false
-      upcomingCollectionView.isHidden = true
-      genreCollectionView.isHidden = true
+       displayCollectionViewsBasedOnHiddenStatus(discoverIsHidden: true, genreListIsHidden: true, inTheatersIsHidden: false, upcomingListIsHidden: true)
+      
       
       let method = Constants.API.Methods.MovieNowPlaying
       
@@ -162,19 +159,14 @@ class MainViewController: UIViewController {
           DispatchQueue.main.async {
             self.inTheatersCollectionView.reloadData()
           }
-          
-          //print(self.inTheatersMovieList)
         }
         
       })
       break
     case SelectedIndex.upcoming.rawValue:
       
-      discoverCollectionView.isHidden = true
-      inTheatersCollectionView.isHidden = true
-      upcomingCollectionView.isHidden = false
-      genreCollectionView.isHidden = true
-      
+       displayCollectionViewsBasedOnHiddenStatus(discoverIsHidden: true, genreListIsHidden: true, inTheatersIsHidden: true, upcomingListIsHidden: false)
+       
       let method = Constants.API.Methods.MovieUpcoming
 
       RestClient.sharedInstance.requestMovieListBasedOnUserSelection(method: method, page: 1, completionHandler: { (results, error) in
@@ -269,7 +261,7 @@ extension MainViewController : UICollectionViewDataSource, UICollectionViewDeleg
 // MARK : - MainViewController : UIScrollViewDelegate
 
 extension MainViewController : UIScrollViewDelegate {
-
+  
   func scrollViewDidEndDecelerating(_ scrollView: UIScrollView) {
    
     let scrollViewHeight = scrollView.frame.size.height
@@ -277,13 +269,17 @@ extension MainViewController : UIScrollViewDelegate {
     if scrollView == discoverCollectionView {
       
       if scrollView.contentSize.height <= scrollView.contentOffset.y + scrollViewHeight {
+      
         page = page + 1
         getDiscoverMovieList(page)
+    
       }
       
     }
   }
 }
+
+// MARK : - MainViewController : UICollectionViewDelegateFlowLayout
 
 extension MainViewController : UICollectionViewDelegateFlowLayout {
   

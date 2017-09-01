@@ -23,15 +23,7 @@ class ImageListCollectionViewCell: UICollectionViewCell {
   @IBOutlet weak var timeInfoLabel: UILabel!
   @IBOutlet weak var backgroundImageViewHeightConstraint: NSLayoutConstraint!
 
-  var taskToCancelifCellIsReused: URLSessionTask? {
-    
-    didSet {
-      if let taskToCancel = oldValue {
-        taskToCancel.cancel()
-      }
-    }
-  }
-  
+ 
   // MARK : - Nib File Loading 
   
   override func awakeFromNib() {

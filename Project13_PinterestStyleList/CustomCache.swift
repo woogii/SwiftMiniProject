@@ -25,8 +25,8 @@ class CustomCache : NSObject {
   }
   
   func setCacheCapacity() {
-    inMemoryImageCache.countLimit = Constants.MindValleyCache.MaximumCapacity
-    inMemoryDataCache.countLimit = Constants.MindValleyCache.MaximumCapacity
+    inMemoryImageCache.countLimit = Constants.CustomCacheProperty.MaximumCapacity
+    inMemoryDataCache.countLimit = Constants.CustomCacheProperty.MaximumCapacity
   }
   
   // MARK: - Retrieving Images

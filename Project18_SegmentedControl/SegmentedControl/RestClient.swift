@@ -15,9 +15,7 @@ class RestClient {
   // MARK : - Property
   
   static let sharedInstance = RestClient()
-  
   typealias completionHanlder = (_ result:[String:Any]?, _ error:Error?)->Void
-  
   var session : URLSession {
     return URLSession.shared
   }
@@ -33,21 +31,21 @@ class RestClient {
     guard let url = URL(string: urlString) else {
       return
     }
-    print(urlString)
-    
     
     session.dataTask(with: url) { (data,response, error) in
       
       if error != nil {
-        
-        print(error?.localizedDescription as Any)
+        #if DEBUG
+          print(error?.localizedDescription as Any)
+        #endif
         completionHandler(nil, error)
         
       } else {
-        
-    
+      
         guard let returnData = data else {
-          print("data is not returned")
+          #if DEBUG
+            print("data is not returned")
+          #endif
           return
         }
     

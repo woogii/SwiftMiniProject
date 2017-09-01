@@ -129,23 +129,21 @@ class ImageListViewController: UICollectionViewController {
   func configureImageListCollectionViewCell(cell:ImageListCollectionViewCell, indexPath:IndexPath) {
     
     var post = posts[indexPath.row]
-    
-    var bgImage:UIImage? =  nil
-    var profileImage:UIImage? = nil
-    
+
     cell.backgroundImageView.image = nil
     cell.profileImageView.image = nil
     
-    
     if post.backgroundImage != nil && post.profileImage != nil {
-      bgImage = post.backgroundImage
-      profileImage = post.profileImage
+      cell.backgroundImageView.image = post.backgroundImage
+      cell.profileImageView.image = post.profileImage
     } else {
       
-      let bgImageRequestTask = RestClient.sharedInstance.fetchImageList(urlString: post.backgroundImageUrlString!, size: Constants.Public.DefaultListSize, completionHandler: { (result,error) in
+        _  = RestClient.sharedInstance.fetchImageList(urlString: post.backgroundImageUrlString!, size: Constants.Public.DefaultListSize, completionHandler: { (result,error) in
         
         if error != nil {
-          
+          #if DEBUG
+            print("background Image request error..\(error!.localizedDescription))")
+          #endif
         } else {
           
           if let data = result as? Data {
@@ -153,20 +151,23 @@ class ImageListViewController: UICollectionViewController {
             let backgroundImage = UIImage(data:data)
             post.backgroundImage = backgroundImage
             
-            let profileImageRequestTask = RestClient.sharedInstance.fetchImageList(urlString: post.profileImageUrlString!, size: Constants.Public.DefaultListSize, completionHandler: { (result,error) in
+            _ = RestClient.sharedInstance.fetchImageList(urlString: post.profileImageUrlString!, size: Constants.Public.DefaultListSize, completionHandler: { (result,error) in
               
               if let data = result as? Data {
                 
                 let profileImage = UIImage(data: data)
-                
                 post.profileImage = profileImage
                 
                 UIView.transition(with: cell.backgroundImageView, duration: 0.5, options: .transitionCrossDissolve, animations: {
                   
                   DispatchQueue.main.async {
-                    cell.backgroundImageView.image = backgroundImage
-                    cell.profileImageView.image = profileImage
                     
+                    if let updateCell = self.collectionView?.cellForItem(at: indexPath) as? ImageListCollectionViewCell {
+                     
+                      updateCell.backgroundImageView.image = backgroundImage
+                      updateCell.profileImageView.image = profileImage
+                      
+                    }
                   }
                   
                 }, completion: nil)
@@ -174,19 +175,14 @@ class ImageListViewController: UICollectionViewController {
               }
               
             })
-            cell.taskToCancelifCellIsReused = profileImageRequestTask
           }
         }
       })
-      
-      cell.taskToCancelifCellIsReused = bgImageRequestTask
       
     }
     
     cell.creatorLabel.text = post.userName
     cell.numberOfLikesLabel.text = String(post.numberOfLikes ?? 0)
-    cell.backgroundImageView.image = bgImage
-    cell.profileImageView.image = profileImage
     cell.timeInfoLabel.text = RFC3339DateFormatter.date(from:post.timeInfo ?? "")?.timeAgoDisplay()
     
   }
@@ -285,35 +281,6 @@ extension ImageListViewController : CustomLayoutDelegate {
     return height
   }
 }
-
-// MARK : - Date Extension
-
-extension Date {
-  
-  func timeAgoDisplay()-> String {
-    
-    let secondsAgo = Int(Date().timeIntervalSince(self))
-    
-    let minute = 60
-    let hour = 60 * minute
-    let day = 24 * hour
-    let week = 7 * day
-    
-    if secondsAgo < minute {
-      return "\(secondsAgo) seconds ago"
-    } else if secondsAgo < hour {
-      return "\(secondsAgo/minute) minutes ago"
-    } else if secondsAgo < day {
-      return "\(secondsAgo/hour) hours ago"
-    } else if secondsAgo < week {
-      return "\(secondsAgo/day) days ago"
-    }
-    
-    return "\(secondsAgo/week) weeks ago"
-  }
-  
-}
-
 
 
 

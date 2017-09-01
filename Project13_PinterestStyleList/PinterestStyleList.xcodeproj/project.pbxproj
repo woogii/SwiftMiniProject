@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		B80206D71ED9C04300DB8A2B /* CustomCollectionViewLayout.swift in Sources */ = {isa = PBXBuildFile; fileRef = B80206D61ED9C04300DB8A2B /* CustomCollectionViewLayout.swift */; };
 		B80206D91EDAD86100DB8A2B /* CustomCollectionViewLayoutAttributes.swift in Sources */ = {isa = PBXBuildFile; fileRef = B80206D81EDAD86100DB8A2B /* CustomCollectionViewLayoutAttributes.swift */; };
+		B874A3D11F598F7800B44587 /* Date+TimeAgo.swift in Sources */ = {isa = PBXBuildFile; fileRef = B874A3D01F598F7800B44587 /* Date+TimeAgo.swift */; };
 		B8CAF3D51EA0F054003D8A64 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8CAF3D41EA0F054003D8A64 /* AppDelegate.swift */; };
 		B8CAF3D71EA0F054003D8A64 /* ImageListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8CAF3D61EA0F054003D8A64 /* ImageListViewController.swift */; };
 		B8CAF3DA1EA0F054003D8A64 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B8CAF3D81EA0F054003D8A64 /* Main.storyboard */; };
@@ -48,6 +49,7 @@
 /* Begin PBXFileReference section */
 		B80206D61ED9C04300DB8A2B /* CustomCollectionViewLayout.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CustomCollectionViewLayout.swift; sourceTree = "<group>"; };
 		B80206D81EDAD86100DB8A2B /* CustomCollectionViewLayoutAttributes.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CustomCollectionViewLayoutAttributes.swift; sourceTree = "<group>"; };
+		B874A3D01F598F7800B44587 /* Date+TimeAgo.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Date+TimeAgo.swift"; sourceTree = "<group>"; };
 		B8CAF3D11EA0F054003D8A64 /* PinterestStyleList.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = PinterestStyleList.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		B8CAF3D41EA0F054003D8A64 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		B8CAF3D61EA0F054003D8A64 /* ImageListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageListViewController.swift; sourceTree = "<group>"; };
@@ -98,6 +100,14 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		B874A3CF1F598F5D00B44587 /* Extension */ = {
+			isa = PBXGroup;
+			children = (
+				B874A3D01F598F7800B44587 /* Date+TimeAgo.swift */,
+			);
+			name = Extension;
+			sourceTree = "<group>";
+		};
 		B8CAF3C81EA0F054003D8A64 = {
 			isa = PBXGroup;
 			children = (
@@ -121,6 +131,7 @@
 		B8CAF3D31EA0F054003D8A64 /* PinterestStyleList */ = {
 			isa = PBXGroup;
 			children = (
+				B874A3CF1F598F5D00B44587 /* Extension */,
 				B8F582FE1EA70A0200D8F669 /* Constant */,
 				B8CAF4081EA1D238003D8A64 /* NetworkService */,
 				B8F582FB1EA644C200D8F669 /* Cache */,
@@ -367,6 +378,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				B8F583001EA7221D00D8F669 /* DiscardableDataContent.swift in Sources */,
+				B874A3D11F598F7800B44587 /* Date+TimeAgo.swift in Sources */,
 				B8CAF4101EA2118F003D8A64 /* ImageListCollectionViewCell.swift in Sources */,
 				B8CAF4141EA2177F003D8A64 /* PostInfo.swift in Sources */,
 				B8F582FA1EA6390200D8F669 /* CustomCache.swift in Sources */,

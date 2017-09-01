@@ -112,7 +112,7 @@ struct Constants {
     static let NumberOfRequestedPostList = 10
   }
   
-  struct MindValleyCache {
+  struct CustomCacheProperty {
     static let MaximumCapacity = 500
   }
   

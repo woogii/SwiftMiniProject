@@ -80,4 +80,11 @@ struct Constants {
       static let Genre = "genreCollectionViewCell"
     }
   }
+  
+  // MARK : - Notification Name 
+  
+  struct NotificationName {
+    static let Genre = "genre"
+  }
+  
 }
