@@ -136,7 +136,6 @@ class MainViewController: UIViewController {
       
       
       let method = Constants.API.Methods.MovieNowPlaying
-      
       RestClient.sharedInstance.requestMovieListBasedOnUserSelection(method: method, page: 1, completionHandler: { (results, error) in
         
         if let error = error {

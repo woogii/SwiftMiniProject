@@ -87,4 +87,21 @@ struct Constants {
     static let Genre = "genre"
   }
   
+  // MARK : - Serializaion Error Description
+  
+  struct SerializaionErrorDesc {
+    
+    static let OverviewMissing = "Overview is missing"
+    static let PopularityMissing = "Popularity value is missing"
+    static let PosterPathMissing = "Poster path is missing"
+    static let OriginalTitleMissing = "Original title is missing"
+    static let ReleaseDateMissing = "Release date is missing"
+    static let VoteAverageMissing = "Vote average value is missing"
+    static let VoteCountMissing = "Vote count is missing"
+    static let IdMissing = "ID is missing"
+    static let NameMissing = "Name is missing"
+    static let VoteAverageInvalid = "Voting average value is invalid"
+    
+  }
+  
 }

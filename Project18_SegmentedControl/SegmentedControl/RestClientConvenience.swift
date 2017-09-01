@@ -12,24 +12,6 @@ import Foundation
 
 extension RestClient {
 
-  // MARK : - Request Featured List
-  
-  func requestFeaturedList(listId:String, completionHandler:@escaping completionHanlder) {
-    
-    var parameters = [String:Any]()
-    parameters[Constants.API.ParameterKeys.ApiKey] = ApiKey
-    let method = Constants.API.Methods.List + "/" + "\(listId)"
-    
-    taskForGetMethod(method,parameters: parameters) { (result, error) in
-      
-      if let error = error {
-        completionHandler(nil, error)
-      } else {
-        completionHandler(result, error)
-      }
-      
-    }
-  }
   
   func requestDiscoverMovieList(page:Int, completionHandler:@escaping completionHanlder) {
     

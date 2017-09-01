@@ -21,11 +21,18 @@ struct Genre {
   
   // MARK : - Initialization
   
-  init(dictionary:[String:Any]) {
+  init(dictionary:[String:Any]) throws {
     
-    id = dictionary[Constants.JSONParsingKeys.Id] as? Int ?? 0
-    name = dictionary[Constants.JSONParsingKeys.Name] as? String ?? ""
+    guard let id = dictionary[Constants.JSONParsingKeys.Id] as? Int else {
+      throw SerializaionError.missing(Constants.SerializaionErrorDesc.IdMissing)
+    }
     
+    guard let name = dictionary[Constants.JSONParsingKeys.Name] as? String else {
+      throw SerializaionError.missing(Constants.SerializaionErrorDesc.NameMissing)
+    }
+
+    self.id = id
+    self.name = name
   }
   
   // MARK : - Set Poster URL Path

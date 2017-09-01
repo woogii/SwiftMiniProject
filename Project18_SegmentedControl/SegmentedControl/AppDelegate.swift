@@ -32,12 +32,14 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
           return
         }
         
-        self.genreList = genreInfoArray.flatMap({ dict -> Genre in
-          return Genre(dictionary: dict)
+        self.genreList = genreInfoArray.flatMap({ dict -> Genre? in
+          do {
+            return try Genre(dictionary: dict)
+          } catch let error {
+            print(error.localizedDescription)
+            return nil
+          }
         })
-        
-        print(self.genreList)
-        
         
         for i in 0..<self.genreList.count {
           
@@ -63,8 +65,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         }
         
         workGroup.notify(queue: DispatchQueue.main) {
-          //print(self.genreList)
-          NotificationCenter.default.post(name: NSNotification.Name(rawValue: "genre"), object: nil)
+          NotificationCenter.default.post(name: NSNotification.Name(rawValue: Constants.NotificationName.Genre), object: nil)
         }
         
       }

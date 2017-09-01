@@ -28,53 +28,48 @@ struct Movie {
   var releaseDate:String
   var voteAverage:Float
   var voteCount:Int          
-  
-  init() {
-    overview = ""
-    popularity = 0.0
-    posterPath = ""
-    originalTitle = ""
-    releaseDate = ""
-    voteAverage = 0.0
-    voteCount = 0
-  }
-  
-  init?(dictionary:[String:Any]) throws {
+    
+  init(dictionary:[String:Any]) throws {
     
     guard let overview = dictionary[Constants.JSONParsingKeys.Overview] as? String else
     {
-      throw SerializaionError.missing(Constants.JSONParsingKeys.Overview)
+      throw SerializaionError.missing(Constants.SerializaionErrorDesc.OverviewMissing)
     }
-    self.overview = overview
-
+  
     guard let popularity = dictionary[Constants.JSONParsingKeys.Popularity] as? Double else {
-      throw SerializaionError.missing(Constants.JSONParsingKeys.Popularity)
+      throw SerializaionError.missing(Constants.SerializaionErrorDesc.PopularityMissing)
     }
-    self.popularity = popularity
     
     guard let posterPath = dictionary[Constants.JSONParsingKeys.PosterPath] as? String else {
-      throw SerializaionError.missing(Constants.JSONParsingKeys.Popularity)
+      throw SerializaionError.missing(Constants.SerializaionErrorDesc.PosterPathMissing)
     }
-    self.posterPath = posterPath
-      
-    guard let originalTitle = dictionary[Constants.JSONParsingKeys.OriginalTitle] as? String else {
-      throw SerializaionError.missing(Constants.JSONParsingKeys.OriginalTitle)
-    }
-    self.originalTitle = originalTitle
     
-    guard let releaseDate = dictionary[Constants.JSONParsingKeys.ReleaseDate] as? String else {
-      throw SerializaionError.missing(Constants.JSONParsingKeys.ReleaseDate)
+    guard let originalTitle = dictionary[Constants.JSONParsingKeys.OriginalTitle] as? String else {
+      throw SerializaionError.missing(Constants.SerializaionErrorDesc.OriginalTitleMissing)
     }
-    self.releaseDate = releaseDate
+
+    guard let releaseDate = dictionary[Constants.JSONParsingKeys.ReleaseDate] as? String else {
+      throw SerializaionError.missing(Constants.SerializaionErrorDesc.ReleaseDateMissing)
+    }
     
     guard let voteAverage = dictionary[Constants.JSONParsingKeys.VoteAverage] as? Float else {
-      throw SerializaionError.missing(Constants.JSONParsingKeys.VoteAverage)
+      throw SerializaionError.missing(Constants.SerializaionErrorDesc.VoteAverageInvalid)
     }
-    self.voteAverage = voteAverage
+    
+    guard case (0.0...10.0) = voteAverage else {
+      throw SerializaionError.invalid(Constants.SerializaionErrorDesc.VoteAverageInvalid, voteAverage)
+    }
     
     guard let voteCount = dictionary[Constants.JSONParsingKeys.VoteCount] as?  Int else {
-      throw SerializaionError.missing(Constants.JSONParsingKeys.VoteCount)
+      throw SerializaionError.missing(Constants.SerializaionErrorDesc.VoteCountMissing)
     }
+
+    self.overview = overview
+    self.popularity = popularity
+    self.posterPath = posterPath
+    self.originalTitle = originalTitle
+    self.releaseDate = releaseDate
+    self.voteAverage = voteAverage
     self.voteCount = voteCount
     
   }
