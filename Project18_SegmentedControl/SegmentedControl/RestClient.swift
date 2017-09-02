@@ -24,11 +24,9 @@ class RestClient {
   
   func taskForGetMethod(_ method: String, parameters:[String:Any]?=nil, completionHandler:@escaping completionHanlder) {
     
-    let escapedParamters = escapedParameters(parameters)
+    let requestUrl = createRequestUrl(method: method, parameters: parameters)
     
-    let urlString = Constants.API.BaseUrl + Constants.API.Path + method +  escapedParamters
-  
-    guard let url = URL(string: urlString) else {
+    guard let url = requestUrl else {
       return
     }
     
@@ -69,29 +67,28 @@ class RestClient {
   
   }
   
-  
-  func escapedParameters(_ parameters:[String:Any]?)-> String {
+  func createRequestUrl(method:String, parameters:[String:Any]?=nil)->URL? {
     
-    guard let parameters = parameters else {
-      return ""
+    let baseUrl = Constants.API.BaseUrl + Constants.API.Path + method
+    
+    guard var urlComponent = URLComponents(string: baseUrl) else {
+      return nil
     }
     
-    var escapedUrlParameters:String = "/"
-    var keyValuePairs = [String]()
+    guard let wrappedParameters = parameters else {
+      return URL(string: baseUrl)
+    }
     
-    for (key, value) in parameters {
+    urlComponent.queryItems = [URLQueryItem]()
+    
+    for (key,value) in wrappedParameters {
+    
+      let query = URLQueryItem(name: key, value: value as? String)
       
-      if let parameterValue = value as? String {
-        
-        if let encodingValue = parameterValue.addingPercentEncoding(withAllowedCharacters: .urlQueryAllowed) {
-          keyValuePairs.append(key + "=" + encodingValue)
-        }
-      }
+      urlComponent.queryItems?.append(query)
+      
     }
     
-    escapedUrlParameters = "?" + keyValuePairs.joined(separator: "&")
-    
-    return escapedUrlParameters
-    
+    return urlComponent.url
   }
 }
