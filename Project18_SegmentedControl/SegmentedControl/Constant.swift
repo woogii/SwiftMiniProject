@@ -7,6 +7,7 @@
 //
 
 import Foundation
+import UIKit
 
 // MARK : - Constants 
 
@@ -81,6 +82,15 @@ struct Constants {
     }
   }
   
+  struct CellConfiguration {
+    
+    static let SectionInsets = UIEdgeInsets(top: 5.0, left: 0.0, bottom: 0.0, right: 0.0)
+    static let NumberOfColumnsForUpcomingCV:CGFloat = 3
+    static let MinimumSpacingForUpcomingCell:CGFloat = 3
+    static let DiscoverMovieCellHeight:CGFloat = 140
+    static let UpcomingMovieCellHeight:CGFloat = 160
+    
+  }
   // MARK : - Notification Name 
   
   struct NotificationName {

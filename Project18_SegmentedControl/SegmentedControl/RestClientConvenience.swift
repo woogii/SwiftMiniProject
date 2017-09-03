@@ -23,12 +23,12 @@ extension RestClient {
     parameters[Constants.API.ParameterKeys.IncludeAdult] = Constants.API.StringFalse
     parameters[Constants.API.ParameterKeys.IncludeVideo] = Constants.API.StringFalse
     
-    taskForGetMethod(method,parameters: parameters) { (result, error) in
+    taskForGetMethod(method,parameters: parameters) { (results, error) in
       
       if let error = error {
         completionHandler(nil, error)
       } else {
-        completionHandler(result, error)
+        completionHandler(results, nil)
       }
       
     }
@@ -45,14 +45,13 @@ extension RestClient {
     parameters[Constants.API.ParameterKeys.IncludeVideo] = Constants.API.StringFalse
     parameters[Constants.API.ParameterKeys.WithGenres] = "\(genreId)"
     
-    taskForGetMethod(method,parameters: parameters) { (result, error) in
+    taskForGetMethod(method,parameters: parameters) { (results, error) in
       
       if let error = error {
         completionHandler(nil, error)
       } else {
-        completionHandler(result, error)
+        completionHandler(results, nil)
       }
-      
     }
   }
 
@@ -64,47 +63,29 @@ extension RestClient {
     parameters[Constants.API.ParameterKeys.ApiKey] = ApiKey
     parameters[Constants.API.ParameterKeys.Page] = "\(page)"
     
-    taskForGetMethod(method,parameters: parameters) { (result, error) in
+    taskForGetMethod(method,parameters: parameters) { (results, error) in
       
       if let error = error {
         completionHandler(nil, error)
       } else {
-        completionHandler(result, error)
-      }
       
+        completionHandler(results, nil)
+      }
     }
   }
 
-  func requestConfigurationInfo(completionHandler:@escaping (_ result:[String:Any]?, _ error:Error?)->Void) {
-    
-
-    let method = Constants.API.Methods.Configuration
-    var parameters = [String:Any]()
-    parameters[Constants.API.ParameterKeys.ApiKey] = ApiKey
-    
-    taskForGetMethod(method,parameters: parameters) { (result, error) in
-      
-      if let error = error {
-        completionHandler(nil, error)
-      } else {
-        completionHandler(result, error)
-      }
-      
-    }
-  }
-
-  func requestGenresList(completionHandler:@escaping (_ result:[String:Any]?, _ error:Error?)->Void) {
+  func requestGenresList(completionHandler:@escaping completionHanlder) {
     
     let method = Constants.API.Methods.GenreList
     var parameters = [String:Any]()
     parameters[Constants.API.ParameterKeys.ApiKey] = ApiKey
     
-    taskForGetMethod(method,parameters: parameters) { (result, error) in
+    taskForGetMethod(method,parameters: parameters) { (results, error) in
       
       if let error = error {
         completionHandler(nil, error)
       } else {
-        completionHandler(result, error)
+        completionHandler(results, nil)
       }
     }
   }

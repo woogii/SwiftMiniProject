@@ -17,7 +17,7 @@ struct Genre {
   var id:Int
   var name:String
   var posterPath:String = ""
-  
+  typealias GenreInfoQuery = (_ genreList:[Genre]?,_ error:Error?)->Void
   
   // MARK : - Initialization
   
@@ -39,6 +39,35 @@ struct Genre {
   
   mutating func setPosterPath(newValue:String) {
     posterPath = newValue 
+  }
+  
+  static func genres(completionHandler:@escaping GenreInfoQuery) {
+    
+    RestClient.sharedInstance.requestGenresList { (results, error) in
+      
+      guard error == nil else {
+        completionHandler(nil, error)
+        return
+      }
+      
+      guard let wrappedResults = results, let genreDictArray = wrappedResults[Constants.JSONParsingKeys.Genres] as? [[String:Any]] else {
+        return
+      }
+    
+      let genreList = genreDictArray.flatMap({ (genreDict) -> Genre? in
+    
+        do {
+          return try Genre(dictionary: genreDict)
+        } catch let error {
+          print(error.localizedDescription)
+          return nil
+        }
+      })
+      
+      completionHandler(genreList, nil)
+      
+    }
+  
   }
   
 }

@@ -28,7 +28,8 @@ struct Movie {
   var releaseDate:String
   var voteAverage:Float
   var voteCount:Int          
-    
+  typealias MovieQueryResult = (_ result:[Movie]?, _ error:Error?)->Void
+  
   init(dictionary:[String:Any]) throws {
     
     guard let overview = dictionary[Constants.JSONParsingKeys.Overview] as? String else
@@ -74,5 +75,66 @@ struct Movie {
     
   }
   
+  static func movieListPerGenre(page:Int, genreId:Int, completionHandler:@escaping MovieQueryResult) {
+    
+    RestClient.sharedInstance.requestGenreMovieList(page: page, genreId: genreId, completionHandler: { (results,error) in
+      
+      guard error == nil else {
+        completionHandler(nil, error)
+        return
+      }
+      
+      let movieList = parseMovieListFromJSON(results: results)
+      completionHandler(movieList, nil)
+    })
+  }
+  
+  static func discoveredMovieList(page:Int,completionHandler:@escaping MovieQueryResult) {
+   
+    RestClient.sharedInstance.requestDiscoverMovieList(page: page) { (results, error) in
+      
+      guard error == nil else {
+        completionHandler(nil, error)
+        return
+      }
+      
+      let movieList = parseMovieListFromJSON(results: results)
+      completionHandler(movieList, nil)
+    }
+  }
+  
+  
+  static func movieListWithMethod(_ method:String, page:Int,completionHandler:@escaping MovieQueryResult) {
+    
+    RestClient.sharedInstance.requestMovieListBasedOnUserSelection(method:method, page: page) { (results, error) in
+      
+      guard error == nil else {
+        completionHandler(nil, error)
+        return
+      }
+      
+      let movieList = parseMovieListFromJSON(results: results)
+      completionHandler(movieList, nil)
+    }
+  }
+
+
+  static func parseMovieListFromJSON(results:[String:Any]?)->[Movie]?{
+    
+    guard let wrappedResult = results, let dictArray = wrappedResult[Constants.JSONParsingKeys.Results] as? [[String:Any]] else {
+      return nil
+    }
+    
+    let movieList = dictArray.flatMap({ dict -> Movie? in
+      do {
+        return try Movie(dictionary: dict)
+      } catch let error {
+        print(error.localizedDescription)
+        return nil
+      }
+    })
+    
+    return movieList
+  }
   
 }

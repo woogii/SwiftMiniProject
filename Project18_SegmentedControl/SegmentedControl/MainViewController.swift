@@ -31,11 +31,6 @@ class MainViewController: UIViewController {
   fileprivate var discoveredMovieList:[Movie] = [Movie]()
   fileprivate var inTheatersMovieList:[Movie] = [Movie]()
   fileprivate var upcomingMovieList:[Movie] = [Movie]()
-  fileprivate let sectionInsets = UIEdgeInsets(top: 5.0, left: 0.0, bottom: 0.0, right: 0.0)
-  fileprivate let numberOfColumnsForUpcomingCV:CGFloat = 3
-  fileprivate let minimumSpacingForUpcomingCell:CGFloat = 3
-  fileprivate let discoverMovieCellHeight:CGFloat = 140
-  fileprivate let upcomingMovieCellHeight:CGFloat = 160
   fileprivate var genreList:[Genre] = [Genre]()
   
   // MARK : - View Life Cycle
@@ -49,20 +44,26 @@ class MainViewController: UIViewController {
     addNotificationObserver()
   }
   
-  private func displayCollectionViewsBasedOnHiddenStatus(discoverIsHidden:Bool,genreListIsHidden:Bool,inTheatersIsHidden:Bool, upcomingListIsHidden:Bool) {
+  // MARK : - Display CollectionViews
   
+  private func displayCollectionViewsBasedOnHiddenStatus(discoverIsHidden:Bool,genreListIsHidden:Bool,inTheatersIsHidden:Bool, upcomingListIsHidden:Bool) {
+    
     inTheatersCollectionView.isHidden = inTheatersIsHidden
     upcomingCollectionView.isHidden = upcomingListIsHidden
     genreCollectionView.isHidden = genreListIsHidden
     discoverCollectionView.isHidden = discoverIsHidden
-  
+    
   }
+  
+  // MARK : - Add Observer 
   
   private func addNotificationObserver() {
     
     NotificationCenter.default.addObserver(self, selector: #selector(reloadGenreCollectionView), name: NSNotification.Name(rawValue: Constants.NotificationName.Genre), object: nil)
-
+    
   }
+  
+  // MARK : - Reload Genre CollectionView
   
   func reloadGenreCollectionView() {
     
@@ -71,39 +72,56 @@ class MainViewController: UIViewController {
     genreCollectionView.reloadData()
   }
   
+  // MARK : - Set NavigationBar Color 
+  
+  private func setNavigationBarColor() {
+    navigationController?.navigationBar.barTintColor = UIColor.black
+  }
+  
+  // MARK : - Action Method
+  
+  @IBAction func segmentedValueChanged(_ sender: UISegmentedControl) {
+    
+    switch sender.selectedSegmentIndex {
+      
+    case SelectedIndex.discover.rawValue:
+      displayCollectionViewsBasedOnHiddenStatus(discoverIsHidden: false, genreListIsHidden: true, inTheatersIsHidden: true, upcomingListIsHidden: true)
+      break
+    case SelectedIndex.genres.rawValue:
+      displayCollectionViewsBasedOnHiddenStatus(discoverIsHidden: true, genreListIsHidden: false, inTheatersIsHidden: true, upcomingListIsHidden: true)
+      break
+    case SelectedIndex.inTheaters.rawValue:
+      displayCollectionViewsBasedOnHiddenStatus(discoverIsHidden: true, genreListIsHidden: true, inTheatersIsHidden: false, upcomingListIsHidden: true)
+      fetchInTheatersMovieList()
+      break
+    case SelectedIndex.upcoming.rawValue:
+      
+      displayCollectionViewsBasedOnHiddenStatus(discoverIsHidden: true, genreListIsHidden: true, inTheatersIsHidden: true, upcomingListIsHidden: false)
+      fetchUpcomingMovieList()
+      break
+    default:
+      break
+    }
+    
+  }
+  
+  // MARK : - Fetch Movie List 
+  
   fileprivate func getDiscoverMovieList(_ page:Int) {
     
-    RestClient.sharedInstance.requestDiscoverMovieList(page: page) { (result, error) in
+    Movie.discoveredMovieList(page: page) { (movieList, error) in
       
       guard error == nil else {
-        print(error!.localizedDescription)
+        #if DEBUG
+          print(error!.localizedDescription)
+        #endif
         return
       }
       
-      guard let jsonResult = result else {
+      guard let discoveredMovieList = movieList  else {
         return
       }
-      
-      guard let dictArray = jsonResult[Constants.JSONParsingKeys.Results] as? [[String:Any]] else {
-        return
-      }
-      
-      let fetchedDiscoveredList = dictArray.flatMap({ dict -> Movie? in
-        do {
-          return try Movie(dictionary: dict)
-        } catch let error {
-          print(error.localizedDescription)
-          return nil
-        }
-      })
-      
-    
-      self.discoveredMovieList.append(contentsOf: fetchedDiscoveredList)
-      
-      #if DEBUG
-        //print("Discovered list count : \(self.discoveredMovieList.count)")
-      #endif 
-      
+      self.discoveredMovieList.append(contentsOf: discoveredMovieList)
       DispatchQueue.main.async() {
         self.discoverCollectionView.reloadData()
       }
@@ -111,97 +129,53 @@ class MainViewController: UIViewController {
     
   }
   
-  private func setNavigationBarColor() {
-    navigationController?.navigationBar.barTintColor = UIColor.black
+  private func fetchInTheatersMovieList() {
+    
+    let method = Constants.API.Methods.MovieNowPlaying
+    
+    Movie.movieListWithMethod(method, page: 1, completionHandler: { (movieList, error) in
+      
+      guard error == nil else {
+        #if DEBUG
+          print(error!.localizedDescription)
+        #endif
+        return
+      }
+      
+      guard let inTheatersMovieList = movieList else { return }
+      
+      self.inTheatersMovieList = inTheatersMovieList
+      
+      DispatchQueue.main.async {
+        self.inTheatersCollectionView.reloadData()
+      }
+      
+    })
   }
   
-  @IBAction func segmentedValueChanged(_ sender: UISegmentedControl) {
+  private func fetchUpcomingMovieList() {
     
-    switch sender.selectedSegmentIndex {
+    let method = Constants.API.Methods.MovieUpcoming
+    
+    Movie.movieListWithMethod(method, page: 1, completionHandler: { (results, error) in
       
-    case SelectedIndex.discover.rawValue:
+      guard error == nil else {
+        #if DEBUG
+          print(error!.localizedDescription)
+        #endif
+        return
+      }
       
-       displayCollectionViewsBasedOnHiddenStatus(discoverIsHidden: false, genreListIsHidden: true, inTheatersIsHidden: true, upcomingListIsHidden: true)
-     
-      break
-    case SelectedIndex.genres.rawValue:
+      guard let upcomingMovieList = results else { return }
       
-       displayCollectionViewsBasedOnHiddenStatus(discoverIsHidden: true, genreListIsHidden: false, inTheatersIsHidden: true, upcomingListIsHidden: true)
-      
-      break
-      
-    case SelectedIndex.inTheaters.rawValue:
-      
-       displayCollectionViewsBasedOnHiddenStatus(discoverIsHidden: true, genreListIsHidden: true, inTheatersIsHidden: false, upcomingListIsHidden: true)
-      
-      
-      let method = Constants.API.Methods.MovieNowPlaying
-      RestClient.sharedInstance.requestMovieListBasedOnUserSelection(method: method, page: 1, completionHandler: { (results, error) in
-        
-        if let error = error {
-          print(error.localizedDescription)
-        } else {
-          
-          guard let dictionaryArray = results?[Constants.JSONParsingKeys.Results] as? [[String:Any]] else {
-            return
-          }
-          
-          self.inTheatersMovieList = dictionaryArray.flatMap({ dict -> Movie? in
-            do {
-              return try Movie(dictionary: dict)
-            } catch let error {
-              print(error.localizedDescription)
-              return nil
-            }
-          })
-          
-          DispatchQueue.main.async {
-            self.inTheatersCollectionView.reloadData()
-          }
-        }
-        
-      })
-      break
-    case SelectedIndex.upcoming.rawValue:
-      
-       displayCollectionViewsBasedOnHiddenStatus(discoverIsHidden: true, genreListIsHidden: true, inTheatersIsHidden: true, upcomingListIsHidden: false)
-       
-      let method = Constants.API.Methods.MovieUpcoming
-
-      RestClient.sharedInstance.requestMovieListBasedOnUserSelection(method: method, page: 1, completionHandler: { (results, error) in
-        
-        if let error = error {
-          print(error.localizedDescription)
-        } else {
-          
-          guard let dictionaryArray = results?[Constants.JSONParsingKeys.Results] as? [[String:Any]] else {
-            return
-          }
-          
-          self.upcomingMovieList = dictionaryArray.flatMap({ dict -> Movie? in
-            do {
-              return try Movie(dictionary: dict)
-            } catch let error {
-              print(error.localizedDescription)
-              return nil
-            }
-          })
-          
-          DispatchQueue.main.async {
-            self.upcomingCollectionView.reloadData()
-          }
-          
-          print(self.upcomingMovieList)
-        }
-        
-      })
-      break
-      
-    default:
-      break
-    }
+      self.upcomingMovieList = upcomingMovieList
+      DispatchQueue.main.async {
+        self.upcomingCollectionView.reloadData()
+      }
+    })
     
   }
+  
 }
 
 // MARK : - MainViewController : UICollectionViewDataSource, UICollectionViewDelegate
@@ -262,16 +236,16 @@ extension MainViewController : UICollectionViewDataSource, UICollectionViewDeleg
 extension MainViewController : UIScrollViewDelegate {
   
   func scrollViewDidEndDecelerating(_ scrollView: UIScrollView) {
-   
+    
     let scrollViewHeight = scrollView.frame.size.height
-  
+    
     if scrollView == discoverCollectionView {
       
       if scrollView.contentSize.height <= scrollView.contentOffset.y + scrollViewHeight {
-      
+        
         page = page + 1
         getDiscoverMovieList(page)
-    
+        
       }
       
     }
@@ -284,19 +258,19 @@ extension MainViewController : UICollectionViewDelegateFlowLayout {
   
   func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
     if collectionView == discoverCollectionView || collectionView == genreCollectionView {
-      return CGSize(width: view.frame.size.width , height: discoverMovieCellHeight)
+      return CGSize(width: view.frame.size.width , height: Constants.CellConfiguration.DiscoverMovieCellHeight)
     } else {
-      return CGSize(width: view.frame.size.width/numberOfColumnsForUpcomingCV - numberOfColumnsForUpcomingCV, height: upcomingMovieCellHeight)
+      return CGSize(width: view.frame.size.width/Constants.CellConfiguration.NumberOfColumnsForUpcomingCV - Constants.CellConfiguration.NumberOfColumnsForUpcomingCV, height: Constants.CellConfiguration.UpcomingMovieCellHeight)
     }
   }
   
   
   func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, insetForSectionAt section: Int) -> UIEdgeInsets {
-    return sectionInsets
+    return Constants.CellConfiguration.SectionInsets
   }
   
   func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumLineSpacingForSectionAt section: Int) -> CGFloat {
-    return sectionInsets.top
+    return Constants.CellConfiguration.SectionInsets.top
   }
 }
 

@@ -29,6 +29,9 @@ class RestClient {
     guard let url = requestUrl else {
       return
     }
+    #if DEBUG
+      print(url.absoluteString)
+    #endif 
     
     session.dataTask(with: url) { (data,response, error) in
       
