@@ -17,6 +17,8 @@
 		B82284581F22FBE000A7566B /* DescriptionCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B82284571F22FBE000A7566B /* DescriptionCollectionViewCell.swift */; };
 		B822845A1F230C4600A7566B /* DescriptionHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B82284591F230C4600A7566B /* DescriptionHeaderView.swift */; };
 		B82284601F23382900A7566B /* DescListCollectionViewFlowLayout.swift in Sources */ = {isa = PBXBuildFile; fileRef = B822845F1F23382900A7566B /* DescListCollectionViewFlowLayout.swift */; };
+		B874A3D41F5D89E500B44587 /* UIImage+DottedLine.swift in Sources */ = {isa = PBXBuildFile; fileRef = B874A3D31F5D89E500B44587 /* UIImage+DottedLine.swift */; };
+		B874A3D71F5D8CC400B44587 /* Constant.swift in Sources */ = {isa = PBXBuildFile; fileRef = B874A3D61F5D8CC400B44587 /* Constant.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -44,6 +46,8 @@
 		B82284571F22FBE000A7566B /* DescriptionCollectionViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DescriptionCollectionViewCell.swift; sourceTree = "<group>"; };
 		B82284591F230C4600A7566B /* DescriptionHeaderView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DescriptionHeaderView.swift; sourceTree = "<group>"; };
 		B822845F1F23382900A7566B /* DescListCollectionViewFlowLayout.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DescListCollectionViewFlowLayout.swift; sourceTree = "<group>"; };
+		B874A3D31F5D89E500B44587 /* UIImage+DottedLine.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIImage+DottedLine.swift"; sourceTree = "<group>"; };
+		B874A3D61F5D8CC400B44587 /* Constant.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Constant.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -85,6 +89,8 @@
 		B82284341F22F43C00A7566B /* LBACareerAppDemo */ = {
 			isa = PBXGroup;
 			children = (
+				B874A3D51F5D8CB800B44587 /* Constants */,
+				B874A3D21F5D89CD00B44587 /* Extension */,
 				B82284611F235D5100A7566B /* Storyboard */,
 				B822845C1F23370200A7566B /* View */,
 				B822845E1F23373500A7566B /* Controller */,
@@ -146,6 +152,22 @@
 				B82284391F22F43C00A7566B /* Main.storyboard */,
 			);
 			name = Storyboard;
+			sourceTree = "<group>";
+		};
+		B874A3D21F5D89CD00B44587 /* Extension */ = {
+			isa = PBXGroup;
+			children = (
+				B874A3D31F5D89E500B44587 /* UIImage+DottedLine.swift */,
+			);
+			name = Extension;
+			sourceTree = "<group>";
+		};
+		B874A3D51F5D8CB800B44587 /* Constants */ = {
+			isa = PBXGroup;
+			children = (
+				B874A3D61F5D8CC400B44587 /* Constant.swift */,
+			);
+			name = Constants;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -256,6 +278,8 @@
 				B82284381F22F43C00A7566B /* MainViewController.swift in Sources */,
 				B82284601F23382900A7566B /* DescListCollectionViewFlowLayout.swift in Sources */,
 				B822845A1F230C4600A7566B /* DescriptionHeaderView.swift in Sources */,
+				B874A3D71F5D8CC400B44587 /* Constant.swift in Sources */,
+				B874A3D41F5D89E500B44587 /* UIImage+DottedLine.swift in Sources */,
 				B82284581F22FBE000A7566B /* DescriptionCollectionViewCell.swift in Sources */,
 				B82284361F22F43C00A7566B /* AppDelegate.swift in Sources */,
 				B82284561F22F5CE00A7566B /* DescriptionItem.swift in Sources */,
