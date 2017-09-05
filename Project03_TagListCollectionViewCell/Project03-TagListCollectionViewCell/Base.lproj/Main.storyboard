@@ -1,11 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="11762" systemVersion="16E195" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="M4e-7u-w2w">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="12118" systemVersion="16F73" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="M4e-7u-w2w">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
-        <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11757"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="12086"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
@@ -22,7 +21,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="dSp-kR-lYI">
-                                <rect key="frame" x="15" y="159" width="360" height="60"/>
+                                <rect key="frame" x="15" y="152" width="360" height="60"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="60" id="njH-YC-8X1"/>
@@ -34,7 +33,7 @@
                                     <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
                                 </collectionViewFlowLayout>
                                 <cells>
-                                    <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="" id="nrc-pm-xcp">
+                                    <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="tagCollectionViewCell" id="nrc-pm-xcp">
                                         <rect key="frame" x="0.0" y="0.0" width="50" height="50"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
@@ -48,17 +47,8 @@
                                     <outlet property="delegate" destination="BYZ-38-t0r" id="b9V-1V-cAO"/>
                                 </connections>
                             </collectionView>
-                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="FOj-bF-eD9">
-                                <rect key="frame" x="15" y="109" width="345" height="30"/>
-                                <nil key="textColor"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                <textInputTraits key="textInputTraits"/>
-                                <connections>
-                                    <outlet property="delegate" destination="BYZ-38-t0r" id="sBu-XO-K4P"/>
-                                </connections>
-                            </textField>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="MaA-xL-4SF">
-                                <rect key="frame" x="15" y="245" width="345" height="45"/>
+                                <rect key="frame" x="15" y="232" width="345" height="45"/>
                                 <color key="backgroundColor" red="0.22258323298543603" green="0.6963252314814814" blue="0.62948260401062628" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="45" id="8CG-pm-qHn"/>
@@ -74,21 +64,42 @@
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="agq-cP-zpq">
+                                <rect key="frame" x="15" y="109" width="345" height="30"/>
+                                <subviews>
+                                    <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="FOj-bF-eD9">
+                                        <rect key="frame" x="10" y="0.0" width="335" height="30"/>
+                                        <nil key="textColor"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                        <textInputTraits key="textInputTraits"/>
+                                        <connections>
+                                            <outlet property="delegate" destination="BYZ-38-t0r" id="sBu-XO-K4P"/>
+                                        </connections>
+                                    </textField>
+                                </subviews>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <constraints>
+                                    <constraint firstAttribute="bottom" secondItem="FOj-bF-eD9" secondAttribute="bottom" id="Hin-Qm-MGJ"/>
+                                    <constraint firstItem="FOj-bF-eD9" firstAttribute="leading" secondItem="agq-cP-zpq" secondAttribute="leading" constant="10" id="K3U-4t-jo4"/>
+                                    <constraint firstItem="FOj-bF-eD9" firstAttribute="top" secondItem="agq-cP-zpq" secondAttribute="top" id="awq-Vj-Pr7"/>
+                                    <constraint firstAttribute="trailing" secondItem="FOj-bF-eD9" secondAttribute="trailing" id="g60-as-knT"/>
+                                    <constraint firstAttribute="height" constant="30" id="k2m-ly-FZg"/>
+                                </constraints>
+                            </view>
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
                             <constraint firstAttribute="trailing" secondItem="dSp-kR-lYI" secondAttribute="trailing" id="3pw-w2-fBG"/>
-                            <constraint firstItem="FOj-bF-eD9" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="FNZ-TR-P73"/>
                             <constraint firstItem="Whv-62-hHt" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" constant="15" id="IjX-pu-EER"/>
                             <constraint firstItem="MaA-xL-4SF" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" constant="15" id="LFh-5Y-uFl"/>
-                            <constraint firstAttribute="trailing" secondItem="FOj-bF-eD9" secondAttribute="trailing" constant="15" id="LrT-YC-gJP"/>
-                            <constraint firstItem="FOj-bF-eD9" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" constant="45" id="Q6o-yd-jcS"/>
+                            <constraint firstItem="agq-cP-zpq" firstAttribute="top" secondItem="Whv-62-hHt" secondAttribute="bottom" constant="12" id="OBc-P5-BgH"/>
                             <constraint firstItem="Whv-62-hHt" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" constant="15" id="Qx5-3M-IYT"/>
                             <constraint firstItem="dSp-kR-lYI" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" constant="15" id="T61-So-hty"/>
-                            <constraint firstItem="MaA-xL-4SF" firstAttribute="top" secondItem="dSp-kR-lYI" secondAttribute="bottom" constant="26" id="c3d-Zt-esp"/>
-                            <constraint firstItem="FOj-bF-eD9" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" constant="15" id="hEJ-43-JWH"/>
+                            <constraint firstAttribute="trailing" secondItem="agq-cP-zpq" secondAttribute="trailing" constant="15" id="Tew-Ev-5Zo"/>
+                            <constraint firstItem="dSp-kR-lYI" firstAttribute="top" secondItem="agq-cP-zpq" secondAttribute="bottom" constant="13" id="Tlh-ZU-2u9"/>
+                            <constraint firstItem="MaA-xL-4SF" firstAttribute="top" secondItem="dSp-kR-lYI" secondAttribute="bottom" constant="20" id="c3d-Zt-esp"/>
+                            <constraint firstItem="agq-cP-zpq" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" constant="15" id="t7g-0S-DFD"/>
                             <constraint firstAttribute="trailing" secondItem="MaA-xL-4SF" secondAttribute="trailing" constant="15" id="zck-BH-15M"/>
-                            <constraint firstItem="dSp-kR-lYI" firstAttribute="top" secondItem="FOj-bF-eD9" secondAttribute="bottom" constant="20" id="zeV-bc-g35"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" title="TagListWithFlowlayout" id="0Ql-sf-K9Y"/>
@@ -98,6 +109,7 @@
                         <outlet property="tagCollectionViewHeightConstant" destination="njH-YC-8X1" id="FIw-Lc-r9q"/>
                         <outlet property="tagFlowLayout" destination="4Qn-2p-iL4" id="WII-yB-LMe"/>
                         <outlet property="tagListCollectionView" destination="dSp-kR-lYI" id="wWk-ht-hdv"/>
+                        <outlet property="textFieldContainerView" destination="agq-cP-zpq" id="5kI-rK-l3O"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>

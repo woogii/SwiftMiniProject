@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		B8CB4B301F5F1B8200053D62 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8CB4B2F1F5F1B8200053D62 /* Constants.swift */; };
 		D2E369321DA23D75004ECBC2 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2E369311DA23D75004ECBC2 /* AppDelegate.swift */; };
 		D2E369341DA23D75004ECBC2 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2E369331DA23D75004ECBC2 /* ViewController.swift */; };
 		D2E369371DA23D75004ECBC2 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D2E369351DA23D75004ECBC2 /* Main.storyboard */; };
@@ -37,6 +38,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		B8CB4B2F1F5F1B8200053D62 /* Constants.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 		D2E3692E1DA23D75004ECBC2 /* Project03-TagListCollectionViewCell.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Project03-TagListCollectionViewCell.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		D2E369311DA23D75004ECBC2 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		D2E369331DA23D75004ECBC2 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -80,6 +82,47 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		B8CB4B2A1F5F07F000053D62 /* Xib */ = {
+			isa = PBXGroup;
+			children = (
+				D2E369661DA24B00004ECBC2 /* TagCollectionViewCell.xib */,
+			);
+			name = Xib;
+			sourceTree = "<group>";
+		};
+		B8CB4B2B1F5F07F700053D62 /* Storyboard */ = {
+			isa = PBXGroup;
+			children = (
+				D2E3693A1DA23D76004ECBC2 /* LaunchScreen.storyboard */,
+				D2E369351DA23D75004ECBC2 /* Main.storyboard */,
+			);
+			name = Storyboard;
+			sourceTree = "<group>";
+		};
+		B8CB4B2C1F5F0E3500053D62 /* Custom CollectionViewCell */ = {
+			isa = PBXGroup;
+			children = (
+				D2E3695F1DA23F40004ECBC2 /* TagCollectionViewCell.swift */,
+			);
+			name = "Custom CollectionViewCell";
+			sourceTree = "<group>";
+		};
+		B8CB4B2D1F5F0E3C00053D62 /* Custom FlowLayout */ = {
+			isa = PBXGroup;
+			children = (
+				D2E369611DA23F67004ECBC2 /* TagFlowLayout.swift */,
+			);
+			name = "Custom FlowLayout";
+			sourceTree = "<group>";
+		};
+		B8CB4B2E1F5F1B6D00053D62 /* Constant */ = {
+			isa = PBXGroup;
+			children = (
+				B8CB4B2F1F5F1B8200053D62 /* Constants.swift */,
+			);
+			name = Constant;
+			sourceTree = "<group>";
+		};
 		D2E369251DA23D75004ECBC2 = {
 			isa = PBXGroup;
 			children = (
@@ -103,8 +146,10 @@
 		D2E369301DA23D75004ECBC2 /* Project03-TagListCollectionViewCell */ = {
 			isa = PBXGroup;
 			children = (
-				D2E369641DA23F7C004ECBC2 /* Controllers */,
+				B8CB4B2E1F5F1B6D00053D62 /* Constant */,
+				D2E369641DA23F7C004ECBC2 /* Controller */,
 				D2E369631DA23F78004ECBC2 /* View */,
+				B8CB4B2B1F5F07F700053D62 /* Storyboard */,
 				D2E369651DA23F80004ECBC2 /* Support Files */,
 			);
 			path = "Project03-TagListCollectionViewCell";
@@ -131,28 +176,26 @@
 		D2E369631DA23F78004ECBC2 /* View */ = {
 			isa = PBXGroup;
 			children = (
-				D2E369611DA23F67004ECBC2 /* TagFlowLayout.swift */,
-				D2E3695F1DA23F40004ECBC2 /* TagCollectionViewCell.swift */,
+				B8CB4B2D1F5F0E3C00053D62 /* Custom FlowLayout */,
+				B8CB4B2C1F5F0E3500053D62 /* Custom CollectionViewCell */,
+				B8CB4B2A1F5F07F000053D62 /* Xib */,
 			);
 			name = View;
 			sourceTree = "<group>";
 		};
-		D2E369641DA23F7C004ECBC2 /* Controllers */ = {
+		D2E369641DA23F7C004ECBC2 /* Controller */ = {
 			isa = PBXGroup;
 			children = (
 				D2E369331DA23D75004ECBC2 /* ViewController.swift */,
 			);
-			name = Controllers;
+			name = Controller;
 			sourceTree = "<group>";
 		};
 		D2E369651DA23F80004ECBC2 /* Support Files */ = {
 			isa = PBXGroup;
 			children = (
 				D2E369311DA23D75004ECBC2 /* AppDelegate.swift */,
-				D2E369351DA23D75004ECBC2 /* Main.storyboard */,
-				D2E369661DA24B00004ECBC2 /* TagCollectionViewCell.xib */,
 				D2E369381DA23D76004ECBC2 /* Assets.xcassets */,
-				D2E3693A1DA23D76004ECBC2 /* LaunchScreen.storyboard */,
 				D2E3693D1DA23D76004ECBC2 /* Info.plist */,
 			);
 			name = "Support Files";
@@ -296,6 +339,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				B8CB4B301F5F1B8200053D62 /* Constants.swift in Sources */,
 				D2E369621DA23F67004ECBC2 /* TagFlowLayout.swift in Sources */,
 				D2E369601DA23F40004ECBC2 /* TagCollectionViewCell.swift in Sources */,
 				D2E369341DA23D75004ECBC2 /* ViewController.swift in Sources */,
@@ -395,7 +439,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				MTL_ENABLE_DEBUG_INFO = YES;
 				ONLY_ACTIVE_ARCH = YES;
 				SDKROOT = iphoneos;
@@ -440,7 +484,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				SDKROOT = iphoneos;
 				SWIFT_OPTIMIZATION_LEVEL = "-Owholemodule";

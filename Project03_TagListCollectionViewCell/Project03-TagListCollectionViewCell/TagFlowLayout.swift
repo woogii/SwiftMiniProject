@@ -19,14 +19,14 @@ class TagFlowLayout: UICollectionViewFlowLayout {
     let attributesForElementsInRect = super.layoutAttributesForElements(in: rect)
     var newAttributesForElementsInRect = [UICollectionViewLayoutAttributes]()
     
-    // use a value to keep track of left margin
+    // use a variable to keep track of left margin
     var leftMargin: CGFloat = 0.0
     
     for attributes in attributesForElementsInRect! {
       
       let refAttributes = attributes
       
-      if (refAttributes.frame.origin.x == self.sectionInset.left) {
+      if refAttributes.frame.origin.x == self.sectionInset.left {
         leftMargin = self.sectionInset.left
       } else {
         // set x position of attributes to current margin

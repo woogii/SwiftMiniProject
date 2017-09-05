@@ -14,17 +14,16 @@ class ViewController: UIViewController {
   
   // MARK : - Property
   
+  @IBOutlet weak var textFieldContainerView: UIView!
   @IBOutlet weak var tagListCollectionView: UICollectionView!
-  
-  var tagList = [String]()
-  let tagCollectionViewCellIdentifier = "tagCollectionViewCell"
-  let tagCollectionViewCellFileName = "TagCollectionViewCell"
-  var sizingCell: TagCollectionViewCell?
   @IBOutlet weak var tagFlowLayout: TagFlowLayout!
   @IBOutlet weak var tagCollectionViewHeightConstant: NSLayoutConstraint!
   @IBOutlet weak var inputTextField: UITextField!
   @IBOutlet weak var confirmButton: UIButton!
   
+  fileprivate var tagList = [String]()
+  fileprivate var sizingCell: TagCollectionViewCell?
+    
   
   // MARK : - View Life Cycle
   
@@ -35,30 +34,37 @@ class ViewController: UIViewController {
     setFlowlayoutSectionInset()
     setCollectionViewLayout()
     configureConfirmButton()
+    setInitialCollectionViewHeightConstraint()
+    configureTextFieldContainerView()
   }
   
-  func setCollectionViewLayout() {
+  private func setInitialCollectionViewHeightConstraint() {
+    tagCollectionViewHeightConstant.constant = 0
+  }
+  
+  private func configureTextFieldContainerView() {
+    textFieldContainerView.layer.borderColor = UIColor.lightGray.cgColor
+    textFieldContainerView.layer.borderWidth = Constants.BoderWidth
+  }
+  
+  private func setCollectionViewLayout() {
     tagListCollectionView.collectionViewLayout = tagFlowLayout
   }
   
-  func configureConfirmButton() {
+  private func configureConfirmButton() {
     confirmButton.layer.cornerRadius = confirmButton.frame.height/2
-    
   }
   
-  func configureCollectionViewCellNib() {
+  private func configureCollectionViewCellNib() {
     
-    let cellNib = UINib(nibName: tagCollectionViewCellFileName , bundle: nil)
+    let cellNib = UINib(nibName: Constants.TagCollectionViewCellFileName , bundle: nil)
     
-    tagListCollectionView.register(cellNib, forCellWithReuseIdentifier: tagCollectionViewCellIdentifier)
+    tagListCollectionView.register(cellNib, forCellWithReuseIdentifier: Constants.TagCollectionViewCellIdentifier)
     tagListCollectionView.backgroundColor = UIColor.clear
-    
-    // instantiateWithOwner: Unarchives and instantiates the in-memory contents of the receiver’s nib file, creating a distinct object tree and set of top level objects.
     sizingCell = (cellNib.instantiate(withOwner: nil, options: nil) as NSArray).firstObject as! TagCollectionViewCell?
-    
   }
   
-  func setFlowlayoutSectionInset()
+  private func setFlowlayoutSectionInset()
   {
     tagFlowLayout.sectionInset = UIEdgeInsets.zero
   }
@@ -68,6 +74,8 @@ class ViewController: UIViewController {
 
 extension ViewController : UITextFieldDelegate {
   
+  // MARK : - UITextFieldDelegate Method 
+  
   public func textFieldShouldReturn(_ textField: UITextField) -> Bool {
     
     view.endEditing(true)
@@ -76,13 +84,35 @@ extension ViewController : UITextFieldDelegate {
       return false
     } else {
       
-      tagList.append(textField.text!)
-      collectionViewReloadAndAdjustHeightConstraint(collectionView: tagListCollectionView)
-      textField.text = ""
+      guard let enteredText = textField.text else { return false }
+      
+      
+      if validateEnteredText(enteredText) {
+        tagList.append(enteredText)
+        adjustHeightConstraint(of: tagListCollectionView)
+        textField.text = ""
+      } else {
+        return false
+      }
     }
-    
     return true
   }
+  
+  fileprivate func validateEnteredText(_ enteredText:String)->Bool {
+    
+    if enteredText.characters.count > Constants.MaximumKeywordCount {
+      let alertController = UIAlertController(title: "", message: Constants.KeywordValidationErrorMessage, preferredStyle: .alert)
+      let okAction = UIAlertAction(title: Constants.OkButtonTitle, style: .destructive, handler: nil)
+      alertController.addAction(okAction)
+      present(alertController, animated: true, completion: nil)
+      
+      return false
+    } else {
+      return true
+    }
+  }
+
+  
   
 }
 
@@ -93,8 +123,12 @@ extension ViewController : UICollectionViewDelegateFlowLayout {
   
   func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
     
-    configureCell(cell: sizingCell!, forIndexPath: indexPath)
-    return sizingCell!.systemLayoutSizeFitting(UILayoutFittingCompressedSize)  // The option to use the smallest possible size
+    guard let cell = sizingCell else {
+      return CGSize()
+    }
+    
+    configureCell(cell: cell, forIndexPath: indexPath)
+    return cell.systemLayoutSizeFitting(UILayoutFittingCompressedSize)  // The option to use the smallest possible size
   }
 }
 
@@ -102,22 +136,22 @@ extension ViewController : UICollectionViewDelegateFlowLayout {
 
 extension ViewController : UICollectionViewDataSource {
   
-  
-  func numberOfSections(in collectionView: UICollectionView) -> Int {
-    return 1
-  }
+  // MARK : - UICollectionViewDataSource Methods 
   
   func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
     return tagList.count
   }
+  
   func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
     
-    let cell = tagListCollectionView.dequeueReusableCell(withReuseIdentifier: tagCollectionViewCellIdentifier, for: indexPath) as! TagCollectionViewCell
+    let cell = tagListCollectionView.dequeueReusableCell(withReuseIdentifier: Constants.TagCollectionViewCellIdentifier, for: indexPath) as! TagCollectionViewCell
     configureCell(cell: cell, forIndexPath: indexPath)
     return cell
   }
   
-  func configureCell(cell: TagCollectionViewCell, forIndexPath indexPath: IndexPath) {
+  // MARK : - Configure TagCollectionViewCell
+  
+  fileprivate func configureCell(cell: TagCollectionViewCell, forIndexPath indexPath: IndexPath) {
     
     let keyword = tagList[indexPath.item]
     cell.keywordLabel.text = keyword
@@ -128,13 +162,12 @@ extension ViewController : UICollectionViewDataSource {
   
   func pushTagButton(sender:UIButton) {
     
-    // 선택된 버튼 삭제
+    // Remove the selected tag
     tagList.remove(at: sender.tag)
-    collectionViewReloadAndAdjustConstraintAfterDelete(collectionView: tagListCollectionView)
-    
+    adjustHeightConstraint(of: tagListCollectionView)
   }
   
-  func collectionViewReloadAndAdjustHeightConstraint(collectionView : UICollectionView) {
+  fileprivate func adjustHeightConstraint(of collectionView : UICollectionView) {
     collectionView.reloadData()
     
     UIView.animate(withDuration: 1.0, animations: {
@@ -144,23 +177,6 @@ extension ViewController : UICollectionViewDataSource {
     })
     self.view.layoutIfNeeded()
   }
-  
-  func collectionViewReloadAndAdjustConstraintAfterDelete(collectionView : UICollectionView) {
-    
-    // keyword 가 있을 경우에만 collectionView height constraint 조정. keyword 가 삭제될 경우 collectionView Height 를 처음 화면 진입 상태 그대로 유지
-    collectionView.reloadData()
-    if tagList.count > 0 {
-      
-      UIView.animate(withDuration: 1.0, animations: {
-        
-        self.tagCollectionViewHeightConstant.constant = collectionView.collectionViewLayout.collectionViewContentSize.height
-        
-      })
-    }
-    
-    self.view.layoutIfNeeded()
-  }
-  
   
 }
 

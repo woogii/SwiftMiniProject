@@ -25,10 +25,13 @@ class TagCollectionViewCell: UICollectionViewCell {
   override func awakeFromNib() {
     
     super.awakeFromNib()
-    
+    configureCellUI()
+  }
+  
+  private func configureCellUI() {
+  
     containerView.backgroundColor = UIColor.lightGray
     containerView.layer.cornerRadius = 5
     containerViewMaxWidhtConstraint.constant = UIScreen.main.bounds.width
   }
-  
 }
