@@ -8,17 +8,24 @@
 
 import Foundation
 
+// MARK : - RestaurantInfo 
+
 struct RestaurantInfo {
   
+  // MARK : - Property
   var iconImageName:String
-  var info:String
+  var description:String
   
-  init(iconImageName:String, info:String) {
+  // MARK : - Initialization
+
+  init(iconImageName:String, description:String) {
     self.iconImageName = iconImageName
-    self.info = info
+    self.description = description
   }
   
+  // MARK : - Create Dummy Data 
+
   static func createRestaurantInfo()->[RestaurantInfo]{
-    return [RestaurantInfo(iconImageName: "ic_phone", info: "+82-01-1111-2222"),RestaurantInfo(iconImageName:"ic_mail", info: "sample@sample.com"),RestaurantInfo(iconImageName:"ic_link", info: "http://wwww.github.com/woogii")]
+    return [RestaurantInfo(iconImageName: Constants.IconImageName.Phone, description: Constants.RestaurantPhoneNumber),RestaurantInfo(iconImageName:Constants.IconImageName.Mail, description: Constants.RestaurantMailAddress),RestaurantInfo(iconImageName:Constants.IconImageName.Link, description: Constants.RestaurantHomePage)]
   }
 }

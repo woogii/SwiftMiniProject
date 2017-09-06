@@ -9,7 +9,11 @@
 import UIKit
 import MapKit
 
+// MARK : - ViewController: UIViewController
+
 class ViewController: UIViewController {
+  
+  // MARK : - Property 
   
   @IBOutlet weak var scrollView: UIScrollView!
   @IBOutlet weak var upperImageView: UIImageView!
@@ -31,8 +35,6 @@ class ViewController: UIViewController {
   var initialBackButtonY:CGFloat?
   var initProfileButtonY:CGFloat?
   var initProfileButtonX:CGFloat?
-  let numberOfRows = 3
-  let cellId = "customCell"
   let restaurantInfoList = RestaurantInfo.createRestaurantInfo()
   let gradientLayer = CAGradientLayer()
   let regionRadius: CLLocationDistance = 1000
@@ -41,6 +43,8 @@ class ViewController: UIViewController {
   override var preferredStatusBarStyle: UIStatusBarStyle {
     return .lightContent
   }
+  
+  // MARK : - View Life Cycle 
   
   override func viewDidLoad() {
     
@@ -53,14 +57,18 @@ class ViewController: UIViewController {
     addAnnotation()
   }
   
+  // MARK : - Add an annotation
+  
   func addAnnotation() {
     
-    let place = Place(title: "Restaurant",
-                          subtitle: "Brunch",
-                          coordinate: CLLocationCoordinate2D(latitude: 37.539201, longitude: 126.995885))
+    let place = Place(title: Constants.PlaceAnnotation.Title,
+                          subtitle: Constants.PlaceAnnotation.SubTitle,
+                          coordinate: initialLocation.coordinate)
     
     mapView.addAnnotation(place)
   }
+  
+  // MARK : - Set the center of the map
   
   func centerMapOnLocation(location: CLLocation) {
     let coordinateRegion = MKCoordinateRegionMakeWithDistance(location.coordinate,
@@ -68,6 +76,8 @@ class ViewController: UIViewController {
     mapView.setRegion(coordinateRegion, animated: true)
   }
 
+  // MARK : - Add an opaque layer on UIImageView
+  
   func addGradientLayerToUpperImageView() {
   
     gradientLayer.colors = [
@@ -79,6 +89,8 @@ class ViewController: UIViewController {
     
   }
 
+  // MARK : - Save initial coordinates for Subviews 
+  
   func setInitialSubviewsCoordinate() {
     
     initialY = upperImageView.frame.origin.y
@@ -101,53 +113,56 @@ class ViewController: UIViewController {
     profileImage.tintColor = UIColor.white
   }
   
+  // MARK : - Action Methods
   
   @IBAction func tapFavoriteButton(_ sender: UIButton) {
-    let alert = UIAlertController(title: "", message: "favorite button tapped", preferredStyle: .alert)
-    let cancelAction = UIAlertAction(title: "cancel", style: .cancel, handler: nil)
+    let alert = UIAlertController(title: "", message: Constants.AlertMessage.ProfileButtonTapped, preferredStyle: .alert)
+    let cancelAction = UIAlertAction(title: Constants.ButtonTitle.Cancel, style: .cancel, handler: nil)
     alert.addAction(cancelAction)
     present(alert, animated: true, completion: nil)
 
   }
   
   @IBAction func tapProfileButton(_ sender: UIButton) {
-    let alert = UIAlertController(title: "", message: "profile button tapped", preferredStyle: .alert)
-    let cancelAction = UIAlertAction(title: "cancel", style: .cancel, handler: nil)
+    let alert = UIAlertController(title: "", message: Constants.AlertMessage.ProfileButtonTapped, preferredStyle: .alert)
+    let cancelAction = UIAlertAction(title: Constants.ButtonTitle.Cancel, style: .cancel, handler: nil)
     alert.addAction(cancelAction)
     present(alert, animated: true, completion: nil)
   }
   
   @IBAction func tapBackButton(_ sender: UIButton) {
-    let alert = UIAlertController(title: "", message: "back button tapped", preferredStyle: .alert)
-    let cancelAction = UIAlertAction(title: "cancel", style: .cancel, handler: nil)
+    let alert = UIAlertController(title: "", message: Constants.AlertMessage.BackButtonTapped, preferredStyle: .alert)
+    let cancelAction = UIAlertAction(title: Constants.ButtonTitle.Cancel, style: .cancel, handler: nil)
     alert.addAction(cancelAction)
     present(alert, animated: true, completion: nil)
   }
   
 }
 
+// MARK : - ViewController : UITableViewDataSource
+
 extension ViewController : UITableViewDelegate, UITableViewDataSource {
 
-  func numberOfSections(in tableView: UITableView) -> Int {
-    return 1
-  }
+  // MARK : - ViewController : UITableViewDataSource Methodss
   
   func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-    return numberOfRows
+    return Constants.NumberOfRows
   }
   
   func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
     
-    let cell = tableView.dequeueReusableCell(withIdentifier: cellId, for: indexPath) as! CustomTableViewCell
+    let cell = tableView.dequeueReusableCell(withIdentifier: Constants.CellID.CustomCell, for: indexPath) as! CustomTableViewCell
     cell.restaurant = restaurantInfoList[indexPath.row]
     return cell
   }
   
 }
 
+// MARK : - ViewController : UIScrollViewDelegate
 
 extension ViewController : UIScrollViewDelegate {
   
+  // MARK : - UIScrollViewDelegate Method 
   
   func scrollViewDidScroll(_ scrollView: UIScrollView) {
     
@@ -159,15 +174,17 @@ extension ViewController : UIScrollViewDelegate {
     var modifiedBackFrame =  backImage.frame
     var modifiedBackButtonFrame = backButton.frame
     
-    modifiedFrame.origin.y = max(initialY!, scrollView.contentOffset.y - 160)
-    modifiedProfileFrame.origin.y = max(initProfileY!, scrollView.contentOffset.y + 10 + 12)
-    modifiedProfileFrame.origin.x = min(max(initProfileX!, scrollView.contentOffset.y - 40), initProfileX! + 40)
-    modifiedProfileButtonFrame.origin.y = max(initProfileButtonY!, scrollView.contentOffset.y + 10 + 12)
-    modifiedProfileButtonFrame.origin.x = min(max(initProfileButtonX!, scrollView.contentOffset.y - 40), initProfileX! + 40)
-    modifiedFavoriteFrame.origin.y = max(initFavoriteY!, scrollView.contentOffset.y + 10 + 12)
-    modifiedFavoriteButtonFrame.origin.y = max(initFavoriteY!, scrollView.contentOffset.y + 10 + 12)
-    modifiedBackFrame.origin.y =  max(initBackY!, scrollView.contentOffset.y + 10 + 15)
-    modifiedBackButtonFrame.origin.y =  max(initialBackButtonY!, scrollView.contentOffset.y + 10 + 15)
+    // Values for the coordinates are assigned in ViewDidLoad
+    
+    modifiedFrame.origin.y = max(initialY!, scrollView.contentOffset.y - Constants.AdjustCoordPoint.BgImageViewY)
+    modifiedProfileFrame.origin.y = max(initProfileY!, scrollView.contentOffset.y + Constants.AdjustCoordPoint.ProfileImageViewY)
+    modifiedProfileFrame.origin.x = min(max(initProfileX!, scrollView.contentOffset.y - Constants.AdjustCoordPoint.ProfileImageViewX), initProfileX! + Constants.AdjustCoordPoint.ProfileImageViewX)
+    modifiedProfileButtonFrame.origin.y = max(initProfileButtonY!, scrollView.contentOffset.y + Constants.AdjustCoordPoint.ProfileButtonX)
+    modifiedProfileButtonFrame.origin.x = min(max(initProfileButtonX!, scrollView.contentOffset.y - Constants.AdjustCoordPoint.ProfileButtonY), initProfileX! + Constants.AdjustCoordPoint.ProfileButtonY)
+    modifiedFavoriteFrame.origin.y = max(initFavoriteY!, scrollView.contentOffset.y + Constants.AdjustCoordPoint.FavoriteImageY)
+    modifiedFavoriteButtonFrame.origin.y = max(initFavoriteY!, scrollView.contentOffset.y + Constants.AdjustCoordPoint.FavoriteImageY)
+    modifiedBackFrame.origin.y =  max(initBackY!, scrollView.contentOffset.y + Constants.AdjustCoordPoint.BackImageY)
+    modifiedBackButtonFrame.origin.y =  max(initialBackButtonY!, scrollView.contentOffset.y + Constants.AdjustCoordPoint.BackImageY)
     
     
     upperImageView.frame = modifiedFrame

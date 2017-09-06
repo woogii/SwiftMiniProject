@@ -9,11 +9,17 @@
 import Foundation
 import MapKit
 
+// MARK : - Place: NSObject, MKAnnotation 
+
 class Place: NSObject, MKAnnotation {
+
+  // MARK : - Property 
   
   let title: String?
   let subtitle: String?
   let coordinate: CLLocationCoordinate2D
+  
+  // MARK : - Initialization 
   
   init(title: String, subtitle: String, coordinate: CLLocationCoordinate2D) {
     

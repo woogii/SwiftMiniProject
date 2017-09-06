@@ -8,8 +8,11 @@
 
 import UIKit
 
+// MARK : - CustomTableViewCell: UITableViewCell
 
 class CustomTableViewCell: UITableViewCell {
+
+  // MARK : - Property
   
   @IBOutlet weak var iconImageView: UIImageView!
   @IBOutlet weak var infoLabel: UILabel!
@@ -20,9 +23,11 @@ class CustomTableViewCell: UITableViewCell {
     }
   }
   
+  // MARK : - Update Cell UI 
+  
   func updateCell() {
     iconImageView.image = UIImage(named: restaurant.iconImageName)
-    infoLabel.text = restaurant.info
+    infoLabel.text = restaurant.description
   }
   
  
