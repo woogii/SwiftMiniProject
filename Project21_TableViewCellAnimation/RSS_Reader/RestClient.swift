@@ -13,6 +13,7 @@ import Foundation
 struct RestClient {
 
   // MARK : - Property
+  
   var sharedSession = URLSession.shared
   static let sharedInstance = RestClient()
   typealias NewListRequestResult = (_ result:[String:Any]?, _ error:Error?)->Void
@@ -39,10 +40,8 @@ struct RestClient {
         print(response.statusCode)
         return
       }
-      
-      
+  
       do {
-        
         let serializedResult = try JSONSerialization.jsonObject(with: data, options: .allowFragments)
         
         guard let jsonResult = serializedResult as? [String:Any] else {

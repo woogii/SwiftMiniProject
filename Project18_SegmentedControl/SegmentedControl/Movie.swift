@@ -56,7 +56,7 @@ struct Movie {
     guard let voteAverage = dictionary[Constants.JSONParsingKeys.VoteAverage] as? Float else {
       throw SerializaionError.missing(Constants.SerializaionErrorDesc.VoteAverageInvalid)
     }
-    
+     
     guard case (0.0...10.0) = voteAverage else {
       throw SerializaionError.invalid(Constants.SerializaionErrorDesc.VoteAverageInvalid, voteAverage)
     }
