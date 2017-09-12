@@ -121,6 +121,9 @@ This project uses open source library. Thanks for the developers who are dedicat
 *  [Facebook SDK](https://github.com/facebook/facebook-ios-sdk)
 *  [LGSideMenuController](https://github.com/Friend-LGA/LGSideMenuController)
 
+## Coding Conventions 
+* Adopting [SwiftLint](https://github.com/realm/SwiftLint)
+
 ## Image Licence 
 
 These projects use icons from Icons8. Thank [Icons8](https://icons8.com/) for your hard work. 
