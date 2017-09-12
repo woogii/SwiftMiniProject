@@ -219,6 +219,7 @@
 				B8FC0E201F10F53200A8AF5B /* Resources */,
 				B4F68B67FEA1FF0C970A869A /* [CP] Embed Pods Frameworks */,
 				8744677FDAE87D742E46AA6D /* [CP] Copy Pods Resources */,
+				B837FE341F67B46B00453F98 /* SwiftLint */,
 			);
 			buildRules = (
 			);
@@ -354,6 +355,20 @@
 			shellPath = /bin/sh;
 			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-SegmentedControl/Pods-SegmentedControl-frameworks.sh\"\n";
 			showEnvVarsInLog = 0;
+		};
+		B837FE341F67B46B00453F98 /* SwiftLint */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = SwiftLint;
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "if which swiftlint >/dev/null; then\nswiftlint\nelse\necho \"warning: SwiftLint not installed, download from https://github.com/realm/SwiftLint\"\nfi\n";
 		};
 /* End PBXShellScriptBuildPhase section */
 

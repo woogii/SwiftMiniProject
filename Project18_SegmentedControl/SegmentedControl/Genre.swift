@@ -11,51 +11,46 @@ import Foundation
 // MARK : - Genre
 
 struct Genre {
-  
   // MARK : - Property
-  
-  var id:Int
-  var name:String
-  var posterPath:String = ""
-  typealias GenreInfoQuery = (_ genreList:[Genre]?,_ error:Error?)->Void
-  
+
+  var genreId: Int
+  var name: String
+  var posterPath: String = ""
+  typealias GenreInfoQuery = (_ genreList: [Genre]?, _ error: Error?) -> Void
+
   // MARK : - Initialization
-  
-  init(dictionary:[String:Any]) throws {
-    
-    guard let id = dictionary[Constants.JSONParsingKeys.Id] as? Int else {
+
+  init(dictionary: [String:Any]) throws {
+
+    guard let id = dictionary[Constants.JSONParsingKeys.IdKey] as? Int else {
       throw SerializaionError.missing(Constants.SerializaionErrorDesc.IdMissing)
     }
-    
     guard let name = dictionary[Constants.JSONParsingKeys.Name] as? String else {
       throw SerializaionError.missing(Constants.SerializaionErrorDesc.NameMissing)
     }
 
-    self.id = id
+    self.genreId = id
     self.name = name
   }
-  
   // MARK : - Set Poster URL Path
-  
-  mutating func setPosterPath(newValue:String) {
-    posterPath = newValue 
+
+  mutating func setPosterPath(newValue: String) {
+    posterPath = newValue
   }
-  
+
   static func genres(completionHandler:@escaping GenreInfoQuery) {
-    
+
     RestClient.sharedInstance.requestGenresList { (results, error) in
-      
       guard error == nil else {
         completionHandler(nil, error)
         return
       }
-      
-      guard let wrappedResults = results, let genreDictArray = wrappedResults[Constants.JSONParsingKeys.Genres] as? [[String:Any]] else {
+      guard let wrappedResults = results,
+        let genreDictArray = wrappedResults[Constants.JSONParsingKeys.Genres] as? [[String:Any]] else {
         return
       }
-    
       let genreList = genreDictArray.flatMap({ (genreDict) -> Genre? in
-    
+
         do {
           return try Genre(dictionary: genreDict)
         } catch let error {
@@ -63,11 +58,7 @@ struct Genre {
           return nil
         }
       })
-      
       completionHandler(genreList, nil)
-      
     }
-  
   }
-  
 }
