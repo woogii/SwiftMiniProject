@@ -9,11 +9,11 @@
 import UIKit
 
 // MARK : - DescriptionHeaderView: UICollectionReusableView
-  
+
 class DescriptionHeaderView: UICollectionReusableView {
-  
+
   // MARK : - Property 
-  
+
   @IBOutlet weak var titleLabel: UILabel!
   @IBOutlet weak var separatorView: UIView!
   @IBOutlet weak var descLabel: UILabel!

@@ -13,9 +13,9 @@ import UIKit
 class DescriptionCollectionViewCell: UICollectionViewCell {
 
   // MARK : - Property
-  
+
   @IBOutlet weak var titleLabel: UILabel!
-  
+
   @IBOutlet weak var secondSeparatorView: UIView!
   @IBOutlet weak var thirdSeparatorView: UIView!
   @IBOutlet weak var descriptionLabel: UILabel!
@@ -24,35 +24,37 @@ class DescriptionCollectionViewCell: UICollectionViewCell {
   @IBOutlet weak var upperSeparatorImageView: UIImageView!
   @IBOutlet weak var middleSeparatorImageView: UIImageView!
   @IBOutlet weak var lowerSeparatorImageView: UIImageView!
-  let dottedImageHeight:CGFloat = 1
-  
-  var descriptionItem : DescriptionItem! {
+  let dottedImageHeight: CGFloat = 1
+
+  var descriptionItem: DescriptionItem! {
     didSet {
       updateUI()
     }
   }
-  
+
   // MARK : - Nib File Loading 
-  
+
   override func awakeFromNib() {
     super.awakeFromNib()
-    
-    upperSeparatorImageView.image = UIImage.drawDottedImage(width: frame.width , height: dottedImageHeight, color: UIColor.black)
-    middleSeparatorImageView.image = UIImage.drawDottedImage(width: frame.width, height: dottedImageHeight, color: UIColor.black)
-    lowerSeparatorImageView.image = UIImage.drawDottedImage(width: frame.width, height: dottedImageHeight, color: UIColor.black)
+
+    upperSeparatorImageView.image = UIImage.drawDottedImage(width: frame.width,
+                                                            height: dottedImageHeight, color: UIColor.black)
+    middleSeparatorImageView.image = UIImage.drawDottedImage(width: frame.width,
+                                                             height: dottedImageHeight, color: UIColor.black)
+    lowerSeparatorImageView.image = UIImage.drawDottedImage(width: frame.width,
+                                                            height: dottedImageHeight, color: UIColor.black)
   }
-  
+
   // MARK : - Update UI
-  
+
   func updateUI() {
     titleLabel.text = descriptionItem.title
     descriptionLabel.text = descriptionItem.description
-    
+
     middleSeparatorImageView.isHidden = true
     lowerSeparatorImageView.isHidden = true
     dismissButton.isHidden = true
     dismissAndRemoveButton.isHidden = true
   }
-  
-  
+
 }

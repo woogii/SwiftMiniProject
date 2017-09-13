@@ -11,11 +11,11 @@ import UIKit
 // MARK : - UIImage Extension
 
 extension UIImage {
-  
+
   // MARK : - Create Dotted Image 
-  
+
   static func drawDottedImage(width: CGFloat, height: CGFloat, color: UIColor) -> UIImage {
-    
+
     let path = UIBezierPath()
     path.move(to: CGPoint(x: 1.0, y: 1.0))
     path.addLine(to: CGPoint(x: width, y: 1))
@@ -26,11 +26,10 @@ extension UIImage {
     UIGraphicsBeginImageContextWithOptions(CGSize(width: width, height: height), false, 2)
     color.setStroke()
     path.stroke()
-    
+
     let image: UIImage = UIGraphicsGetImageFromCurrentImageContext()!
     UIGraphicsEndImageContext()
-    
+
     return image
   }
 }
-

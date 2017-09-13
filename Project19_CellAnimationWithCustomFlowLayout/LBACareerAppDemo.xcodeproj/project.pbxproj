@@ -90,12 +90,12 @@
 			isa = PBXGroup;
 			children = (
 				B874A3D51F5D8CB800B44587 /* Constants */,
-				B874A3D21F5D89CD00B44587 /* Extension */,
-				B82284611F235D5100A7566B /* Storyboard */,
-				B822845C1F23370200A7566B /* View */,
 				B822845E1F23373500A7566B /* Controller */,
+				B874A3D21F5D89CD00B44587 /* Extension */,
 				B822845B1F2336F500A7566B /* Model */,
+				B82284611F235D5100A7566B /* Storyboard */,
 				B822845D1F23372900A7566B /* Supporting Files */,
+				B822845C1F23370200A7566B /* View */,
 			);
 			path = LBACareerAppDemo;
 			sourceTree = "<group>";
@@ -103,8 +103,8 @@
 		B82284491F22F43D00A7566B /* LBACareerAppDemoTests */ = {
 			isa = PBXGroup;
 			children = (
-				B822844A1F22F43D00A7566B /* LBACareerAppDemoTests.swift */,
 				B822844C1F22F43D00A7566B /* Info.plist */,
+				B822844A1F22F43D00A7566B /* LBACareerAppDemoTests.swift */,
 			);
 			path = LBACareerAppDemoTests;
 			sourceTree = "<group>";
@@ -115,16 +115,18 @@
 				B82284551F22F5CE00A7566B /* DescriptionItem.swift */,
 			);
 			name = Model;
+			path = Model;
 			sourceTree = "<group>";
 		};
 		B822845C1F23370200A7566B /* View */ = {
 			isa = PBXGroup;
 			children = (
-				B82284591F230C4600A7566B /* DescriptionHeaderView.swift */,
-				B82284571F22FBE000A7566B /* DescriptionCollectionViewCell.swift */,
 				B822845F1F23382900A7566B /* DescListCollectionViewFlowLayout.swift */,
+				B82284571F22FBE000A7566B /* DescriptionCollectionViewCell.swift */,
+				B82284591F230C4600A7566B /* DescriptionHeaderView.swift */,
 			);
 			name = View;
+			path = View;
 			sourceTree = "<group>";
 		};
 		B822845D1F23372900A7566B /* Supporting Files */ = {
@@ -132,10 +134,11 @@
 			children = (
 				B82284351F22F43C00A7566B /* AppDelegate.swift */,
 				B822843C1F22F43C00A7566B /* Assets.xcassets */,
-				B822843E1F22F43C00A7566B /* LaunchScreen.storyboard */,
 				B82284411F22F43C00A7566B /* Info.plist */,
+				B822843E1F22F43C00A7566B /* LaunchScreen.storyboard */,
 			);
 			name = "Supporting Files";
+			path = "Supporting Files";
 			sourceTree = "<group>";
 		};
 		B822845E1F23373500A7566B /* Controller */ = {
@@ -144,6 +147,7 @@
 				B82284371F22F43C00A7566B /* MainViewController.swift */,
 			);
 			name = Controller;
+			path = Controller;
 			sourceTree = "<group>";
 		};
 		B82284611F235D5100A7566B /* Storyboard */ = {
@@ -152,6 +156,7 @@
 				B82284391F22F43C00A7566B /* Main.storyboard */,
 			);
 			name = Storyboard;
+			path = Storyboard;
 			sourceTree = "<group>";
 		};
 		B874A3D21F5D89CD00B44587 /* Extension */ = {
@@ -160,6 +165,7 @@
 				B874A3D31F5D89E500B44587 /* UIImage+DottedLine.swift */,
 			);
 			name = Extension;
+			path = Extension;
 			sourceTree = "<group>";
 		};
 		B874A3D51F5D8CB800B44587 /* Constants */ = {
@@ -168,6 +174,7 @@
 				B874A3D61F5D8CC400B44587 /* Constant.swift */,
 			);
 			name = Constants;
+			path = Constants;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -180,6 +187,7 @@
 				B822842E1F22F43C00A7566B /* Sources */,
 				B822842F1F22F43C00A7566B /* Frameworks */,
 				B82284301F22F43C00A7566B /* Resources */,
+				B837FE371F698A3B00453F98 /* ShellScript */,
 			);
 			buildRules = (
 			);
@@ -270,6 +278,22 @@
 		};
 /* End PBXResourcesBuildPhase section */
 
+/* Begin PBXShellScriptBuildPhase section */
+		B837FE371F698A3B00453F98 /* ShellScript */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "if which swiftlint >/dev/null; then\nswiftlint\nelse\necho \"warning: SwiftLint not installed, download from https://github.com/realm/SwiftLint\"\nfi";
+		};
+/* End PBXShellScriptBuildPhase section */
+
 /* Begin PBXSourcesBuildPhase section */
 		B822842E1F22F43C00A7566B /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
@@ -311,6 +335,7 @@
 				B822843A1F22F43C00A7566B /* Base */,
 			);
 			name = Main.storyboard;
+			path = .;
 			sourceTree = "<group>";
 		};
 		B822843E1F22F43C00A7566B /* LaunchScreen.storyboard */ = {
@@ -319,6 +344,7 @@
 				B822843F1F22F43C00A7566B /* Base */,
 			);
 			name = LaunchScreen.storyboard;
+			path = .;
 			sourceTree = "<group>";
 		};
 /* End PBXVariantGroup section */
@@ -422,7 +448,8 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				DEVELOPMENT_TEAM = MFYH4C9VNG;
-				INFOPLIST_FILE = LBACareerAppDemo/Info.plist;
+				INFOPLIST_FILE = "LBACareerAppDemo/Supporting Files/Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.woogii.LBACareerAppDemo;
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -435,7 +462,8 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				DEVELOPMENT_TEAM = MFYH4C9VNG;
-				INFOPLIST_FILE = LBACareerAppDemo/Info.plist;
+				INFOPLIST_FILE = "LBACareerAppDemo/Supporting Files/Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.woogii.LBACareerAppDemo;
 				PRODUCT_NAME = "$(TARGET_NAME)";
