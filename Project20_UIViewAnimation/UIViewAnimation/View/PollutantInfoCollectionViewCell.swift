@@ -13,61 +13,61 @@ import UIKit
 class PollutantInfoCollectionViewCell: UICollectionViewCell {
 
   // MARK : - Property 
-  
+
   @IBOutlet weak var pollutantTypeLabel: UILabel!
   @IBOutlet weak var pollutantLevelLabel: UILabel!
   let miniFaceViewFrame = CGRect(x: 15, y: 60, width: 40, height: 40)
-  var faceViewColor:UIColor!
-  
-  var polltantInfo:DustInfo! {
+  var faceViewColor: UIColor!
+
+  var polltantInfo: DustInfo! {
     didSet {
       updateUI()
     }
   }
-  
+
   // MARK : - Update Cell UI
-  
+
   func updateUI() {
-    
+
     // 0~30: 좋음, 31~80: 보통, 81~120: 약간나쁨, 121~200: 나쁨, 201~300: 매우나쁨
-  
+
     let pm10Value = Int(polltantInfo.pm10Value)
-    
-    let faceView:FaceView = setFaceViewTypeBasedOnPM10Value(pm10Value)
-    
+
+    let faceView: FaceView = setFaceViewTypeBasedOnPM10Value(pm10Value)
+
     setFaceBackgroundColor(faceView: faceView)
     self.contentView.addSubview(faceView)
     animateMiniFaceView(faceView: faceView)
-    
+
   }
-  
-  func animateMiniFaceView(faceView:FaceView) {
+
+  func animateMiniFaceView(faceView: FaceView) {
     faceView.transform = CGAffineTransform(scaleX: 0.0, y: 0.0)
-    
+
     UIView.animate(withDuration: 0.7, animations: {
       faceView.transform = CGAffineTransform(scaleX: 1.3, y: 1.3)
-    }) { (finished) in
-      
+    }) { (_) in
+
       UIView.animate(withDuration: 0.4, animations: {
         faceView.transform = CGAffineTransform.identity
       })
     }
   }
-  
-  func setFaceBackgroundColor(faceView:FaceView) {
+
+  func setFaceBackgroundColor(faceView: FaceView) {
     faceView.backgroundColor = faceViewColor
   }
-  
-  func setFaceViewTypeBasedOnPM10Value(_ pm10Value:Int)->FaceView {
-    
-    var faceView:FaceView!
-    
+
+  func setFaceViewTypeBasedOnPM10Value(_ pm10Value: Int) -> FaceView {
+
+    var faceView: FaceView!
+
     switch pm10Value {
-      
+
     case Constants.GoodLevel:
       faceView = MiniHeartFaceView(frame:miniFaceViewFrame)
       break
-      
+
     case Constants.ModerateLevel:
       faceView = MiniSmileFaceView(frame:miniFaceViewFrame)
       break
@@ -87,6 +87,5 @@ class PollutantInfoCollectionViewCell: UICollectionViewCell {
 
     return faceView
   }
-  
-  
+
 }

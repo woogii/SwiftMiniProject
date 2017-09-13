@@ -97,8 +97,8 @@
 		B82284961F32DE0A00A7566B = {
 			isa = PBXGroup;
 			children = (
-				B82284A11F32DE0A00A7566B /* UIViewAnimation */,
 				B82284A01F32DE0A00A7566B /* Products */,
+				B82284A11F32DE0A00A7566B /* UIViewAnimation */,
 			);
 			sourceTree = "<group>";
 		};
@@ -114,15 +114,15 @@
 		B82284A11F32DE0A00A7566B /* UIViewAnimation */ = {
 			isa = PBXGroup;
 			children = (
-				B82284F41F36D2B500A7566B /* Secret.swift */,
-				B8EA39471F58393A00590177 /* Extension */,
 				B882D8291F383D7B00C7C346 /* Constants */,
-				B8B80B671F3722C00002FCCD /* Model */,
-				B82284C51F32DED000A7566B /* View */,
 				B82284C41F32DE4300A7566B /* Controller */,
-				B82284C21F32DE1F00A7566B /* Supporting Files */,
+				B8EA39471F58393A00590177 /* Extension */,
+				B8B80B671F3722C00002FCCD /* Model */,
 				B82284C31F32DE3900A7566B /* Storyboard */,
+				B82284C21F32DE1F00A7566B /* Supporting Files */,
 				B82284B61F32DE0A00A7566B /* UIViewAnimationTests */,
+				B82284C51F32DED000A7566B /* View */,
+				B82284F41F36D2B500A7566B /* Secret.swift */,
 			);
 			path = UIViewAnimation;
 			sourceTree = "<group>";
@@ -130,22 +130,23 @@
 		B82284B61F32DE0A00A7566B /* UIViewAnimationTests */ = {
 			isa = PBXGroup;
 			children = (
-				B82284B71F32DE0A00A7566B /* UIViewAnimationTests.swift */,
 				B82284B91F32DE0A00A7566B /* Info.plist */,
+				B82284B71F32DE0A00A7566B /* UIViewAnimationTests.swift */,
 			);
 			path = UIViewAnimationTests;
-			sourceTree = SOURCE_ROOT;
+			sourceTree = "<group>";
 		};
 		B82284C21F32DE1F00A7566B /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
 				B82284A21F32DE0A00A7566B /* AppDelegate.swift */,
 				B82284A91F32DE0A00A7566B /* Assets.xcassets */,
-				B82284AB1F32DE0A00A7566B /* LaunchScreen.storyboard */,
 				B882D8271F376D9A00C7C346 /* DustInfoJson.json */,
 				B82284AE1F32DE0A00A7566B /* Info.plist */,
+				B82284AB1F32DE0A00A7566B /* LaunchScreen.storyboard */,
 			);
 			name = "Supporting Files";
+			path = "Supporting Files";
 			sourceTree = "<group>";
 		};
 		B82284C31F32DE3900A7566B /* Storyboard */ = {
@@ -154,6 +155,7 @@
 				B82284A61F32DE0A00A7566B /* Main.storyboard */,
 			);
 			name = Storyboard;
+			path = Storyboard;
 			sourceTree = "<group>";
 		};
 		B82284C41F32DE4300A7566B /* Controller */ = {
@@ -163,6 +165,7 @@
 				B82284FC1F37120700A7566B /* SplashViewController.swift */,
 			);
 			name = Controller;
+			path = Controller;
 			sourceTree = "<group>";
 		};
 		B82284C51F32DED000A7566B /* View */ = {
@@ -173,6 +176,7 @@
 				B82284F61F36E9AF00A7566B /* PollutantInfoCollectionViewCell.swift */,
 			);
 			name = View;
+			path = View;
 			sourceTree = "<group>";
 		};
 		B882D8291F383D7B00C7C346 /* Constants */ = {
@@ -181,6 +185,7 @@
 				B882D82C1F383EBB00C7C346 /* Constants.swift */,
 			);
 			name = Constants;
+			path = Constants;
 			sourceTree = "<group>";
 		};
 		B8B80B671F3722C00002FCCD /* Model */ = {
@@ -189,40 +194,44 @@
 				B8B80B651F3722BA0002FCCD /* DustInfo.swift */,
 			);
 			name = Model;
+			path = Model;
 			sourceTree = "<group>";
 		};
 		B8EA39471F58393A00590177 /* Extension */ = {
 			isa = PBXGroup;
 			children = (
-				B8EA39451F58392F00590177 /* UIBezierPath+InitForHeartShape.swift */,
 				B8EA39481F5839BC00590177 /* Int+Radians.swift */,
+				B8EA39451F58392F00590177 /* UIBezierPath+InitForHeartShape.swift */,
 			);
 			name = Extension;
+			path = Extension;
 			sourceTree = "<group>";
 		};
 		B8EA394A1F5839EA00590177 /* MiniFaceViews */ = {
 			isa = PBXGroup;
 			children = (
+				B8EA395C1F584F6200590177 /* MiniAwfulFaceView.swift */,
 				B8EA39561F584EDB00590177 /* MiniFrownFaceView.swift */,
 				B8EA39581F584EFA00590177 /* MiniHeartFaceView.swift */,
-				B8EA395A1F584F2400590177 /* MiniSmileFaceView.swift */,
-				B8EA395C1F584F6200590177 /* MiniAwfulFaceView.swift */,
 				B8EA395E1F58508900590177 /* MiniPokerFaceView.swift */,
+				B8EA395A1F584F2400590177 /* MiniSmileFaceView.swift */,
 			);
 			name = MiniFaceViews;
+			path = MiniFaceViews;
 			sourceTree = "<group>";
 		};
 		B8EA394B1F5839F400590177 /* FaceViews */ = {
 			isa = PBXGroup;
 			children = (
-				B82284C61F32DEE900A7566B /* FaceView.swift */,
-				B8EA39521F584B1D00590177 /* HeartFaceView.swift */,
-				B8EA394C1F583A1400590177 /* SmileFaceView.swift */,
-				B8EA394E1F583ABA00590177 /* FrownFaceView.swift */,
 				B8EA39501F583B1000590177 /* AwfulFaceView.swift */,
+				B82284C61F32DEE900A7566B /* FaceView.swift */,
+				B8EA394E1F583ABA00590177 /* FrownFaceView.swift */,
+				B8EA39521F584B1D00590177 /* HeartFaceView.swift */,
 				B8EA39541F584C1000590177 /* PokerFaceView.swift */,
+				B8EA394C1F583A1400590177 /* SmileFaceView.swift */,
 			);
 			name = FaceViews;
+			path = FaceViews;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -235,6 +244,7 @@
 				B822849B1F32DE0A00A7566B /* Sources */,
 				B822849C1F32DE0A00A7566B /* Frameworks */,
 				B822849D1F32DE0A00A7566B /* Resources */,
+				B837FE361F69723700453F98 /* SwiftLint */,
 			);
 			buildRules = (
 			);
@@ -326,6 +336,23 @@
 		};
 /* End PBXResourcesBuildPhase section */
 
+/* Begin PBXShellScriptBuildPhase section */
+		B837FE361F69723700453F98 /* SwiftLint */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = SwiftLint;
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "if which swiftlint >/dev/null; then\nswiftlint\nelse\necho \"warning: SwiftLint not installed, download from https://github.com/realm/SwiftLint\"\nfi";
+		};
+/* End PBXShellScriptBuildPhase section */
+
 /* Begin PBXSourcesBuildPhase section */
 		B822849B1F32DE0A00A7566B /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
@@ -379,6 +406,7 @@
 				B82284A71F32DE0A00A7566B /* Base */,
 			);
 			name = Main.storyboard;
+			path = .;
 			sourceTree = "<group>";
 		};
 		B82284AB1F32DE0A00A7566B /* LaunchScreen.storyboard */ = {
@@ -387,6 +415,7 @@
 				B82284AC1F32DE0A00A7566B /* Base */,
 			);
 			name = LaunchScreen.storyboard;
+			path = .;
 			sourceTree = "<group>";
 		};
 /* End PBXVariantGroup section */
@@ -490,7 +519,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				DEVELOPMENT_TEAM = MFYH4C9VNG;
-				INFOPLIST_FILE = UIViewAnimation/Info.plist;
+				INFOPLIST_FILE = "UIViewAnimation/Supporting Files/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.woogii.UIViewAnimation;
@@ -504,7 +533,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				DEVELOPMENT_TEAM = MFYH4C9VNG;
-				INFOPLIST_FILE = UIViewAnimation/Info.plist;
+				INFOPLIST_FILE = "UIViewAnimation/Supporting Files/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.woogii.UIViewAnimation;
@@ -519,7 +548,7 @@
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				DEVELOPMENT_TEAM = MFYH4C9VNG;
-				INFOPLIST_FILE = UIViewAnimationTests/Info.plist;
+				INFOPLIST_FILE = UIViewAnimation/UIViewAnimationTests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.woogii.UIViewAnimationTests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -534,7 +563,7 @@
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				DEVELOPMENT_TEAM = MFYH4C9VNG;
-				INFOPLIST_FILE = UIViewAnimationTests/Info.plist;
+				INFOPLIST_FILE = UIViewAnimation/UIViewAnimationTests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.woogii.UIViewAnimationTests;
 				PRODUCT_NAME = "$(TARGET_NAME)";

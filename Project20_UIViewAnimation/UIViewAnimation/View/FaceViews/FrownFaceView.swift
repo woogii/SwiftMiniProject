@@ -1,5 +1,5 @@
 //
-//  MiniFrownFaceView.swift
+//  FrownFaceView.swift
 //  UIViewAnimation
 //
 //  Created by siwook on 2017. 8. 31..
@@ -8,37 +8,31 @@
 
 import UIKit
 
+// MARK : - FrownFaceView: UIView
 
-// MARK : - MiniFrownFaceView : UIView
+class FrownFaceView: FaceView {
 
-class MiniFrownFaceView : FaceView {
-  
   override func draw(_ rect: CGRect) {
-    
+
     super.draw(rect)
-    
     drawSkullAndHeart()
   }
-  
-  override init(frame:CGRect) {
-    
+
+  // MARK : - Initialization 
+
+  override init(frame: CGRect) {
     super.init(frame: frame)
-    
-    configureMiniFrownFaceViewProperties()
+    configureFrownFaceViewProperties()
   }
-  
-  func configureMiniFrownFaceViewProperties() {
-    lineWidth = 3
-    scaleFactorForHeartEye = 8
-    scaleFactorHeartSize = 5
-    mouthCurvature = 0.1
-    heartEyeOffset = 7.3
-  }
-  
+
   required init?(coder aDecoder: NSCoder) {
     fatalError("init(coder:) has not been implemented")
   }
-  
+
+  func configureFrownFaceViewProperties() {
+    mouthCurvature = 0.1
+  }
+
   private func drawSkullAndHeart() {
     color.set()
     pathForSkull().stroke()

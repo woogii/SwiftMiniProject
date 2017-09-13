@@ -1,5 +1,5 @@
 //
-//  MiniHeartFaceView.swift
+//  MiniPokerFaceView.swift
 //  UIViewAnimation
 //
 //  Created by siwook on 2017. 8. 31..
@@ -8,36 +8,37 @@
 
 import UIKit
 
-// MARK : - MiniHeartFaceView : UIView
+// MARK : - MiniPokerFaceView : UIView
 
-class MiniHeartFaceView : FaceView {
-  
+class MiniPokerFaceView: FaceView {
+
   override func draw(_ rect: CGRect) {
+
     super.draw(rect)
     drawSkullAndHeart()
   }
-  
-  override init(frame:CGRect) {
+
+  override init(frame: CGRect) {
+
     super.init(frame: frame)
-    configureMiniHeartFaceViewProperties()
+
+    configureMiniPokerFaceViewProperties()
   }
-  
-  func configureMiniHeartFaceViewProperties() {
-    scaleFactorForHeartEye = 8
-    scaleFactorHeartSize = 5
-    heartEyeOffset = 7.3
+
+  func configureMiniPokerFaceViewProperties() {
+    eyesOpen = false
+    mouthCurvature = 0.1
     lineWidth = 3
   }
-  
+
   required init?(coder aDecoder: NSCoder) {
     fatalError("init(coder:) has not been implemented")
   }
-  
+
   private func drawSkullAndHeart() {
     pathForSkull().stroke()
-    pathForHeart(.left).stroke()
-    pathForHeart(.right).stroke()
+    pathForEye(.left).stroke()
+    pathForEye(.right).stroke()
     pathForMouth().stroke()
   }
 }
-

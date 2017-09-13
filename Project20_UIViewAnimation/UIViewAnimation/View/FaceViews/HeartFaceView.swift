@@ -1,5 +1,5 @@
 //
-//  SmileFaceView.swift
+//  HeartFaceView.swift
 //  UIViewAnimation
 //
 //  Created by siwook on 2017. 8. 31..
@@ -8,23 +8,20 @@
 
 import UIKit
 
-// MARK : - SmileFaceView : UIView
+// MARK : - HeartFaceView : UIView
 
-class SmileFaceView : FaceView {
-  
+class HeartFaceView: FaceView {
+
   override func draw(_ rect: CGRect) {
-    
+
     super.draw(rect)
     drawSkullAndHeart()
   }
-  
+
   private func drawSkullAndHeart() {
-    color.set()
-    mouthCurvature = 1.0
     pathForSkull().stroke()
-    pathForEye(.left).stroke()
-    pathForEye(.right).stroke()
+    pathForHeart(.left).stroke()
+    pathForHeart(.right).stroke()
     pathForMouth().stroke()
   }
 }
-

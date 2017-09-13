@@ -6,7 +6,6 @@
 //  Copyright © 2017년 siwook. All rights reserved.
 //
 
-
 import UIKit
 
 // MARK : - Extension : Int
@@ -14,5 +13,3 @@ import UIKit
 extension Int {
   var degreesToRadians: CGFloat { return CGFloat(self) * .pi / 180 }
 }
-
-

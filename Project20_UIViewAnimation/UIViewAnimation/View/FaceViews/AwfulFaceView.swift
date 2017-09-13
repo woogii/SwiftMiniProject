@@ -1,5 +1,5 @@
 //
-//  PokerFaceView.swift
+//  AwfulFaceView.swift
 //  UIViewAnimation
 //
 //  Created by siwook on 2017. 8. 31..
@@ -8,36 +8,35 @@
 
 import UIKit
 
-// MARK : - PokerFaceView : UIView
+// MARK : - AwfulFaceView : UIView
 
-class PokerFaceView : FaceView {
-  
+class AwfulFaceView: FaceView {
+
   override func draw(_ rect: CGRect) {
-    
+
     super.draw(rect)
     drawSkullAndHeart()
   }
-  
+
   // MARK : - Initialization
-  
-  override init(frame:CGRect) {
+
+  override init(frame: CGRect) {
     super.init(frame: frame)
-    configurePokerFaceViewProperties()
+    configureAwfulFaceViewProperties()
   }
 
   required init?(coder aDecoder: NSCoder) {
     fatalError("init(coder:) has not been implemented")
   }
-  
-  func configurePokerFaceViewProperties() {
-    eyesOpen = false
-    mouthCurvature = 0.1
+
+  func configureAwfulFaceViewProperties() {
+    mouthCurvature = -1
   }
-  
+
   private func drawSkullAndHeart() {
     pathForSkull().stroke()
-    pathForEye(.left).stroke()
-    pathForEye(.right).stroke()
+    pathForFrown(.left).stroke()
+    pathForFrown(.right).stroke()
     pathForMouth().stroke()
   }
 }

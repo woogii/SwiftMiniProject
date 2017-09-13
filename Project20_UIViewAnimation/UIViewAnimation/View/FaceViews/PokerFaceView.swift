@@ -1,5 +1,5 @@
 //
-//  MiniPokerFaceView.swift
+//  PokerFaceView.swift
 //  UIViewAnimation
 //
 //  Created by siwook on 2017. 8. 31..
@@ -8,33 +8,32 @@
 
 import UIKit
 
-// MARK : - MiniPokerFaceView : UIView
+// MARK : - PokerFaceView : UIView
 
-class MiniPokerFaceView : FaceView {
-  
+class PokerFaceView: FaceView {
+
   override func draw(_ rect: CGRect) {
-    
+
     super.draw(rect)
     drawSkullAndHeart()
   }
-  
-  override init(frame:CGRect) {
-    
+
+  // MARK : - Initialization
+
+  override init(frame: CGRect) {
     super.init(frame: frame)
-    
-    configureMiniPokerFaceViewProperties()
+    configurePokerFaceViewProperties()
   }
-  
-  func configureMiniPokerFaceViewProperties() {
-    eyesOpen = false
-    mouthCurvature = 0.1
-    lineWidth = 3
-  }
-  
+
   required init?(coder aDecoder: NSCoder) {
     fatalError("init(coder:) has not been implemented")
   }
-  
+
+  func configurePokerFaceViewProperties() {
+    eyesOpen = false
+    mouthCurvature = 0.1
+  }
+
   private func drawSkullAndHeart() {
     pathForSkull().stroke()
     pathForEye(.left).stroke()

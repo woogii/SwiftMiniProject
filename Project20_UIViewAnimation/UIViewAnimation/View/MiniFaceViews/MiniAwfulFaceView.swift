@@ -10,28 +10,28 @@ import UIKit
 
 // MARK : - MiniAwfulFaceView : UIView
 
-class MiniAwfulFaceView : FaceView {
-  
+class MiniAwfulFaceView: FaceView {
+
   override func draw(_ rect: CGRect) {
-    
+
     super.draw(rect)
     drawSkullAndHeart()
   }
-  
-  override init(frame:CGRect) {
+
+  override init(frame: CGRect) {
     super.init(frame: frame)
     configureMiniAwfulFaceViewProperties()
   }
-  
+
   func configureMiniAwfulFaceViewProperties() {
     mouthCurvature = -1
     lineWidth = 3
   }
-  
+
   required init?(coder aDecoder: NSCoder) {
     fatalError("init(coder:) has not been implemented")
   }
-  
+
   private func drawSkullAndHeart() {
     pathForSkull().stroke()
     pathForFrown(.left).stroke()
@@ -39,6 +39,3 @@ class MiniAwfulFaceView : FaceView {
     pathForMouth().stroke()
   }
 }
-
-
-

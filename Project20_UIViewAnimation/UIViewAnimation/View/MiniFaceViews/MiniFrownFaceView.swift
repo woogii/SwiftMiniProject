@@ -1,5 +1,5 @@
 //
-//  AwfulFaceView.swift
+//  MiniFrownFaceView.swift
 //  UIViewAnimation
 //
 //  Created by siwook on 2017. 8. 31..
@@ -8,32 +8,38 @@
 
 import UIKit
 
-// MARK : - AwfulFaceView : UIView
+// MARK : - MiniFrownFaceView : UIView
 
-class AwfulFaceView : FaceView {
-  
+class MiniFrownFaceView: FaceView {
+
   override func draw(_ rect: CGRect) {
-    
+
     super.draw(rect)
+
     drawSkullAndHeart()
   }
-  
-  // MARK : - Initialization
-  
-  override init(frame:CGRect) {
+
+  override init(frame: CGRect) {
+
     super.init(frame: frame)
-    configureAwfulFaceViewProperties()
+
+    configureMiniFrownFaceViewProperties()
   }
-  
+
+  func configureMiniFrownFaceViewProperties() {
+    lineWidth = 3
+    scaleFactorForHeartEye = 8
+    scaleFactorHeartSize = 5
+    mouthCurvature = 0.1
+    heartEyeOffset = 7.3
+  }
+
   required init?(coder aDecoder: NSCoder) {
     fatalError("init(coder:) has not been implemented")
   }
-  
-  func configureAwfulFaceViewProperties() {
-    mouthCurvature = -1
-  }
-  
+
   private func drawSkullAndHeart() {
+    color.set()
     pathForSkull().stroke()
     pathForFrown(.left).stroke()
     pathForFrown(.right).stroke()
