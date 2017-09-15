@@ -8,15 +8,14 @@
 
 import UIKit
 
-// MARK : - HighScoreTableViewHeader: UITableViewHeaderFooterView 
+// MARK : - HighScoreTableViewHeader: UITableViewHeaderFooterView
 
 class HighScoreTableViewHeader: UITableViewHeaderFooterView {
 
-    // MARK : - Property 
-    
-    @IBOutlet weak var rankLabel: UILabel!
-    @IBOutlet weak var nameLabel: UILabel!
-    @IBOutlet weak var scoreLabel: UILabel!
-  
+  // MARK : - Property
+
+  @IBOutlet weak var rankLabel: UILabel!
+  @IBOutlet weak var nameLabel: UILabel!
+  @IBOutlet weak var scoreLabel: UILabel!
 
 }

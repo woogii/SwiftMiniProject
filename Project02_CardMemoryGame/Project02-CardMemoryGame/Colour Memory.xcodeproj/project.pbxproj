@@ -52,11 +52,11 @@
 		B8EA39381F57308600590177 /* Dictionary+Subscript.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Dictionary+Subscript.swift"; sourceTree = "<group>"; };
 		D210E4261CD4ACDA00E96764 /* Constants.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 		D210E42B1CD5F5E200E96764 /* Model.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Model.xcdatamodel; sourceTree = "<group>"; };
-		D210E42D1CD6012300E96764 /* ScoreList.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ScoreList.swift; path = "Colour Memory/ScoreList.swift"; sourceTree = SOURCE_ROOT; };
+		D210E42D1CD6012300E96764 /* ScoreList.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ScoreList.swift; path = ScoreList.swift; sourceTree = "<group>"; };
 		D210E4361CD602AA00E96764 /* CoreDataStackManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CoreDataStackManager.swift; sourceTree = "<group>"; };
 		D210E4371CD602AA00E96764 /* CardMatchingManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CardMatchingManager.swift; sourceTree = "<group>"; };
 		D240EFC71CCCE9B1001F38BE /* HighScoreTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HighScoreTableViewController.swift; sourceTree = "<group>"; };
-		D240EFCC1CCCF651001F38BE /* ScoreCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ScoreCell.swift; path = "Colour Memory/ScoreCell.swift"; sourceTree = "<group>"; };
+		D240EFCC1CCCF651001F38BE /* ScoreCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ScoreCell.swift; path = ScoreCell.swift; sourceTree = "<group>"; };
 		D2BA0E701CD04CE900055D69 /* BorderedButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BorderedButton.swift; sourceTree = "<group>"; };
 		D2E3691F1DA15996004ECBC2 /* HighScoreTableViewHeader.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = HighScoreTableViewHeader.xib; sourceTree = "<group>"; };
 		D2E369211DA15E0C004ECBC2 /* HighScoreTableViewHeader.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HighScoreTableViewHeader.swift; sourceTree = "<group>"; };
@@ -73,10 +73,10 @@
 		D2E558641CCB62DF00DC40C0 /* Colour MemoryUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Colour MemoryUITests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		D2E558681CCB62DF00DC40C0 /* Colour_MemoryUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Colour_MemoryUITests.swift; sourceTree = "<group>"; };
 		D2E5586A1CCB62DF00DC40C0 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		D2E5587A1CCB691900DC40C0 /* Card.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Card.swift; path = "../Colour Memory/Card.swift"; sourceTree = "<group>"; };
-		D2E5587C1CCB692B00DC40C0 /* Pack.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Pack.swift; path = "../Colour Memory/Pack.swift"; sourceTree = "<group>"; };
-		D2E5587E1CCB693A00DC40C0 /* PlayingCard.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = PlayingCard.swift; path = "../Colour Memory/PlayingCard.swift"; sourceTree = "<group>"; };
-		D2E558801CCB694600DC40C0 /* PlayingPack.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = PlayingPack.swift; path = "../Colour Memory/PlayingPack.swift"; sourceTree = "<group>"; };
+		D2E5587A1CCB691900DC40C0 /* Card.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Card.swift; path = Card.swift; sourceTree = "<group>"; };
+		D2E5587C1CCB692B00DC40C0 /* Pack.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Pack.swift; path = Pack.swift; sourceTree = "<group>"; };
+		D2E5587E1CCB693A00DC40C0 /* PlayingCard.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = PlayingCard.swift; path = PlayingCard.swift; sourceTree = "<group>"; };
+		D2E558801CCB694600DC40C0 /* PlayingPack.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = PlayingPack.swift; path = PlayingPack.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -110,6 +110,7 @@
 				B8EA39381F57308600590177 /* Dictionary+Subscript.swift */,
 			);
 			name = Extension;
+			path = Extension;
 			sourceTree = "<group>";
 		};
 		B8EA393A1F5730CD00590177 /* Xib */ = {
@@ -118,7 +119,7 @@
 				D2E3691F1DA15996004ECBC2 /* HighScoreTableViewHeader.xib */,
 			);
 			name = Xib;
-			path = "Colour Memory";
+			path = Xib;
 			sourceTree = "<group>";
 		};
 		B8EA393B1F5730D000590177 /* Storyboard */ = {
@@ -128,18 +129,19 @@
 				D2E5584C1CCB62DF00DC40C0 /* Main.storyboard */,
 			);
 			name = Storyboard;
+			path = Storyboard;
 			sourceTree = "<group>";
 		};
 		D240EFC91CCCF33E001F38BE /* View */ = {
 			isa = PBXGroup;
 			children = (
 				B8EA393A1F5730CD00590177 /* Xib */,
-				D240EFCC1CCCF651001F38BE /* ScoreCell.swift */,
-				D2E369211DA15E0C004ECBC2 /* HighScoreTableViewHeader.swift */,
 				D2BA0E701CD04CE900055D69 /* BorderedButton.swift */,
+				D2E369211DA15E0C004ECBC2 /* HighScoreTableViewHeader.swift */,
+				D240EFCC1CCCF651001F38BE /* ScoreCell.swift */,
 			);
 			name = View;
-			path = ..;
+			path = View;
 			sourceTree = "<group>";
 		};
 		D2E369231DA16C8B004ECBC2 /* Constant */ = {
@@ -148,16 +150,18 @@
 				D210E4261CD4ACDA00E96764 /* Constants.swift */,
 			);
 			name = Constant;
+			path = Constant;
 			sourceTree = "<group>";
 		};
 		D2E369241DA16D9E004ECBC2 /* Core Data */ = {
 			isa = PBXGroup;
 			children = (
-				D210E42D1CD6012300E96764 /* ScoreList.swift */,
 				D210E4361CD602AA00E96764 /* CoreDataStackManager.swift */,
 				D210E42A1CD5F5E200E96764 /* Model.xcdatamodeld */,
+				D210E42D1CD6012300E96764 /* ScoreList.swift */,
 			);
 			name = "Core Data";
+			path = "Core Data";
 			sourceTree = "<group>";
 		};
 		D2E5583C1CCB62DF00DC40C0 = {
@@ -184,12 +188,12 @@
 			isa = PBXGroup;
 			children = (
 				D2E369231DA16C8B004ECBC2 /* Constant */,
-				D2E558761CCB672300DC40C0 /* Model */,
-				D240EFC91CCCF33E001F38BE /* View */,
 				D2E558781CCB676600DC40C0 /* Controllers */,
-				B8EA393B1F5730D000590177 /* Storyboard */,
 				B8EA39371F57302C00590177 /* Extension */,
+				D2E558761CCB672300DC40C0 /* Model */,
+				B8EA393B1F5730D000590177 /* Storyboard */,
 				D2E558791CCB678500DC40C0 /* Supporting Files */,
+				D240EFC91CCCF33E001F38BE /* View */,
 			);
 			path = "Colour Memory";
 			sourceTree = "<group>";
@@ -215,16 +219,16 @@
 		D2E558761CCB672300DC40C0 /* Model */ = {
 			isa = PBXGroup;
 			children = (
-				D2E5587A1CCB691900DC40C0 /* Card.swift */,
-				D2E5587E1CCB693A00DC40C0 /* PlayingCard.swift */,
-				D2E5587C1CCB692B00DC40C0 /* Pack.swift */,
-				D2E558801CCB694600DC40C0 /* PlayingPack.swift */,
-				D210E4371CD602AA00E96764 /* CardMatchingManager.swift */,
 				D2E369241DA16D9E004ECBC2 /* Core Data */,
+				D2E5587A1CCB691900DC40C0 /* Card.swift */,
+				D210E4371CD602AA00E96764 /* CardMatchingManager.swift */,
+				D2E5587C1CCB692B00DC40C0 /* Pack.swift */,
+				D2E5587E1CCB693A00DC40C0 /* PlayingCard.swift */,
+				D2E558801CCB694600DC40C0 /* PlayingPack.swift */,
 			);
 			name = Model;
-			path = "Colour MemoryTests";
-			sourceTree = SOURCE_ROOT;
+			path = Model;
+			sourceTree = "<group>";
 		};
 		D2E558781CCB676600DC40C0 /* Controllers */ = {
 			isa = PBXGroup;
@@ -233,16 +237,18 @@
 				D240EFC71CCCE9B1001F38BE /* HighScoreTableViewController.swift */,
 			);
 			name = Controllers;
+			path = Controllers;
 			sourceTree = "<group>";
 		};
 		D2E558791CCB678500DC40C0 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
-				D2E5584F1CCB62DF00DC40C0 /* Assets.xcassets */,
 				D2E558481CCB62DF00DC40C0 /* AppDelegate.swift */,
+				D2E5584F1CCB62DF00DC40C0 /* Assets.xcassets */,
 				D2E558541CCB62DF00DC40C0 /* Info.plist */,
 			);
 			name = "Supporting Files";
+			path = "Supporting Files";
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -255,6 +261,7 @@
 				D2E558411CCB62DF00DC40C0 /* Sources */,
 				D2E558421CCB62DF00DC40C0 /* Frameworks */,
 				D2E558431CCB62DF00DC40C0 /* Resources */,
+				B837FE381F6BF74500453F98 /* SwiftLint */,
 			);
 			buildRules = (
 			);
@@ -376,6 +383,23 @@
 		};
 /* End PBXResourcesBuildPhase section */
 
+/* Begin PBXShellScriptBuildPhase section */
+		B837FE381F6BF74500453F98 /* SwiftLint */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = SwiftLint;
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "if which swiftlint >/dev/null; then\nswiftlint\nelse\necho \"warning: SwiftLint not installed, download from https://github.com/realm/SwiftLint\"\nfi";
+		};
+/* End PBXShellScriptBuildPhase section */
+
 /* Begin PBXSourcesBuildPhase section */
 		D2E558411CCB62DF00DC40C0 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
@@ -438,6 +462,7 @@
 				D2E5584D1CCB62DF00DC40C0 /* Base */,
 			);
 			name = Main.storyboard;
+			path = .;
 			sourceTree = "<group>";
 		};
 		D2E558511CCB62DF00DC40C0 /* LaunchScreen.storyboard */ = {
@@ -446,6 +471,7 @@
 				D2E558521CCB62DF00DC40C0 /* Base */,
 			);
 			name = LaunchScreen.storyboard;
+			path = .;
 			sourceTree = "<group>";
 		};
 /* End PBXVariantGroup section */
@@ -543,8 +569,8 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
-				INFOPLIST_FILE = "Colour Memory/Info.plist";
-				IPHONEOS_DEPLOYMENT_TARGET = 9.2;
+				INFOPLIST_FILE = "Colour Memory/Supporting Files/Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "com.test.siwook.Colour-Memory";
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -559,8 +585,8 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
-				INFOPLIST_FILE = "Colour Memory/Info.plist";
-				IPHONEOS_DEPLOYMENT_TARGET = 9.2;
+				INFOPLIST_FILE = "Colour Memory/Supporting Files/Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "com.test.siwook.Colour-Memory";
 				PRODUCT_NAME = "$(TARGET_NAME)";

@@ -11,13 +11,12 @@ import Foundation
 // MARK : - Dictionary ( Subscripting support )
 
 extension Dictionary {
-  
+
   // MARK : Subscripting Dictionary By Index
-  subscript(i:Int) -> (key:Key,value:Value) {
+  subscript(index: Int) -> (key: Key, value: Value) {
     get {
-      return self[self.index(self.startIndex, offsetBy: i)]
+      return self[self.index(self.startIndex, offsetBy: index)]
     }
   }
-  
-}
 
+}
