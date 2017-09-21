@@ -35,7 +35,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		B861E9B01ED176030069CA08 /* PostListViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = PostListViewController.swift; path = SlideInMenu/PostListViewController.swift; sourceTree = "<group>"; };
+		B861E9B01ED176030069CA08 /* PostListViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = PostListViewController.swift; path = PostListViewController.swift; sourceTree = "<group>"; };
 		B861E9B21ED17AD10069CA08 /* SlideInMenu.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SlideInMenu.swift; sourceTree = "<group>"; };
 		B861E9B41ED17B2F0069CA08 /* SlideMenuCollectionViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SlideMenuCollectionViewCell.xib; sourceTree = "<group>"; };
 		B861E9B61ED17C410069CA08 /* SlideMenuCollectionViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SlideMenuCollectionViewCell.swift; sourceTree = "<group>"; };
@@ -77,9 +77,9 @@
 		B88835661EADABBA000F760E = {
 			isa = PBXGroup;
 			children = (
+				B88835701EADABBA000F760E /* Products */,
 				B88835711EADABBA000F760E /* SlideInMenu */,
 				B88835861EADABBA000F760E /* SlideInMenuTests */,
-				B88835701EADABBA000F760E /* Products */,
 			);
 			sourceTree = "<group>";
 		};
@@ -95,12 +95,13 @@
 		B88835711EADABBA000F760E /* SlideInMenu */ = {
 			isa = PBXGroup;
 			children = (
+				B89D5CB01F73B8D2005320A4 /* App */,
 				B88835A21EADD345000F760E /* Constant */,
-				B88835941EADB451000F760E /* View */,
-				B88835931EADB44D000F760E /* Model */,
 				B88835951EADB45C000F760E /* Controller */,
+				B88835931EADB44D000F760E /* Model */,
 				B88835981EADB604000F760E /* Storyboard */,
 				B88835921EADABCA000F760E /* Supporting Files */,
+				B88835941EADB451000F760E /* View */,
 			);
 			path = SlideInMenu;
 			sourceTree = "<group>";
@@ -108,9 +109,9 @@
 		B88835861EADABBA000F760E /* SlideInMenuTests */ = {
 			isa = PBXGroup;
 			children = (
+				B88835891EADABBA000F760E /* Info.plist */,
 				B88835871EADABBA000F760E /* RedditCloneTests.swift */,
 				B888359F1EADD15C000F760E /* sampleJSONInput.json */,
-				B88835891EADABBA000F760E /* Info.plist */,
 			);
 			path = SlideInMenuTests;
 			sourceTree = "<group>";
@@ -118,35 +119,35 @@
 		B88835921EADABCA000F760E /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
-				B88835A31EADD3A9000F760E /* sampleJSONInput.json */,
-				B888357E1EADABBA000F760E /* Info.plist */,
-				B88835721EADABBA000F760E /* AppDelegate.swift */,
-				B888357B1EADABBA000F760E /* LaunchScreen.storyboard */,
 				B88835791EADABBA000F760E /* Assets.xcassets */,
+				B888357E1EADABBA000F760E /* Info.plist */,
+				B888357B1EADABBA000F760E /* LaunchScreen.storyboard */,
+				B88835A31EADD3A9000F760E /* sampleJSONInput.json */,
 			);
 			name = "Supporting Files";
+			path = "Supporting Files";
 			sourceTree = "<group>";
 		};
 		B88835931EADB44D000F760E /* Model */ = {
 			isa = PBXGroup;
 			children = (
-				B88835991EADB80D000F760E /* PostInformation.swift */,
 				B861E9B81ED192B90069CA08 /* MenuInfo.swift */,
+				B88835991EADB80D000F760E /* PostInformation.swift */,
 			);
 			name = Model;
-			path = ..;
+			path = Model;
 			sourceTree = "<group>";
 		};
 		B88835941EADB451000F760E /* View */ = {
 			isa = PBXGroup;
 			children = (
+				B89D5CAE1F73AF59005320A4 /* Xibs */,
 				B88835961EADB4DF000F760E /* PostInformationTableViewCell.swift */,
 				B861E9B21ED17AD10069CA08 /* SlideInMenu.swift */,
 				B861E9B61ED17C410069CA08 /* SlideMenuCollectionViewCell.swift */,
-				B861E9B41ED17B2F0069CA08 /* SlideMenuCollectionViewCell.xib */,
 			);
 			name = View;
-			path = ..;
+			path = View;
 			sourceTree = "<group>";
 		};
 		B88835951EADB45C000F760E /* Controller */ = {
@@ -155,7 +156,7 @@
 				B861E9B01ED176030069CA08 /* PostListViewController.swift */,
 			);
 			name = Controller;
-			path = ..;
+			path = Controller;
 			sourceTree = "<group>";
 		};
 		B88835981EADB604000F760E /* Storyboard */ = {
@@ -164,6 +165,7 @@
 				B88835761EADABBA000F760E /* Main.storyboard */,
 			);
 			name = Storyboard;
+			path = Storyboard;
 			sourceTree = "<group>";
 		};
 		B88835A21EADD345000F760E /* Constant */ = {
@@ -172,6 +174,25 @@
 				B888359B1EADC09A000F760E /* Constants.swift */,
 			);
 			name = Constant;
+			path = Constant;
+			sourceTree = "<group>";
+		};
+		B89D5CAE1F73AF59005320A4 /* Xibs */ = {
+			isa = PBXGroup;
+			children = (
+				B861E9B41ED17B2F0069CA08 /* SlideMenuCollectionViewCell.xib */,
+			);
+			name = Xibs;
+			path = Xibs;
+			sourceTree = "<group>";
+		};
+		B89D5CB01F73B8D2005320A4 /* App */ = {
+			isa = PBXGroup;
+			children = (
+				B88835721EADABBA000F760E /* AppDelegate.swift */,
+			);
+			name = App;
+			path = App;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -184,6 +205,7 @@
 				B888356B1EADABBA000F760E /* Sources */,
 				B888356C1EADABBA000F760E /* Frameworks */,
 				B888356D1EADABBA000F760E /* Resources */,
+				B89D5CAF1F73AF93005320A4 /* SwiftLint */,
 			);
 			buildRules = (
 			);
@@ -277,6 +299,23 @@
 		};
 /* End PBXResourcesBuildPhase section */
 
+/* Begin PBXShellScriptBuildPhase section */
+		B89D5CAF1F73AF93005320A4 /* SwiftLint */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = SwiftLint;
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "if which swiftlint >/dev/null; then\nswiftlint\nelse\necho \"warning: SwiftLint not installed, download from https://github.com/realm/SwiftLint\"\nfi";
+		};
+/* End PBXShellScriptBuildPhase section */
+
 /* Begin PBXSourcesBuildPhase section */
 		B888356B1EADABBA000F760E /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
@@ -318,6 +357,7 @@
 				B88835771EADABBA000F760E /* Base */,
 			);
 			name = Main.storyboard;
+			path = .;
 			sourceTree = "<group>";
 		};
 		B888357B1EADABBA000F760E /* LaunchScreen.storyboard */ = {
@@ -326,6 +366,7 @@
 				B888357C1EADABBA000F760E /* Base */,
 			);
 			name = LaunchScreen.storyboard;
+			path = .;
 			sourceTree = "<group>";
 		};
 /* End PBXVariantGroup section */
@@ -429,7 +470,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				DEVELOPMENT_TEAM = MFYH4C9VNG;
-				INFOPLIST_FILE = SlideInMenu/Info.plist;
+				INFOPLIST_FILE = "SlideInMenu/Supporting Files/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.woogii.SlideInMenu;
@@ -443,7 +484,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				DEVELOPMENT_TEAM = MFYH4C9VNG;
-				INFOPLIST_FILE = SlideInMenu/Info.plist;
+				INFOPLIST_FILE = "SlideInMenu/Supporting Files/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.woogii.SlideInMenu;
