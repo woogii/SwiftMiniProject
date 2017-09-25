@@ -12,14 +12,11 @@ import LGSideMenuController
 // MARK : - MainViewController: LGSideMenuController {
 
 class MainViewController: LGSideMenuController {
-  
+
   // MARK : - View Life Cycle 
-  
+
   override func viewDidLoad() {
     super.viewDidLoad()
   }
-  
-  
-  
-  
+
 }

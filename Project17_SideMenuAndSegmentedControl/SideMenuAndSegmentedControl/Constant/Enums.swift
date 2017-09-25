@@ -8,11 +8,10 @@
 
 import Foundation
 
-
 // MARK : - MenuType (enum)
 
-enum MenuType : Int {
-  
+enum MenuType: Int {
+
   case Search = 0
   case Sync
   case AllItems
@@ -24,4 +23,3 @@ enum MenuType : Int {
   case Help
   case Settings
 }
-

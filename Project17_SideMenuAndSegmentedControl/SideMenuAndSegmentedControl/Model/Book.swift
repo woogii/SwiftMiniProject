@@ -13,18 +13,18 @@ import Foundation
 struct Book {
 
   // MARK : - Property
-  
-  var title:String
-  var author:String
-  var isbn:String
-  var bookCoverImageUrl:String?
-  var lastPageRead:Int
-  var totalPage:Int
-  var isDownloaded:Bool
-  
+
+  var title: String
+  var author: String
+  var isbn: String
+  var bookCoverImageUrl: String?
+  var lastPageRead: Int
+  var totalPage: Int
+  var isDownloaded: Bool
+
   // MARK : - Initialization 
-  
-  init?(dictionary:[String:Any]) {
+
+  init?(dictionary: [String:Any]) {
     print(dictionary)
     title  = dictionary[Constants.JSONKeys.BookInfo.Title] as? String ?? ""
     author = dictionary[Constants.JSONKeys.BookInfo.Author] as? String ?? ""
@@ -33,13 +33,13 @@ struct Book {
     totalPage    = dictionary[Constants.JSONKeys.BookInfo.TotalPage] as? Int ?? 0
     isDownloaded = (dictionary[Constants.JSONKeys.BookInfo.IsDownloaded] as? String ?? "").toBool()
     bookCoverImageUrl = nil
-    
+
   }
 
 }
 
 extension String {
-  
+
   func toBool() -> Bool {
     switch self {
     case "True", "true", "yes", "1":
