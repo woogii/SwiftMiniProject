@@ -34,7 +34,9 @@ class DiscoveredMovieCollectionViewCell: UICollectionViewCell {
   }
 
   private func addOverlayView() {
-    let overlayView: UIView = UIView(frame: CGRect(x: 0, y: 0, width: posterImageView.frame.size.width, height: posterImageView.frame.size.height))
+    let overlayView: UIView = UIView(frame: CGRect(x: 0, y: 0,
+                                                   width: posterImageView.frame.size.width,
+                                                   height: posterImageView.frame.size.height))
     overlayView.backgroundColor = UIColor(red: 0/255, green: 0/255, blue: 0/255, alpha: 0.3)
     posterImageView.addSubview(overlayView)
   }
@@ -69,7 +71,9 @@ class DiscoveredMovieCollectionViewCell: UICollectionViewCell {
 
     } else {
 
-      posterImageView.sd_setImage(with: imageUrl, placeholderImage: UIImage(), options: SDWebImageOptions() ) { (image, _, _, _) in
+      posterImageView.sd_setImage(with: imageUrl,
+                                  placeholderImage: UIImage(),
+                                  options: SDWebImageOptions() ) { (image, _, _, _) in
 
         if image != nil {
 

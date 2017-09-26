@@ -55,7 +55,7 @@
 		B8FC0E361F10F53200A8AF5B /* SegmentedControlTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = SegmentedControlTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		B8FC0E3A1F10F53200A8AF5B /* SegmentedControlTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SegmentedControlTests.swift; sourceTree = "<group>"; };
 		B8FC0E3C1F10F53200A8AF5B /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		B8FC0E451F10F54E00A8AF5B /* Secret.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Secret.swift; path = Secret.swift; sourceTree = "<group>"; };
+		B8FC0E451F10F54E00A8AF5B /* Secret.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Secret.swift; sourceTree = "<group>"; };
 		B8FC0E891F136F5000A8AF5B /* RestClient.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RestClient.swift; sourceTree = "<group>"; };
 		B8FC0E8B1F13746900A8AF5B /* Constant.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Constant.swift; sourceTree = "<group>"; };
 		B8FC0E8D1F13781900A8AF5B /* RestClientConvenience.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RestClientConvenience.swift; sourceTree = "<group>"; };
@@ -97,7 +97,6 @@
 				B82284621F2CD77D00A7566B /* InTheatersMovieCollectionViewCell.swift */,
 				B82284901F30C07100A7566B /* UpcomingMovieCollectionViewCell.swift */,
 			);
-			name = View;
 			path = View;
 			sourceTree = "<group>";
 		};
@@ -107,7 +106,6 @@
 				B82284921F30EB4800A7566B /* Genre.swift */,
 				B8F5BC431F1F597400CD2133 /* Movie.swift */,
 			);
-			name = Model;
 			path = Model;
 			sourceTree = "<group>";
 		};
@@ -116,7 +114,6 @@
 			children = (
 				B8FC0E271F10F53200A8AF5B /* MainViewController.swift */,
 			);
-			name = Controller;
 			path = Controller;
 			sourceTree = "<group>";
 		};
@@ -128,7 +125,6 @@
 				B8FC0E311F10F53200A8AF5B /* Info.plist */,
 				B8FC0E2E1F10F53200A8AF5B /* LaunchScreen.storyboard */,
 			);
-			name = "Supporting Files";
 			path = "Supporting Files";
 			sourceTree = "<group>";
 		};
@@ -138,7 +134,6 @@
 				B8FC0E891F136F5000A8AF5B /* RestClient.swift */,
 				B8FC0E8D1F13781900A8AF5B /* RestClientConvenience.swift */,
 			);
-			name = Network;
 			path = Network;
 			sourceTree = "<group>";
 		};
@@ -147,7 +142,6 @@
 			children = (
 				B8FC0E8B1F13746900A8AF5B /* Constant.swift */,
 			);
-			name = Constant;
 			path = Constant;
 			sourceTree = "<group>";
 		};
@@ -156,18 +150,17 @@
 			children = (
 				B8FC0E291F10F53200A8AF5B /* Main.storyboard */,
 			);
-			name = Storyboard;
 			path = Storyboard;
 			sourceTree = "<group>";
 		};
 		B8FC0E191F10F53200A8AF5B = {
 			isa = PBXGroup;
 			children = (
-				9BCF7DF3F5522D736D5F54EF /* Frameworks */,
-				BA9A85809C9738A35A8BE3A4 /* Pods */,
-				B8FC0E231F10F53200A8AF5B /* Products */,
 				B8FC0E241F10F53200A8AF5B /* SegmentedControl */,
 				B8FC0E391F10F53200A8AF5B /* SegmentedControlTests */,
+				BA9A85809C9738A35A8BE3A4 /* Pods */,
+				9BCF7DF3F5522D736D5F54EF /* Frameworks */,
+				B8FC0E231F10F53200A8AF5B /* Products */,
 			);
 			sourceTree = "<group>";
 		};

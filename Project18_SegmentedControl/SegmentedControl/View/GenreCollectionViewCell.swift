@@ -31,7 +31,9 @@ class GenreCollectionViewCell: UICollectionViewCell {
   }
 
   private func addOverlayView() {
-    let overlayView: UIView = UIView(frame: CGRect(x: 0, y: 0, width: representativeImageView.frame.size.width, height: representativeImageView.frame.size.height))
+    let overlayView: UIView = UIView(frame: CGRect(x: 0, y: 0,
+                                                   width: representativeImageView.frame.size.width,
+                                                   height: representativeImageView.frame.size.height))
     overlayView.backgroundColor = UIColor(red: 0/255, green: 0/255, blue: 0/255, alpha: 0.4)
     representativeImageView.addSubview(overlayView)
   }
@@ -61,11 +63,15 @@ class GenreCollectionViewCell: UICollectionViewCell {
 
     } else {
 
-      representativeImageView.sd_setImage(with: imageUrl, placeholderImage: UIImage(), options: SDWebImageOptions() ) { (image, _, _, _) in
+      representativeImageView.sd_setImage(with: imageUrl,
+                                          placeholderImage: UIImage(),
+                                          options: SDWebImageOptions() ) { (image, _, _, _) in
 
         if image != nil {
 
-          UIView.transition(with: self.representativeImageView, duration: 0.5, options: .transitionCrossDissolve, animations: {
+          UIView.transition(with: self.representativeImageView,
+                            duration: 0.5,
+                            options: .transitionCrossDissolve, animations: {
             DispatchQueue.main.async {
               self.representativeImageView.image = image
             }

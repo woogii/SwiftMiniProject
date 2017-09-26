@@ -76,7 +76,9 @@ struct Movie {
 
   static func movieListPerGenre(page: Int, genreId: Int, completionHandler:@escaping MovieQueryResult) {
 
-    RestClient.sharedInstance.requestGenreMovieList(page: page, genreId: genreId, completionHandler: { (results, error) in
+    RestClient.sharedInstance.requestGenreMovieList(page: page,
+                                                    genreId: genreId,
+                                                    completionHandler: { (results, error) in
 
       guard error == nil else {
         completionHandler(nil, error)
@@ -118,7 +120,8 @@ struct Movie {
 
   static func parseMovieListFromJSON(results: [String:Any]?) -> [Movie]? {
 
-    guard let wrappedResult = results, let dictArray = wrappedResult[Constants.JSONParsingKeys.Results] as? [[String:Any]] else {
+    guard let wrappedResult = results,
+            let dictArray = wrappedResult[Constants.JSONParsingKeys.Results] as? [[String:Any]] else {
       return nil
     }
 

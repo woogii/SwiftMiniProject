@@ -83,12 +83,12 @@
 		B88549011E9E6FBE005FEF2E = {
 			isa = PBXGroup;
 			children = (
-				B88549201E9E733F005FEF2E /* Secret.swift */,
 				B885490C1E9E6FBE005FEF2E /* Project08_PullToRefresh */,
-				B8DBAF4A1EB481C90099AEEB /* Project08_PullToRefreshTests */,
+				D2AB48E0F92B0CCD8977EE99 /* Frameworks */,
 				B885490B1E9E6FBE005FEF2E /* Products */,
 				12784FD9C3DBB93380832487 /* Pods */,
-				D2AB48E0F92B0CCD8977EE99 /* Frameworks */,
+				B8DBAF4A1EB481C90099AEEB /* Project08_PullToRefreshTests */,
+				B88549201E9E733F005FEF2E /* Secret.swift */,
 			);
 			sourceTree = "<group>";
 		};
@@ -105,12 +105,12 @@
 			isa = PBXGroup;
 			children = (
 				B8EA39311F55941400590177 /* Constants */,
-				B8EA39301F55940F00590177 /* Helper */,
-				B8EA392F1F55940B00590177 /* Storyboard */,
-				B8DBAF431EB47F0D0099AEEB /* Model */,
 				B8DBAF441EB47F190099AEEB /* Controller */,
-				B8DBAF421EB47F080099AEEB /* View */,
+				B8EA39301F55940F00590177 /* Helper */,
+				B8DBAF431EB47F0D0099AEEB /* Model */,
+				B8EA392F1F55940B00590177 /* Storyboard */,
 				B885491F1E9E6FCA005FEF2E /* Supporting Files */,
+				B8DBAF421EB47F080099AEEB /* View */,
 			);
 			path = Project08_PullToRefresh;
 			sourceTree = "<group>";
@@ -120,10 +120,10 @@
 			children = (
 				B885490D1E9E6FBE005FEF2E /* AppDelegate.swift */,
 				B88549141E9E6FBE005FEF2E /* Assets.xcassets */,
-				B88549161E9E6FBE005FEF2E /* LaunchScreen.storyboard */,
 				B88549191E9E6FBE005FEF2E /* Info.plist */,
+				B88549161E9E6FBE005FEF2E /* LaunchScreen.storyboard */,
 			);
-			name = "Supporting Files";
+			path = "Supporting Files";
 			sourceTree = "<group>";
 		};
 		B8DBAF421EB47F080099AEEB /* View */ = {
@@ -131,7 +131,7 @@
 			children = (
 				B8DBAF3C1EB34E0E0099AEEB /* CustomCollectionViewCell.swift */,
 			);
-			name = View;
+			path = View;
 			sourceTree = "<group>";
 		};
 		B8DBAF431EB47F0D0099AEEB /* Model */ = {
@@ -139,7 +139,7 @@
 			children = (
 				B8DBAF401EB47EFC0099AEEB /* PhotoInfo.swift */,
 			);
-			name = Model;
+			path = Model;
 			sourceTree = "<group>";
 		};
 		B8DBAF441EB47F190099AEEB /* Controller */ = {
@@ -147,14 +147,14 @@
 			children = (
 				B885490F1E9E6FBE005FEF2E /* FlickrPictureViewController.swift */,
 			);
-			name = Controller;
+			path = Controller;
 			sourceTree = "<group>";
 		};
 		B8DBAF4A1EB481C90099AEEB /* Project08_PullToRefreshTests */ = {
 			isa = PBXGroup;
 			children = (
-				B8DBAF4B1EB481C90099AEEB /* Project08_PullToRefreshTests.swift */,
 				B8DBAF4D1EB481C90099AEEB /* Info.plist */,
+				B8DBAF4B1EB481C90099AEEB /* Project08_PullToRefreshTests.swift */,
 			);
 			path = Project08_PullToRefreshTests;
 			sourceTree = "<group>";
@@ -164,7 +164,7 @@
 			children = (
 				B88549111E9E6FBE005FEF2E /* Main.storyboard */,
 			);
-			name = Storyboard;
+			path = Storyboard;
 			sourceTree = "<group>";
 		};
 		B8EA39301F55940F00590177 /* Helper */ = {
@@ -172,7 +172,7 @@
 			children = (
 				B8DBAF531EB483FE0099AEEB /* Helper.swift */,
 			);
-			name = Helper;
+			path = Helper;
 			sourceTree = "<group>";
 		};
 		B8EA39311F55941400590177 /* Constants */ = {
@@ -180,7 +180,7 @@
 			children = (
 				B8DBAF3E1EB366B00099AEEB /* Constants.swift */,
 			);
-			name = Constants;
+			path = Constants;
 			sourceTree = "<group>";
 		};
 		D2AB48E0F92B0CCD8977EE99 /* Frameworks */ = {
@@ -204,6 +204,7 @@
 				B88549081E9E6FBE005FEF2E /* Resources */,
 				C517CE019311710BB29A011F /* [CP] Embed Pods Frameworks */,
 				114B2F8440665DD5D4406E7C /* [CP] Copy Pods Resources */,
+				B838D7F91F7AB42100CA0920 /* SwiftLint */,
 			);
 			buildRules = (
 			);
@@ -325,6 +326,20 @@
 			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
 			showEnvVarsInLog = 0;
 		};
+		B838D7F91F7AB42100CA0920 /* SwiftLint */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = SwiftLint;
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "if which swiftlint >/dev/null; then\nswiftlint\nelse\necho \"warning: SwiftLint not installed, download from https://github.com/realm/SwiftLint\"\nfi";
+		};
 		C517CE019311710BB29A011F /* [CP] Embed Pods Frameworks */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
@@ -382,6 +397,7 @@
 				B88549121E9E6FBE005FEF2E /* Base */,
 			);
 			name = Main.storyboard;
+			path = .;
 			sourceTree = "<group>";
 		};
 		B88549161E9E6FBE005FEF2E /* LaunchScreen.storyboard */ = {
@@ -390,6 +406,7 @@
 				B88549171E9E6FBE005FEF2E /* Base */,
 			);
 			name = LaunchScreen.storyboard;
+			path = .;
 			sourceTree = "<group>";
 		};
 /* End PBXVariantGroup section */
@@ -494,7 +511,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				DEVELOPMENT_TEAM = MFYH4C9VNG;
-				INFOPLIST_FILE = Project08_PullToRefresh/Info.plist;
+				INFOPLIST_FILE = "Project08_PullToRefresh/Supporting Files/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "com.woogii.Project08-PullToRefresh";
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -508,7 +525,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				DEVELOPMENT_TEAM = MFYH4C9VNG;
-				INFOPLIST_FILE = Project08_PullToRefresh/Info.plist;
+				INFOPLIST_FILE = "Project08_PullToRefresh/Supporting Files/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "com.woogii.Project08-PullToRefresh";
 				PRODUCT_NAME = "$(TARGET_NAME)";

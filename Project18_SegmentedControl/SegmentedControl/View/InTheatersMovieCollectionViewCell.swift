@@ -42,7 +42,9 @@ class InTheatersMovieCollectionViewCell: UICollectionViewCell {
 
     } else {
 
-      posterImageView.sd_setImage(with: imageUrl, placeholderImage: UIImage(), options: SDWebImageOptions() ) { (image, _, _, _) in
+      posterImageView.sd_setImage(with: imageUrl,
+                                  placeholderImage: UIImage(),
+                                  options: SDWebImageOptions() ) { (image, _, _, _) in
 
         if image != nil {
 

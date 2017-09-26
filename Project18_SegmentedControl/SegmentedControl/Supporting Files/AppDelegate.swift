@@ -14,7 +14,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
   var window: UIWindow?
   var genreList = [Genre]()
 
-  func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
+  func application(_ application: UIApplication,
+                   didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
 
     fetchGenreInformationAndPosterImage()
         return true
@@ -56,7 +57,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
       }
 
       workGroup.notify(queue: DispatchQueue.main) {
-        NotificationCenter.default.post(name: NSNotification.Name(rawValue: Constants.NotificationName.Genre), object: nil)
+        NotificationCenter.default.post(name:
+          NSNotification.Name(rawValue: Constants.NotificationName.Genre), object: nil)
       }
     }
   }

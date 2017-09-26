@@ -22,7 +22,8 @@ class RestClient {
 
   // MARK : - HTTP Get Request  
 
-  func taskForGetMethod(_ method: String, parameters: [String:Any]?=nil, completionHandler:@escaping CompletionHanlder) {
+  func taskForGetMethod(_ method: String, parameters: [String:Any]?=nil,
+                        completionHandler:@escaping CompletionHanlder) {
 
     let requestUrl = createRequestUrl(method: method, parameters: parameters)
 
