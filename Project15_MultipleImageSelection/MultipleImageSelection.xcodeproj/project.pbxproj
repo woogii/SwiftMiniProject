@@ -8,7 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		B816A3141EE29D9E00B2C97A /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B816A3131EE29D9E00B2C97A /* AppDelegate.swift */; };
-		B816A3161EE29D9E00B2C97A /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B816A3151EE29D9E00B2C97A /* ViewController.swift */; };
+		B816A3161EE29D9E00B2C97A /* ImageSelectViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B816A3151EE29D9E00B2C97A /* ImageSelectViewController.swift */; };
 		B816A3191EE29D9E00B2C97A /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B816A3171EE29D9E00B2C97A /* Main.storyboard */; };
 		B816A31B1EE29D9E00B2C97A /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B816A31A1EE29D9E00B2C97A /* Assets.xcassets */; };
 		B816A31E1EE29D9E00B2C97A /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B816A31C1EE29D9E00B2C97A /* LaunchScreen.storyboard */; };
@@ -18,6 +18,8 @@
 		B816A33A1EE41D5E00B2C97A /* ImageEditTypeLauncher.swift in Sources */ = {isa = PBXBuildFile; fileRef = B816A3391EE41D5E00B2C97A /* ImageEditTypeLauncher.swift */; };
 		B816A33C1EE4F2CB00B2C97A /* ImageEditTypeCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B816A33B1EE4F2CB00B2C97A /* ImageEditTypeCell.swift */; };
 		B816A33E1EE5517F00B2C97A /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = B816A33D1EE5517F00B2C97A /* Constants.swift */; };
+		B838D83A1F7BB5A200CA0920 /* UIView+VisualFormat.swift in Sources */ = {isa = PBXBuildFile; fileRef = B838D8391F7BB5A200CA0920 /* UIView+VisualFormat.swift */; };
+		B838D83C1F7BB5C300CA0920 /* UIImage+Resize.swift in Sources */ = {isa = PBXBuildFile; fileRef = B838D83B1F7BB5C300CA0920 /* UIImage+Resize.swift */; };
 		F5D76DEDC7D38083F6DB3325 /* Pods_MultipleImageSelection.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1ADA04524562B9CAEC57BA72 /* Pods_MultipleImageSelection.framework */; };
 /* End PBXBuildFile section */
 
@@ -36,7 +38,7 @@
 		8B0406E884F00601BA650598 /* Pods-MultipleImageSelection.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MultipleImageSelection.debug.xcconfig"; path = "Pods/Target Support Files/Pods-MultipleImageSelection/Pods-MultipleImageSelection.debug.xcconfig"; sourceTree = "<group>"; };
 		B816A3101EE29D9E00B2C97A /* MultipleImageSelection.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MultipleImageSelection.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		B816A3131EE29D9E00B2C97A /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		B816A3151EE29D9E00B2C97A /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		B816A3151EE29D9E00B2C97A /* ImageSelectViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageSelectViewController.swift; sourceTree = "<group>"; };
 		B816A3181EE29D9E00B2C97A /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		B816A31A1EE29D9E00B2C97A /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		B816A31D1EE29D9E00B2C97A /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -49,6 +51,8 @@
 		B816A3391EE41D5E00B2C97A /* ImageEditTypeLauncher.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ImageEditTypeLauncher.swift; sourceTree = "<group>"; };
 		B816A33B1EE4F2CB00B2C97A /* ImageEditTypeCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ImageEditTypeCell.swift; sourceTree = "<group>"; };
 		B816A33D1EE5517F00B2C97A /* Constants.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
+		B838D8391F7BB5A200CA0920 /* UIView+VisualFormat.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIView+VisualFormat.swift"; sourceTree = "<group>"; };
+		B838D83B1F7BB5C300CA0920 /* UIImage+Resize.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIImage+Resize.swift"; sourceTree = "<group>"; };
 		C0AFCD0E27546C81C30A3705 /* Pods-MultipleImageSelection.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MultipleImageSelection.release.xcconfig"; path = "Pods/Target Support Files/Pods-MultipleImageSelection/Pods-MultipleImageSelection.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -92,10 +96,10 @@
 			isa = PBXGroup;
 			children = (
 				B816A3121EE29D9E00B2C97A /* MultipleImageSelection */,
-				B816A3271EE29D9E00B2C97A /* MultipleImageSelectionTests */,
-				B816A3111EE29D9E00B2C97A /* Products */,
-				199C4C573A9D59B4F11221BA /* Pods */,
 				325176D28C9BA34890020D7C /* Frameworks */,
+				B816A3271EE29D9E00B2C97A /* MultipleImageSelectionTests */,
+				199C4C573A9D59B4F11221BA /* Pods */,
+				B816A3111EE29D9E00B2C97A /* Products */,
 			);
 			sourceTree = "<group>";
 		};
@@ -111,17 +115,13 @@
 		B816A3121EE29D9E00B2C97A /* MultipleImageSelection */ = {
 			isa = PBXGroup;
 			children = (
-				B816A3131EE29D9E00B2C97A /* AppDelegate.swift */,
-				B816A3151EE29D9E00B2C97A /* ViewController.swift */,
-				B816A33D1EE5517F00B2C97A /* Constants.swift */,
-				B816A3331EE2AEB500B2C97A /* ProfileInfoCell.swift */,
-				B816A3351EE3086600B2C97A /* ProfileImageCollectionViewCell.swift */,
-				B816A3391EE41D5E00B2C97A /* ImageEditTypeLauncher.swift */,
-				B816A33B1EE4F2CB00B2C97A /* ImageEditTypeCell.swift */,
-				B816A3171EE29D9E00B2C97A /* Main.storyboard */,
-				B816A31A1EE29D9E00B2C97A /* Assets.xcassets */,
-				B816A31C1EE29D9E00B2C97A /* LaunchScreen.storyboard */,
-				B816A31F1EE29D9E00B2C97A /* Info.plist */,
+				B838D8321F7BA83900CA0920 /* View */,
+				B838D8331F7BA83E00CA0920 /* Controller */,
+				B838D8381F7BB56300CA0920 /* Extension */,
+				B838D8341F7BA84200CA0920 /* App */,
+				B838D8371F7BA8AE00CA0920 /* Constant */,
+				B838D8301F7BA82F00CA0920 /* Storyboard */,
+				B838D8351F7BA86E00CA0920 /* Supporting Files */,
 			);
 			path = MultipleImageSelection;
 			sourceTree = "<group>";
@@ -129,10 +129,72 @@
 		B816A3271EE29D9E00B2C97A /* MultipleImageSelectionTests */ = {
 			isa = PBXGroup;
 			children = (
-				B816A3281EE29D9E00B2C97A /* MultipleImageSelectionTests.swift */,
 				B816A32A1EE29D9E00B2C97A /* Info.plist */,
+				B816A3281EE29D9E00B2C97A /* MultipleImageSelectionTests.swift */,
 			);
 			path = MultipleImageSelectionTests;
+			sourceTree = "<group>";
+		};
+		B838D8301F7BA82F00CA0920 /* Storyboard */ = {
+			isa = PBXGroup;
+			children = (
+				B816A31C1EE29D9E00B2C97A /* LaunchScreen.storyboard */,
+				B816A3171EE29D9E00B2C97A /* Main.storyboard */,
+			);
+			path = Storyboard;
+			sourceTree = "<group>";
+		};
+		B838D8321F7BA83900CA0920 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				B816A33B1EE4F2CB00B2C97A /* ImageEditTypeCell.swift */,
+				B816A3391EE41D5E00B2C97A /* ImageEditTypeLauncher.swift */,
+				B816A3351EE3086600B2C97A /* ProfileImageCollectionViewCell.swift */,
+				B816A3331EE2AEB500B2C97A /* ProfileInfoCell.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		B838D8331F7BA83E00CA0920 /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				B816A3151EE29D9E00B2C97A /* ImageSelectViewController.swift */,
+			);
+			path = Controller;
+			sourceTree = "<group>";
+		};
+		B838D8341F7BA84200CA0920 /* App */ = {
+			isa = PBXGroup;
+			children = (
+				B816A3131EE29D9E00B2C97A /* AppDelegate.swift */,
+			);
+			path = App;
+			sourceTree = "<group>";
+		};
+		B838D8351F7BA86E00CA0920 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				B816A31A1EE29D9E00B2C97A /* Assets.xcassets */,
+				B816A31F1EE29D9E00B2C97A /* Info.plist */,
+			);
+			path = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		B838D8371F7BA8AE00CA0920 /* Constant */ = {
+			isa = PBXGroup;
+			children = (
+				B816A33D1EE5517F00B2C97A /* Constants.swift */,
+			);
+			path = Constant;
+			sourceTree = "<group>";
+		};
+		B838D8381F7BB56300CA0920 /* Extension */ = {
+			isa = PBXGroup;
+			children = (
+				B838D83B1F7BB5C300CA0920 /* UIImage+Resize.swift */,
+				B838D8391F7BB5A200CA0920 /* UIView+VisualFormat.swift */,
+			);
+			path = Extension;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -148,6 +210,7 @@
 				B816A30E1EE29D9E00B2C97A /* Resources */,
 				5C0A0DACA2661EA2D33F6016 /* [CP] Embed Pods Frameworks */,
 				EFC3F9F9E645ED8E3F590173 /* [CP] Copy Pods Resources */,
+				B838D82E1F7BA7A400CA0920 /* SwiftLint */,
 			);
 			buildRules = (
 			);
@@ -269,6 +332,20 @@
 			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
 			showEnvVarsInLog = 0;
 		};
+		B838D82E1F7BA7A400CA0920 /* SwiftLint */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = SwiftLint;
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "if which swiftlint >/dev/null; then\nswiftlint\nelse\necho \"warning: SwiftLint not installed, download from https://github.com/realm/SwiftLint\"\nfi\n";
+		};
 		EFC3F9F9E645ED8E3F590173 /* [CP] Copy Pods Resources */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
@@ -291,11 +368,13 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				B816A3161EE29D9E00B2C97A /* ViewController.swift in Sources */,
+				B816A3161EE29D9E00B2C97A /* ImageSelectViewController.swift in Sources */,
 				B816A3141EE29D9E00B2C97A /* AppDelegate.swift in Sources */,
 				B816A3361EE3086600B2C97A /* ProfileImageCollectionViewCell.swift in Sources */,
 				B816A33A1EE41D5E00B2C97A /* ImageEditTypeLauncher.swift in Sources */,
 				B816A33E1EE5517F00B2C97A /* Constants.swift in Sources */,
+				B838D83C1F7BB5C300CA0920 /* UIImage+Resize.swift in Sources */,
+				B838D83A1F7BB5A200CA0920 /* UIView+VisualFormat.swift in Sources */,
 				B816A3341EE2AEB500B2C97A /* ProfileInfoCell.swift in Sources */,
 				B816A33C1EE4F2CB00B2C97A /* ImageEditTypeCell.swift in Sources */,
 			);
@@ -326,6 +405,7 @@
 				B816A3181EE29D9E00B2C97A /* Base */,
 			);
 			name = Main.storyboard;
+			path = .;
 			sourceTree = "<group>";
 		};
 		B816A31C1EE29D9E00B2C97A /* LaunchScreen.storyboard */ = {
@@ -334,6 +414,7 @@
 				B816A31D1EE29D9E00B2C97A /* Base */,
 			);
 			name = LaunchScreen.storyboard;
+			path = .;
 			sourceTree = "<group>";
 		};
 /* End PBXVariantGroup section */
@@ -438,7 +519,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				DEVELOPMENT_TEAM = MFYH4C9VNG;
-				INFOPLIST_FILE = MultipleImageSelection/Info.plist;
+				INFOPLIST_FILE = "MultipleImageSelection/Supporting Files/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.woogii.MultipleImageSelection;
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -452,7 +533,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				DEVELOPMENT_TEAM = MFYH4C9VNG;
-				INFOPLIST_FILE = MultipleImageSelection/Info.plist;
+				INFOPLIST_FILE = "MultipleImageSelection/Supporting Files/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.woogii.MultipleImageSelection;
 				PRODUCT_NAME = "$(TARGET_NAME)";

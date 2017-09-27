@@ -7,9 +7,8 @@
 //
 
 import UIKit
-
+// MARK : - ProfileImageCollectionViewCell: UICollectionViewCell
 class ProfileImageCollectionViewCell: UICollectionViewCell {
-    
+  // MARK : - Property
   @IBOutlet weak var profileImageView: UIImageView!
-  
 }

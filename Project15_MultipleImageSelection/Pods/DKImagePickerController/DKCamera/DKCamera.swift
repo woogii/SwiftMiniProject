@@ -176,7 +176,7 @@ open class DKCamera: UIViewController, AVCaptureMetadataOutputObjectsDelegate {
     open override func viewDidDisappear(_ animated: Bool) {
         super.viewDidDisappear(animated)
         
-        self.stopSession()
+        self.updateSession(isEnable: false)
         self.motionManager.stopAccelerometerUpdates()
     }
     
@@ -685,13 +685,13 @@ public extension UIDeviceOrientation {
         case .portrait:
             return 0
         case .portraitUpsideDown:
-            return CGFloat(M_PI)
+            return CGFloat.pi
         case .landscapeRight:
-            return CGFloat(-M_PI_2)
+            return -CGFloat.pi / 2.0
         case .landscapeLeft:
-            return CGFloat(M_PI_2)
+            return CGFloat.pi / 2.0
         default:
-            return 0
+            return 0.0
         }
     }
     

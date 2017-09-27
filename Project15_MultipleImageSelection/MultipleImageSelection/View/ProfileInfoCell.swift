@@ -7,10 +7,9 @@
 //
 
 import UIKit
-
+// MARK : - ProfileInfoCell: UITableViewCell
 class ProfileInfoCell: UITableViewCell {
-
+  // MARK : - Property
   @IBOutlet weak var titleLabel: UILabel!
   @IBOutlet weak var descriptionLabel: UILabel!
-  
 }
