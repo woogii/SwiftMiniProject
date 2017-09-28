@@ -106,6 +106,7 @@
 				B874A3D01F598F7800B44587 /* Date+TimeAgo.swift */,
 			);
 			name = Extension;
+			path = Extension;
 			sourceTree = "<group>";
 		};
 		B8CAF3C81EA0F054003D8A64 = {
@@ -131,15 +132,15 @@
 		B8CAF3D31EA0F054003D8A64 /* PinterestStyleList */ = {
 			isa = PBXGroup;
 			children = (
-				B874A3CF1F598F5D00B44587 /* Extension */,
-				B8F582FE1EA70A0200D8F669 /* Constant */,
-				B8CAF4081EA1D238003D8A64 /* NetworkService */,
 				B8F582FB1EA644C200D8F669 /* Cache */,
+				B8F582FE1EA70A0200D8F669 /* Constant */,
 				B8CAF4051EA0F10D003D8A64 /* Controller */,
-				B8CAF4041EA0F0FE003D8A64 /* View */,
+				B874A3CF1F598F5D00B44587 /* Extension */,
 				B8CAF4031EA0F0F3003D8A64 /* Model */,
+				B8CAF4081EA1D238003D8A64 /* NetworkService */,
 				B8F583311EA77D9A00D8F669 /* Storyboard */,
 				B8CAF4021EA0F0D6003D8A64 /* Supporting Files */,
+				B8CAF4041EA0F0FE003D8A64 /* View */,
 			);
 			path = PinterestStyleList;
 			sourceTree = "<group>";
@@ -147,9 +148,9 @@
 		B8CAF3E81EA0F054003D8A64 /* PinterestStyleList applicationTests */ = {
 			isa = PBXGroup;
 			children = (
+				B8CAF3EB1EA0F055003D8A64 /* Info.plist */,
 				B8CAF3E91EA0F055003D8A64 /* PinterestStyleList_applicationTests.swift */,
 				B8F583321EA78A8100D8F669 /* sampleData.json */,
-				B8CAF3EB1EA0F055003D8A64 /* Info.plist */,
 			);
 			path = "PinterestStyleList applicationTests";
 			sourceTree = "<group>";
@@ -157,8 +158,8 @@
 		B8CAF3F31EA0F055003D8A64 /* PinterestStyleList applicationUITests */ = {
 			isa = PBXGroup;
 			children = (
-				B8CAF3F41EA0F055003D8A64 /* PinterestStyleList_applicationUITests.swift */,
 				B8CAF3F61EA0F055003D8A64 /* Info.plist */,
+				B8CAF3F41EA0F055003D8A64 /* PinterestStyleList_applicationUITests.swift */,
 			);
 			path = "PinterestStyleList applicationUITests";
 			sourceTree = "<group>";
@@ -173,6 +174,7 @@
 				B8CAF4111EA21729003D8A64 /* sampleData.json */,
 			);
 			name = "Supporting Files";
+			path = "Supporting Files";
 			sourceTree = "<group>";
 		};
 		B8CAF4031EA0F0F3003D8A64 /* Model */ = {
@@ -181,16 +183,18 @@
 				B8CAF4131EA2177F003D8A64 /* PostInfo.swift */,
 			);
 			name = Model;
+			path = Model;
 			sourceTree = "<group>";
 		};
 		B8CAF4041EA0F0FE003D8A64 /* View */ = {
 			isa = PBXGroup;
 			children = (
-				B8CAF40F1EA2118F003D8A64 /* ImageListCollectionViewCell.swift */,
 				B80206D61ED9C04300DB8A2B /* CustomCollectionViewLayout.swift */,
 				B80206D81EDAD86100DB8A2B /* CustomCollectionViewLayoutAttributes.swift */,
+				B8CAF40F1EA2118F003D8A64 /* ImageListCollectionViewCell.swift */,
 			);
 			name = View;
+			path = View;
 			sourceTree = "<group>";
 		};
 		B8CAF4051EA0F10D003D8A64 /* Controller */ = {
@@ -199,6 +203,7 @@
 				B8CAF3D61EA0F054003D8A64 /* ImageListViewController.swift */,
 			);
 			name = Controller;
+			path = Controller;
 			sourceTree = "<group>";
 		};
 		B8CAF4081EA1D238003D8A64 /* NetworkService */ = {
@@ -208,18 +213,18 @@
 				B8F582FC1EA703B300D8F669 /* RestClientConvenience.swift */,
 			);
 			name = NetworkService;
-			path = ..;
+			path = NetworkService;
 			sourceTree = "<group>";
 		};
 		B8F582FB1EA644C200D8F669 /* Cache */ = {
 			isa = PBXGroup;
 			children = (
 				B8F582F91EA6390200D8F669 /* CustomCache.swift */,
-				B8CAF40D1EA204C9003D8A64 /* DiscardableImageContent.swift */,
 				B8F582FF1EA7221D00D8F669 /* DiscardableDataContent.swift */,
+				B8CAF40D1EA204C9003D8A64 /* DiscardableImageContent.swift */,
 			);
 			name = Cache;
-			path = ..;
+			path = Cache;
 			sourceTree = "<group>";
 		};
 		B8F582FE1EA70A0200D8F669 /* Constant */ = {
@@ -228,6 +233,7 @@
 				B8CAF4061EA0F138003D8A64 /* Constants.swift */,
 			);
 			name = Constant;
+			path = Constant;
 			sourceTree = "<group>";
 		};
 		B8F583311EA77D9A00D8F669 /* Storyboard */ = {
@@ -236,6 +242,7 @@
 				B8CAF3D81EA0F054003D8A64 /* Main.storyboard */,
 			);
 			name = Storyboard;
+			path = Storyboard;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -248,6 +255,7 @@
 				B8CAF3CD1EA0F054003D8A64 /* Sources */,
 				B8CAF3CE1EA0F054003D8A64 /* Frameworks */,
 				B8CAF3CF1EA0F054003D8A64 /* Resources */,
+				B8B087811F7D5445003FF3CE /* SwiftLint */,
 			);
 			buildRules = (
 			);
@@ -372,6 +380,23 @@
 		};
 /* End PBXResourcesBuildPhase section */
 
+/* Begin PBXShellScriptBuildPhase section */
+		B8B087811F7D5445003FF3CE /* SwiftLint */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = SwiftLint;
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "if which swiftlint >/dev/null; then\nswiftlint\nelse\necho \"warning: SwiftLint not installed, download from https://github.com/realm/SwiftLint\"\nfi";
+		};
+/* End PBXShellScriptBuildPhase section */
+
 /* Begin PBXSourcesBuildPhase section */
 		B8CAF3CD1EA0F054003D8A64 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
@@ -431,6 +456,7 @@
 				B8CAF3D91EA0F054003D8A64 /* Base */,
 			);
 			name = Main.storyboard;
+			path = .;
 			sourceTree = "<group>";
 		};
 		B8CAF3DD1EA0F054003D8A64 /* LaunchScreen.storyboard */ = {
@@ -439,6 +465,7 @@
 				B8CAF3DE1EA0F054003D8A64 /* Base */,
 			);
 			name = LaunchScreen.storyboard;
+			path = .;
 			sourceTree = "<group>";
 		};
 /* End PBXVariantGroup section */
@@ -542,7 +569,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				DEVELOPMENT_TEAM = MFYH4C9VNG;
-				INFOPLIST_FILE = PinterestStyleList/Info.plist;
+				INFOPLIST_FILE = "PinterestStyleList/Supporting Files/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.woogii.PinterestStyleList;
@@ -556,7 +583,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				DEVELOPMENT_TEAM = MFYH4C9VNG;
-				INFOPLIST_FILE = PinterestStyleList/Info.plist;
+				INFOPLIST_FILE = "PinterestStyleList/Supporting Files/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.woogii.PinterestStyleList;
