@@ -9,23 +9,15 @@
 import UIKit
 
 // MARK : - TagFlowLayout: UICollectionViewFlowLayout
-
 class TagFlowLayout: UICollectionViewFlowLayout {
-  
   // MARK : - Configure layout attribute
-  
   override func layoutAttributesForElements(in rect: CGRect) -> [UICollectionViewLayoutAttributes]? {
-    
     let attributesForElementsInRect = super.layoutAttributesForElements(in: rect)
     var newAttributesForElementsInRect = [UICollectionViewLayoutAttributes]()
-    
     // use a variable to keep track of left margin
     var leftMargin: CGFloat = 0.0
-    
     for attributes in attributesForElementsInRect! {
-      
       let refAttributes = attributes
-      
       if refAttributes.frame.origin.x == self.sectionInset.left {
         leftMargin = self.sectionInset.left
       } else {
@@ -38,8 +30,6 @@ class TagFlowLayout: UICollectionViewFlowLayout {
       leftMargin += refAttributes.frame.size.width
       newAttributesForElementsInRect.append(refAttributes)
     }
-    
     return newAttributesForElementsInRect
   }
-  
 }

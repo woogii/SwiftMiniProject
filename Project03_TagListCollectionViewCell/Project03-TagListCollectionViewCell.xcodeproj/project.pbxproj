@@ -87,7 +87,7 @@
 			children = (
 				D2E369661DA24B00004ECBC2 /* TagCollectionViewCell.xib */,
 			);
-			name = Xib;
+			path = Xib;
 			sourceTree = "<group>";
 		};
 		B8CB4B2B1F5F07F700053D62 /* Storyboard */ = {
@@ -96,7 +96,7 @@
 				D2E3693A1DA23D76004ECBC2 /* LaunchScreen.storyboard */,
 				D2E369351DA23D75004ECBC2 /* Main.storyboard */,
 			);
-			name = Storyboard;
+			path = Storyboard;
 			sourceTree = "<group>";
 		};
 		B8CB4B2C1F5F0E3500053D62 /* Custom CollectionViewCell */ = {
@@ -104,7 +104,7 @@
 			children = (
 				D2E3695F1DA23F40004ECBC2 /* TagCollectionViewCell.swift */,
 			);
-			name = "Custom CollectionViewCell";
+			path = "Custom CollectionViewCell";
 			sourceTree = "<group>";
 		};
 		B8CB4B2D1F5F0E3C00053D62 /* Custom FlowLayout */ = {
@@ -112,7 +112,7 @@
 			children = (
 				D2E369611DA23F67004ECBC2 /* TagFlowLayout.swift */,
 			);
-			name = "Custom FlowLayout";
+			path = "Custom FlowLayout";
 			sourceTree = "<group>";
 		};
 		B8CB4B2E1F5F1B6D00053D62 /* Constant */ = {
@@ -120,7 +120,7 @@
 			children = (
 				B8CB4B2F1F5F1B8200053D62 /* Constants.swift */,
 			);
-			name = Constant;
+			path = Constant;
 			sourceTree = "<group>";
 		};
 		D2E369251DA23D75004ECBC2 = {
@@ -146,9 +146,9 @@
 		D2E369301DA23D75004ECBC2 /* Project03-TagListCollectionViewCell */ = {
 			isa = PBXGroup;
 			children = (
-				B8CB4B2E1F5F1B6D00053D62 /* Constant */,
-				D2E369641DA23F7C004ECBC2 /* Controller */,
 				D2E369631DA23F78004ECBC2 /* View */,
+				D2E369641DA23F7C004ECBC2 /* Controller */,
+				B8CB4B2E1F5F1B6D00053D62 /* Constant */,
 				B8CB4B2B1F5F07F700053D62 /* Storyboard */,
 				D2E369651DA23F80004ECBC2 /* Support Files */,
 			);
@@ -158,8 +158,8 @@
 		D2E369451DA23D76004ECBC2 /* Project03-TagListCollectionViewCellTests */ = {
 			isa = PBXGroup;
 			children = (
-				D2E369461DA23D76004ECBC2 /* Project03_TagListCollectionViewCellTests.swift */,
 				D2E369481DA23D76004ECBC2 /* Info.plist */,
+				D2E369461DA23D76004ECBC2 /* Project03_TagListCollectionViewCellTests.swift */,
 			);
 			path = "Project03-TagListCollectionViewCellTests";
 			sourceTree = "<group>";
@@ -167,8 +167,8 @@
 		D2E369501DA23D76004ECBC2 /* Project03-TagListCollectionViewCellUITests */ = {
 			isa = PBXGroup;
 			children = (
-				D2E369511DA23D76004ECBC2 /* Project03_TagListCollectionViewCellUITests.swift */,
 				D2E369531DA23D76004ECBC2 /* Info.plist */,
+				D2E369511DA23D76004ECBC2 /* Project03_TagListCollectionViewCellUITests.swift */,
 			);
 			path = "Project03-TagListCollectionViewCellUITests";
 			sourceTree = "<group>";
@@ -176,11 +176,11 @@
 		D2E369631DA23F78004ECBC2 /* View */ = {
 			isa = PBXGroup;
 			children = (
-				B8CB4B2D1F5F0E3C00053D62 /* Custom FlowLayout */,
 				B8CB4B2C1F5F0E3500053D62 /* Custom CollectionViewCell */,
+				B8CB4B2D1F5F0E3C00053D62 /* Custom FlowLayout */,
 				B8CB4B2A1F5F07F000053D62 /* Xib */,
 			);
-			name = View;
+			path = View;
 			sourceTree = "<group>";
 		};
 		D2E369641DA23F7C004ECBC2 /* Controller */ = {
@@ -188,7 +188,7 @@
 			children = (
 				D2E369331DA23D75004ECBC2 /* ViewController.swift */,
 			);
-			name = Controller;
+			path = Controller;
 			sourceTree = "<group>";
 		};
 		D2E369651DA23F80004ECBC2 /* Support Files */ = {
@@ -198,7 +198,7 @@
 				D2E369381DA23D76004ECBC2 /* Assets.xcassets */,
 				D2E3693D1DA23D76004ECBC2 /* Info.plist */,
 			);
-			name = "Support Files";
+			path = "Support Files";
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -211,6 +211,7 @@
 				D2E3692A1DA23D75004ECBC2 /* Sources */,
 				D2E3692B1DA23D75004ECBC2 /* Frameworks */,
 				D2E3692C1DA23D75004ECBC2 /* Resources */,
+				B8B0878C1F7E421F003FF3CE /* SwiftLint */,
 			);
 			buildRules = (
 			);
@@ -334,6 +335,23 @@
 		};
 /* End PBXResourcesBuildPhase section */
 
+/* Begin PBXShellScriptBuildPhase section */
+		B8B0878C1F7E421F003FF3CE /* SwiftLint */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = SwiftLint;
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "if which swiftlint >/dev/null; then\nswiftlint\nelse\necho \"warning: SwiftLint not installed, download from https://github.com/realm/SwiftLint\"\nfi";
+		};
+/* End PBXShellScriptBuildPhase section */
+
 /* Begin PBXSourcesBuildPhase section */
 		D2E3692A1DA23D75004ECBC2 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
@@ -385,6 +403,7 @@
 				D2E369361DA23D75004ECBC2 /* Base */,
 			);
 			name = Main.storyboard;
+			path = .;
 			sourceTree = "<group>";
 		};
 		D2E3693A1DA23D76004ECBC2 /* LaunchScreen.storyboard */ = {
@@ -393,6 +412,7 @@
 				D2E3693B1DA23D76004ECBC2 /* Base */,
 			);
 			name = LaunchScreen.storyboard;
+			path = .;
 			sourceTree = "<group>";
 		};
 /* End PBXVariantGroup section */
@@ -498,7 +518,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				DEVELOPMENT_TEAM = MFYH4C9VNG;
-				INFOPLIST_FILE = "Project03-TagListCollectionViewCell/Info.plist";
+				INFOPLIST_FILE = "Project03-TagListCollectionViewCell/Support Files/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "com.test.Project03-TagListCollectionViewCell";
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -511,7 +531,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				DEVELOPMENT_TEAM = MFYH4C9VNG;
-				INFOPLIST_FILE = "Project03-TagListCollectionViewCell/Info.plist";
+				INFOPLIST_FILE = "Project03-TagListCollectionViewCell/Support Files/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "com.test.Project03-TagListCollectionViewCell";
 				PRODUCT_NAME = "$(TARGET_NAME)";
