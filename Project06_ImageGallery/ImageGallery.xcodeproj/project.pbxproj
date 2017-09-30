@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		B8B087A41F8022E5003FF3CE /* UIView+ConstraintsWithVFL.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8B087A31F8022E5003FF3CE /* UIView+ConstraintsWithVFL.swift */; };
 		B8FB8ECF1E98DDC000A853E0 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8FB8ECE1E98DDC000A853E0 /* AppDelegate.swift */; };
 		B8FB8ED11E98DDC000A853E0 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8FB8ED01E98DDC000A853E0 /* ViewController.swift */; };
 		B8FB8ED41E98DDC000A853E0 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B8FB8ED21E98DDC000A853E0 /* Main.storyboard */; };
@@ -21,6 +22,7 @@
 
 /* Begin PBXFileReference section */
 		857DABC3D35D4C0561C66CBB /* Pods-ImageGallery.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ImageGallery.release.xcconfig"; path = "Pods/Target Support Files/Pods-ImageGallery/Pods-ImageGallery.release.xcconfig"; sourceTree = "<group>"; };
+		B8B087A31F8022E5003FF3CE /* UIView+ConstraintsWithVFL.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIView+ConstraintsWithVFL.swift"; sourceTree = "<group>"; };
 		B8FB8ECB1E98DDC000A853E0 /* ImageGallery.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ImageGallery.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		B8FB8ECE1E98DDC000A853E0 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		B8FB8ED01E98DDC000A853E0 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -65,13 +67,38 @@
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
+		B8B087A01F80222E003FF3CE /* APP */ = {
+			isa = PBXGroup;
+			children = (
+				B8FB8ECE1E98DDC000A853E0 /* AppDelegate.swift */,
+			);
+			path = APP;
+			sourceTree = "<group>";
+		};
+		B8B087A11F80223E003FF3CE /* Storyboard */ = {
+			isa = PBXGroup;
+			children = (
+				B8FB8ED71E98DDC000A853E0 /* LaunchScreen.storyboard */,
+				B8FB8ED21E98DDC000A853E0 /* Main.storyboard */,
+			);
+			path = Storyboard;
+			sourceTree = "<group>";
+		};
+		B8B087A21F802272003FF3CE /* Extension */ = {
+			isa = PBXGroup;
+			children = (
+				B8B087A31F8022E5003FF3CE /* UIView+ConstraintsWithVFL.swift */,
+			);
+			path = Extension;
+			sourceTree = "<group>";
+		};
 		B8FB8EC21E98DDC000A853E0 = {
 			isa = PBXGroup;
 			children = (
 				B8FB8ECD1E98DDC000A853E0 /* ImageGallery */,
-				B8FB8ECC1E98DDC000A853E0 /* Products */,
-				3BD8EBB4535CE19047973E47 /* Pods */,
 				72B6C0C93AC54D26D0AF6F2D /* Frameworks */,
+				3BD8EBB4535CE19047973E47 /* Pods */,
+				B8FB8ECC1E98DDC000A853E0 /* Products */,
 			);
 			sourceTree = "<group>";
 		};
@@ -86,9 +113,12 @@
 		B8FB8ECD1E98DDC000A853E0 /* ImageGallery */ = {
 			isa = PBXGroup;
 			children = (
-				B8FB8EEB1E99295C00A853E0 /* Controller */,
 				B8FB8EEA1E99294A00A853E0 /* Model */,
 				B8FB8EE91E99292300A853E0 /* View */,
+				B8FB8EEB1E99295C00A853E0 /* Controller */,
+				B8B087A01F80222E003FF3CE /* APP */,
+				B8B087A21F802272003FF3CE /* Extension */,
+				B8B087A11F80223E003FF3CE /* Storyboard */,
 				B8FB8EE81E99291200A853E0 /* Support */,
 			);
 			path = ImageGallery;
@@ -97,22 +127,19 @@
 		B8FB8EE81E99291200A853E0 /* Support */ = {
 			isa = PBXGroup;
 			children = (
-				B8FB8ECE1E98DDC000A853E0 /* AppDelegate.swift */,
-				B8FB8ED21E98DDC000A853E0 /* Main.storyboard */,
-				B8FB8EE61E98F24600A853E0 /* CustomTableViewCell.swift */,
-				B8FB8ED71E98DDC000A853E0 /* LaunchScreen.storyboard */,
-				B8FB8EDA1E98DDC000A853E0 /* Info.plist */,
 				B8FB8ED51E98DDC000A853E0 /* Assets.xcassets */,
+				B8FB8EDA1E98DDC000A853E0 /* Info.plist */,
 			);
-			name = Support;
+			path = Support;
 			sourceTree = "<group>";
 		};
 		B8FB8EE91E99292300A853E0 /* View */ = {
 			isa = PBXGroup;
 			children = (
+				B8FB8EE61E98F24600A853E0 /* CustomTableViewCell.swift */,
 				B8FB8EE41E98EA8F00A853E0 /* PlaceImageCollectionViewCell.swift */,
 			);
-			name = View;
+			path = View;
 			sourceTree = "<group>";
 		};
 		B8FB8EEA1E99294A00A853E0 /* Model */ = {
@@ -120,16 +147,16 @@
 			children = (
 				B8FB8EE01E98E0A400A853E0 /* Restaurant.swift */,
 			);
-			name = Model;
+			path = Model;
 			sourceTree = "<group>";
 		};
 		B8FB8EEB1E99295C00A853E0 /* Controller */ = {
 			isa = PBXGroup;
 			children = (
-				B8FB8ED01E98DDC000A853E0 /* ViewController.swift */,
 				B8FB8EE21E98E60800A853E0 /* ImageDetailPageViewController.swift */,
+				B8FB8ED01E98DDC000A853E0 /* ViewController.swift */,
 			);
-			name = Controller;
+			path = Controller;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -145,6 +172,7 @@
 				B8FB8EC91E98DDC000A853E0 /* Resources */,
 				9E975FCE85495426A047CF08 /* [CP] Embed Pods Frameworks */,
 				4CBA296B664D37B5198E08B8 /* [CP] Copy Pods Resources */,
+				B8B0879F1F801FCD003FF3CE /* SwiftLint */,
 			);
 			buildRules = (
 			);
@@ -233,6 +261,20 @@
 			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-ImageGallery/Pods-ImageGallery-frameworks.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
+		B8B0879F1F801FCD003FF3CE /* SwiftLint */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = SwiftLint;
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "if which swiftlint >/dev/null; then\nswiftlint\nelse\necho \"warning: SwiftLint not installed, download from https://github.com/realm/SwiftLint\"\nfi";
+		};
 		C72AD13A89917DA123CD4BB0 /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
@@ -261,6 +303,7 @@
 				B8FB8ED11E98DDC000A853E0 /* ViewController.swift in Sources */,
 				B8FB8ECF1E98DDC000A853E0 /* AppDelegate.swift in Sources */,
 				B8FB8EE11E98E0A400A853E0 /* Restaurant.swift in Sources */,
+				B8B087A41F8022E5003FF3CE /* UIView+ConstraintsWithVFL.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -273,6 +316,7 @@
 				B8FB8ED31E98DDC000A853E0 /* Base */,
 			);
 			name = Main.storyboard;
+			path = .;
 			sourceTree = "<group>";
 		};
 		B8FB8ED71E98DDC000A853E0 /* LaunchScreen.storyboard */ = {
@@ -281,6 +325,7 @@
 				B8FB8ED81E98DDC000A853E0 /* Base */,
 			);
 			name = LaunchScreen.storyboard;
+			path = .;
 			sourceTree = "<group>";
 		};
 /* End PBXVariantGroup section */
@@ -326,7 +371,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 10.2;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				MTL_ENABLE_DEBUG_INFO = YES;
 				ONLY_ACTIVE_ARCH = YES;
 				SDKROOT = iphoneos;
@@ -370,7 +415,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 10.2;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				SDKROOT = iphoneos;
 				SWIFT_OPTIMIZATION_LEVEL = "-Owholemodule";
@@ -384,7 +429,8 @@
 			baseConfigurationReference = E875C8C35B05C7BB5AE08879 /* Pods-ImageGallery.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				INFOPLIST_FILE = ImageGallery/Info.plist;
+				INFOPLIST_FILE = ImageGallery/Support/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.woogii.ImageGallery;
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -397,7 +443,8 @@
 			baseConfigurationReference = 857DABC3D35D4C0561C66CBB /* Pods-ImageGallery.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				INFOPLIST_FILE = ImageGallery/Info.plist;
+				INFOPLIST_FILE = ImageGallery/Support/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.woogii.ImageGallery;
 				PRODUCT_NAME = "$(TARGET_NAME)";

@@ -11,23 +11,16 @@ import UIKit
 // MARK : - CustomTableViewCell: UITableViewCell
 
 class CustomTableViewCell: UITableViewCell {
-  
-  // MARK : - Property 
-  
+  // MARK : - Property
   @IBOutlet weak var iconImageView: UIImageView!
   @IBOutlet weak var infoLabel: UILabel!
-  
-  var restaurant : RestaurantInfo! {
+  var restaurant: RestaurantInfo! {
     didSet {
       updateCell()
     }
   }
-  
   func updateCell() {
     iconImageView.image = UIImage(named: restaurant.iconImageName)
     infoLabel.text = restaurant.info
   }
-  
-  
 }
-

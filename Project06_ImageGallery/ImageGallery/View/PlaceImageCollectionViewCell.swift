@@ -11,10 +11,6 @@ import UIKit
 // MARK : - PlaceImageCollectionViewCell: UICollectionViewCell
 
 class PlaceImageCollectionViewCell: UICollectionViewCell {
-
-  // MARK : - Property 
-  
+  // MARK : - Property
   @IBOutlet weak var placeImageView: UIImageView!
-  
-
 }
