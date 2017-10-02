@@ -12,6 +12,7 @@
 		B85979B31E9336D700229360 /* SearchKeywordCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B85979B11E9336D700229360 /* SearchKeywordCollectionViewCell.swift */; };
 		B85979B41E9336D700229360 /* SearchKeywordCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = B85979B21E9336D700229360 /* SearchKeywordCollectionViewCell.xib */; };
 		B88990EA1E97D22E007B2B93 /* SearchKeywordContainerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B88990E91E97D22E007B2B93 /* SearchKeywordContainerView.swift */; };
+		B8B087AC1F8174A5003FF3CE /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8B087AB1F8174A5003FF3CE /* Constants.swift */; };
 		B8DCDA721E91D9CD00F66CA0 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8DCDA711E91D9CD00F66CA0 /* AppDelegate.swift */; };
 		B8DCDA741E91D9CD00F66CA0 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8DCDA731E91D9CD00F66CA0 /* ViewController.swift */; };
 		B8DCDA771E91D9CE00F66CA0 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B8DCDA751E91D9CE00F66CA0 /* Main.storyboard */; };
@@ -41,9 +42,10 @@
 /* Begin PBXFileReference section */
 		B85979A91E9333BA00229360 /* KeywordInputViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = KeywordInputViewController.swift; sourceTree = "<group>"; };
 		B85979AB1E9334EA00229360 /* SearchKeywordContainerView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SearchKeywordContainerView.xib; sourceTree = "<group>"; };
-		B85979B11E9336D700229360 /* SearchKeywordCollectionViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = SearchKeywordCollectionViewCell.swift; path = ../SearchKeywordCollectionViewCell.swift; sourceTree = "<group>"; };
-		B85979B21E9336D700229360 /* SearchKeywordCollectionViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = SearchKeywordCollectionViewCell.xib; path = ../SearchKeywordCollectionViewCell.xib; sourceTree = "<group>"; };
+		B85979B11E9336D700229360 /* SearchKeywordCollectionViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SearchKeywordCollectionViewCell.swift; sourceTree = "<group>"; };
+		B85979B21E9336D700229360 /* SearchKeywordCollectionViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SearchKeywordCollectionViewCell.xib; sourceTree = "<group>"; };
 		B88990E91E97D22E007B2B93 /* SearchKeywordContainerView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SearchKeywordContainerView.swift; sourceTree = "<group>"; };
+		B8B087AB1F8174A5003FF3CE /* Constants.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 		B8DCDA6E1E91D9CD00F66CA0 /* SearchInterface.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SearchInterface.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		B8DCDA711E91D9CD00F66CA0 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		B8DCDA731E91D9CD00F66CA0 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -84,17 +86,13 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		B85979A71E93326200229360 /* Support */ = {
+		B85979A71E93326200229360 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
-				B8DCDA711E91D9CD00F66CA0 /* AppDelegate.swift */,
-				B8DCDA751E91D9CE00F66CA0 /* Main.storyboard */,
 				B8DCDA781E91D9CE00F66CA0 /* Assets.xcassets */,
 				B8DCDA7D1E91D9CE00F66CA0 /* Info.plist */,
-				B8DCDA7A1E91D9CE00F66CA0 /* LaunchScreen.storyboard */,
 			);
-			name = Support;
-			path = SearchInterface;
+			path = "Supporting Files";
 			sourceTree = "<group>";
 		};
 		B88990EB1E97D293007B2B93 /* View */ = {
@@ -104,19 +102,51 @@
 				B85979B11E9336D700229360 /* SearchKeywordCollectionViewCell.swift */,
 				B88990E91E97D22E007B2B93 /* SearchKeywordContainerView.swift */,
 			);
-			name = View;
-			path = SearchInterface;
+			path = View;
+			sourceTree = "<group>";
+		};
+		B8B087A61F817074003FF3CE /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				B85979A91E9333BA00229360 /* KeywordInputViewController.swift */,
+				B8DCDA731E91D9CD00F66CA0 /* ViewController.swift */,
+			);
+			path = Controller;
+			sourceTree = "<group>";
+		};
+		B8B087A71F81707C003FF3CE /* App */ = {
+			isa = PBXGroup;
+			children = (
+				B8DCDA711E91D9CD00F66CA0 /* AppDelegate.swift */,
+			);
+			path = App;
+			sourceTree = "<group>";
+		};
+		B8B087A91F81709F003FF3CE /* Storyboard */ = {
+			isa = PBXGroup;
+			children = (
+				B8DCDA7A1E91D9CE00F66CA0 /* LaunchScreen.storyboard */,
+				B8DCDA751E91D9CE00F66CA0 /* Main.storyboard */,
+			);
+			path = Storyboard;
+			sourceTree = "<group>";
+		};
+		B8B087AA1F817492003FF3CE /* Constant */ = {
+			isa = PBXGroup;
+			children = (
+				B8B087AB1F8174A5003FF3CE /* Constants.swift */,
+			);
+			path = Constant;
 			sourceTree = "<group>";
 		};
 		B8DCDA651E91D9CD00F66CA0 = {
 			isa = PBXGroup;
 			children = (
 				B8DCDA701E91D9CD00F66CA0 /* SearchInterface */,
-				B88990EB1E97D293007B2B93 /* View */,
-				B85979A71E93326200229360 /* Support */,
 				B8DCDA851E91D9CE00F66CA0 /* SearchInterfaceTests */,
 				B8DCDA901E91D9CE00F66CA0 /* SearchInterfaceUITests */,
 				B8DCDA6F1E91D9CD00F66CA0 /* Products */,
+				B85979A71E93326200229360 /* Supporting Files */,
 			);
 			sourceTree = "<group>";
 		};
@@ -133,8 +163,11 @@
 		B8DCDA701E91D9CD00F66CA0 /* SearchInterface */ = {
 			isa = PBXGroup;
 			children = (
-				B8DCDA731E91D9CD00F66CA0 /* ViewController.swift */,
-				B85979A91E9333BA00229360 /* KeywordInputViewController.swift */,
+				B8B087A71F81707C003FF3CE /* App */,
+				B8B087AA1F817492003FF3CE /* Constant */,
+				B8B087A61F817074003FF3CE /* Controller */,
+				B8B087A91F81709F003FF3CE /* Storyboard */,
+				B88990EB1E97D293007B2B93 /* View */,
 			);
 			path = SearchInterface;
 			sourceTree = "<group>";
@@ -142,8 +175,8 @@
 		B8DCDA851E91D9CE00F66CA0 /* SearchInterfaceTests */ = {
 			isa = PBXGroup;
 			children = (
-				B8DCDA861E91D9CE00F66CA0 /* SearchInterfaceTests.swift */,
 				B8DCDA881E91D9CE00F66CA0 /* Info.plist */,
+				B8DCDA861E91D9CE00F66CA0 /* SearchInterfaceTests.swift */,
 			);
 			path = SearchInterfaceTests;
 			sourceTree = "<group>";
@@ -151,8 +184,8 @@
 		B8DCDA901E91D9CE00F66CA0 /* SearchInterfaceUITests */ = {
 			isa = PBXGroup;
 			children = (
-				B8DCDA911E91D9CE00F66CA0 /* SearchInterfaceUITests.swift */,
 				B8DCDA931E91D9CE00F66CA0 /* Info.plist */,
+				B8DCDA911E91D9CE00F66CA0 /* SearchInterfaceUITests.swift */,
 			);
 			path = SearchInterfaceUITests;
 			sourceTree = "<group>";
@@ -160,10 +193,10 @@
 		B8FB8EC11E98D95E00A853E0 /* Nib */ = {
 			isa = PBXGroup;
 			children = (
-				B85979AB1E9334EA00229360 /* SearchKeywordContainerView.xib */,
 				B85979B21E9336D700229360 /* SearchKeywordCollectionViewCell.xib */,
+				B85979AB1E9334EA00229360 /* SearchKeywordContainerView.xib */,
 			);
-			name = Nib;
+			path = Nib;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -176,6 +209,7 @@
 				B8DCDA6A1E91D9CD00F66CA0 /* Sources */,
 				B8DCDA6B1E91D9CD00F66CA0 /* Frameworks */,
 				B8DCDA6C1E91D9CD00F66CA0 /* Resources */,
+				B8B087A51F81705F003FF3CE /* SwiftLint */,
 			);
 			buildRules = (
 			);
@@ -297,6 +331,23 @@
 		};
 /* End PBXResourcesBuildPhase section */
 
+/* Begin PBXShellScriptBuildPhase section */
+		B8B087A51F81705F003FF3CE /* SwiftLint */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = SwiftLint;
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "if which swiftlint >/dev/null; then\nswiftlint\nelse\necho \"warning: SwiftLint not installed, download from https://github.com/realm/SwiftLint\"\nfi";
+		};
+/* End PBXShellScriptBuildPhase section */
+
 /* Begin PBXSourcesBuildPhase section */
 		B8DCDA6A1E91D9CD00F66CA0 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
@@ -307,6 +358,7 @@
 				B85979B31E9336D700229360 /* SearchKeywordCollectionViewCell.swift in Sources */,
 				B8DCDA721E91D9CD00F66CA0 /* AppDelegate.swift in Sources */,
 				B88990EA1E97D22E007B2B93 /* SearchKeywordContainerView.swift in Sources */,
+				B8B087AC1F8174A5003FF3CE /* Constants.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -348,6 +400,7 @@
 				B8DCDA761E91D9CE00F66CA0 /* Base */,
 			);
 			name = Main.storyboard;
+			path = .;
 			sourceTree = "<group>";
 		};
 		B8DCDA7A1E91D9CE00F66CA0 /* LaunchScreen.storyboard */ = {
@@ -356,6 +409,7 @@
 				B8DCDA7B1E91D9CE00F66CA0 /* Base */,
 			);
 			name = LaunchScreen.storyboard;
+			path = .;
 			sourceTree = "<group>";
 		};
 /* End PBXVariantGroup section */
@@ -401,7 +455,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 10.2;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				MTL_ENABLE_DEBUG_INFO = YES;
 				ONLY_ACTIVE_ARCH = YES;
 				SDKROOT = iphoneos;
@@ -445,7 +499,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 10.2;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				SDKROOT = iphoneos;
 				SWIFT_OPTIMIZATION_LEVEL = "-Owholemodule";
@@ -458,7 +512,8 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				INFOPLIST_FILE = SearchInterface/Info.plist;
+				INFOPLIST_FILE = "Supporting Files/Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.woogii.SearchInterface;
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -470,7 +525,8 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				INFOPLIST_FILE = SearchInterface/Info.plist;
+				INFOPLIST_FILE = "Supporting Files/Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.woogii.SearchInterface;
 				PRODUCT_NAME = "$(TARGET_NAME)";
