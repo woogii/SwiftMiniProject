@@ -33,8 +33,8 @@
 /* Begin PBXFileReference section */
 		B869EA831ECC5F5F0013BC2B /* SetNotificationViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SetNotificationViewController.swift; sourceTree = "<group>"; };
 		B869EA851ECC61420013BC2B /* CoreDataStack.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CoreDataStack.swift; sourceTree = "<group>"; };
-		B869EA871ECDCAE00013BC2B /* ToDoItem+CoreDataClass.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = "ToDoItem+CoreDataClass.swift"; path = "../ToDoItem+CoreDataClass.swift"; sourceTree = "<group>"; };
-		B869EA881ECDCAE00013BC2B /* ToDoItem+CoreDataProperties.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = "ToDoItem+CoreDataProperties.swift"; path = "../ToDoItem+CoreDataProperties.swift"; sourceTree = "<group>"; };
+		B869EA871ECDCAE00013BC2B /* ToDoItem+CoreDataClass.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "ToDoItem+CoreDataClass.swift"; sourceTree = "<group>"; };
+		B869EA881ECDCAE00013BC2B /* ToDoItem+CoreDataProperties.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "ToDoItem+CoreDataProperties.swift"; sourceTree = "<group>"; };
 		B8DBAF8C1EBCBEF90099AEEB /* Project09_ToDoList.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Project09_ToDoList.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		B8DBAF8F1EBCBEF90099AEEB /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		B8DBAF911EBCBEF90099AEEB /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -69,12 +69,12 @@
 		B869EA8B1ECDD1C30013BC2B /* Model */ = {
 			isa = PBXGroup;
 			children = (
-				B869EA851ECC61420013BC2B /* CoreDataStack.swift */,
-				B8DBAF961EBCBEF90099AEEB /* Project09_ToDoList.xcdatamodeld */,
+				B8E46C4C1F843CAD00E24E73 /* CoreData */,
+				B8E46C4B1F843CAA00E24E73 /* XcdataModeld */,
 				B869EA871ECDCAE00013BC2B /* ToDoItem+CoreDataClass.swift */,
 				B869EA881ECDCAE00013BC2B /* ToDoItem+CoreDataProperties.swift */,
 			);
-			name = Model;
+			path = Model;
 			sourceTree = "<group>";
 		};
 		B869EA8C1ECDD1CA0013BC2B /* Controller */ = {
@@ -83,15 +83,15 @@
 				B869EA831ECC5F5F0013BC2B /* SetNotificationViewController.swift */,
 				B8DBAF911EBCBEF90099AEEB /* ViewController.swift */,
 			);
-			name = Controller;
+			path = Controller;
 			sourceTree = "<group>";
 		};
 		B8DBAF831EBCBEF90099AEEB = {
 			isa = PBXGroup;
 			children = (
 				B8DBAF8E1EBCBEF90099AEEB /* Project09_ToDoList */,
-				B8DBAFA61EBCBEF90099AEEB /* Project09_ToDoListTests */,
 				B8DBAF8D1EBCBEF90099AEEB /* Products */,
+				B8DBAFA61EBCBEF90099AEEB /* Project09_ToDoListTests */,
 			);
 			sourceTree = "<group>";
 		};
@@ -107,9 +107,10 @@
 		B8DBAF8E1EBCBEF90099AEEB /* Project09_ToDoList */ = {
 			isa = PBXGroup;
 			children = (
+				B8E46C4A1F843C9900E24E73 /* App */,
 				B869EA8C1ECDD1CA0013BC2B /* Controller */,
 				B869EA8B1ECDD1C30013BC2B /* Model */,
-				B8DBAF931EBCBEF90099AEEB /* Main.storyboard */,
+				B8E46C491F843C8B00E24E73 /* Storyboard */,
 				B8DBAFB21EBCBF1E0099AEEB /* Supporting Files */,
 			);
 			path = Project09_ToDoList;
@@ -118,8 +119,8 @@
 		B8DBAFA61EBCBEF90099AEEB /* Project09_ToDoListTests */ = {
 			isa = PBXGroup;
 			children = (
-				B8DBAFA71EBCBEF90099AEEB /* Project09_ToDoListTests.swift */,
 				B8DBAFA91EBCBEFA0099AEEB /* Info.plist */,
+				B8DBAFA71EBCBEF90099AEEB /* Project09_ToDoListTests.swift */,
 			);
 			path = Project09_ToDoListTests;
 			sourceTree = "<group>";
@@ -127,12 +128,43 @@
 		B8DBAFB21EBCBF1E0099AEEB /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
-				B8DBAF8F1EBCBEF90099AEEB /* AppDelegate.swift */,
 				B8DBAF991EBCBEF90099AEEB /* Assets.xcassets */,
-				B8DBAF9B1EBCBEF90099AEEB /* LaunchScreen.storyboard */,
 				B8DBAF9E1EBCBEF90099AEEB /* Info.plist */,
 			);
-			name = "Supporting Files";
+			path = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		B8E46C491F843C8B00E24E73 /* Storyboard */ = {
+			isa = PBXGroup;
+			children = (
+				B8DBAF9B1EBCBEF90099AEEB /* LaunchScreen.storyboard */,
+				B8DBAF931EBCBEF90099AEEB /* Main.storyboard */,
+			);
+			path = Storyboard;
+			sourceTree = "<group>";
+		};
+		B8E46C4A1F843C9900E24E73 /* App */ = {
+			isa = PBXGroup;
+			children = (
+				B8DBAF8F1EBCBEF90099AEEB /* AppDelegate.swift */,
+			);
+			path = App;
+			sourceTree = "<group>";
+		};
+		B8E46C4B1F843CAA00E24E73 /* XcdataModeld */ = {
+			isa = PBXGroup;
+			children = (
+				B8DBAF961EBCBEF90099AEEB /* Project09_ToDoList.xcdatamodeld */,
+			);
+			path = XcdataModeld;
+			sourceTree = "<group>";
+		};
+		B8E46C4C1F843CAD00E24E73 /* CoreData */ = {
+			isa = PBXGroup;
+			children = (
+				B869EA851ECC61420013BC2B /* CoreDataStack.swift */,
+			);
+			path = CoreData;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -145,6 +177,7 @@
 				B8DBAF881EBCBEF90099AEEB /* Sources */,
 				B8DBAF891EBCBEF90099AEEB /* Frameworks */,
 				B8DBAF8A1EBCBEF90099AEEB /* Resources */,
+				B8E46C481F843C7000E24E73 /* SwiftLint */,
 			);
 			buildRules = (
 			);
@@ -235,6 +268,23 @@
 		};
 /* End PBXResourcesBuildPhase section */
 
+/* Begin PBXShellScriptBuildPhase section */
+		B8E46C481F843C7000E24E73 /* SwiftLint */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = SwiftLint;
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "if which swiftlint >/dev/null; then\nswiftlint\nelse\necho \"warning: SwiftLint not installed, download from https://github.com/realm/SwiftLint\"\nfi";
+		};
+/* End PBXShellScriptBuildPhase section */
+
 /* Begin PBXSourcesBuildPhase section */
 		B8DBAF881EBCBEF90099AEEB /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
@@ -275,6 +325,7 @@
 				B8DBAF941EBCBEF90099AEEB /* Base */,
 			);
 			name = Main.storyboard;
+			path = .;
 			sourceTree = "<group>";
 		};
 		B8DBAF9B1EBCBEF90099AEEB /* LaunchScreen.storyboard */ = {
@@ -283,6 +334,7 @@
 				B8DBAF9C1EBCBEF90099AEEB /* Base */,
 			);
 			name = LaunchScreen.storyboard;
+			path = .;
 			sourceTree = "<group>";
 		};
 /* End PBXVariantGroup section */
@@ -328,7 +380,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 10.2;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
 				MTL_ENABLE_DEBUG_INFO = YES;
 				ONLY_ACTIVE_ARCH = YES;
 				SDKROOT = iphoneos;
@@ -372,7 +424,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 10.2;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				SDKROOT = iphoneos;
 				SWIFT_OPTIMIZATION_LEVEL = "-Owholemodule";
@@ -386,7 +438,8 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				DEVELOPMENT_TEAM = MFYH4C9VNG;
-				INFOPLIST_FILE = Project09_ToDoList/Info.plist;
+				INFOPLIST_FILE = "Project09_ToDoList/Supporting Files/Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "com.woogii.Project09-ToDoList";
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -399,7 +452,8 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				DEVELOPMENT_TEAM = MFYH4C9VNG;
-				INFOPLIST_FILE = Project09_ToDoList/Info.plist;
+				INFOPLIST_FILE = "Project09_ToDoList/Supporting Files/Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "com.woogii.Project09-ToDoList";
 				PRODUCT_NAME = "$(TARGET_NAME)";

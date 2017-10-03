@@ -14,18 +14,12 @@ import CoreData
 public class ToDoItem: NSManagedObject {
 
   // MARK : - Initialization
-  
-  convenience init(title:String = "New Item", context: NSManagedObjectContext) {
-    
+  convenience init(title: String = "New Item", context: NSManagedObjectContext) {
     if let ent = NSEntityDescription.entity(forEntityName: "ToDoItem", in: context) {
-      
       self.init(entity: ent, insertInto: context)
       self.title = title
-
     } else {
       fatalError("Unable to find Entity name!")
     }
   }
-
-  
 }

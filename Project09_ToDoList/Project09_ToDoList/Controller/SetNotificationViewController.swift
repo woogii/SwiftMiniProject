@@ -9,8 +9,5 @@
 import Foundation
 import UIKit
 
-class SetNotificationViewController : UIViewController {
-  
-  
-  
+class SetNotificationViewController: UIViewController {
 }
