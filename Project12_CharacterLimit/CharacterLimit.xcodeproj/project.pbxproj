@@ -32,7 +32,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		B861E9BA1ED2AC050069CA08 /* PostListViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = PostListViewController.swift; path = CharacterLimit/PostListViewController.swift; sourceTree = "<group>"; };
+		B861E9BA1ED2AC050069CA08 /* PostListViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PostListViewController.swift; sourceTree = "<group>"; };
 		B888356F1EADABBA000F760E /* CharacterLimit.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = CharacterLimit.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		B88835721EADABBA000F760E /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		B88835771EADABBA000F760E /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -68,6 +68,14 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		B82695171F86A322003F09C6 /* App */ = {
+			isa = PBXGroup;
+			children = (
+				B88835721EADABBA000F760E /* AppDelegate.swift */,
+			);
+			path = App;
+			sourceTree = "<group>";
+		};
 		B88835661EADABBA000F760E = {
 			isa = PBXGroup;
 			children = (
@@ -89,10 +97,11 @@
 		B88835711EADABBA000F760E /* CharacterLimit */ = {
 			isa = PBXGroup;
 			children = (
-				B88835A21EADD345000F760E /* Constant */,
-				B88835941EADB451000F760E /* View */,
 				B88835931EADB44D000F760E /* Model */,
+				B88835941EADB451000F760E /* View */,
 				B88835951EADB45C000F760E /* Controller */,
+				B82695171F86A322003F09C6 /* App */,
+				B88835A21EADD345000F760E /* Constant */,
 				B88835981EADB604000F760E /* Storyboard */,
 				B88835921EADABCA000F760E /* Supporting Files */,
 			);
@@ -102,9 +111,9 @@
 		B88835861EADABBA000F760E /* CharacterLimitTests */ = {
 			isa = PBXGroup;
 			children = (
+				B88835891EADABBA000F760E /* Info.plist */,
 				B88835871EADABBA000F760E /* RedditCloneTests.swift */,
 				B888359F1EADD15C000F760E /* sampleJSONInput.json */,
-				B88835891EADABBA000F760E /* Info.plist */,
 			);
 			path = CharacterLimitTests;
 			sourceTree = "<group>";
@@ -112,13 +121,11 @@
 		B88835921EADABCA000F760E /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
-				B88835A31EADD3A9000F760E /* sampleJSONInput.json */,
-				B888357E1EADABBA000F760E /* Info.plist */,
-				B88835721EADABBA000F760E /* AppDelegate.swift */,
-				B888357B1EADABBA000F760E /* LaunchScreen.storyboard */,
 				B88835791EADABBA000F760E /* Assets.xcassets */,
+				B888357E1EADABBA000F760E /* Info.plist */,
+				B88835A31EADD3A9000F760E /* sampleJSONInput.json */,
 			);
-			name = "Supporting Files";
+			path = "Supporting Files";
 			sourceTree = "<group>";
 		};
 		B88835931EADB44D000F760E /* Model */ = {
@@ -126,8 +133,7 @@
 			children = (
 				B88835991EADB80D000F760E /* PostInformation.swift */,
 			);
-			name = Model;
-			path = ..;
+			path = Model;
 			sourceTree = "<group>";
 		};
 		B88835941EADB451000F760E /* View */ = {
@@ -135,26 +141,25 @@
 			children = (
 				B88835961EADB4DF000F760E /* PostInformationTableViewCell.swift */,
 			);
-			name = View;
-			path = ..;
+			path = View;
 			sourceTree = "<group>";
 		};
 		B88835951EADB45C000F760E /* Controller */ = {
 			isa = PBXGroup;
 			children = (
-				B88835A51EAE1E78000F760E /* SubmitNewTopicViewController.swift */,
 				B861E9BA1ED2AC050069CA08 /* PostListViewController.swift */,
+				B88835A51EAE1E78000F760E /* SubmitNewTopicViewController.swift */,
 			);
-			name = Controller;
-			path = ..;
+			path = Controller;
 			sourceTree = "<group>";
 		};
 		B88835981EADB604000F760E /* Storyboard */ = {
 			isa = PBXGroup;
 			children = (
+				B888357B1EADABBA000F760E /* LaunchScreen.storyboard */,
 				B88835761EADABBA000F760E /* Main.storyboard */,
 			);
-			name = Storyboard;
+			path = Storyboard;
 			sourceTree = "<group>";
 		};
 		B88835A21EADD345000F760E /* Constant */ = {
@@ -162,7 +167,7 @@
 			children = (
 				B888359B1EADC09A000F760E /* Constants.swift */,
 			);
-			name = Constant;
+			path = Constant;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -175,6 +180,7 @@
 				B888356B1EADABBA000F760E /* Sources */,
 				B888356C1EADABBA000F760E /* Frameworks */,
 				B888356D1EADABBA000F760E /* Resources */,
+				B82695161F86A2EB003F09C6 /* SwiftLint */,
 			);
 			buildRules = (
 			);
@@ -267,6 +273,23 @@
 		};
 /* End PBXResourcesBuildPhase section */
 
+/* Begin PBXShellScriptBuildPhase section */
+		B82695161F86A2EB003F09C6 /* SwiftLint */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = SwiftLint;
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "if which swiftlint >/dev/null; then\nswiftlint\nelse\necho \"warning: SwiftLint not installed, download from https://github.com/realm/SwiftLint\"\nfi";
+		};
+/* End PBXShellScriptBuildPhase section */
+
 /* Begin PBXSourcesBuildPhase section */
 		B888356B1EADABBA000F760E /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
@@ -306,6 +329,7 @@
 				B88835771EADABBA000F760E /* Base */,
 			);
 			name = Main.storyboard;
+			path = .;
 			sourceTree = "<group>";
 		};
 		B888357B1EADABBA000F760E /* LaunchScreen.storyboard */ = {
@@ -314,6 +338,7 @@
 				B888357C1EADABBA000F760E /* Base */,
 			);
 			name = LaunchScreen.storyboard;
+			path = .;
 			sourceTree = "<group>";
 		};
 /* End PBXVariantGroup section */
@@ -417,7 +442,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				DEVELOPMENT_TEAM = MFYH4C9VNG;
-				INFOPLIST_FILE = CharacterLimit/Info.plist;
+				INFOPLIST_FILE = "CharacterLimit/Supporting Files/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.woogii.CharacterLimit;
@@ -431,7 +456,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				DEVELOPMENT_TEAM = MFYH4C9VNG;
-				INFOPLIST_FILE = CharacterLimit/Info.plist;
+				INFOPLIST_FILE = "CharacterLimit/Supporting Files/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.woogii.CharacterLimit;

@@ -10,48 +10,48 @@ import UIKit
 
 // MARK : - SubmitNewTopicViewControllerDelegate 
 
-protocol SubmitNewTopicViewControllerDelegate {
-  func updateListAfterSubmittingNewTopic(newTopic:PostInformation)
+protocol SubmitNewTopicViewControllerDelegate: class {
+  func updateListAfterSubmittingNewTopic(newTopic: PostInformation)
 }
 
 // MARK : - SubmitNewTopicViewController : UIViewController
 
-class SubmitNewTopicViewController : UIViewController {
-  
+class SubmitNewTopicViewController: UIViewController {
+
   // MARK : - Property
-  
+
   @IBOutlet weak var inputTextView: UITextView!
   @IBOutlet weak var submitButton: UIButton!
   @IBOutlet weak var textCountLabel: UILabel!
-  var delegate : SubmitNewTopicViewControllerDelegate?
-  
+  weak var delegate: SubmitNewTopicViewControllerDelegate?
+
   lazy var flexButton: UIBarButtonItem = {
-    let flexButton = UIBarButtonItem(barButtonSystemItem: .flexibleSpace,target: nil, action: nil)
+    let flexButton = UIBarButtonItem(barButtonSystemItem: .flexibleSpace, target: nil, action: nil)
     return flexButton
-    
+
   }()
   lazy var doneButton: UIBarButtonItem = {
-    let doneButton = UIBarButtonItem(title: Constants.Common.Ok , style: .plain, target: self, action: #selector(endEditing(_:)))
+    let doneButton = UIBarButtonItem(title: Constants.Common.Okay, style: .plain,
+                                     target: self, action: #selector(endEditing(_:)))
     return doneButton
   }()
-  
-  
+
   // MARK : - View Life Cycle
-  
+
   override func viewDidLoad() {
     super.viewDidLoad()
-    
+
     setCornerRadiusForSubmitButton()
     setTextViewBorderColor()
     addKeyboardToolBar()
     setTextViewAsFirstResponder()
-    
+
   }
-  
+
   private func setCornerRadiusForSubmitButton() {
     submitButton.layer.cornerRadius = submitButton.frame.size.height/2
   }
-  
+
   private func setTextViewBorderColor() {
     inputTextView.layer.borderColor = UIColor.lightGray.cgColor
   }
@@ -59,69 +59,72 @@ class SubmitNewTopicViewController : UIViewController {
   private func setTextViewAsFirstResponder() {
     inputTextView.becomeFirstResponder()
   }
-  
+
   // MARK : - Add Keybord Toolbar
-  
+
   private func addKeyboardToolBar() {
-    
+
     inputTextView.inputAccessoryView = createKeyboardToolbar()
   }
-  
-  fileprivate func createKeyboardToolbar()-> UIToolbar {
-    
+
+  fileprivate func createKeyboardToolbar() -> UIToolbar {
+
     let keyboardToolbar = UIToolbar()
 
     keyboardToolbar.tintColor = UIColor.black
     keyboardToolbar.sizeToFit()
     keyboardToolbar.items = [flexButton, doneButton]
-  
+
     return keyboardToolbar
   }
-  
-  func endEditing(_ sender:UIBarButtonItem) {
+
+  func endEditing(_ sender: UIBarButtonItem) {
     self.view.endEditing(true)
   }
-
 
   // MARK : - Target Actions
 
   @IBAction func tapBackToTheListButton(_ sender: UIBarButtonItem) {
     _ = navigationController?.popViewController(animated: true)
   }
-  
+
   @IBAction func tapSubmitButton(_ sender: UIButton) {
-    
+
     inputTextView.endEditing(true)
-    
+
     if inputTextView.text.isEmpty {
       showValidateErrorAlert(message: Constants.SubmitNewTopicVC.EnterTopicDescription)
     } else if inputTextView.text.characters.count > Constants.SubmitNewTopicVC.MaximumTopicCount {
       showValidateErrorAlert(message: Constants.SubmitNewTopicVC.CountLimitReached)
     } else {
       showSuccessAlert()
-      let newTopic = PostInformation(title: inputTextView.text,postImage: UIImage(named:Constants.ImageName.Default)!,upvoteCount: 0)
+      let newTopic = PostInformation(title: inputTextView.text,
+                                     postImage: UIImage(named:Constants.ImageName.Default)!,
+                                     upvoteCount: 0)
       delegate?.updateListAfterSubmittingNewTopic(newTopic: newTopic)
     }
   }
-  
+
   // MARK : - Present AlertController
-  
-  fileprivate func showValidateErrorAlert(message:String) {
-    
+
+  fileprivate func showValidateErrorAlert(message: String) {
+
     let alert = UIAlertController(title: "", message: message, preferredStyle: .alert)
-    let alertOkAction = UIAlertAction(title: Constants.Common.Ok, style: .default)
+    let alertOkAction = UIAlertAction(title: Constants.Common.Okay, style: .default)
     alert.addAction(alertOkAction)
-    
+
     present(alert, animated: true, completion: nil)
   }
-  
+
   fileprivate func showSuccessAlert() {
-    let alert = UIAlertController(title: "", message: Constants.SubmitNewTopicVC.TopicIsSubmitted, preferredStyle: .alert)
-    let alertOkAction = UIAlertAction(title: Constants.Common.Ok, style: .default, handler: { (action) in
+    let alert = UIAlertController(title: "",
+                                  message: Constants.SubmitNewTopicVC.TopicIsSubmitted,
+                                  preferredStyle: .alert)
+    let alertOkAction = UIAlertAction(title: Constants.Common.Okay, style: .default, handler: { (_) in
       _ = self.navigationController?.popViewController(animated: true)
     })
     alert.addAction(alertOkAction)
-    
+
     present(alert, animated: true, completion: nil)
   }
 }
@@ -129,14 +132,13 @@ class SubmitNewTopicViewController : UIViewController {
 // MARK : - SubmitNewTopicViewController : UITextViewDelegate
 
 extension SubmitNewTopicViewController : UITextViewDelegate {
-  
+
   // MARK : - UITextViewDelegate Methods 
-  
+
   func textView(_ textView: UITextView, shouldChangeTextIn range: NSRange, replacementText text: String) -> Bool {
-    
-    
+
     if text.characters.count == 0 {  // When the delete key is entered
-      
+
       if textView.text.characters.count != 0 {  // Delete key is only allowed when texts exist
         return true
       }
@@ -144,24 +146,17 @@ extension SubmitNewTopicViewController : UITextViewDelegate {
       // limit the number of input to 255
       return false
     }
-      
+
     return true
 
   }
-  
+
   func textViewDidChange(_ textView: UITextView) {
-    
+
     if textView == inputTextView {
       let textLength = textView.text.characters.count
       textCountLabel.text = "\(textLength)" + "/" + "\(Constants.SubmitNewTopicVC.MaximumTopicCount)"
     }
   }
-  
+
 }
-
-
-
-
-
-
-

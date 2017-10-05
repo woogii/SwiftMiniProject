@@ -13,25 +13,22 @@ import UIKit
 
 struct PostInformation {
 
-  // MARK : - Property 
-  
-  var title:String
-  var postImage:UIImage
-  var upvoteCount:Int
-  
+  // MARK : - Property
+  var title: String
+  var postImage: UIImage
+  var upvoteCount: Int
+
   // MARK : - Initialization
-  
-  init(title:String, postImage:UIImage, upvoteCount:Int) {
+  init(title: String, postImage: UIImage, upvoteCount: Int) {
     self.title = title
     self.postImage = postImage
     self.upvoteCount = upvoteCount
   }
-  
-  init(dictionary:[String:Any]) {
-    
+
+  init(dictionary: [String:Any]) {
+
     self.title = dictionary[Constants.JSONResponseKeys.Title] as? String ?? ""
     self.upvoteCount = dictionary[Constants.JSONResponseKeys.UpvoteCount] as? Int ?? 0
-    
     if let postImageName = dictionary[Constants.JSONResponseKeys.PostImageName] as? String {
       self.postImage = UIImage(named:postImageName)!
     } else {
