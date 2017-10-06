@@ -85,10 +85,12 @@
 		B81431931EDECC0A009650F2 /* Carousel */ = {
 			isa = PBXGroup;
 			children = (
-				B81431BE1EDF2613009650F2 /* Constant */,
 				B81431B91EDEDAB5009650F2 /* Model */,
 				B81431B81EDEDA88009650F2 /* View */,
 				B81431B71EDEDA83009650F2 /* Controller */,
+				B81431BE1EDF2613009650F2 /* Constant */,
+				B826951A1F877B92003F09C6 /* App */,
+				B826951B1F877B9E003F09C6 /* Storyboard */,
 				B81431B41EDED9ED009650F2 /* Supporting Files */,
 			);
 			path = Carousel;
@@ -106,13 +108,11 @@
 		B81431B41EDED9ED009650F2 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
-				B81431941EDECC0A009650F2 /* AppDelegate.swift */,
 				B814319B1EDECC0A009650F2 /* Assets.xcassets */,
-				B814319D1EDECC0A009650F2 /* LaunchScreen.storyboard */,
 				B81431A01EDECC0A009650F2 /* Info.plist */,
 				B81431BC1EDEDBE6009650F2 /* items.json */,
 			);
-			name = "Supporting Files";
+			path = "Supporting Files";
 			sourceTree = "<group>";
 		};
 		B81431B71EDEDA83009650F2 /* Controller */ = {
@@ -120,16 +120,15 @@
 			children = (
 				B81431961EDECC0A009650F2 /* CarouselViewController.swift */,
 			);
-			name = Controller;
+			path = Controller;
 			sourceTree = "<group>";
 		};
 		B81431B81EDEDA88009650F2 /* View */ = {
 			isa = PBXGroup;
 			children = (
 				B81431B51EDEDA78009650F2 /* CarouselCollectionViewCell.swift */,
-				B81431981EDECC0A009650F2 /* Main.storyboard */,
 			);
-			name = View;
+			path = View;
 			sourceTree = "<group>";
 		};
 		B81431B91EDEDAB5009650F2 /* Model */ = {
@@ -137,7 +136,7 @@
 			children = (
 				B81431BA1EDEDB5C009650F2 /* CarouselItem.swift */,
 			);
-			name = Model;
+			path = Model;
 			sourceTree = "<group>";
 		};
 		B81431BE1EDF2613009650F2 /* Constant */ = {
@@ -145,7 +144,24 @@
 			children = (
 				B81431BF1EDF262A009650F2 /* Constants.swift */,
 			);
-			name = Constant;
+			path = Constant;
+			sourceTree = "<group>";
+		};
+		B826951A1F877B92003F09C6 /* App */ = {
+			isa = PBXGroup;
+			children = (
+				B81431941EDECC0A009650F2 /* AppDelegate.swift */,
+			);
+			path = App;
+			sourceTree = "<group>";
+		};
+		B826951B1F877B9E003F09C6 /* Storyboard */ = {
+			isa = PBXGroup;
+			children = (
+				B814319D1EDECC0A009650F2 /* LaunchScreen.storyboard */,
+				B81431981EDECC0A009650F2 /* Main.storyboard */,
+			);
+			path = Storyboard;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -158,6 +174,7 @@
 				B814318D1EDECC0A009650F2 /* Sources */,
 				B814318E1EDECC0A009650F2 /* Frameworks */,
 				B814318F1EDECC0A009650F2 /* Resources */,
+				B82695191F877B7C003F09C6 /* SwiftLint */,
 			);
 			buildRules = (
 			);
@@ -249,6 +266,23 @@
 		};
 /* End PBXResourcesBuildPhase section */
 
+/* Begin PBXShellScriptBuildPhase section */
+		B82695191F877B7C003F09C6 /* SwiftLint */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = SwiftLint;
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "if which swiftlint >/dev/null; then\nswiftlint\nelse\necho \"warning: SwiftLint not installed, download from https://github.com/realm/SwiftLint\"\nfi";
+		};
+/* End PBXShellScriptBuildPhase section */
+
 /* Begin PBXSourcesBuildPhase section */
 		B814318D1EDECC0A009650F2 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
@@ -287,6 +321,7 @@
 				B81431991EDECC0A009650F2 /* Base */,
 			);
 			name = Main.storyboard;
+			path = .;
 			sourceTree = "<group>";
 		};
 		B814319D1EDECC0A009650F2 /* LaunchScreen.storyboard */ = {
@@ -295,6 +330,7 @@
 				B814319E1EDECC0A009650F2 /* Base */,
 			);
 			name = LaunchScreen.storyboard;
+			path = .;
 			sourceTree = "<group>";
 		};
 /* End PBXVariantGroup section */
@@ -340,7 +376,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 10.2;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				MTL_ENABLE_DEBUG_INFO = YES;
 				ONLY_ACTIVE_ARCH = YES;
 				SDKROOT = iphoneos;
@@ -384,7 +420,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 10.2;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				SDKROOT = iphoneos;
 				SWIFT_OPTIMIZATION_LEVEL = "-Owholemodule";
@@ -398,7 +434,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				DEVELOPMENT_TEAM = MFYH4C9VNG;
-				INFOPLIST_FILE = Carousel/Info.plist;
+				INFOPLIST_FILE = "Carousel/Supporting Files/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.woogii.Carousel;
@@ -412,7 +448,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				DEVELOPMENT_TEAM = MFYH4C9VNG;
-				INFOPLIST_FILE = Carousel/Info.plist;
+				INFOPLIST_FILE = "Carousel/Supporting Files/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.woogii.Carousel;

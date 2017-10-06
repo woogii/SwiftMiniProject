@@ -11,16 +11,16 @@ import Foundation
 // MARK : - Constants
 
 struct Constants {
-  
+
   // MARK : - JSONKeys
-  
+
   struct JSONKeys {
     static let Image = "image"
     static let Title = "title"
     static let Items = "items"
   }
-  
+
   static let ResourceName = "items"
   static let ResourceExtension = "json"
-  
+
 }
