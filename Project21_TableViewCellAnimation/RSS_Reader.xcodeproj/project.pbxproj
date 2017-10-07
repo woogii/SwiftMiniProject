@@ -8,7 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		2A19C291AA158C8FB79D7A6F /* Pods_RSS_Reader.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 212A02916DCBAC4144E33F26 /* Pods_RSS_Reader.framework */; };
-		B85B8A031F52169F0086E89B /* secret.swift in Sources */ = {isa = PBXBuildFile; fileRef = B85B8A021F52169F0086E89B /* secret.swift */; };
+		B826951F1F8958E4003F09C6 /* Secret.swift in Sources */ = {isa = PBXBuildFile; fileRef = B826951E1F8958E4003F09C6 /* Secret.swift */; };
 		B85B8A051F521F4A0086E89B /* RestClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = B85B8A041F521F4A0086E89B /* RestClient.swift */; };
 		B8A3277B1F4DAE7A00EDFA0C /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8A3277A1F4DAE7A00EDFA0C /* AppDelegate.swift */; };
 		B8A3277D1F4DAE7A00EDFA0C /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8A3277C1F4DAE7A00EDFA0C /* MainViewController.swift */; };
@@ -34,7 +34,7 @@
 		01DDFC156905F10D32CBC0B1 /* Pods-RSS_ReaderTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-RSS_ReaderTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-RSS_ReaderTests/Pods-RSS_ReaderTests.debug.xcconfig"; sourceTree = "<group>"; };
 		212A02916DCBAC4144E33F26 /* Pods_RSS_Reader.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_RSS_Reader.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		6FA1ABC6E6CFE3D6CFC670F8 /* Pods-RSS_Reader.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-RSS_Reader.debug.xcconfig"; path = "Pods/Target Support Files/Pods-RSS_Reader/Pods-RSS_Reader.debug.xcconfig"; sourceTree = "<group>"; };
-		B85B8A021F52169F0086E89B /* secret.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = secret.swift; path = RSS_Reader/secret.swift; sourceTree = "<group>"; };
+		B826951E1F8958E4003F09C6 /* Secret.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Secret.swift; sourceTree = "<group>"; };
 		B85B8A041F521F4A0086E89B /* RestClient.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RestClient.swift; sourceTree = "<group>"; };
 		B8A327771F4DAE7A00EDFA0C /* RSS_Reader.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = RSS_Reader.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		B8A3277A1F4DAE7A00EDFA0C /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -72,12 +72,20 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		B826951C1F8954E5003F09C6 /* App */ = {
+			isa = PBXGroup;
+			children = (
+				B8A3277A1F4DAE7A00EDFA0C /* AppDelegate.swift */,
+			);
+			path = App;
+			sourceTree = "<group>";
+		};
 		B85B8A061F521F520086E89B /* Constant */ = {
 			isa = PBXGroup;
 			children = (
 				B8A3279A1F4DF43B00EDFA0C /* Constants.swift */,
 			);
-			name = Constant;
+			path = Constant;
 			sourceTree = "<group>";
 		};
 		B85B8A071F521F5F0086E89B /* Network */ = {
@@ -85,18 +93,16 @@
 			children = (
 				B85B8A041F521F4A0086E89B /* RestClient.swift */,
 			);
-			name = Network;
+			path = Network;
 			sourceTree = "<group>";
 		};
 		B85B8A081F521F800086E89B /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
-				B8A3277A1F4DAE7A00EDFA0C /* AppDelegate.swift */,
 				B8A327811F4DAE7A00EDFA0C /* Assets.xcassets */,
-				B8A327831F4DAE7A00EDFA0C /* LaunchScreen.storyboard */,
 				B8A327861F4DAE7A00EDFA0C /* Info.plist */,
 			);
-			name = "Supporting Files";
+			path = "Supporting Files";
 			sourceTree = "<group>";
 		};
 		B85B8A091F521FA00086E89B /* Controller */ = {
@@ -104,25 +110,25 @@
 			children = (
 				B8A3277C1F4DAE7A00EDFA0C /* MainViewController.swift */,
 			);
-			name = Controller;
+			path = Controller;
 			sourceTree = "<group>";
 		};
 		B85B8A0A1F521FB40086E89B /* Storyboard */ = {
 			isa = PBXGroup;
 			children = (
+				B8A327831F4DAE7A00EDFA0C /* LaunchScreen.storyboard */,
 				B8A3277E1F4DAE7A00EDFA0C /* Main.storyboard */,
 			);
-			name = Storyboard;
+			path = Storyboard;
 			sourceTree = "<group>";
 		};
 		B8A3276E1F4DAE7A00EDFA0C = {
 			isa = PBXGroup;
 			children = (
-				B85B8A021F52169F0086E89B /* secret.swift */,
 				B8A327791F4DAE7A00EDFA0C /* RSS_Reader */,
 				B8A3278E1F4DAE7A00EDFA0C /* RSS_ReaderTests */,
-				B8A327781F4DAE7A00EDFA0C /* Products */,
 				C63588F9BA5540D5225993C1 /* Pods */,
+				B8A327781F4DAE7A00EDFA0C /* Products */,
 				F613E749A592A52C2F2E72B5 /* Frameworks */,
 			);
 			sourceTree = "<group>";
@@ -139,11 +145,13 @@
 		B8A327791F4DAE7A00EDFA0C /* RSS_Reader */ = {
 			isa = PBXGroup;
 			children = (
-				B85B8A0A1F521FB40086E89B /* Storyboard */,
+				B826951C1F8954E5003F09C6 /* App */,
+				B85B8A061F521F520086E89B /* Constant */,
 				B85B8A091F521FA00086E89B /* Controller */,
 				B85B8A071F521F5F0086E89B /* Network */,
-				B85B8A061F521F520086E89B /* Constant */,
+				B85B8A0A1F521FB40086E89B /* Storyboard */,
 				B85B8A081F521F800086E89B /* Supporting Files */,
+				B826951E1F8958E4003F09C6 /* Secret.swift */,
 			);
 			path = RSS_Reader;
 			sourceTree = "<group>";
@@ -151,8 +159,8 @@
 		B8A3278E1F4DAE7A00EDFA0C /* RSS_ReaderTests */ = {
 			isa = PBXGroup;
 			children = (
-				B8A3278F1F4DAE7A00EDFA0C /* RSS_ReaderTests.swift */,
 				B8A327911F4DAE7A00EDFA0C /* Info.plist */,
+				B8A3278F1F4DAE7A00EDFA0C /* RSS_ReaderTests.swift */,
 			);
 			path = RSS_ReaderTests;
 			sourceTree = "<group>";
@@ -190,6 +198,7 @@
 				B8A327751F4DAE7A00EDFA0C /* Resources */,
 				8464392875692BD5BDE20EDF /* [CP] Embed Pods Frameworks */,
 				17F5605F126102EA9FC21047 /* [CP] Copy Pods Resources */,
+				B826951D1F89551D003F09C6 /* SwiftLint */,
 			);
 			buildRules = (
 			);
@@ -374,6 +383,20 @@
 			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
 			showEnvVarsInLog = 0;
 		};
+		B826951D1F89551D003F09C6 /* SwiftLint */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = SwiftLint;
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "if which swiftlint >/dev/null; then\nswiftlint\nelse\necho \"warning: SwiftLint not installed, download from https://github.com/realm/SwiftLint\"\nfi";
+		};
 /* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
@@ -382,7 +405,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				B8A3277D1F4DAE7A00EDFA0C /* MainViewController.swift in Sources */,
-				B85B8A031F52169F0086E89B /* secret.swift in Sources */,
+				B826951F1F8958E4003F09C6 /* Secret.swift in Sources */,
 				B8A3277B1F4DAE7A00EDFA0C /* AppDelegate.swift in Sources */,
 				B85B8A051F521F4A0086E89B /* RestClient.swift in Sources */,
 				B8A3279B1F4DF43B00EDFA0C /* Constants.swift in Sources */,
@@ -414,6 +437,7 @@
 				B8A3277F1F4DAE7A00EDFA0C /* Base */,
 			);
 			name = Main.storyboard;
+			path = .;
 			sourceTree = "<group>";
 		};
 		B8A327831F4DAE7A00EDFA0C /* LaunchScreen.storyboard */ = {
@@ -422,6 +446,7 @@
 				B8A327841F4DAE7A00EDFA0C /* Base */,
 			);
 			name = LaunchScreen.storyboard;
+			path = .;
 			sourceTree = "<group>";
 		};
 /* End PBXVariantGroup section */
@@ -468,7 +493,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 10.3;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				MTL_ENABLE_DEBUG_INFO = YES;
 				ONLY_ACTIVE_ARCH = YES;
 				SDKROOT = iphoneos;
@@ -512,7 +537,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 10.3;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				SDKROOT = iphoneos;
 				SWIFT_OPTIMIZATION_LEVEL = "-Owholemodule";
@@ -526,7 +551,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				DEVELOPMENT_TEAM = MFYH4C9VNG;
-				INFOPLIST_FILE = RSS_Reader/Info.plist;
+				INFOPLIST_FILE = "RSS_Reader/Supporting Files/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "com.woogii.RSS-Reader";
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -540,7 +565,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				DEVELOPMENT_TEAM = MFYH4C9VNG;
-				INFOPLIST_FILE = RSS_Reader/Info.plist;
+				INFOPLIST_FILE = "RSS_Reader/Supporting Files/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "com.woogii.RSS-Reader";
 				PRODUCT_NAME = "$(TARGET_NAME)";
