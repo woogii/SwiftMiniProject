@@ -66,7 +66,7 @@ class FlickrPictureViewController: UICollectionViewController {
 
   private func getImageListFromFlickr(isRefreshing: Bool) {
 
-    PhotoInfo.requestPhotoInfoList(currentPage: FlickrPictureViewController.page, completionHandler: { results, error in
+    PhotoInfo.requestPhotoInfoList(currentPage: FlickrPictureViewController.page, completionHandler: { [weak self] results, error in
 
       guard error == nil else {
         #if DEBUG
@@ -79,13 +79,13 @@ class FlickrPictureViewController: UICollectionViewController {
         return
       }
 
-      self.photoInfoList = returnedResult
+      self?.photoInfoList = returnedResult
 
       DispatchQueue.main.async {
-        self.collectionView?.reloadData()
+        self?.collectionView?.reloadData()
 
         if isRefreshing == true {
-          self.stopRefreshControl()
+          self?.stopRefreshControl()
         }
       }
     })
