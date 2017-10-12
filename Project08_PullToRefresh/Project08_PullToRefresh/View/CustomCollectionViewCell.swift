@@ -62,6 +62,11 @@ class CustomCollectionViewCell: UICollectionViewCell {
 
   }
 
+  override func prepareForReuse() {
+    super.prepareForReuse()
+    backgroundImageView.sd_cancelCurrentImageLoad()
+  }
+
   // MARK : - Nib File Loading
 
   override func awakeFromNib() {

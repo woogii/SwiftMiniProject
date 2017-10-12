@@ -66,7 +66,8 @@ class FlickrPictureViewController: UICollectionViewController {
 
   private func getImageListFromFlickr(isRefreshing: Bool) {
 
-    PhotoInfo.requestPhotoInfoList(currentPage: FlickrPictureViewController.page, completionHandler: { [weak self] results, error in
+    PhotoInfo.requestPhotoInfoList(currentPage: FlickrPictureViewController.page,
+                                   completionHandler: { [weak self] results, error in
 
       guard error == nil else {
         #if DEBUG
