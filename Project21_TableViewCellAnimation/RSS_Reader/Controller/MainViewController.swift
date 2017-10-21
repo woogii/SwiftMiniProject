@@ -10,18 +10,22 @@ import UIKit
 
 // MARK : - MainViewController: UIViewController
 
-class MainViewController: UITableViewController {
+class MainViewController: UIViewController {
 
   // MARK : - Properties
+  @IBOutlet weak var tableView: UITableView!
+
+  override var preferredStatusBarStyle: UIStatusBarStyle {
+    return .lightContent
+  }
 
   // MARK : - View Life Cycle
 
   override func viewDidLoad() {
 
     super.viewDidLoad()
-
-    registerTableViewCell()
-
+    navigationController?.navigationBar.barTintColor = UIColor.black
+    navigationController?.navigationBar.titleTextAttributes = [NSForegroundColorAttributeName: UIColor.white]
     RestClient.sharedInstance.requestNews(with: "techCrunch") { (result, error) in
 
       guard error == nil else {
@@ -31,21 +35,27 @@ class MainViewController: UITableViewController {
       print(result!)
     }
   }
+}
 
-  private func registerTableViewCell() {
-    tableView.register(UITableViewCell.self, forCellReuseIdentifier: Constants.CellID.NewsCell)
-  }
+extension MainViewController: UITableViewDataSource {
 
-  // MARK : - UITableViewDataSource Methods 
+  // MARK : - UITableViewDataSource Methods
 
-  override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+  func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
     return 0
   }
 
-  override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+  func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
     let cell = tableView.dequeueReusableCell(withIdentifier: Constants.CellID.NewsCell, for: indexPath)
 
     return cell
+  }
+}
+
+extension UINavigationController {
+
+  override open var preferredStatusBarStyle: UIStatusBarStyle {
+    return .lightContent
   }
 
 }

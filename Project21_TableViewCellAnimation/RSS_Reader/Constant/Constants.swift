@@ -12,13 +12,14 @@ import Foundation
 
 struct Constants {
 
-  //https://newsapi.org/v1/articles?source=techcrunch&sortBy=top&apiKey=d85af49e60034e1c895a4b3c71d30100
-
   // MARK : - APIRequest
 
   struct APIRequest {
 
-    static let BaseUrl = "https://newsapi.org/v1/articles"
+    static let BaseUrl      = "https://api.rss2json.com/v1/api.json?rss_url="
+    static let MoviesUrl    = "https://news.ycombinator.com/rss"
+    static let CelebrityUrl = "https://news.ycombinator.com/rss"
+    static let GeneralUrl   = "https://news.ycombinator.com/rss"
 
     // MARK : - UrlQuery
     struct UrlQuery {
