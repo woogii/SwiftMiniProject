@@ -9,6 +9,8 @@
 /* Begin PBXBuildFile section */
 		2A19C291AA158C8FB79D7A6F /* Pods_RSS_Reader.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 212A02916DCBAC4144E33F26 /* Pods_RSS_Reader.framework */; };
 		B826951F1F8958E4003F09C6 /* Secret.swift in Sources */ = {isa = PBXBuildFile; fileRef = B826951E1F8958E4003F09C6 /* Secret.swift */; };
+		B83376A21F9BFF6000F59F35 /* NewsTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B83376A11F9BFF6000F59F35 /* NewsTableViewCell.swift */; };
+		B83376A51F9CACB200F59F35 /* Feed.swift in Sources */ = {isa = PBXBuildFile; fileRef = B83376A41F9CACB200F59F35 /* Feed.swift */; };
 		B85B8A051F521F4A0086E89B /* RestClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = B85B8A041F521F4A0086E89B /* RestClient.swift */; };
 		B8A3277B1F4DAE7A00EDFA0C /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8A3277A1F4DAE7A00EDFA0C /* AppDelegate.swift */; };
 		B8A3277D1F4DAE7A00EDFA0C /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8A3277C1F4DAE7A00EDFA0C /* MainViewController.swift */; };
@@ -35,6 +37,8 @@
 		212A02916DCBAC4144E33F26 /* Pods_RSS_Reader.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_RSS_Reader.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		6FA1ABC6E6CFE3D6CFC670F8 /* Pods-RSS_Reader.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-RSS_Reader.debug.xcconfig"; path = "Pods/Target Support Files/Pods-RSS_Reader/Pods-RSS_Reader.debug.xcconfig"; sourceTree = "<group>"; };
 		B826951E1F8958E4003F09C6 /* Secret.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Secret.swift; sourceTree = "<group>"; };
+		B83376A11F9BFF6000F59F35 /* NewsTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NewsTableViewCell.swift; sourceTree = "<group>"; };
+		B83376A41F9CACB200F59F35 /* Feed.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Feed.swift; sourceTree = "<group>"; };
 		B85B8A041F521F4A0086E89B /* RestClient.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RestClient.swift; sourceTree = "<group>"; };
 		B8A327771F4DAE7A00EDFA0C /* RSS_Reader.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = RSS_Reader.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		B8A3277A1F4DAE7A00EDFA0C /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -78,6 +82,22 @@
 				B8A3277A1F4DAE7A00EDFA0C /* AppDelegate.swift */,
 			);
 			path = App;
+			sourceTree = "<group>";
+		};
+		B83376A01F9BFF3700F59F35 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				B83376A11F9BFF6000F59F35 /* NewsTableViewCell.swift */,
+			);
+			name = View;
+			sourceTree = "<group>";
+		};
+		B83376A31F9CACA200F59F35 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				B83376A41F9CACB200F59F35 /* Feed.swift */,
+			);
+			name = Model;
 			sourceTree = "<group>";
 		};
 		B85B8A061F521F520086E89B /* Constant */ = {
@@ -145,7 +165,9 @@
 		B8A327791F4DAE7A00EDFA0C /* RSS_Reader */ = {
 			isa = PBXGroup;
 			children = (
+				B83376A31F9CACA200F59F35 /* Model */,
 				B826951C1F8954E5003F09C6 /* App */,
+				B83376A01F9BFF3700F59F35 /* View */,
 				B85B8A061F521F520086E89B /* Constant */,
 				B85B8A091F521FA00086E89B /* Controller */,
 				B85B8A071F521F5F0086E89B /* Network */,
@@ -406,6 +428,8 @@
 			files = (
 				B8A3277D1F4DAE7A00EDFA0C /* MainViewController.swift in Sources */,
 				B826951F1F8958E4003F09C6 /* Secret.swift in Sources */,
+				B83376A21F9BFF6000F59F35 /* NewsTableViewCell.swift in Sources */,
+				B83376A51F9CACB200F59F35 /* Feed.swift in Sources */,
 				B8A3277B1F4DAE7A00EDFA0C /* AppDelegate.swift in Sources */,
 				B85B8A051F521F4A0086E89B /* RestClient.swift in Sources */,
 				B8A3279B1F4DF43B00EDFA0C /* Constants.swift in Sources */,

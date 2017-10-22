@@ -8,20 +8,20 @@
 
 import Foundation
 
-// MARK : - Constants
+// MARK: - Constants
 
 struct Constants {
 
-  // MARK : - APIRequest
+  // MARK: - APIRequest
 
   struct APIRequest {
 
     static let BaseUrl      = "https://api.rss2json.com/v1/api.json?rss_url="
-    static let MoviesUrl    = "https://news.ycombinator.com/rss"
-    static let CelebrityUrl = "https://news.ycombinator.com/rss"
-    static let GeneralUrl   = "https://news.ycombinator.com/rss"
+    static let MoviesUrl    = "http://www.movies.com/rss-feeds/movie-news-rss"
+    static let CelebrityUrl = "http://www.popsugar.com/entertainment/feed"
+    static let GeneralUrl   = "http://feeds.feedburner.com/variety/headlines"
 
-    // MARK : - UrlQuery
+    // MARK: - UrlQuery
     struct UrlQuery {
       static let Source = "source"
       static let SortBy = "sortBy"
@@ -29,28 +29,39 @@ struct Constants {
     }
   }
 
-  // MARK : - JSONResponseKeys
+  // MARK: - JSONResponseKeys
 
   struct JSONResponseKeys {
-    static let Author = "author"
-    static let Title = "title"
+    static let Items       = "items"
+    static let Author      = "author"
+    static let Title       = "title"
+    static let PublishDate = "pubDate"
+    static let Link        = "link"
     static let Description = "description"
-    static let Url = "url"
-    static let UrlToImage = "urlToImage"
-    static let PublishedAt = "publishedAt"
+    static let Url         = "url"
+    static let Thumbnail   = "thumbnail"
+    static let Enclosure   = "enclosure"
   }
 
-  // MARK : - Cell Identifiers
+  // MARK: - Cell Identifiers
   struct CellID {
-    static let NewsCell = "cell"
+    static let News = "newsCell"
   }
 
-  // MARK : - NewsSource
-
+  // MARK: - NewsSource
   struct NewsSource {
     static let TechCrunch = "techcrunch"
     static let TechRadar = "techRadar"
     static let Recode = "recode"
   }
 
+  // MARK: - Serializaion Error Description
+  struct SerializaionErrorDesc {
+    static let TitleMissing          = "Title is missing"
+    static let PublishedDateMissing  = "Published date is missing"
+    static let UrlLinkMissing        = "Url Link is missing"
+    static let ThumbnailMissing      = "Thumbnail is missing"
+  }
+
+  static let NewsFeedDateFormat = "yyyy-MM-dd HH:mm:ss"
 }

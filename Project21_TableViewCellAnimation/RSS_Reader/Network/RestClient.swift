@@ -16,14 +16,15 @@ struct RestClient {
 
   var sharedSession = URLSession.shared
   static let sharedInstance = RestClient()
-  typealias NewListRequestResult = (_ result: [String:Any]?, _ error: Error?) -> Void
+  typealias NewListRequestResult = (_ result: [Feed]?, _ error: Error?) -> Void
 
 	// MARK : - Request News List
 
-  func requestNews(with newsSource: String, completionHandler:@escaping NewListRequestResult) {
+  func requestNews(with sourceString: String, completionHandler:@escaping NewListRequestResult) {
+    print(sourceString)
+    // guard let url = buildUrlWithQueryItems(newsSource) else { return }
+    guard let url = URL(string: sourceString) else { return }
 
-    guard let url = buildUrlWithQueryItems(newsSource) else { return }
-    print(url.absoluteURL)
     URLSession.shared.dataTask(with: url) {data, response, error in
 
       guard error == nil else {
@@ -31,22 +32,27 @@ struct RestClient {
         return
       }
 
-      guard let data = data, let response = response as?  HTTPURLResponse else {
-        return
-      }
-
-      guard response.statusCode == 200 else {
-        print(response.statusCode)
+      guard let data = data, let response = response as? HTTPURLResponse,
+       200..<300 ~= response.statusCode else {
         return
       }
 
       do {
         let serializedResult = try JSONSerialization.jsonObject(with: data, options: .allowFragments)
-
-        guard let jsonResult = serializedResult as? [String:Any] else {
+        guard let json = serializedResult as? [String:Any],
+                let dictArray = json["items"] as? [[String:Any]] else {
           return
         }
-        completionHandler(jsonResult, error)
+        var feedList = [Feed]()
+        for dict in dictArray {
+          do {
+            let feed = try Feed(dictionary: dict)
+            feedList.append(feed)
+          } catch let error as NSError {
+            print(error.localizedDescription)
+          }
+        }
+        completionHandler(feedList, error)
 
       } catch let error as NSError {
           print("Cannot parse \(error.userInfo), \(error.localizedDescription)")
