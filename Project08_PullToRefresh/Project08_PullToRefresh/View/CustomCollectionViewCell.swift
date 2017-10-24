@@ -20,55 +20,63 @@ class CustomCollectionViewCell: UICollectionViewCell {
   @IBOutlet weak var contentBackgroundView: UIView!
   @IBOutlet weak var likeIconImageView: UIImageView!
   @IBOutlet weak var numberOfLikesLabel: UILabel!
-
   @IBOutlet weak var titleInfoLabel: UILabel!
 
   var photoInfo: PhotoInfo! {
-
     didSet {
       updateCell()
     }
   }
 
+  override func prepareForReuse() {
+    super.prepareForReuse()
+    backgroundImageView.image = nil
+    backgroundImageView.sd_cancelCurrentImageLoad()
+  }
+
   func updateCell() {
 
+    setTitleLabel()
+    setNumberOfLikesLabel()
+    setBackgroundImage()
+
+  }
+
+  private func setTitleLabel() {
     titleInfoLabel.text = photoInfo.title
+  }
+
+  private func setNumberOfLikesLabel() {
     numberOfLikesLabel.text = String(photoInfo.numberOfLikes)
+  }
+
+  private func setBackgroundImage() {
 
     guard let imageUrl = URL(string: photoInfo.mediumUrl) else {
       return
     }
-
     if let image = SDImageCache.shared().imageFromMemoryCache(forKey: imageUrl.absoluteString) {
       self.backgroundImageView.image = image
 
     } else {
 
-      backgroundImageView.sd_setImage(with:imageUrl, placeholderImage: nil,
-                                      options: SDWebImageOptions(), completed: { (image, _, _, _) in
-        if image != nil {
-
-          UIView.transition(with: self.backgroundImageView, duration: 0.5,
-                            options: .transitionCrossDissolve, animations: {
-            DispatchQueue.main.async {
-              self.backgroundImageView.image = image
-            }
-
-          }, completion: nil)
-        }
+      backgroundImageView
+        .sd_setImage(with:imageUrl, placeholderImage: nil,
+                    options: SDWebImageOptions(), completed: { (image, _, _, _) in
+                      if image != nil {
+                        UIView.transition(with: self.backgroundImageView, duration: 0.5,
+                                          options: .transitionCrossDissolve, animations: {
+                                            DispatchQueue.main.async {
+                                                self.backgroundImageView.image = image
+                                            }
+                        }, completion: nil)
+                      }
       })
-
     }
 
   }
 
-  override func prepareForReuse() {
-    super.prepareForReuse()
-    backgroundImageView.sd_cancelCurrentImageLoad()
-  }
-
-  // MARK : - Nib File Loading
-
+  // MARK: - Nib File Loading
   override func awakeFromNib() {
     super.awakeFromNib()
 

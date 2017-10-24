@@ -8,23 +8,23 @@
 
 import Foundation
 
-// MARK : - PhotoInfo
+// MARK: - PhotoInfo
 
 struct PhotoInfo {
 
-  // MARK : - Property
+  // MARK: - Property
 
   var title: String
   var mediumUrl: String
   var idKey: String
   var numberOfLikes: Int
   var registeredDate: Date
-  typealias PhotoRequestResult = (_ result: [PhotoInfo]?, _ error: Error?) -> (Void)
+
   enum SerializationError: Error {
     case missing(String)
   }
 
-  // MARK : - Initialization
+  // MARK: - Initialization
 
   init(photoInfoDictionary: [String:Any]) throws {
 
@@ -50,62 +50,4 @@ struct PhotoInfo {
     self.numberOfLikes = numberOfLikes
     self.registeredDate = date
   }
-
-}
-
-// MARK : - Extension
-
-extension PhotoInfo {
-
-  // MARK : - Network Request 
-
-  static func requestPhotoInfoList(currentPage: Int, completionHandler:@escaping PhotoRequestResult) {
-
-    guard let photoListUrl = buildRequestUrl(currentPage: currentPage) else {
-      return
-    }
-
-    URLSession.shared.dataTask(with:photoListUrl, completionHandler: { (data, _, error) in
-
-      var photoInfoList: [PhotoInfo] = []
-
-      if let data = data,
-        let json = try? JSONSerialization.jsonObject(with: data, options: []) as? [String:Any],
-        let jsonDict = json?[Constants.FlickrResponseKeys.Photos] as? [String:Any],
-        let photoInfoArray = jsonDict[Constants.FlickrResponseKeys.Photo] as? [[String:Any]] {
-
-        for case let photoItem in photoInfoArray {
-          if let photoInfo = try? PhotoInfo(photoInfoDictionary: photoItem) {
-            photoInfoList.append(photoInfo)
-          }
-        }
-
-        completionHandler(photoInfoList, error)
-      }
-
-    }).resume()
-
-  }
-
-  static func buildRequestUrl(currentPage: Int) -> URL? {
-
-    guard var urlComponent = URLComponents(string: Constants.Flickr.APIBaseURL) else {
-      return nil
-    }
-
-    urlComponent.queryItems = [
-      URLQueryItem(name: Constants.FlickrParameterKeys.Method,
-                   value: Constants.FlickrParameterValues.RecentPhotosMethod),
-      URLQueryItem(name: Constants.FlickrParameterKeys.APIKey, value: Secret.APIKey),
-      URLQueryItem(name: Constants.FlickrParameterKeys.Extras, value: Constants.FlickrParameterValues.MediumURL),
-      URLQueryItem(name: Constants.FlickrParameterKeys.Format, value: Constants.FlickrParameterValues.ResponseFormat),
-      URLQueryItem(name: Constants.FlickrParameterKeys.PerPage, value: Constants.FlickrParameterValues.NumberOfItems),
-      URLQueryItem(name: Constants.FlickrParameterKeys.Page, value: String(currentPage)),
-      URLQueryItem(name: Constants.FlickrParameterKeys.NoJSONCallback,
-                   value: Constants.FlickrParameterValues.DisableJSONCallback)
-    ]
-
-    return urlComponent.url
-  }
-
 }

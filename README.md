@@ -122,7 +122,7 @@ This project uses open source library. Thanks for the developers who are dedicat
 *  [LGSideMenuController](https://github.com/Friend-LGA/LGSideMenuController)
 
 ## Swift style and conventions
-* Integrating [SwiftLint](https://github.com/realm/SwiftLint) into the project
+* Integrated [SwiftLint](https://github.com/realm/SwiftLint) into the project
 
 ## Image Licence 
 

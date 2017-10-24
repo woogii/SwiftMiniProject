@@ -8,12 +8,11 @@
 
 import UIKit
 
-// MARK : - FlickrPictureViewController: UICollectionViewController
+// MARK: - FlickrPictureViewController: UICollectionViewController
 
 class FlickrPictureViewController: UICollectionViewController {
 
-  // MARK : - Property
-
+  // MARK: - Property
   var photoInfoList = [PhotoInfo]()
   let refreshControl: UIRefreshControl = {
     let refreshControl  = UIRefreshControl()
@@ -21,10 +20,11 @@ class FlickrPictureViewController: UICollectionViewController {
                              for: UIControlEvents.valueChanged)
     return refreshControl
   }()
+  let flickClient = FlickrClient()
+
   static var page = 1
 
-  // MARK : - View Life Cycle
-
+  // MARK: - View Life Cycle
   override func viewDidLoad() {
 
     super.viewDidLoad()
@@ -33,8 +33,7 @@ class FlickrPictureViewController: UICollectionViewController {
     getImageListFromFlickr(isRefreshing: false)
   }
 
-  // MARK : - Add Refresh Control
-
+  // MARK: - Add Refresh Control
   private func addRefreshControl() {
 
     if #available(iOS 10.0, *) {
@@ -44,8 +43,7 @@ class FlickrPictureViewController: UICollectionViewController {
     }
   }
 
-  // MARK : - End Refreshing
-
+  // MARK: - End Refreshing
   private func stopRefreshControl() {
 
     if #available(iOS 10.0, *) {
@@ -55,7 +53,7 @@ class FlickrPictureViewController: UICollectionViewController {
     }
   }
 
-  // MARK : - Action Method
+  // MARK: - Action Method
 
   func handleRefresh(_ refreshControlForCollectionView: UIRefreshControl) {
     FlickrPictureViewController.page += 1
@@ -63,10 +61,9 @@ class FlickrPictureViewController: UICollectionViewController {
   }
 
   // MARK: Make Network Request
-
   private func getImageListFromFlickr(isRefreshing: Bool) {
 
-    PhotoInfo.requestPhotoInfoList(currentPage: FlickrPictureViewController.page,
+    flickClient.requestPhotoInfoList(currentPage: FlickrPictureViewController.page,
                                    completionHandler: { [weak self] results, error in
 
       guard error == nil else {
@@ -92,8 +89,7 @@ class FlickrPictureViewController: UICollectionViewController {
     })
   }
 
-  // MARK : - CollectionView DataSource Methods
-
+  // MARK: - CollectionView DataSource Methods
   override func collectionView(_ collectionView: UICollectionView,
                                cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
     guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: Constants.CollectionViewCellIdentifier,
