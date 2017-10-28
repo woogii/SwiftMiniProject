@@ -30,8 +30,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     guard coreDataStack != nil else {
       return
     }
-    guard let navController = window?.rootViewController as? UINavigationController,
-      let viewController = navController.topViewController as? RestaurantListViewController else {
+    guard let viewController = window?.rootViewController as? RestaurantListViewController else {
         return
     }
     viewController.managedContext = coreDataStack!.context

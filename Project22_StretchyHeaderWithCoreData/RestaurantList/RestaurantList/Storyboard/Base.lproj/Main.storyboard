@@ -82,53 +82,26 @@
                                                 <constraint firstItem="lx9-ER-RDf" firstAttribute="top" secondItem="1t9-p5-lkr" secondAttribute="top" id="uOh-EO-aML"/>
                                             </constraints>
                                         </view>
-                                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="hhr-CY-COh">
-                                            <rect key="frame" x="0.0" y="72" width="414" height="50"/>
-                                            <subviews>
-                                                <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="line" placeholder="Search for restaurants" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Npu-09-E2Q">
-                                                    <rect key="frame" x="10" y="8" width="339" height="35"/>
-                                                    <constraints>
-                                                        <constraint firstAttribute="height" constant="35" id="Xbh-9J-ZaI"/>
-                                                    </constraints>
-                                                    <nil key="textColor"/>
-                                                    <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                                    <textInputTraits key="textInputTraits"/>
-                                                    <connections>
-                                                        <outlet property="delegate" destination="BYZ-38-t0r" id="25R-K3-IoJ"/>
-                                                    </connections>
-                                                </textField>
-                                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="8U2-WX-yG2">
-                                                    <rect key="frame" x="359" y="8" width="45" height="35"/>
-                                                    <constraints>
-                                                        <constraint firstAttribute="height" constant="35" id="2O3-Pl-nIG"/>
-                                                        <constraint firstAttribute="width" constant="45" id="Gsh-Hk-erF"/>
-                                                    </constraints>
-                                                    <state key="normal" image="ic_close"/>
-                                                    <connections>
-                                                        <action selector="tappedSearchCancelButton:" destination="BYZ-38-t0r" eventType="touchUpInside" id="3aw-5K-zvI"/>
-                                                    </connections>
-                                                </button>
-                                            </subviews>
-                                            <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="5Ni-Yq-3Da">
+                                            <rect key="frame" x="299" y="24" width="45" height="35"/>
                                             <constraints>
-                                                <constraint firstAttribute="height" constant="50" id="Lky-15-O7d"/>
-                                                <constraint firstItem="Npu-09-E2Q" firstAttribute="centerY" secondItem="hhr-CY-COh" secondAttribute="centerY" id="Ocm-hF-eJ4"/>
-                                                <constraint firstItem="8U2-WX-yG2" firstAttribute="leading" secondItem="Npu-09-E2Q" secondAttribute="trailing" constant="10" id="jZ6-Vi-Em2"/>
-                                                <constraint firstItem="Npu-09-E2Q" firstAttribute="leading" secondItem="hhr-CY-COh" secondAttribute="leading" constant="10" id="rhB-bV-dIt"/>
-                                                <constraint firstItem="8U2-WX-yG2" firstAttribute="centerY" secondItem="hhr-CY-COh" secondAttribute="centerY" id="uQs-qy-RvV"/>
-                                                <constraint firstAttribute="trailing" secondItem="8U2-WX-yG2" secondAttribute="trailing" constant="10" id="uTI-qE-DFO"/>
+                                                <constraint firstAttribute="height" constant="35" id="8TE-Rb-VS2"/>
+                                                <constraint firstAttribute="width" constant="45" id="fIu-sa-UJb"/>
                                             </constraints>
-                                        </view>
+                                            <state key="normal" image="ic_search"/>
+                                            <connections>
+                                                <action selector="searchButtonTapped:" destination="BYZ-38-t0r" eventType="touchUpInside" id="Q11-tt-lTy"/>
+                                            </connections>
+                                        </button>
                                     </subviews>
                                     <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                     <constraints>
                                         <constraint firstAttribute="trailing" secondItem="VrQ-p6-K81" secondAttribute="trailing" id="26C-fc-sf2"/>
                                         <constraint firstItem="VrQ-p6-K81" firstAttribute="top" secondItem="91D-XX-kxV" secondAttribute="top" id="3tn-MN-Gjb"/>
                                         <constraint firstItem="1t9-p5-lkr" firstAttribute="leading" secondItem="91D-XX-kxV" secondAttribute="leading" id="H0p-z5-a1g"/>
-                                        <constraint firstItem="hhr-CY-COh" firstAttribute="leading" secondItem="91D-XX-kxV" secondAttribute="leading" id="SXc-Ci-aAg"/>
+                                        <constraint firstItem="5Ni-Yq-3Da" firstAttribute="top" secondItem="91D-XX-kxV" secondAttribute="top" constant="24" id="KAe-aP-5mW"/>
+                                        <constraint firstAttribute="trailing" secondItem="5Ni-Yq-3Da" secondAttribute="trailing" constant="70" id="Ted-V5-FtM"/>
                                         <constraint firstItem="VrQ-p6-K81" firstAttribute="leading" secondItem="91D-XX-kxV" secondAttribute="leading" id="Ura-c8-e1O"/>
-                                        <constraint firstItem="1t9-p5-lkr" firstAttribute="top" secondItem="hhr-CY-COh" secondAttribute="bottom" id="YYf-Gh-zIM"/>
-                                        <constraint firstAttribute="trailing" secondItem="hhr-CY-COh" secondAttribute="trailing" id="Ypf-CA-mRW"/>
                                         <constraint firstAttribute="trailing" secondItem="1t9-p5-lkr" secondAttribute="trailing" id="anX-xa-2vQ"/>
                                         <constraint firstAttribute="bottom" secondItem="VrQ-p6-K81" secondAttribute="bottom" id="asd-eC-w6O"/>
                                         <constraint firstAttribute="bottom" secondItem="1t9-p5-lkr" secondAttribute="bottom" id="xuP-sP-21z"/>
@@ -301,6 +274,44 @@
                                     <outlet property="delegate" destination="BYZ-38-t0r" id="RB6-nL-ZoJ"/>
                                 </connections>
                             </tableView>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="hhr-CY-COh">
+                                <rect key="frame" x="0.0" y="-60" width="414" height="60"/>
+                                <subviews>
+                                    <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Search for restaurants" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Npu-09-E2Q">
+                                        <rect key="frame" x="10" y="22" width="349" height="30"/>
+                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="30" id="Xbh-9J-ZaI"/>
+                                        </constraints>
+                                        <nil key="textColor"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                        <textInputTraits key="textInputTraits"/>
+                                        <connections>
+                                            <outlet property="delegate" destination="BYZ-38-t0r" id="25R-K3-IoJ"/>
+                                        </connections>
+                                    </textField>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="8U2-WX-yG2">
+                                        <rect key="frame" x="369" y="23" width="35" height="30"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="30" id="2O3-Pl-nIG"/>
+                                            <constraint firstAttribute="width" constant="35" id="Gsh-Hk-erF"/>
+                                        </constraints>
+                                        <state key="normal" image="ic_close"/>
+                                        <connections>
+                                            <action selector="tappedSearchCancelButton:" destination="BYZ-38-t0r" eventType="touchUpInside" id="3aw-5K-zvI"/>
+                                        </connections>
+                                    </button>
+                                </subviews>
+                                <color key="backgroundColor" red="1" green="0.5" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="60" id="Lky-15-O7d"/>
+                                    <constraint firstAttribute="bottom" secondItem="Npu-09-E2Q" secondAttribute="bottom" constant="8" id="iRD-jo-0j7"/>
+                                    <constraint firstItem="8U2-WX-yG2" firstAttribute="leading" secondItem="Npu-09-E2Q" secondAttribute="trailing" constant="10" id="jZ6-Vi-Em2"/>
+                                    <constraint firstItem="Npu-09-E2Q" firstAttribute="leading" secondItem="hhr-CY-COh" secondAttribute="leading" constant="10" id="rhB-bV-dIt"/>
+                                    <constraint firstItem="8U2-WX-yG2" firstAttribute="centerY" secondItem="hhr-CY-COh" secondAttribute="centerY" constant="8" id="uQs-qy-RvV"/>
+                                    <constraint firstAttribute="trailing" secondItem="8U2-WX-yG2" secondAttribute="trailing" constant="10" id="uTI-qE-DFO"/>
+                                </constraints>
+                            </view>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="zsZ-qM-IkG">
                                 <rect key="frame" x="0.0" y="536" width="414" height="200"/>
                                 <subviews>
@@ -327,8 +338,11 @@
                         <constraints>
                             <constraint firstItem="kno-26-E87" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" id="4ar-t5-GL2"/>
                             <constraint firstAttribute="trailing" secondItem="zsZ-qM-IkG" secondAttribute="trailing" id="ABs-nD-PLR"/>
+                            <constraint firstAttribute="trailing" secondItem="hhr-CY-COh" secondAttribute="trailing" id="AXK-Li-qCL"/>
                             <constraint firstItem="kno-26-E87" firstAttribute="top" secondItem="8bC-Xf-vdC" secondAttribute="top" id="LQG-c5-ahQ"/>
                             <constraint firstItem="zsZ-qM-IkG" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" id="MeS-3q-1Bo"/>
+                            <constraint firstItem="hhr-CY-COh" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" constant="-80" id="Pxv-bE-Ugu"/>
+                            <constraint firstItem="hhr-CY-COh" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" id="UHb-wG-cDS"/>
                             <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="kno-26-E87" secondAttribute="bottom" id="dFZ-LQ-ngg"/>
                             <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="zsZ-qM-IkG" secondAttribute="bottom" id="hIL-ud-8Ey"/>
                             <constraint firstAttribute="trailing" secondItem="kno-26-E87" secondAttribute="trailing" id="hiT-UO-fRD"/>
@@ -338,6 +352,8 @@
                     <connections>
                         <outlet property="menuContainerView" destination="1t9-p5-lkr" id="qyV-BC-Xp4"/>
                         <outlet property="pickerContainerView" destination="zsZ-qM-IkG" id="maY-5B-7eL"/>
+                        <outlet property="searchDisplayController" destination="sKj-SS-9ra" id="ADL-ZA-zUs"/>
+                        <outlet property="searchFieldContainerTopConstraint" destination="Pxv-bE-Ugu" id="63j-b8-lYg"/>
                         <outlet property="searchFieldContainerView" destination="hhr-CY-COh" id="4AC-uc-T6a"/>
                         <outlet property="searchTextField" destination="Npu-09-E2Q" id="aST-AW-3cJ"/>
                         <outlet property="sortOptionsPickerView" destination="45y-5x-Kud" id="2A6-Ip-2LW"/>
@@ -348,12 +364,20 @@
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
+                <searchDisplayController id="sKj-SS-9ra">
+                    <connections>
+                        <outlet property="delegate" destination="BYZ-38-t0r" id="Fy4-Nn-Bgk"/>
+                        <outlet property="searchContentsController" destination="BYZ-38-t0r" id="n5c-wp-Psp"/>
+                        <outlet property="searchResultsDataSource" destination="BYZ-38-t0r" id="Z5X-Ou-hch"/>
+                        <outlet property="searchResultsDelegate" destination="BYZ-38-t0r" id="BFl-5Y-yBe"/>
+                    </connections>
+                </searchDisplayController>
             </objects>
             <point key="canvasLocation" x="905.79710144927549" y="-661.14130434782612"/>
         </scene>
     </scenes>
     <resources>
-        <image name="ic_close" width="32" height="32"/>
+        <image name="ic_close" width="21" height="21"/>
         <image name="ic_coins" width="21" height="21"/>
         <image name="ic_heart_outline" width="33" height="33"/>
         <image name="ic_location" width="16" height="16"/>

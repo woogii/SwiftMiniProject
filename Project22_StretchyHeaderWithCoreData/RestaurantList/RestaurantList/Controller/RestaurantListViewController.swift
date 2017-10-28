@@ -14,6 +14,7 @@ import Toaster
 class RestaurantListViewController: UIViewController {
 
   // MARK : - Property
+  @IBOutlet weak var searchFieldContainerTopConstraint: NSLayoutConstraint!
   @IBOutlet weak var pickerContainerView: UIView!
   @IBOutlet weak var sortOptionsPickerView: UIPickerView!
   @IBOutlet weak var tableView: UITableView!
@@ -41,7 +42,7 @@ class RestaurantListViewController: UIViewController {
   var favoriteRestaurantList = [FavoriteRestaurant]()
   // 'best match' is default sorting option
   var selectedSortOption = Constants.SortOption.BestMatch
-  fileprivate let tableViewHeaderHeight: CGFloat = 280.0
+  fileprivate let tableViewHeaderHeight: CGFloat = 250.0
   fileprivate var headerView: CustomHeaderView!
 
   override var preferredStatusBarStyle: UIStatusBarStyle {
@@ -59,7 +60,7 @@ class RestaurantListViewController: UIViewController {
     addRefreshControl()
     configureTableViewHeader()
     menuContainerView.isHidden = true
-    searchFieldContainerView.isHidden = true
+    configureSearchTextField()
   }
 
   private func configureTableViewHeader() {
@@ -158,14 +159,19 @@ class RestaurantListViewController: UIViewController {
   }
 
   // MARK : - Actions
-  @IBAction func tappedSearchButton(_ sender: Any) {
-    displaySearchViewsBasedOn(isHidden: false)
-    configureSearchTextField()
-    tableView.setContentOffset(CGPoint.zero, animated: true)
-  }
   @IBAction func tappedSearchCancelButton(_ sender: Any) {
-    displaySearchViewsBasedOn(isHidden: true)
     reconfigureSearchRelatedUI()
+    UIView.animate(withDuration: 0.4, animations: {
+      self.searchFieldContainerTopConstraint.constant = -80.0
+      self.view.layoutIfNeeded()
+    })
+  }
+  @IBAction func searchButtonTapped(_ sender: UIButton) {
+    UIView.animate(withDuration: 0.4, animations: {
+      self.searchFieldContainerTopConstraint.constant = -20.0
+      self.view.layoutIfNeeded()
+      self.searchTextField.becomeFirstResponder()
+    })
   }
   @IBAction func tappedSortingButton(_ sender: Any) {
     displayPickerContainerBasedOn(isHidden: false)
@@ -217,14 +223,16 @@ class RestaurantListViewController: UIViewController {
 
   // MARK : - Configure SearchTextField
   private func configureSearchTextField() {
-    searchTextField.becomeFirstResponder()
     searchTextField.setLeftPaddingPoints(Constants.TextFieldLeftPadding)
+    searchTextField.layer.cornerRadius = 5
   }
 
   // MARK : - Display SearchView and MenuView
   private func displaySearchViewsBasedOn(isHidden: Bool) {
-    searchFieldContainerView.isHidden = isHidden
-    menuContainerView.isHidden = !isHidden
+    UIView.animate(withDuration: 0.4, animations: {
+      self.searchFieldContainerTopConstraint.constant = -80.0
+      self.view.layoutIfNeeded()
+    })
   }
 
   // MARK : - Check Filtering Operation
