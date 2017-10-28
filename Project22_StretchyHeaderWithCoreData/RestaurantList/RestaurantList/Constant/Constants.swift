@@ -78,6 +78,7 @@ struct Constants {
   struct Colors {
     static let LightBlue = UIColor(colorLiteralRed: 173/255.0,
                                    green: 216/255.0, blue: 230/255.0, alpha: 0.7)
+    static let LightBlack = UIColor(red: 0/255, green: 0/255, blue: 0/255, alpha: 0.4)
   }
   // MARK : - Images {
   struct Images {
@@ -108,6 +109,10 @@ struct Constants {
                                                "Average product price", "Delivery costs", "Minimum cost"]
   static let SortOptionsArray               = ["bestMatch", "newest", "ratingAverage", "distance",
                                                "popularity", "averageProductPrice", "deliveryCosts", "minCost"]
+  static let TableViewHeaderHeight: CGFloat = 250.0
+  static let SearchContainerTopConstraintForHidden: CGFloat = -80.0
+  static let SearchContainerTopConstraintForShow: CGFloat = -20.0
+
   // MARK : - Sort Option
   struct SortOption {
     static let BestMatch           = "bestMatch"

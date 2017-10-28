@@ -18,12 +18,10 @@ class RestaurantListViewController: UIViewController {
   @IBOutlet weak var pickerContainerView: UIView!
   @IBOutlet weak var sortOptionsPickerView: UIPickerView!
   @IBOutlet weak var tableView: UITableView!
-  @IBOutlet weak var sortingTypeImageView: UIImageView!
-  @IBOutlet weak var sortingTypeLabel: UILabel!
-  @IBOutlet weak var menuContainerView: UIView!
   @IBOutlet weak var searchFieldContainerView: UIView!
   @IBOutlet weak var searchTextField: UITextField!
   @IBOutlet weak var sortingButton: UIButton!
+  private var overlayView = UIView()
   private lazy var opaqueView: UIView = {
     let opaqueView = UIView()
     opaqueView.backgroundColor = UIColor.black.withAlphaComponent(0.5)
@@ -42,9 +40,7 @@ class RestaurantListViewController: UIViewController {
   var favoriteRestaurantList = [FavoriteRestaurant]()
   // 'best match' is default sorting option
   var selectedSortOption = Constants.SortOption.BestMatch
-  fileprivate let tableViewHeaderHeight: CGFloat = 250.0
   fileprivate var headerView: CustomHeaderView!
-
   override var preferredStatusBarStyle: UIStatusBarStyle {
     return .lightContent
   }
@@ -55,44 +51,42 @@ class RestaurantListViewController: UIViewController {
     fetchRestaurantList()
     updateFavoritePropertyInRestaurantList()
     sortRestaurantList(sortOption: selectedSortOption)
-    displaySortOption(Constants.PickerViewRowText[Constants.DefaultSortIndex])
     configureSortOptionsPickerView()
     addRefreshControl()
     configureTableViewHeader()
-    menuContainerView.isHidden = true
     configureSearchTextField()
+    addOverlayViewForHeaderImage()
   }
 
   private func configureTableViewHeader() {
     guard let header = tableView.tableHeaderView as? CustomHeaderView else { return }
     headerView = header
     headerView.backgroundImage = UIImage(named: Constants.Images.HeaderImage)
+
     tableView.tableHeaderView = nil
     tableView.addSubview(headerView)
-    tableView.contentInset = UIEdgeInsets(top: tableViewHeaderHeight, left: 0, bottom: 0, right: 0)
-    tableView.contentOffset = CGPoint(x: 0, y: -tableViewHeaderHeight)
+    tableView.contentInset = UIEdgeInsets(top: Constants.TableViewHeaderHeight, left: 0, bottom: 0, right: 0)
+    tableView.contentOffset = CGPoint(x: 0, y: -Constants.TableViewHeaderHeight)
   }
-
+  private func addOverlayViewForHeaderImage() {
+    overlayView.backgroundColor = Constants.Colors.LightBlack
+    headerView.addSubview(overlayView)
+    overlayView.translatesAutoresizingMaskIntoConstraints = false
+    overlayView.leadingAnchor.constraint(equalTo: headerView.leadingAnchor).isActive = true
+    overlayView.trailingAnchor.constraint(equalTo: headerView.trailingAnchor).isActive = true
+    overlayView.bottomAnchor.constraint(equalTo: headerView.bottomAnchor).isActive = true
+    overlayView.topAnchor.constraint(equalTo: headerView.topAnchor).isActive = true
+  }
   fileprivate func updateHeaderView() {
-    var headerRect = CGRect(x: 0, y: -tableViewHeaderHeight,
-                            width: tableView.bounds.width, height: tableViewHeaderHeight)
-
-    //print("tableView contentInset top : \(tableView.contentInset.top)")
-    if tableView.contentOffset.y < -tableViewHeaderHeight {
-      print("Smaller than header height")
-      print("tableView contentOffset y : \(tableView.contentOffset.y)")
+    var headerRect = CGRect(x: 0, y: -Constants.TableViewHeaderHeight,
+                            width: tableView.bounds.width, height: Constants.TableViewHeaderHeight)
+    if tableView.contentOffset.y < -Constants.TableViewHeaderHeight {
       headerRect.origin.y = tableView.contentOffset.y
       headerRect.size.height = -tableView.contentOffset.y
-    }
-
-    if tableView.contentOffset.y > -(tableViewHeaderHeight/2.0) {
-      print("Bigger than header height")
-      print("tableView contentOffset y : \(tableView.contentOffset.y)")
-      headerRect.origin.y = tableView.contentOffset.y - (tableViewHeaderHeight/2.0)
-      //headerRect.size.height = 150
+    } else if tableView.contentOffset.y > -(Constants.TableViewHeaderHeight/2.0) {
+      headerRect.origin.y = tableView.contentOffset.y - (Constants.TableViewHeaderHeight/2.0)
     }
     headerView.frame = headerRect
-    print("Header view frame : \(headerView.frame)")
   }
 
   private func addRefreshControl() {
@@ -113,10 +107,6 @@ class RestaurantListViewController: UIViewController {
                                                   selectedSortOption: sortOption)
     self.tableView.reloadData()
   }
-  private func displaySortOption(_ option: String) {
-    sortingTypeLabel.text = option
-  }
-
   // MARK : - Fetch the list of restaurant
   private func fetchRestaurantList() {
     let bundle = Bundle(for: type(of: self))
@@ -161,28 +151,26 @@ class RestaurantListViewController: UIViewController {
   // MARK : - Actions
   @IBAction func tappedSearchCancelButton(_ sender: Any) {
     reconfigureSearchRelatedUI()
-    UIView.animate(withDuration: 0.4, animations: {
-      self.searchFieldContainerTopConstraint.constant = -80.0
-      self.view.layoutIfNeeded()
-    })
+    animateSearchViewWith(constraint: Constants.SearchContainerTopConstraintForHidden)
   }
   @IBAction func searchButtonTapped(_ sender: UIButton) {
+    animateSearchViewWith(constraint: Constants.SearchContainerTopConstraintForShow)
+    self.searchTextField.becomeFirstResponder()
+  }
+  private func animateSearchViewWith(constraint: CGFloat) {
     UIView.animate(withDuration: 0.4, animations: {
-      self.searchFieldContainerTopConstraint.constant = -20.0
+      self.searchFieldContainerTopConstraint.constant = constraint
       self.view.layoutIfNeeded()
-      self.searchTextField.becomeFirstResponder()
     })
   }
   @IBAction func tappedSortingButton(_ sender: Any) {
     displayPickerContainerBasedOn(isHidden: false)
     displayOpaqueviewBasedOn(isHidden: false)
   }
-
   func cancelSortOption(_ sender:Any) {
     displayPickerContainerBasedOn(isHidden: true)
     displayOpaqueviewBasedOn(isHidden: true)
   }
-
   func selectSortOption(_ sender:Any) {
     displayPickerContainerBasedOn(isHidden: true)
     displayOpaqueviewBasedOn(isHidden: true)
@@ -190,7 +178,6 @@ class RestaurantListViewController: UIViewController {
     let selectedIndex = sortOptionsPickerView.selectedRow(inComponent: 0)
     selectedSortOption = Constants.SortOptionsArray[selectedIndex]
     sortRestaurantList(sortOption: selectedSortOption)
-    displaySortOption(Constants.PickerViewRowText[selectedIndex])
   }
 
   private func displayPickerContainerBasedOn(isHidden: Bool) {
@@ -226,15 +213,6 @@ class RestaurantListViewController: UIViewController {
     searchTextField.setLeftPaddingPoints(Constants.TextFieldLeftPadding)
     searchTextField.layer.cornerRadius = 5
   }
-
-  // MARK : - Display SearchView and MenuView
-  private func displaySearchViewsBasedOn(isHidden: Bool) {
-    UIView.animate(withDuration: 0.4, animations: {
-      self.searchFieldContainerTopConstraint.constant = -80.0
-      self.view.layoutIfNeeded()
-    })
-  }
-
   // MARK : - Check Filtering Operation
   fileprivate func isFiltering() -> Bool {
     return !searchFieldContainerView.isHidden && !searchKeywordIsEmpty()
@@ -375,7 +353,6 @@ extension RestaurantListViewController: UIPickerViewDataSource, UIPickerViewDele
     return Constants.PickerViewRowText[row]
   }
 }
-
 // MARK: - RestaurantListViewController: UIScrollViewDelegate
 extension RestaurantListViewController: UIScrollViewDelegate {
   // MARK: - UIScrollViewDelegate Method

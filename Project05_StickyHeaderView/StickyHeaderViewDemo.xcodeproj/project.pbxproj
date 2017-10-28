@@ -20,16 +20,16 @@
 
 /* Begin PBXFileReference section */
 		B8CB4B351F5FE9CB00053D62 /* Constants.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
-		B8DCDA5E1E8FE55900F66CA0 /* CustomTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = CustomTableViewCell.swift; path = ../CustomTableViewCell.swift; sourceTree = "<group>"; };
+		B8DCDA5E1E8FE55900F66CA0 /* CustomTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = CustomTableViewCell.swift; path = CustomTableViewCell.swift; sourceTree = "<group>"; };
 		B8DCDA601E8FE67E00F66CA0 /* Restaurant.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Restaurant.swift; sourceTree = "<group>"; };
 		B8DCDA631E907D6600F66CA0 /* Place.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Place.swift; sourceTree = "<group>"; };
 		D27109561E77BDB000AA04CB /* StickyHeaderViewDemo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = StickyHeaderViewDemo.app; sourceTree = BUILT_PRODUCTS_DIR; };
-		D27109591E77BDB100AA04CB /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = AppDelegate.swift; path = StickyHeaderViewDemo/AppDelegate.swift; sourceTree = "<group>"; };
+		D27109591E77BDB100AA04CB /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = AppDelegate.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		D271095B1E77BDB100AA04CB /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		D271095E1E77BDB100AA04CB /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
-		D27109601E77BDB200AA04CB /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; name = Assets.xcassets; path = StickyHeaderViewDemo/Assets.xcassets; sourceTree = "<group>"; };
+		D27109601E77BDB200AA04CB /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; name = Assets.xcassets; path = Assets.xcassets; sourceTree = "<group>"; };
 		D27109631E77BDB200AA04CB /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
-		D27109651E77BDB200AA04CB /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; name = Info.plist; path = StickyHeaderViewDemo/Info.plist; sourceTree = "<group>"; };
+		D27109651E77BDB200AA04CB /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; name = Info.plist; path = Info.plist; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -49,6 +49,7 @@
 				D271095B1E77BDB100AA04CB /* ViewController.swift */,
 			);
 			name = Controller;
+			path = Controller;
 			sourceTree = "<group>";
 		};
 		B8CB4B321F5FE75E00053D62 /* View */ = {
@@ -57,6 +58,7 @@
 				B8DCDA5E1E8FE55900F66CA0 /* CustomTableViewCell.swift */,
 			);
 			name = View;
+			path = View;
 			sourceTree = "<group>";
 		};
 		B8CB4B331F5FE76D00053D62 /* Storyboard */ = {
@@ -66,6 +68,7 @@
 				D271095D1E77BDB100AA04CB /* Main.storyboard */,
 			);
 			name = Storyboard;
+			path = Storyboard;
 			sourceTree = "<group>";
 		};
 		B8CB4B341F5FE9BC00053D62 /* Constant */ = {
@@ -74,6 +77,7 @@
 				B8CB4B351F5FE9CB00053D62 /* Constants.swift */,
 			);
 			name = Constant;
+			path = Constant;
 			sourceTree = "<group>";
 		};
 		B8DCDA5D1E8FE4EE00F66CA0 /* Support Files */ = {
@@ -84,23 +88,24 @@
 				D27109651E77BDB200AA04CB /* Info.plist */,
 			);
 			name = "Support Files";
-			path = ..;
+			path = "Support Files";
 			sourceTree = "<group>";
 		};
 		B8DCDA621E907D4F00F66CA0 /* Model */ = {
 			isa = PBXGroup;
 			children = (
-				B8DCDA601E8FE67E00F66CA0 /* Restaurant.swift */,
 				B8DCDA631E907D6600F66CA0 /* Place.swift */,
+				B8DCDA601E8FE67E00F66CA0 /* Restaurant.swift */,
 			);
 			name = Model;
+			path = Model;
 			sourceTree = "<group>";
 		};
 		D271094D1E77BDAF00AA04CB = {
 			isa = PBXGroup;
 			children = (
-				D27109581E77BDB100AA04CB /* StickyHeaderViewDemo */,
 				D27109571E77BDB000AA04CB /* Products */,
+				D27109581E77BDB100AA04CB /* StickyHeaderViewDemo */,
 			);
 			sourceTree = "<group>";
 		};
@@ -116,11 +121,11 @@
 			isa = PBXGroup;
 			children = (
 				B8CB4B341F5FE9BC00053D62 /* Constant */,
-				B8CB4B321F5FE75E00053D62 /* View */,
 				B8CB4B311F5FE75000053D62 /* Controller */,
 				B8DCDA621E907D4F00F66CA0 /* Model */,
 				B8CB4B331F5FE76D00053D62 /* Storyboard */,
 				B8DCDA5D1E8FE4EE00F66CA0 /* Support Files */,
+				B8CB4B321F5FE75E00053D62 /* View */,
 			);
 			path = StickyHeaderViewDemo;
 			sourceTree = "<group>";
@@ -216,6 +221,7 @@
 				D271095E1E77BDB100AA04CB /* Base */,
 			);
 			name = Main.storyboard;
+			path = .;
 			sourceTree = "<group>";
 		};
 		D27109621E77BDB200AA04CB /* LaunchScreen.storyboard */ = {
@@ -224,6 +230,7 @@
 				D27109631E77BDB200AA04CB /* Base */,
 			);
 			name = LaunchScreen.storyboard;
+			path = .;
 			sourceTree = "<group>";
 		};
 /* End PBXVariantGroup section */

@@ -109,6 +109,10 @@ This repository is inspired by Allen Wang's [30DaysofSwift](https://github.com/a
 
 ![Alt text](GIFs/UIViewAnimation.gif)
 
+**Project 22 - [StretchyHeaderWithCoreData](https://github.com/woogii/SwiftMiniProject/tree/master/Project22_StretchyHeaderWithCoreData)**
+<br />
+
+![Alt text](GIFs/StretchyHeaderWithCoreData.gif)
 
 # Open Source Licence
 
@@ -120,6 +124,8 @@ This project uses open source library. Thanks for the developers who are dedicat
 *  [GoogleSignIn SDK](https://developers.google.com/identity/sign-in/ios/)
 *  [Facebook SDK](https://github.com/facebook/facebook-ios-sdk)
 *  [LGSideMenuController](https://github.com/Friend-LGA/LGSideMenuController)
+*  [Cosmos](https://github.com/evgenyneu/Cosmos)
+*  [Toaster](https://github.com/devxoul/Toaster)
 
 ## Swift style and conventions
 * Integrated [SwiftLint](https://github.com/realm/SwiftLint) into the project
