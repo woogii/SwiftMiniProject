@@ -41,6 +41,12 @@ class RestaurantListViewController: UIViewController {
   var favoriteRestaurantList = [FavoriteRestaurant]()
   // 'best match' is default sorting option
   var selectedSortOption = Constants.SortOption.BestMatch
+  fileprivate let tableViewHeaderHeight: CGFloat = 280.0
+  fileprivate var headerView: CustomHeaderView!
+
+  override var preferredStatusBarStyle: UIStatusBarStyle {
+    return .lightContent
+  }
 
   // MARK : - View Life Cycle
   override func viewDidLoad() {
@@ -51,6 +57,41 @@ class RestaurantListViewController: UIViewController {
     displaySortOption(Constants.PickerViewRowText[Constants.DefaultSortIndex])
     configureSortOptionsPickerView()
     addRefreshControl()
+    configureTableViewHeader()
+    menuContainerView.isHidden = true
+    searchFieldContainerView.isHidden = true
+  }
+
+  private func configureTableViewHeader() {
+    guard let header = tableView.tableHeaderView as? CustomHeaderView else { return }
+    headerView = header
+    headerView.backgroundImage = UIImage(named: Constants.Images.HeaderImage)
+    tableView.tableHeaderView = nil
+    tableView.addSubview(headerView)
+    tableView.contentInset = UIEdgeInsets(top: tableViewHeaderHeight, left: 0, bottom: 0, right: 0)
+    tableView.contentOffset = CGPoint(x: 0, y: -tableViewHeaderHeight)
+  }
+
+  fileprivate func updateHeaderView() {
+    var headerRect = CGRect(x: 0, y: -tableViewHeaderHeight,
+                            width: tableView.bounds.width, height: tableViewHeaderHeight)
+
+    //print("tableView contentInset top : \(tableView.contentInset.top)")
+    if tableView.contentOffset.y < -tableViewHeaderHeight {
+      print("Smaller than header height")
+      print("tableView contentOffset y : \(tableView.contentOffset.y)")
+      headerRect.origin.y = tableView.contentOffset.y
+      headerRect.size.height = -tableView.contentOffset.y
+    }
+
+    if tableView.contentOffset.y > -(tableViewHeaderHeight/2.0) {
+      print("Bigger than header height")
+      print("tableView contentOffset y : \(tableView.contentOffset.y)")
+      headerRect.origin.y = tableView.contentOffset.y - (tableViewHeaderHeight/2.0)
+      //headerRect.size.height = 150
+    }
+    headerView.frame = headerRect
+    print("Header view frame : \(headerView.frame)")
   }
 
   private func addRefreshControl() {
@@ -311,18 +352,27 @@ extension RestaurantListViewController : UITextFieldDelegate {
   }
 }
 
-// MARK : - RestaurantListViewController : UIPickerViewDataSource
-extension RestaurantListViewController : UIPickerViewDataSource, UIPickerViewDelegate {
+// MARK: - RestaurantListViewController: UIPickerViewDataSource
+extension RestaurantListViewController: UIPickerViewDataSource, UIPickerViewDelegate {
 
-  // MARK : - UIPickerView DataSource Method
+  // MARK: - UIPickerView DataSource Method
   func numberOfComponents(in pickerView: UIPickerView) -> Int {
     return 1
   }
   func pickerView(_ pickerView: UIPickerView, numberOfRowsInComponent component: Int) -> Int {
     return Constants.PickerViewRowText.count
   }
-  // MARK : - UIPickerView Delegate Method
+  // MARK: - UIPickerView Delegate Method
   func pickerView(_ pickerView: UIPickerView, titleForRow row: Int, forComponent component: Int) -> String? {
     return Constants.PickerViewRowText[row]
+  }
+}
+
+// MARK: - RestaurantListViewController: UIScrollViewDelegate
+extension RestaurantListViewController: UIScrollViewDelegate {
+  // MARK: - UIScrollViewDelegate Method
+  func scrollViewDidScroll(_ scrollView: UIScrollView) {
+    //print("content offset : \(scrollView.contentOffset)")
+    updateHeaderView()
   }
 }

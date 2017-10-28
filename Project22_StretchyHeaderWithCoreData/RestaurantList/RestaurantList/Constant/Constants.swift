@@ -83,6 +83,7 @@ struct Constants {
   struct Images {
     static let HeartOutline    = "ic_heart_outline"
     static let HeartFilled     = "ic_heart_filled"
+    static let HeaderImage     = "img_header"
   }
   // MARK : - Toast Message
   struct ToastMsg {

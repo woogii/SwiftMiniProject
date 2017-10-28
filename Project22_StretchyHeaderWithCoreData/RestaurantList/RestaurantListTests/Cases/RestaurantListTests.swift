@@ -12,7 +12,7 @@ import CoreData
 
 // MARK : - RestaurantListTests: XCTestCase
 class RestaurantListTests: XCTestCase {
-  
+
   var coreDataStack: TestCoreDataStack!
   var controllerUnderTest: RestaurantListViewController!
   var restaurantList: [Restaurant]!

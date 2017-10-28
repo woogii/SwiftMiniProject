@@ -175,8 +175,10 @@ extension ViewController : UIScrollViewDelegate {
     var modifiedBackButtonFrame = backButton.frame
     
     // Values for the coordinates are assigned in ViewDidLoad
-    
+    print("Before modified frame origin y    :\(modifiedFrame.origin.y)")
+    print("scrollView contentOffset.y :\(scrollView.contentOffset.y)")
     modifiedFrame.origin.y = max(initialY!, scrollView.contentOffset.y - Constants.AdjustCoordPoint.BgImageViewY)
+    print("After modified frame origin y    :\(modifiedFrame.origin.y)")
     modifiedProfileFrame.origin.y = max(initProfileY!, scrollView.contentOffset.y + Constants.AdjustCoordPoint.ProfileImageViewY)
     modifiedProfileFrame.origin.x = min(max(initProfileX!, scrollView.contentOffset.y - Constants.AdjustCoordPoint.ProfileImageViewX), initProfileX! + Constants.AdjustCoordPoint.ProfileImageViewX)
     modifiedProfileButtonFrame.origin.y = max(initProfileButtonY!, scrollView.contentOffset.y + Constants.AdjustCoordPoint.ProfileButtonX)
