@@ -136,15 +136,16 @@
 				B838D8471F7BDDAE00CA0920 /* RatioValue.swift */,
 			);
 			name = Model;
+			path = Model;
 			sourceTree = "<group>";
 		};
 		D2F8C3E91D96CCA400295489 = {
 			isa = PBXGroup;
 			children = (
+				D2F8C3F31D96CCA400295489 /* Products */,
 				D2F8C3F41D96CCA500295489 /* Project01-BarGraphInCollectionView */,
 				D2F8C4091D96CCA600295489 /* Project01-BarGraphInCollectionViewTests */,
 				D2F8C4141D96CCA600295489 /* Project01-BarGraphInCollectionViewUITests */,
-				D2F8C3F31D96CCA400295489 /* Products */,
 			);
 			sourceTree = "<group>";
 		};
@@ -161,13 +162,13 @@
 		D2F8C3F41D96CCA500295489 /* Project01-BarGraphInCollectionView */ = {
 			isa = PBXGroup;
 			children = (
-				B838D8461F7BDD6700CA0920 /* Model */,
-				B838D83F1F7BD83B00CA0920 /* View */,
-				B838D8411F7BD84300CA0920 /* Controller */,
-				B838D8421F7BD84D00CA0920 /* Constant */,
 				B838D8401F7BD84000CA0920 /* App */,
+				B838D8421F7BD84D00CA0920 /* Constant */,
+				B838D8411F7BD84300CA0920 /* Controller */,
+				B838D8461F7BDD6700CA0920 /* Model */,
 				B838D83E1F7BD83600CA0920 /* Storyboard */,
 				B838D8431F7BD88900CA0920 /* Supporting Files */,
+				B838D83F1F7BD83B00CA0920 /* View */,
 			);
 			path = "Project01-BarGraphInCollectionView";
 			sourceTree = "<group>";

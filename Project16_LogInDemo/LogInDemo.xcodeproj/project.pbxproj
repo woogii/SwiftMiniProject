@@ -38,7 +38,7 @@
 		819B8F7D330DB47347A20889 /* Pods_LogInDemo.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_LogInDemo.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		89A09527CCF0B9EAAFF8CCDE /* Pods-LogInDemo.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-LogInDemo.debug.xcconfig"; path = "Pods/Target Support Files/Pods-LogInDemo/Pods-LogInDemo.debug.xcconfig"; sourceTree = "<group>"; };
 		B816A3481EE597D000B2C97A /* LogInDemo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = LogInDemo.app; sourceTree = BUILT_PRODUCTS_DIR; };
-		B816A34B1EE597D000B2C97A /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = AppDelegate.swift; path = LogInDemo/AppDelegate.swift; sourceTree = "<group>"; };
+		B816A34B1EE597D000B2C97A /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = AppDelegate.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		B816A34D1EE597D000B2C97A /* LogInViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LogInViewController.swift; sourceTree = "<group>"; };
 		B816A3501EE597D000B2C97A /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		B816A3521EE597D000B2C97A /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -49,7 +49,7 @@
 		B816A3621EE597D000B2C97A /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		B88BD5CC1EF6C06900112DC9 /* BookListTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BookListTableViewController.swift; sourceTree = "<group>"; };
 		B8CDC3511EEE8E0900C04666 /* LogInDemo-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "LogInDemo-Bridging-Header.h"; sourceTree = "<group>"; };
-		B8CDC3521EEE8E0900C04666 /* GoogleSignInBridgingHeader.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = GoogleSignInBridgingHeader.m; path = ../GoogleSignInBridgingHeader.m; sourceTree = "<group>"; };
+		B8CDC3521EEE8E0900C04666 /* GoogleSignInBridgingHeader.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = GoogleSignInBridgingHeader.m; path = GoogleSignInBridgingHeader.m; sourceTree = "<group>"; };
 		B8DD94341EEC272B000F78D9 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		B8DD94381EED42BB000F78D9 /* LogInDemo.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = LogInDemo.entitlements; sourceTree = "<group>"; };
 		B8DD943F1EED73A3000F78D9 /* User.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
@@ -97,11 +97,11 @@
 		B816A33F1EE597D000B2C97A = {
 			isa = PBXGroup;
 			children = (
+				2D2CB381C8BDF35C47F71C59 /* Frameworks */,
 				B816A34A1EE597D000B2C97A /* LogInDemo */,
 				B816A35F1EE597D000B2C97A /* LogInDemoTests */,
-				B816A3491EE597D000B2C97A /* Products */,
 				87925935EF321BDE3C9E9467 /* Pods */,
-				2D2CB381C8BDF35C47F71C59 /* Frameworks */,
+				B816A3491EE597D000B2C97A /* Products */,
 				B8CDC3511EEE8E0900C04666 /* LogInDemo-Bridging-Header.h */,
 			);
 			sourceTree = "<group>";
@@ -120,11 +120,11 @@
 			children = (
 				B837FE3A1F6DBA4C00453F98 /* App */,
 				B8EF0BAD1EFA2397005ACA0C /* Constant */,
-				B8DD94421EED85B9000F78D9 /* Validation */,
 				B8DD943E1EED7388000F78D9 /* Controller */,
 				B8DD943D1EED737D000F78D9 /* Model */,
 				B8DD94411EED73B3000F78D9 /* Storyboard */,
 				B8DD943C1EED7236000F78D9 /* Supporting Files */,
+				B8DD94421EED85B9000F78D9 /* Validation */,
 			);
 			path = LogInDemo;
 			sourceTree = "<group>";
@@ -132,8 +132,8 @@
 		B816A35F1EE597D000B2C97A /* LogInDemoTests */ = {
 			isa = PBXGroup;
 			children = (
-				B816A3601EE597D000B2C97A /* LogInDemoTests.swift */,
 				B816A3621EE597D000B2C97A /* Info.plist */,
+				B816A3601EE597D000B2C97A /* LogInDemoTests.swift */,
 			);
 			path = LogInDemoTests;
 			sourceTree = "<group>";
@@ -144,37 +144,40 @@
 				B816A34B1EE597D000B2C97A /* AppDelegate.swift */,
 			);
 			name = App;
-			path = ..;
+			path = App;
 			sourceTree = "<group>";
 		};
 		B8DD943C1EED7236000F78D9 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
-				B8CDC3521EEE8E0900C04666 /* GoogleSignInBridgingHeader.m */,
-				B8DD94381EED42BB000F78D9 /* LogInDemo.entitlements */,
 				B816A3521EE597D000B2C97A /* Assets.xcassets */,
-				B816A3571EE597D000B2C97A /* Info.plist */,
 				B8DD94341EEC272B000F78D9 /* GoogleService-Info.plist */,
+				B8CDC3521EEE8E0900C04666 /* GoogleSignInBridgingHeader.m */,
+				B816A3571EE597D000B2C97A /* Info.plist */,
+				B8DD94381EED42BB000F78D9 /* LogInDemo.entitlements */,
 			);
 			name = "Supporting Files";
+			path = "Supporting Files";
 			sourceTree = "<group>";
 		};
 		B8DD943D1EED737D000F78D9 /* Model */ = {
 			isa = PBXGroup;
 			children = (
-				B8DD943F1EED73A3000F78D9 /* User.swift */,
 				B8FBD3171F0135F300C146F0 /* Book.swift */,
+				B8DD943F1EED73A3000F78D9 /* User.swift */,
 			);
 			name = Model;
+			path = Model;
 			sourceTree = "<group>";
 		};
 		B8DD943E1EED7388000F78D9 /* Controller */ = {
 			isa = PBXGroup;
 			children = (
-				B816A34D1EE597D000B2C97A /* LogInViewController.swift */,
 				B88BD5CC1EF6C06900112DC9 /* BookListTableViewController.swift */,
+				B816A34D1EE597D000B2C97A /* LogInViewController.swift */,
 			);
 			name = Controller;
+			path = Controller;
 			sourceTree = "<group>";
 		};
 		B8DD94411EED73B3000F78D9 /* Storyboard */ = {
@@ -184,6 +187,7 @@
 				B816A34F1EE597D000B2C97A /* Main.storyboard */,
 			);
 			name = Storyboard;
+			path = Storyboard;
 			sourceTree = "<group>";
 		};
 		B8DD94421EED85B9000F78D9 /* Validation */ = {
@@ -192,6 +196,7 @@
 				B8DD94431EED85D4000F78D9 /* InputValidator.swift */,
 			);
 			name = Validation;
+			path = Validation;
 			sourceTree = "<group>";
 		};
 		B8EF0BAD1EFA2397005ACA0C /* Constant */ = {
@@ -200,6 +205,7 @@
 				B8EF0BAE1EFA23A6005ACA0C /* Constants.swift */,
 			);
 			name = Constant;
+			path = Constant;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -416,6 +422,7 @@
 				B816A3501EE597D000B2C97A /* Base */,
 			);
 			name = Main.storyboard;
+			path = .;
 			sourceTree = "<group>";
 		};
 		B816A3541EE597D000B2C97A /* LaunchScreen.storyboard */ = {
@@ -424,6 +431,7 @@
 				B816A3551EE597D000B2C97A /* Base */,
 			);
 			name = LaunchScreen.storyboard;
+			path = .;
 			sourceTree = "<group>";
 		};
 /* End PBXVariantGroup section */
@@ -530,7 +538,7 @@
 				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_ENTITLEMENTS = LogInDemo/LogInDemo.entitlements;
 				DEVELOPMENT_TEAM = MFYH4C9VNG;
-				INFOPLIST_FILE = LogInDemo/Info.plist;
+				INFOPLIST_FILE = "LogInDemo/Supporting Files/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks ~/Documents/FacebookSDK";
 				PRODUCT_BUNDLE_IDENTIFIER = com.woogii.LogInDemo;
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -548,7 +556,7 @@
 				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_ENTITLEMENTS = LogInDemo/LogInDemo.entitlements;
 				DEVELOPMENT_TEAM = MFYH4C9VNG;
-				INFOPLIST_FILE = LogInDemo/Info.plist;
+				INFOPLIST_FILE = "LogInDemo/Supporting Files/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks ~/Documents/FacebookSDK";
 				PRODUCT_BUNDLE_IDENTIFIER = com.woogii.LogInDemo;
 				PRODUCT_NAME = "$(TARGET_NAME)";

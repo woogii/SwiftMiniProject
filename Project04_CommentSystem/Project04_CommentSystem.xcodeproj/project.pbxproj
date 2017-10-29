@@ -98,6 +98,7 @@
 				B85B8A001F51A89D0086E89B /* Constants.swift */,
 			);
 			name = Constant;
+			path = Constant;
 			sourceTree = "<group>";
 		};
 		B8A327CB1F4F27DA00EDFA0C /* Cases */ = {
@@ -106,6 +107,7 @@
 				D2A3FA811DAB43C800FDEBB1 /* Project04_CommentSystemTests.swift */,
 			);
 			name = Cases;
+			path = Cases;
 			sourceTree = "<group>";
 		};
 		B8A327CC1F4F27E800EDFA0C /* Supporting Files */ = {
@@ -114,6 +116,7 @@
 				D2A3FA831DAB43C800FDEBB1 /* Info.plist */,
 			);
 			name = "Supporting Files";
+			path = "Supporting Files";
 			sourceTree = "<group>";
 		};
 		B8A327D51F4F2B6700EDFA0C /* Extension */ = {
@@ -122,29 +125,32 @@
 				B8A327D61F4F2B9600EDFA0C /* UIView+VisualFormat.swift */,
 			);
 			name = Extension;
+			path = Extension;
 			sourceTree = "<group>";
 		};
 		D25C347C1E88AC9000C9DD92 /* Support */ = {
 			isa = PBXGroup;
 			children = (
 				D2A3FA6C1DAB43C800FDEBB1 /* AppDelegate.swift */,
-				D2A3FA701DAB43C800FDEBB1 /* Main.storyboard */,
-				D2A3FA751DAB43C800FDEBB1 /* LaunchScreen.storyboard */,
 				D2A3FA731DAB43C800FDEBB1 /* Assets.xcassets */,
 				D2A3FA781DAB43C800FDEBB1 /* Info.plist */,
+				D2A3FA751DAB43C800FDEBB1 /* LaunchScreen.storyboard */,
+				D2A3FA701DAB43C800FDEBB1 /* Main.storyboard */,
 			);
 			name = Support;
+			path = Support;
 			sourceTree = "<group>";
 		};
 		D25C347D1E88ACB500C9DD92 /* View */ = {
 			isa = PBXGroup;
 			children = (
+				D25C34811E88B4BE00C9DD92 /* AnswerTableViewCell.swift */,
 				D25C34761E88A62600C9DD92 /* CommentHeaderCell.xib */,
 				D25C34781E88AB6700C9DD92 /* CommentTableViewCell.swift */,
-				D25C34811E88B4BE00C9DD92 /* AnswerTableViewCell.swift */,
 				D25C347A1E88AB9000C9DD92 /* CommentTableViewHeader.swift */,
 			);
 			name = View;
+			path = View;
 			sourceTree = "<group>";
 		};
 		D25C347E1E88B22300C9DD92 /* Model */ = {
@@ -153,25 +159,27 @@
 				D25C347F1E88B2D000C9DD92 /* Comment.swift */,
 			);
 			name = Model;
+			path = Model;
 			sourceTree = "<group>";
 		};
 		D25C34831E88BBA400C9DD92 /* Controller */ = {
 			isa = PBXGroup;
 			children = (
+				D25C34841E88E1FB00C9DD92 /* ReplyViewController.swift */,
 				D2A3FA6E1DAB43C800FDEBB1 /* ViewController.swift */,
 				D25C34861E88E5B400C9DD92 /* ViewControllerExtension.swift */,
-				D25C34841E88E1FB00C9DD92 /* ReplyViewController.swift */,
 			);
 			name = Controller;
+			path = Controller;
 			sourceTree = "<group>";
 		};
 		D2A3FA601DAB43C700FDEBB1 = {
 			isa = PBXGroup;
 			children = (
+				D2A3FA6A1DAB43C700FDEBB1 /* Products */,
 				D2A3FA6B1DAB43C700FDEBB1 /* Project04_CommentSystem */,
 				D2A3FA801DAB43C800FDEBB1 /* Project04_CommentSystemTests */,
 				D2A3FA8B1DAB43C800FDEBB1 /* Project04_CommentSystemUITests */,
-				D2A3FA6A1DAB43C700FDEBB1 /* Products */,
 			);
 			sourceTree = "<group>";
 		};
@@ -192,8 +200,8 @@
 				D25C34831E88BBA400C9DD92 /* Controller */,
 				B8A327D51F4F2B6700EDFA0C /* Extension */,
 				D25C347E1E88B22300C9DD92 /* Model */,
-				D25C347D1E88ACB500C9DD92 /* View */,
 				D25C347C1E88AC9000C9DD92 /* Support */,
+				D25C347D1E88ACB500C9DD92 /* View */,
 			);
 			path = Project04_CommentSystem;
 			sourceTree = "<group>";
@@ -201,8 +209,8 @@
 		D2A3FA801DAB43C800FDEBB1 /* Project04_CommentSystemTests */ = {
 			isa = PBXGroup;
 			children = (
-				B8A327CC1F4F27E800EDFA0C /* Supporting Files */,
 				B8A327CB1F4F27DA00EDFA0C /* Cases */,
+				B8A327CC1F4F27E800EDFA0C /* Supporting Files */,
 			);
 			path = Project04_CommentSystemTests;
 			sourceTree = "<group>";
@@ -210,8 +218,8 @@
 		D2A3FA8B1DAB43C800FDEBB1 /* Project04_CommentSystemUITests */ = {
 			isa = PBXGroup;
 			children = (
-				D2A3FA8C1DAB43C800FDEBB1 /* Project04_CommentSystemUITests.swift */,
 				D2A3FA8E1DAB43C800FDEBB1 /* Info.plist */,
+				D2A3FA8C1DAB43C800FDEBB1 /* Project04_CommentSystemUITests.swift */,
 			);
 			path = Project04_CommentSystemUITests;
 			sourceTree = "<group>";
@@ -405,6 +413,7 @@
 				D2A3FA711DAB43C800FDEBB1 /* Base */,
 			);
 			name = Main.storyboard;
+			path = .;
 			sourceTree = "<group>";
 		};
 		D2A3FA751DAB43C800FDEBB1 /* LaunchScreen.storyboard */ = {
@@ -413,6 +422,7 @@
 				D2A3FA761DAB43C800FDEBB1 /* Base */,
 			);
 			name = LaunchScreen.storyboard;
+			path = .;
 			sourceTree = "<group>";
 		};
 /* End PBXVariantGroup section */
@@ -518,7 +528,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				DEVELOPMENT_TEAM = MFYH4C9VNG;
-				INFOPLIST_FILE = Project04_CommentSystem/Info.plist;
+				INFOPLIST_FILE = Project04_CommentSystem/Support/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "com.test.Project04-CommentSystem";
@@ -532,7 +542,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				DEVELOPMENT_TEAM = MFYH4C9VNG;
-				INFOPLIST_FILE = Project04_CommentSystem/Info.plist;
+				INFOPLIST_FILE = Project04_CommentSystem/Support/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "com.test.Project04-CommentSystem";
@@ -547,7 +557,7 @@
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				DEVELOPMENT_TEAM = MFYH4C9VNG;
-				INFOPLIST_FILE = Project04_CommentSystemTests/Info.plist;
+				INFOPLIST_FILE = "Project04_CommentSystemTests/Supporting Files/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "com.test.Project04-CommentSystemTests";
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -562,7 +572,7 @@
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				DEVELOPMENT_TEAM = MFYH4C9VNG;
-				INFOPLIST_FILE = Project04_CommentSystemTests/Info.plist;
+				INFOPLIST_FILE = "Project04_CommentSystemTests/Supporting Files/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "com.test.Project04-CommentSystemTests";
 				PRODUCT_NAME = "$(TARGET_NAME)";
