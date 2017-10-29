@@ -109,7 +109,7 @@ This repository is inspired by Allen Wang's [30DaysofSwift](https://github.com/a
 
 ![Alt text](GIFs/UIViewAnimation.gif)
 
-**Project 22 - [StretchyHeaderWithCoreData](https://github.com/woogii/SwiftMiniProject/tree/master/Project22_StretchyHeaderWithCoreData)**
+**Project 22 - [StretchyHeaderAndCoreDataBasic](https://github.com/woogii/SwiftMiniProject/tree/master/Project22_StretchyHeaderWithCoreData)**
 <br />
 
 ![Alt text](GIFs/StretchyHeaderWithCoreData.gif)
