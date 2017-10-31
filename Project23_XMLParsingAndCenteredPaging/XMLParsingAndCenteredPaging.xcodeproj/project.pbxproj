@@ -7,6 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		9E8233E4FD409446C388730D /* Pods_XMLParsingAndCenteredPaging.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 40659E48356606FB5A86155C /* Pods_XMLParsingAndCenteredPaging.framework */; };
+		B82AD3B31FA90166005458B0 /* CatImageInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = B82AD3B21FA90166005458B0 /* CatImageInfo.swift */; };
+		B82AD3B61FA901F2005458B0 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = B82AD3B51FA901F2005458B0 /* Constants.swift */; };
 		B89B2CEC1FA653E8006B63AB /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B89B2CEB1FA653E8006B63AB /* AppDelegate.swift */; };
 		B89B2CEE1FA653E8006B63AB /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B89B2CED1FA653E8006B63AB /* ViewController.swift */; };
 		B89B2CF11FA653E8006B63AB /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B89B2CEF1FA653E8006B63AB /* Main.storyboard */; };
@@ -26,6 +29,11 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		14524DF24954DD2CEAF94703 /* Pods-XMLParsingAndCenteredPaging.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-XMLParsingAndCenteredPaging.debug.xcconfig"; path = "Pods/Target Support Files/Pods-XMLParsingAndCenteredPaging/Pods-XMLParsingAndCenteredPaging.debug.xcconfig"; sourceTree = "<group>"; };
+		3F810EBCF9E4EC46EE9FEC79 /* Pods-XMLParsingAndCenteredPaging.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-XMLParsingAndCenteredPaging.release.xcconfig"; path = "Pods/Target Support Files/Pods-XMLParsingAndCenteredPaging/Pods-XMLParsingAndCenteredPaging.release.xcconfig"; sourceTree = "<group>"; };
+		40659E48356606FB5A86155C /* Pods_XMLParsingAndCenteredPaging.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_XMLParsingAndCenteredPaging.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		B82AD3B21FA90166005458B0 /* CatImageInfo.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CatImageInfo.swift; sourceTree = "<group>"; };
+		B82AD3B51FA901F2005458B0 /* Constants.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 		B89B2CE81FA653E8006B63AB /* XMLParsingAndCenteredPaging.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = XMLParsingAndCenteredPaging.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		B89B2CEB1FA653E8006B63AB /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		B89B2CED1FA653E8006B63AB /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -43,6 +51,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				9E8233E4FD409446C388730D /* Pods_XMLParsingAndCenteredPaging.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -56,12 +65,77 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		6BDFAF5EF771A4BDB58A957D /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				14524DF24954DD2CEAF94703 /* Pods-XMLParsingAndCenteredPaging.debug.xcconfig */,
+				3F810EBCF9E4EC46EE9FEC79 /* Pods-XMLParsingAndCenteredPaging.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
+		77B41CE975D14E095CCA5A8B /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				40659E48356606FB5A86155C /* Pods_XMLParsingAndCenteredPaging.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		B82AD3AD1FA900E2005458B0 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				B89B2CF21FA653E8006B63AB /* Assets.xcassets */,
+				B89B2CF71FA653E8006B63AB /* Info.plist */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		B82AD3AE1FA900E7005458B0 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				B82AD3B21FA90166005458B0 /* CatImageInfo.swift */,
+			);
+			name = Model;
+			sourceTree = "<group>";
+		};
+		B82AD3AF1FA900EC005458B0 /* View */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = View;
+			sourceTree = "<group>";
+		};
+		B82AD3B01FA900F3005458B0 /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = Controller;
+			sourceTree = "<group>";
+		};
+		B82AD3B11FA900F8005458B0 /* Extension */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = Extension;
+			sourceTree = "<group>";
+		};
+		B82AD3B41FA901DD005458B0 /* Constant */ = {
+			isa = PBXGroup;
+			children = (
+				B82AD3B51FA901F2005458B0 /* Constants.swift */,
+			);
+			name = Constant;
+			sourceTree = "<group>";
+		};
 		B89B2CDF1FA653E8006B63AB = {
 			isa = PBXGroup;
 			children = (
 				B89B2CEA1FA653E8006B63AB /* XMLParsingAndCenteredPaging */,
 				B89B2CFF1FA653E8006B63AB /* XMLParsingAndCenteredPagingTests */,
 				B89B2CE91FA653E8006B63AB /* Products */,
+				6BDFAF5EF771A4BDB58A957D /* Pods */,
+				77B41CE975D14E095CCA5A8B /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -77,12 +151,16 @@
 		B89B2CEA1FA653E8006B63AB /* XMLParsingAndCenteredPaging */ = {
 			isa = PBXGroup;
 			children = (
+				B82AD3B41FA901DD005458B0 /* Constant */,
+				B82AD3B11FA900F8005458B0 /* Extension */,
+				B82AD3B01FA900F3005458B0 /* Controller */,
+				B82AD3AF1FA900EC005458B0 /* View */,
+				B82AD3AE1FA900E7005458B0 /* Model */,
 				B89B2CEB1FA653E8006B63AB /* AppDelegate.swift */,
 				B89B2CED1FA653E8006B63AB /* ViewController.swift */,
+				B82AD3AD1FA900E2005458B0 /* Supporting Files */,
 				B89B2CEF1FA653E8006B63AB /* Main.storyboard */,
-				B89B2CF21FA653E8006B63AB /* Assets.xcassets */,
 				B89B2CF41FA653E8006B63AB /* LaunchScreen.storyboard */,
-				B89B2CF71FA653E8006B63AB /* Info.plist */,
 			);
 			path = XMLParsingAndCenteredPaging;
 			sourceTree = "<group>";
@@ -103,9 +181,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = B89B2D051FA653E8006B63AB /* Build configuration list for PBXNativeTarget "XMLParsingAndCenteredPaging" */;
 			buildPhases = (
+				3903E1CDE624FB0E6F447B0C /* [CP] Check Pods Manifest.lock */,
 				B89B2CE41FA653E8006B63AB /* Sources */,
 				B89B2CE51FA653E8006B63AB /* Frameworks */,
 				B89B2CE61FA653E8006B63AB /* Resources */,
+				BB33AC9EB3CDFCBF332BB9E5 /* [CP] Embed Pods Frameworks */,
+				CE8C4B185BD1DA760D566A62 /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -194,13 +275,63 @@
 		};
 /* End PBXResourcesBuildPhase section */
 
+/* Begin PBXShellScriptBuildPhase section */
+		3903E1CDE624FB0E6F447B0C /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+		BB33AC9EB3CDFCBF332BB9E5 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-XMLParsingAndCenteredPaging/Pods-XMLParsingAndCenteredPaging-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		CE8C4B185BD1DA760D566A62 /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-XMLParsingAndCenteredPaging/Pods-XMLParsingAndCenteredPaging-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
 /* Begin PBXSourcesBuildPhase section */
 		B89B2CE41FA653E8006B63AB /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 				B89B2CEE1FA653E8006B63AB /* ViewController.swift in Sources */,
+				B82AD3B31FA90166005458B0 /* CatImageInfo.swift in Sources */,
 				B89B2CEC1FA653E8006B63AB /* AppDelegate.swift in Sources */,
+				B82AD3B61FA901F2005458B0 /* Constants.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -339,6 +470,7 @@
 		};
 		B89B2D061FA653E8006B63AB /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 14524DF24954DD2CEAF94703 /* Pods-XMLParsingAndCenteredPaging.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				INFOPLIST_FILE = XMLParsingAndCenteredPaging/Info.plist;
@@ -351,6 +483,7 @@
 		};
 		B89B2D071FA653E8006B63AB /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 3F810EBCF9E4EC46EE9FEC79 /* Pods-XMLParsingAndCenteredPaging.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				INFOPLIST_FILE = XMLParsingAndCenteredPaging/Info.plist;
@@ -408,6 +541,7 @@
 				B89B2D071FA653E8006B63AB /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		B89B2D081FA653E8006B63AB /* Build configuration list for PBXNativeTarget "XMLParsingAndCenteredPagingTests" */ = {
 			isa = XCConfigurationList;
@@ -416,6 +550,7 @@
 				B89B2D0A1FA653E8006B63AB /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};

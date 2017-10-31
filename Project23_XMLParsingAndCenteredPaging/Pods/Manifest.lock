@@ -1,0 +1,17 @@
+PODS:
+  - SDWebImage (4.0.0):
+    - SDWebImage/Core (= 4.0.0)
+  - SDWebImage/Core (4.0.0)
+  - SWXMLHash (4.1.0)
+
+DEPENDENCIES:
+  - SDWebImage
+  - SWXMLHash
+
+SPEC CHECKSUMS:
+  SDWebImage: 76a6348bdc74eb5a55dd08a091ef298e56b55e41
+  SWXMLHash: 21340633daddd9aaf5c625ae92a26ca6dcdbfe1b
+
+PODFILE CHECKSUM: 05ee5c00bcd655cb87d592d84f25c25f1c1e0096
+
+COCOAPODS: 1.1.1
