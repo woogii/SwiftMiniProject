@@ -1,7 +1,5 @@
 ## SwiftMiniProject
 
-[![BuddyBuild](https://dashboard.buddybuild.com/api/statusImage?appID=562a9aac2492560100211378&branch=master&build=latest)](https://dashboard.buddybuild.com/apps/562a9aac2492560100211378/build/latest)
-[![license](https://img.shields.io/github/license/mashape/apistatus.svg)]()
 ![Language](https://img.shields.io/badge/language-Swift%203-orange.svg)
 
 This repository is inspired by Allen Wang's [30DaysofSwift](https://github.com/allenwong/30DaysofSwift/blob/master/README.md) and Sam Lu's [100 Days of Swift](http://samvlu.com/). After visiting their project websites, I decided to create my own repository, and implement as many small mini projects as I can not only to practice my Swift programming skills, but also to share my knowledge. I will keep updating this repository as I come up with more ideas.
