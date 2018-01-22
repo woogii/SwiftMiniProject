@@ -21,23 +21,24 @@ struct CosmosTouch {
       numberOfStars: settings.totalStars,
       starSize: settings.starSize,
       starMargin: settings.starMargin)
-
+    
     if settings.fillMode == .half {
       rating += 0.20
     }
-
+    
     if settings.fillMode == .full {
       rating += 0.45
     }
-
+    
     rating = CosmosRating.displayedRatingFromPreciseRating(rating,
       fillMode: settings.fillMode, totalStars: settings.totalStars)
-
+    
     rating = max(settings.minTouchRating, rating) // Can't be less than min rating
-
+        
     return rating
   }
-
+  
+  
   /**
    
   Returns the precise rating based on the touch position.
@@ -51,28 +52,29 @@ struct CosmosTouch {
   */
   static func preciseRating(position: Double, numberOfStars: Int,
                             starSize: Double, starMargin: Double) -> Double {
-
+    
     if position < 0 { return 0 }
-    var positionRemainder = position
-
+    var positionRemainder = position;
+    
     // Calculate the number of times the star with a margin fits the position
     // This will be the whole part of the rating
     var rating: Double = Double(Int(position / (starSize + starMargin)))
-
+    
     // If rating is grater than total number of stars - return maximum rating
     if Int(rating) > numberOfStars { return Double(numberOfStars) }
-
+    
     // Calculate what portion of the last star does the position correspond to
     // This will be the added partial part of the rating
-
+    
     positionRemainder -= rating * (starSize + starMargin)
-
-    if positionRemainder > starSize {
+    
+    if positionRemainder > starSize
+    {
       rating += 1
     } else {
       rating += positionRemainder / starSize
     }
-
+    
     return rating
   }
 }

@@ -114,6 +114,12 @@ This repository is inspired by Allen Wang's [30DaysofSwift](https://github.com/a
 
 ![Alt text](GIFs/StretchyHeaderWithCoreData.gif)
 
+**Project 25 - [SampleProjectWithMVVM](https://github.com/woogii/SwiftMiniProject/tree/master/Project25_Weather)**
+<br />
+
+
+![Alt text](GIFs/MVVMWeather.gif)
+
 # Open Source Licence
 
 This project uses open source library. Thanks for the developers who are dedicated to developing great open source library. 
@@ -138,7 +144,7 @@ These projects use icons from Icons8. Thank [Icons8](https://icons8.com/) for yo
  
 * [Flickr API](https://www.flickr.com/services/api/)
 * [The Movie Database API](https://www.themoviedb.org/documentation/api/) 
-* [rss2json](https://rss2json.com/docs)
+* [OpenWeatherMap](https://openweathermap.org/)
 
 ## References 
 

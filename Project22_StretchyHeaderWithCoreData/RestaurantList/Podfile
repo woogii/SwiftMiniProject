@@ -4,9 +4,10 @@
 target 'RestaurantList' do
   # Comment the next line if you're not using Swift and don't want to use dynamic frameworks
   use_frameworks!
-	pod 'Cosmos'
-  pod 'Toaster'
+
   # Pods for RestaurantList
+  pod 'Cosmos', '~> 11.0'
+  pod 'Toaster'
 
   target 'RestaurantListTests' do
     inherit! :search_paths

@@ -25,18 +25,38 @@ struct StarLayer {
   */
   static func create(_ starPoints: [CGPoint], size: Double,
     lineWidth: Double, fillColor: UIColor, strokeColor: UIColor) -> CALayer {
-
+      
     let containerLayer = createContainerLayer(size)
     let path = createStarPath(starPoints, size: size, lineWidth: lineWidth)
-
+      
     let shapeLayer = createShapeLayer(path.cgPath, lineWidth: lineWidth,
       fillColor: fillColor, strokeColor: strokeColor, size: size)
-
+      
     containerLayer.addSublayer(shapeLayer)
-
+    
     return containerLayer
   }
 
+  /**
+
+  Creates the star layer from an image
+
+  - parameter image: a star image to be shown.
+
+  - parameter size: The width and height of the layer. The image is scaled to fit the layer.
+
+  */
+  static func create(image: UIImage, size: Double) -> CALayer {
+    let containerLayer = createContainerLayer(size)
+    let imageLayer = createContainerLayer(size)
+
+    containerLayer.addSublayer(imageLayer)
+    imageLayer.contents = image.cgImage
+    imageLayer.contentsGravity = kCAGravityResizeAspect
+    
+    return containerLayer
+  }
+  
   /**
   
   Creates the star shape layer.
@@ -54,7 +74,7 @@ struct StarLayer {
   */
   static func createShapeLayer(_ path: CGPath, lineWidth: Double, fillColor: UIColor,
     strokeColor: UIColor, size: Double) -> CALayer {
-
+      
     let layer = CAShapeLayer()
     layer.anchorPoint = CGPoint()
     layer.contentsScale = UIScreen.main.scale
@@ -67,7 +87,7 @@ struct StarLayer {
     layer.isOpaque = true
     return layer
   }
-
+  
   /**
   
   Creates a layer that will contain the shape layer.
@@ -84,7 +104,7 @@ struct StarLayer {
     layer.isOpaque = true
     return layer
   }
-
+  
   /**
   
   Creates a path for the given star points and size. The star points specify a shape of size 100 by 100. The star shape will be scaled if the size parameter is not 100. For exampe, if size parameter is 200 the shape will be scaled by 2.
@@ -98,25 +118,25 @@ struct StarLayer {
   */
   static func createStarPath(_ starPoints: [CGPoint], size: Double,
                              lineWidth: Double) -> UIBezierPath {
-
+    
     let lineWidthLocal = lineWidth + ceil(lineWidth * 0.3)
     let sizeWithoutLineWidth = size - lineWidthLocal * 2
-
+    
     let points = scaleStar(starPoints, factor: sizeWithoutLineWidth / 100,
                            lineWidth: lineWidthLocal)
-
+    
     let path = UIBezierPath()
     path.move(to: points[0])
     let remainingPoints = Array(points[1..<points.count])
-
+    
     for point in remainingPoints {
       path.addLine(to: point)
     }
-
+    
     path.close()
     return path
   }
-
+  
   /**
   
   Scale the star points by the given factor.

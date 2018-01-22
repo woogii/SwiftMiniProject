@@ -11,24 +11,24 @@ struct CosmosAccessibility {
   Makes the view accesible by settings its label and using rating as value.
   
   */
-
+    
   static func update(_ view: UIView, rating: Double, text: String?, settings: CosmosSettings) {
     view.isAccessibilityElement = true
-
+    
     view.accessibilityTraits = settings.updateOnTouch ?
       UIAccessibilityTraitAdjustable :UIAccessibilityTraitNone
-
+    
     var accessibilityLabel = CosmosLocalizedRating.ratingTranslation
-
+    
     if let text = text, text != "" {
       accessibilityLabel += " \(text)"
     }
-
+    
     view.accessibilityLabel = accessibilityLabel
-
+    
     view.accessibilityValue = accessibilityValue(view, rating: rating, settings: settings)
   }
-
+  
   /**
   
   Returns the rating that is used as accessibility value.
@@ -41,10 +41,10 @@ struct CosmosAccessibility {
   static func accessibilityValue(_ view: UIView, rating: Double, settings: CosmosSettings) -> String {
     let accessibilityRating = CosmosRating.displayedRatingFromPreciseRating(rating,
       fillMode: settings.fillMode, totalStars: settings.totalStars)
-
+    
     // Omit decimals if the value is an integer
     let isInteger = (accessibilityRating * 10).truncatingRemainder(dividingBy: 10) == 0
-
+    
     if isInteger {
       return "\(Int(accessibilityRating))"
     } else {
@@ -53,7 +53,7 @@ struct CosmosAccessibility {
       return "\(roundedToFirstDecimalPlace)"
     }
   }
-
+  
   /**
 
   Returns the amount of increment for the rating. When .half and .precise fill modes are used the
@@ -62,7 +62,7 @@ struct CosmosAccessibility {
   */
   static func accessibilityIncrement(_ rating: Double, settings: CosmosSettings) -> Double {
     var increment: Double = 0
-
+      
     switch settings.fillMode {
     case .full:
       increment = ceil(rating) - rating
@@ -70,29 +70,30 @@ struct CosmosAccessibility {
 
     case .half, .precise:
       increment = (ceil(rating * 2) - rating * 2) / 2
-      if increment == 0 { increment = 0.5 }
+      if increment == 0 { increment = 0.5 }      
     }
-
+    
     if rating >= Double(settings.totalStars) { increment = 0 }
-
+            
     return increment
   }
-
+  
   static func accessibilityDecrement(_ rating: Double, settings: CosmosSettings) -> Double {
     var increment: Double = 0
-
+    
     switch settings.fillMode {
     case .full:
       increment = rating - floor(rating)
       if increment == 0 { increment = 1 }
-
+      
     case .half, .precise:
       increment = (rating * 2 - floor(rating * 2)) / 2
       if increment == 0 { increment = 0.5 }
     }
-
+    
     if rating <= settings.minTouchRating { increment = 0 }
-
+    
     return increment
   }
 }
+

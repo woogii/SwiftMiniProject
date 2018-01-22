@@ -7,7 +7,7 @@ Returns the word "Rating" in user's language. It is used for voice-over  in acce
 */
 struct CosmosLocalizedRating {
   static var defaultText = "Rating"
-
+  
   static var localizedRatings = [
     "ar": "تصنيف",
     "bg": "Рейтинг",
@@ -46,12 +46,12 @@ struct CosmosLocalizedRating {
     "vi": "Đánh giá",
     "zh": "评分"
   ]
-
+  
   static var ratingTranslation: String {
     let languages = preferredLanguages(Locale.preferredLanguages)
     return ratingInPreferredLanguage(languages)
   }
-
+  
   /**
 
   Returns the word "Rating" in user's language.
@@ -62,7 +62,7 @@ struct CosmosLocalizedRating {
   static func translation(_ language: String) -> String? {
     return localizedRatings[language]
   }
-
+  
   /**
   
   Returns translation using the preferred language.
@@ -79,31 +79,31 @@ struct CosmosLocalizedRating {
   static func translationInPreferredLanguage(_ preferredLanguages: [String],
     localizedText: [String: String],
     fallbackTranslation: String) -> String {
-
+    
     for language in preferredLanguages {
       if let translatedText = translation(language) {
         return translatedText
       }
     }
-
+      
     return fallbackTranslation
   }
-
+  
   static func ratingInPreferredLanguage(_ preferredLanguages: [String]) -> String {
     return translationInPreferredLanguage(preferredLanguages,
       localizedText: localizedRatings,
       fallbackTranslation: defaultText)
   }
-
+  
   static func preferredLanguages(_ preferredLocales: [String]) -> [String] {
     return preferredLocales.map { element in
-
+      
       let dashSeparated = element.components(separatedBy: "-")
       if dashSeparated.count > 1 { return dashSeparated[0] }
-
+      
       let underscoreSeparated = element.components(separatedBy: "_")
       if underscoreSeparated.count > 1 { return underscoreSeparated[0] }
-
+      
       return element
     }
   }

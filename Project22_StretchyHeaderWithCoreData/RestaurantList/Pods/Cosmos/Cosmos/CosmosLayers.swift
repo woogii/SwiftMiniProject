@@ -1,5 +1,6 @@
 import UIKit
 
+
 /**
 
 Colection of helper functions for creating star layers.
@@ -23,20 +24,21 @@ class CosmosLayers {
     var starLayers = [CALayer]()
 
     for _ in (0..<settings.totalStars) {
-
+      
       let fillLevel = CosmosRating.starFillLevel(ratingRemainder: ratingRemander,
         fillMode: settings.fillMode)
-
+      
       let starLayer = createCompositeStarLayer(fillLevel, settings: settings, isRightToLeft: isRightToLeft)
       starLayers.append(starLayer)
       ratingRemander -= 1
     }
-
+    
     if isRightToLeft { starLayers.reverse() }
     positionStarLayers(starLayers, starMargin: settings.starMargin)
     return starLayers
   }
 
+  
   /**
   
   Creates an layer that shows a star that can look empty, fully filled or partially filled.
@@ -78,26 +80,34 @@ class CosmosLayers {
     let filledStar = createStarLayer(true, settings: settings)
     let emptyStar = createStarLayer(false, settings: settings)
 
+
     let parentLayer = CALayer()
     parentLayer.contentsScale = UIScreen.main.scale
     parentLayer.bounds = CGRect(origin: CGPoint(), size: filledStar.bounds.size)
     parentLayer.anchorPoint = CGPoint()
     parentLayer.addSublayer(emptyStar)
     parentLayer.addSublayer(filledStar)
-
+    
     if isRightToLeft {
       // Flip the star horizontally for a right-to-left language
       let rotation = CATransform3DMakeRotation(CGFloat(Double.pi), 0, 1, 0)
       filledStar.transform = CATransform3DTranslate(rotation, -filledStar.bounds.size.width, 0, 0)
     }
-
-    // make filled layer width smaller according to the fill level.
+    
+    // Make filled layer width smaller according to the fill level
     filledStar.bounds.size.width *= CGFloat(starFillLevel)
 
     return parentLayer
   }
 
   private class func createStarLayer(_ isFilled: Bool, settings: CosmosSettings) -> CALayer {
+    if let image = isFilled ? settings.filledImage : settings.emptyImage {
+      // Create a layer that shows a star from an image
+      return StarLayer.create(image: image, size: settings.starSize)
+    }
+    
+    // Create a layer that draws a star from an array of points
+    
     let fillColor = isFilled ? settings.filledColor : settings.emptyColor
     let strokeColor = isFilled ? settings.filledBorderColor : settings.emptyBorderColor
 
@@ -117,7 +127,7 @@ class CosmosLayers {
 
   */
   class func positionStarLayers(_ layers: [CALayer], starMargin: Double) {
-    var positionX: CGFloat = 0
+    var positionX:CGFloat = 0
 
     for layer in layers {
       layer.position.x = positionX

@@ -1,15 +1,15 @@
 PODS:
-  - Cosmos (10.0.0)
-  - Toaster (2.0.4)
+  - Cosmos (11.0.3)
+  - Toaster (2.1.1)
 
 DEPENDENCIES:
-  - Cosmos
+  - Cosmos (~> 11.0)
   - Toaster
 
 SPEC CHECKSUMS:
-  Cosmos: bb9310e73ad1ad472b183b848b959302c569cf09
-  Toaster: f13031c636ef065281bc11857be9a16c7659e04f
+  Cosmos: eb506859929f4add2d2aec822a27efb2f718a95d
+  Toaster: a6c9532de1ded8105e77376f7dffeb2e12b46dbb
 
-PODFILE CHECKSUM: 759ac69bded947d91437efc55e058ab65601f25d
+PODFILE CHECKSUM: 3222231c13e734e9a2d7b9bc2414ec79d12b82f9
 
-COCOAPODS: 1.1.1
+COCOAPODS: 1.3.1

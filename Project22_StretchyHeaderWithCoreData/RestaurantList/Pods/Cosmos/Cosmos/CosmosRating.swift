@@ -6,7 +6,7 @@ Helper functions for calculating rating.
 
 */
 struct CosmosRating {
-
+  
   /**
   
   Returns a decimal number between 0 and 1 describing the star fill level.
@@ -19,15 +19,15 @@ struct CosmosRating {
   
   */
   static func starFillLevel(ratingRemainder: Double, fillMode: StarFillMode) -> Double {
-
+    
     var result = ratingRemainder
-
+    
     if result > 1 { result = 1 }
     if result < 0 { result = 0 }
-
+    
     return roundFillLevel(result, fillMode: fillMode)
   }
-
+  
   /**
   
   Rounds a single star's fill level according to the fill mode. "Full" mode returns 0 or 1 by using the standard decimal rounding. "Half" mode returns 0, 0.5 or 1 by rounding the decimal to closest of 3 values. "Precise" mode will return the fill level unchanged.
@@ -49,7 +49,8 @@ struct CosmosRating {
       return starFillLevel
     }
   }
-
+  
+  
   /**
   
   Helper function for calculating the rating that is displayed to the user
@@ -66,19 +67,19 @@ struct CosmosRating {
   */
   static func displayedRatingFromPreciseRating(_ preciseRating: Double,
     fillMode: StarFillMode, totalStars: Int) -> Double {
-
+      
     let starFloorNumber = floor(preciseRating)
     let singleStarRemainder = preciseRating - starFloorNumber
-
+    
     var displayedRating = starFloorNumber + starFillLevel(
       ratingRemainder: singleStarRemainder, fillMode: fillMode)
-
+      
     displayedRating = min(Double(totalStars), displayedRating) // Can't go bigger than number of stars
     displayedRating = max(0, displayedRating) // Can't be less than zero
-
+    
     return displayedRating
   }
-
+  
   /**
   
   Returns the number of filled stars for given rating.
@@ -91,7 +92,7 @@ struct CosmosRating {
   static func numberOfFilledStars(_ rating: Double, totalNumberOfStars: Int) -> Double {
     if rating > Double(totalNumberOfStars) { return Double(totalNumberOfStars) }
     if rating < 0 { return 0 }
-
+    
     return rating
   }
 }
