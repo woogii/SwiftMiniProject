@@ -256,19 +256,6 @@
                                 <color key="textColor" red="0.1141057368" green="0.59223780559999994" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="tEi-Y6-3BQ">
-                                <rect key="frame" x="10" y="513.5" width="355" height="40"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="40" id="26z-B1-Gnq"/>
-                                </constraints>
-                                <fontDescription key="fontDescription" name="ProximaNova-Semibold" family="Proxima Nova" pointSize="18"/>
-                                <state key="normal" title="Share">
-                                    <color key="titleColor" red="1" green="0.53333333329999999" blue="0.2784313725" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                </state>
-                                <connections>
-                                    <action selector="shareButtonTapped:" destination="4yc-qw-56Q" eventType="touchUpInside" id="8Mk-WV-wuk"/>
-                                </connections>
-                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
@@ -276,17 +263,14 @@
                             <constraint firstItem="2Ui-2J-1Bw" firstAttribute="centerX" secondItem="zTN-se-fqf" secondAttribute="centerX" id="0bU-ES-uZB"/>
                             <constraint firstItem="Mss-YC-UQg" firstAttribute="centerX" secondItem="zTN-se-fqf" secondAttribute="centerX" id="2Ou-jq-iF7"/>
                             <constraint firstItem="2Ha-f9-fRp" firstAttribute="trailing" secondItem="NPr-2S-u01" secondAttribute="trailing" constant="10" id="3Pn-96-kNl"/>
-                            <constraint firstItem="2Ha-f9-fRp" firstAttribute="trailing" secondItem="tEi-Y6-3BQ" secondAttribute="trailing" constant="10" id="7kL-zu-BlO"/>
                             <constraint firstItem="axO-v9-r3m" firstAttribute="leading" secondItem="2Ha-f9-fRp" secondAttribute="leading" constant="10" id="B6T-Zo-7j7"/>
                             <constraint firstItem="SPb-kX-wm9" firstAttribute="leading" secondItem="2Ha-f9-fRp" secondAttribute="leading" constant="10" id="Bdo-mJ-v1v"/>
                             <constraint firstItem="BDy-su-Xbd" firstAttribute="leading" secondItem="axO-v9-r3m" secondAttribute="trailing" constant="10" id="Blk-ge-ykW"/>
                             <constraint firstItem="nWv-Wg-qdf" firstAttribute="centerY" secondItem="zTN-se-fqf" secondAttribute="centerY" id="CLQ-yI-7LO"/>
                             <constraint firstItem="0JJ-6a-a95" firstAttribute="centerY" secondItem="BDy-su-Xbd" secondAttribute="centerY" id="CdV-fX-LUC"/>
                             <constraint firstItem="2Ha-f9-fRp" firstAttribute="trailing" secondItem="0JJ-6a-a95" secondAttribute="trailing" constant="10" id="Cto-tC-HG1"/>
-                            <constraint firstItem="tEi-Y6-3BQ" firstAttribute="leading" secondItem="2Ha-f9-fRp" secondAttribute="leading" constant="10" id="DGk-3C-EY4"/>
                             <constraint firstItem="nWv-Wg-qdf" firstAttribute="centerX" secondItem="zTN-se-fqf" secondAttribute="centerX" id="EBL-hr-9GP"/>
                             <constraint firstItem="hUN-Hg-qyl" firstAttribute="leading" secondItem="vhD-JE-8ou" secondAttribute="trailing" constant="5" id="Pzz-lM-DPg"/>
-                            <constraint firstItem="tEi-Y6-3BQ" firstAttribute="centerY" secondItem="zTN-se-fqf" secondAttribute="centerY" multiplier="1.6" id="Rz1-GH-hYV"/>
                             <constraint firstItem="Mss-YC-UQg" firstAttribute="top" secondItem="SPb-kX-wm9" secondAttribute="bottom" constant="25" id="SLc-l0-BSO"/>
                             <constraint firstItem="2Ui-2J-1Bw" firstAttribute="centerY" secondItem="zTN-se-fqf" secondAttribute="centerY" multiplier="0.5" id="Sqd-7z-Aqi"/>
                             <constraint firstItem="0JJ-6a-a95" firstAttribute="leading" secondItem="BDy-su-Xbd" secondAttribute="trailing" constant="10" id="WaN-sB-nj2"/>
@@ -303,7 +287,13 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="2Ha-f9-fRp"/>
                     </view>
-                    <navigationItem key="navigationItem" title="Today" id="xAd-9S-oXl"/>
+                    <navigationItem key="navigationItem" title="Today" id="xAd-9S-oXl">
+                        <barButtonItem key="rightBarButtonItem" systemItem="action" id="nPG-tG-dHd">
+                            <connections>
+                                <action selector="shareButtonTapped:" destination="4yc-qw-56Q" id="s7F-Ph-27Z"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
                     <connections>
                         <outlet property="cloudinessLabel" destination="Obr-DF-iIL" id="WC0-S8-xm9"/>
                         <outlet property="locationLabel" destination="hUN-Hg-qyl" id="joA-xB-V6W"/>
@@ -420,11 +410,11 @@
             </objects>
             <point key="canvasLocation" x="398" y="211"/>
         </scene>
-        <!--Forecast-->
+        <!--Weekly-->
         <scene sceneID="t1U-RH-NYr">
             <objects>
                 <navigationController storyboardIdentifier="weeklyWeatherNavVC" automaticallyAdjustsScrollViewInsets="NO" id="5Fq-yn-Pif" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Forecast" image="WeeklyDefault" selectedImage="WeeklySelected" id="Ia3-DR-04P"/>
+                    <tabBarItem key="tabBarItem" title="Weekly" image="WeeklyDefault" selectedImage="WeeklySelected" id="Ia3-DR-04P"/>
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="mLg-a6-6dR">
                         <rect key="frame" x="0.0" y="20" width="375" height="44"/>
